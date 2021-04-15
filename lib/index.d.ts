@@ -15,7 +15,7 @@ export default class FunctionCompute extends BaseComponent {
     private fetchData;
     /**
      * 查询服务列表
-     * @param inputs s cli fc listServices
+     * @param inputs
      */
     listServices(inputs?: ApiGetAndListParmas): Promise<any>;
     /**

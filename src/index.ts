@@ -83,7 +83,7 @@ export default class FunctionCompute extends BaseComponent {
 
 	/**
 	 * 查询服务列表
-	 * @param inputs s cli fc listServices
+	 * @param inputs
 	 */
 	public async listServices(inputs: ApiGetAndListParmas = {}) {
 		const { limit, nextToken, prefix, startKey } = inputs

@@ -2259,7 +2259,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "s cli fc listServices\n"
+										"text": "\n"
 									},
 									"type": {
 										"type": "reference",
