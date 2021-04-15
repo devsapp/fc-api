@@ -1,0 +1,3053 @@
+{
+	"id": 0,
+	"name": "s-fc",
+	"kind": 0,
+	"kindString": "Project",
+	"flags": {},
+	"originalName": "",
+	"children": [
+		{
+			"id": 1,
+			"name": "default",
+			"kind": 128,
+			"kindString": "Class",
+			"flags": {},
+			"children": [
+				{
+					"id": 2,
+					"name": "constructor",
+					"kind": 512,
+					"kindString": "Constructor",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 3,
+							"name": "new default",
+							"kind": 16384,
+							"kindString": "Constructor signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 4,
+									"name": "props",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 1,
+								"name": "default"
+							},
+							"overwrites": {
+								"type": "reference",
+								"name": "BaseComponent.constructor"
+							}
+						}
+					],
+					"overwrites": {
+						"type": "reference",
+						"name": "BaseComponent.constructor"
+					}
+				},
+				{
+					"id": 126,
+					"name": "client",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isProtected": true
+					},
+					"sources": [
+						{
+							"fileName": "base.ts",
+							"line": 11,
+							"character": 17
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "any"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"name": "BaseComponent.client"
+					}
+				},
+				{
+					"id": 128,
+					"name": "inputs",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isProtected": true
+					},
+					"type": {
+						"type": "intrinsic",
+						"name": "any"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"name": "BaseComponent.inputs"
+					}
+				},
+				{
+					"id": 125,
+					"name": "logger",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {},
+					"decorators": [
+						{
+							"name": "HLogger",
+							"type": {
+								"type": "reference",
+								"name": "HLogger"
+							},
+							"arguments": {
+								"context": "'FC'"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "base.ts",
+							"line": 10,
+							"character": 22
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "ILogger"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"name": "BaseComponent.logger"
+					}
+				},
+				{
+					"id": 127,
+					"name": "name",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "base.ts",
+							"line": 12,
+							"character": 12
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"name": "BaseComponent.name"
+					}
+				},
+				{
+					"id": 129,
+					"name": "__doc",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isProtected": true
+					},
+					"sources": [
+						{
+							"fileName": "base.ts",
+							"line": 40,
+							"character": 16
+						}
+					],
+					"signatures": [
+						{
+							"id": 130,
+							"name": "__doc",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "BaseComponent.__doc"
+							}
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"name": "BaseComponent.__doc"
+					}
+				},
+				{
+					"id": 131,
+					"name": "__listApi",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isProtected": true
+					},
+					"sources": [
+						{
+							"fileName": "base.ts",
+							"line": 114,
+							"character": 20
+						}
+					],
+					"signatures": [
+						{
+							"id": 132,
+							"name": "__listApi",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "BaseComponent.__listApi"
+							}
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"name": "BaseComponent.__listApi"
+					}
+				},
+				{
+					"id": 136,
+					"name": "checkField",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isProtected": true
+					},
+					"sources": [
+						{
+							"fileName": "base.ts",
+							"line": 153,
+							"character": 21
+						}
+					],
+					"signatures": [
+						{
+							"id": 137,
+							"name": "checkField",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 138,
+									"name": "filed",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 139,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {}
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "BaseComponent.checkField"
+							}
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"name": "BaseComponent.checkField"
+					}
+				},
+				{
+					"id": 107,
+					"name": "createAlias",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 673,
+							"character": 25
+						}
+					],
+					"signatures": [
+						{
+							"id": 108,
+							"name": "createAlias",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "创建别名",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--serviceName --aliasName --versionId",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "--additionalVersionWeight --description\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 109,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "s cli fc createAlias -p '{\"serviceName\": \"\",\"aliasName\": \"\",\"versionId\": \"1\",\"additionalVersionWeight\": {}}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ApiPublishVersionAndCreateAlias"
+									},
+									"defaultValue": "..."
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 113,
+					"name": "createCustomDomain",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 715,
+							"character": 32
+						}
+					],
+					"signatures": [
+						{
+							"id": 114,
+							"name": "createCustomDomain",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "创建自定义域名",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--domainName",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "--protocol --certConfig --routeConfig\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 115,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "s cli fc createCustomDomain -p '{\"serviceName\": \"\",\"aliasName\": \"\",\"versionId\": \"1\",\"additionalVersionWeight\": {}}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ApiCustomDomain"
+									},
+									"defaultValue": "{}"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 92,
+					"name": "createFunction",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 549,
+							"character": 28
+						}
+					],
+					"signatures": [
+						{
+							"id": 93,
+							"name": "createFunction",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "创建函数",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--serviceName --functionName --code --handler --runtime",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "--description --customContainerConfig --initializationTimeout --initializer --memorySize --runtime --timeout --caPort\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 94,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "s cli fc createFunction -p '{\"serviceName\": \"\",\"functionName\": \"\",\"handler\":\"index.handler\",\"runtime\": \"nodejs10\",\"code\":{\"ossBucketName\": \"\",\"ossObjectName\":\"\"}}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ApiCreateFunctionAndUpdateFunction"
+									},
+									"defaultValue": "{}"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 86,
+					"name": "createService",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 497,
+							"character": 27
+						}
+					],
+					"signatures": [
+						{
+							"id": 87,
+							"name": "createService",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "创建服务",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--serviceName",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "--description --internetAccess --role --logConfig --nasConfig --vpcConfig --tracingConfig\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 88,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "s cli fc createService -p '{\"serviceName\": \"\",\"tracingConfig\": {\"type\": \"Jaeger\",\"params\": {\"endpoint\":\"\"}}}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ApiCreateServiceAndUpdateServiceParmas"
+									},
+									"defaultValue": "{}"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 98,
+					"name": "createTrigger",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 608,
+							"character": 27
+						}
+					],
+					"signatures": [
+						{
+							"id": 99,
+							"name": "createTrigger",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "创建触发器",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--serviceName --functionName --triggerName --triggerType",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "--invocationRole --qualifier --sourceArn --triggerConfig\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 100,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "s cli fc createTrigger -p '{\"serviceName\": \"\",\"functionName\": \"\",\"triggerName\": \"\",\"triggerType\":\"timer\",\"triggerConfig\": {}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ApiCreateTriggerAndUpdateTrigger"
+									},
+									"defaultValue": "{}"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 80,
+					"name": "deleteAlias",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 461,
+							"character": 25
+						}
+					],
+					"signatures": [
+						{
+							"id": 81,
+							"name": "deleteAlias",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "删除别名",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--serviceName --aliasName",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 82,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "s cli fc deleteAlias -p '{\"serviceName\": \"\",\"aliasName\":\"\"}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ApiGetAndListParmas"
+									},
+									"defaultValue": "{}"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 74,
+					"name": "deleteCustomDomain",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 425,
+							"character": 32
+						}
+					],
+					"signatures": [
+						{
+							"id": 75,
+							"name": "deleteCustomDomain",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "删除自定义域名",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--domainName",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 76,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "s cli fc deleteCustomDomain -p '{\"domainName\": \"\"}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ApiGetAndListParmas"
+									},
+									"defaultValue": "{}"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 68,
+					"name": "deleteFunction",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 389,
+							"character": 28
+						}
+					],
+					"signatures": [
+						{
+							"id": 69,
+							"name": "deleteFunction",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "删除函数",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--serviceName --functionName",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 70,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "s cli fc deleteFunction -p '{\"serviceName\": \"\",\"functionName\": \"\"}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ApiGetAndListParmas"
+									},
+									"defaultValue": "{}"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 83,
+					"name": "deleteFunctionAsyncConfig",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 479,
+							"character": 39
+						}
+					],
+					"signatures": [
+						{
+							"id": 84,
+							"name": "deleteFunctionAsyncConfig",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "删除函数异步配置",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--serviceName --functionName",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "--qualifier\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 85,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "s cli fc deleteFunctionAsyncConfig -p '{\"serviceName\": \"\",\"functionName\": \"\"}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ApiGetAndListParmas"
+									},
+									"defaultValue": "{}"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 65,
+					"name": "deleteService",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 371,
+							"character": 27
+						}
+					],
+					"signatures": [
+						{
+							"id": 66,
+							"name": "deleteService",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "删除服务",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--serviceName",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 67,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "s cli fc deleteService -p '{\"serviceName\": \"\"}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ApiGetAndListParmas"
+									},
+									"defaultValue": "{}"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 71,
+					"name": "deleteTrigger",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 407,
+							"character": 27
+						}
+					],
+					"signatures": [
+						{
+							"id": 72,
+							"name": "deleteTrigger",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "删除触发器",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--serviceName --functionName --triggerName",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 73,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "s cli fc deleteTrigger -p '{\"serviceName\": \"fcls\",\"functionName\":\"ggk\", \"triggerName\":\"test3\"}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ApiGetAndListParmas"
+									},
+									"defaultValue": "{}"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 77,
+					"name": "deleteVersion",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 443,
+							"character": 27
+						}
+					],
+					"signatures": [
+						{
+							"id": 78,
+							"name": "deleteVersion",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "删除版本",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--serviceName --versionId",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 79,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "s cli fc deleteVersion -p '{\"serviceName\": \"\",\"versionId\":\"\"}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ApiGetAndListParmas"
+									},
+									"defaultValue": "{}"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 133,
+					"name": "errorReport",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isProtected": true
+					},
+					"sources": [
+						{
+							"fileName": "base.ts",
+							"line": 149,
+							"character": 28
+						}
+					],
+					"signatures": [
+						{
+							"id": 134,
+							"name": "errorReport",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "错误上报"
+							},
+							"parameters": [
+								{
+									"id": 135,
+									"name": "error",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "\n"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "void"
+									}
+								],
+								"name": "Promise"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "BaseComponent.errorReport"
+							}
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"name": "BaseComponent.errorReport"
+					}
+				},
+				{
+					"id": 5,
+					"name": "fetchData",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPrivate": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 33,
+							"character": 24
+						}
+					],
+					"signatures": [
+						{
+							"id": 6,
+							"name": "fetchData",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "请求list相关api",
+								"tags": [
+									{
+										"tag": "@return",
+										"text": "{Promise} 返回查询指定api的列表信息\n"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 7,
+									"name": "api",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "判断调用的api"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 8,
+									"name": "field",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "返回列表数据的固定字段"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 9,
+									"name": "nextToken",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 10,
+									"name": "limit",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								},
+								{
+									"id": 11,
+									"name": "serviceName",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isOptional": true
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 12,
+									"name": "functionName",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isOptional": true
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 13,
+									"name": "qualifier",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 50,
+					"name": "getAlias",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 281,
+							"character": 22
+						}
+					],
+					"signatures": [
+						{
+							"id": 51,
+							"name": "getAlias",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "获取 alias 信息",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--serviceName --aliasName",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 52,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "s cli fc getAlias -p '{\"serviceName\": \"\",\"aliasName\": \"\"}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ApiGetAndListParmas"
+									},
+									"defaultValue": "{}"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 53,
+					"name": "getCustomDomain",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 299,
+							"character": 29
+						}
+					],
+					"signatures": [
+						{
+							"id": 54,
+							"name": "getCustomDomain",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "获取自定义域名信息",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--domainName",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 55,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "s cli fc getCustomDomain -p '{\"domainName\": \"\"}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ApiGetAndListParmas"
+									},
+									"defaultValue": "{}"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 41,
+					"name": "getFunction",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 227,
+							"character": 25
+						}
+					],
+					"signatures": [
+						{
+							"id": 42,
+							"name": "getFunction",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "获取函数配置信息",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--serviceName --functionName",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "--qualifier\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 43,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "s cli fc getFunction -p '{\"serviceName\": \"\",\"functionName\": \"\"}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ApiGetAndListParmas"
+									},
+									"defaultValue": "{}"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 59,
+					"name": "getFunctionAsyncConfig",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 335,
+							"character": 36
+						}
+					],
+					"signatures": [
+						{
+							"id": 60,
+							"name": "getFunctionAsyncConfig",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "获取函数异步调用配置信息",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--serviceName --functionName",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "--qualifier\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 61,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "s cli fc getFunctionAsyncConfig -p '{\"serviceName\": \"\",\"functionName\": \"\",\"qualifier\": 1}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ApiGetAndListParmas"
+									},
+									"defaultValue": "{}"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 44,
+					"name": "getFunctionCode",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 245,
+							"character": 29
+						}
+					],
+					"signatures": [
+						{
+							"id": 45,
+							"name": "getFunctionCode",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "获取函数 Code 信息",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--serviceName --functionName",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "--qualifier\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 46,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "s cli fc getFunctionCode -p '{\"serviceName\": \"\",\"functionName\": \"\"}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ApiGetAndListParmas"
+									},
+									"defaultValue": "{}"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 56,
+					"name": "getProvisionConfig",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 317,
+							"character": 32
+						}
+					],
+					"signatures": [
+						{
+							"id": 57,
+							"name": "getProvisionConfig",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "获取预留配置信息",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--serviceName --functionName",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "--qualifier\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 58,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "s cli fc getProvisionConfig -p '{\"serviceName\": \"\",\"functionName\": \"\",\"qualifier\": 1}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ApiGetAndListParmas"
+									},
+									"defaultValue": "{}"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 38,
+					"name": "getService",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 209,
+							"character": 24
+						}
+					],
+					"signatures": [
+						{
+							"id": 39,
+							"name": "getService",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "获取服务配置信息",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--serviceName",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "--qualifier\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 40,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "s cli fc getService -p '{\"serviceName\": \"\"}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ApiGetAndListParmas"
+									},
+									"defaultValue": "{}"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 47,
+					"name": "getTrigger",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 263,
+							"character": 24
+						}
+					],
+					"signatures": [
+						{
+							"id": 48,
+							"name": "getTrigger",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "获取触发器配置信息",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--serviceName --functionName --triggerName",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 49,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "s cli fc getTrigger -p '{\"serviceName\": \"test\",\"functionName\": \"\", \"triggerName\": \"\"}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ApiGetAndListParmas"
+									},
+									"defaultValue": "{}"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 62,
+					"name": "invokeFunction",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 353,
+							"character": 28
+						}
+					],
+					"signatures": [
+						{
+							"id": 63,
+							"name": "invokeFunction",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "调用执行函数",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--serviceName --functionName",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "--qualifier --even\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 64,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "s cli fc invokeFunction -p '{\"serviceName\": \"\",\"functionName\": \"\",\"event\": {\"key\":\"value\"}}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ApiGetAndListParmas"
+									},
+									"defaultValue": "{}"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 23,
+					"name": "listAliases",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 135,
+							"character": 25
+						}
+					],
+					"signatures": [
+						{
+							"id": 24,
+							"name": "listAliases",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "查询别名列表",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--serviceName",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "--limit --nextToken --prefix --startKey\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 25,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "s cli fc listAliases -p '{\"serviceName\": \"\"}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ApiGetAndListParmas"
+									},
+									"defaultValue": "{}"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 29,
+					"name": "listCustomDomains",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 167,
+							"character": 31
+						}
+					],
+					"signatures": [
+						{
+							"id": 30,
+							"name": "listCustomDomains",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "查询自定义域名列表",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "--limit --nextToken --prefix --startKey\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 31,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "s cli fc listCustomDomains"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ApiGetAndListParmas"
+									},
+									"defaultValue": "{}"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 35,
+					"name": "listFunctionAsyncConfigs",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 195,
+							"character": 38
+						}
+					],
+					"signatures": [
+						{
+							"id": 36,
+							"name": "listFunctionAsyncConfigs",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "查询异步配置列表",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--serviceName --functionName",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "--limit --nextToken\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 37,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "s cli fc listCustomDomains -p '{\"serviceName\": \"\",\"functionName\": \"\"}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ApiGetAndListParmas"
+									},
+									"defaultValue": "{}"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 17,
+					"name": "listFunctions",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 103,
+							"character": 27
+						}
+					],
+					"signatures": [
+						{
+							"id": 18,
+							"name": "listFunctions",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "查询函数列表",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--functionName",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "--qualifier --limit --nextToken --prefix --startKey\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 19,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "s cli fc listFunctions -p '{\"serviceName\": \"\"}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ApiGetAndListParmas"
+									},
+									"defaultValue": "{}"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 32,
+					"name": "listProvisionConfigs",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 182,
+							"character": 34
+						}
+					],
+					"signatures": [
+						{
+							"id": 33,
+							"name": "listProvisionConfigs",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "查询预留配置列表",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--serviceName",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "--limit --nextToken --prefix --startKey\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 34,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "s cli fc listProvisionConfigs"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ApiGetAndListParmas"
+									},
+									"defaultValue": "{}"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 14,
+					"name": "listServices",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 88,
+							"character": 26
+						}
+					],
+					"signatures": [
+						{
+							"id": 15,
+							"name": "listServices",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "查询服务列表"
+							},
+							"parameters": [
+								{
+									"id": 16,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "s cli fc listServices\n"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ApiGetAndListParmas"
+									},
+									"defaultValue": "{}"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 20,
+					"name": "listTriggers",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 119,
+							"character": 26
+						}
+					],
+					"signatures": [
+						{
+							"id": 21,
+							"name": "listTriggers",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "查询触发器列表",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--serviceName --functionName",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "--limit --nextToken --prefix --startKey\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 22,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "s cli fc listTriggers -p '{\"serviceName\": \"\",\"functionName\": \"\"}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ApiGetAndListParmas"
+									},
+									"defaultValue": "{}"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 26,
+					"name": "listVersions",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 151,
+							"character": 26
+						}
+					],
+					"signatures": [
+						{
+							"id": 27,
+							"name": "listVersions",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "查询版本列表",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--serviceName",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "--limit --nextToken --prefix --startKey\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 28,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "s cli fc listVersions -p '{\"serviceName\": \"\"}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ApiGetAndListParmas"
+									},
+									"defaultValue": "{}"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 104,
+					"name": "publishVersion",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 655,
+							"character": 28
+						}
+					],
+					"signatures": [
+						{
+							"id": 105,
+							"name": "publishVersion",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "创建版本",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--serviceName --description",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 106,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "s cli fc publishVersion -p '{\"serviceName\": \"\",\"description\": \"\"}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ApiPublishVersionAndCreateAlias"
+									},
+									"defaultValue": "{}"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 122,
+					"name": "putFunctionAsyncConfig",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 781,
+							"character": 36
+						}
+					],
+					"signatures": [
+						{
+							"id": 123,
+							"name": "putFunctionAsyncConfig",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "函数异步配置",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--serviceName --functionName --qualifier",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "--destinationConfig --maxAsyncEventAgeInSeconds --maxAsyncRetryAttempts\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 124,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "s cli f c putFunctionAsyncConfig -p '{\"serviceName\": \"\",\"aliasName\": \"\",\"versionId\": \"1\",\"additionalVersionWeight\": {}}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "FunctionAsyncInvokeConfig"
+									},
+									"defaultValue": "{}"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 119,
+					"name": "putProvisionConfig",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 759,
+							"character": 32
+						}
+					],
+					"signatures": [
+						{
+							"id": 120,
+							"name": "putProvisionConfig",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "预留配置",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--serviceName --functionName --qualifier",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "--target --scheduledActions --targetTrackingPolicies\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 121,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "s cli fc putProvisionConfig -p '{\"serviceName\": \"\",\"aliasName\": \"\",\"versionId\": \"1\",\"additionalVersionWeight\": {}}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ProvisionConfig"
+									},
+									"defaultValue": "{}"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 110,
+					"name": "updateAlias",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 694,
+							"character": 25
+						}
+					],
+					"signatures": [
+						{
+							"id": 111,
+							"name": "updateAlias",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "更新别名",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--serviceName --aliasName --versionId",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "--additionalVersionWeight --description\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 112,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "s cli fc updateAlias -p '{\"serviceName\": \"\",\"aliasName\": \"\",\"versionId\": \"1\",\"additionalVersionWeight\": {},\"description\": \"\"}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ApiPublishVersionAndCreateAlias"
+									},
+									"defaultValue": "{}"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 116,
+					"name": "updateCustomDomain",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 737,
+							"character": 32
+						}
+					],
+					"signatures": [
+						{
+							"id": 117,
+							"name": "updateCustomDomain",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "更新自定义域名",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--domainName",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "--protocol --certConfig --routeConfig\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 118,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "s cli fc updateCustomDomain -p '{\"serviceName\": \"\",\"aliasName\": \"\",\"versionId\": \"1\",\"additionalVersionWeight\": {}}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ApiCustomDomain"
+									},
+									"defaultValue": "{}"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 95,
+					"name": "updateFunction",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 579,
+							"character": 28
+						}
+					],
+					"signatures": [
+						{
+							"id": 96,
+							"name": "updateFunction",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "更新函数",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--serviceName --functionName",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "--description --customContainerConfig --initializationTimeout --initializer --memorySize --runtime --timeout --caPort --code --handler --runtime\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 97,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "s cli fc updateFunction -p '{\"serviceName\": \"\",\"functionName\": \"\",\"handler\":\"index.handler\",\"runtime\": \"nodejs8\",\"code\":{\"ossBucketName\": \"\",\"ossObjectName\":\"\"}}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ApiCreateFunctionAndUpdateFunction"
+									},
+									"defaultValue": "{}"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 89,
+					"name": "updateService",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 523,
+							"character": 27
+						}
+					],
+					"signatures": [
+						{
+							"id": 90,
+							"name": "updateService",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "更新服务配置",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--serviceName",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "--description --internetAccess --role --logConfig --nasConfig --vpcConfig --tracingConfig\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 91,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "s cli fc updateService -p '{\"serviceName\": \"\",\"tracingConfig\": {\"type\": \"Jaeger\",\"params\": {\"endpoint\":\"\"}}}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ApiCreateServiceAndUpdateServiceParmas"
+									},
+									"defaultValue": "{}"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 101,
+					"name": "updateTrigger",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 633,
+							"character": 27
+						}
+					],
+					"signatures": [
+						{
+							"id": 102,
+							"name": "updateTrigger",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "更新触发器",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--serviceName --functionName --triggerName",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "--invocationRole --qualifier --triggerConfig\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 103,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "s cli fc updateTrigger -p '{\"serviceName\": \"\",\"functionName\": \"\",\"triggerName\": \"\",\"triggerType\":\"timer\",\"triggerConfig\": {}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ApiCreateTriggerAndUpdateTrigger"
+									},
+									"defaultValue": "{}"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Constructors",
+					"kind": 512,
+					"children": [
+						2
+					]
+				},
+				{
+					"title": "Properties",
+					"kind": 1024,
+					"children": [
+						126,
+						128,
+						125,
+						127
+					]
+				},
+				{
+					"title": "Methods",
+					"kind": 2048,
+					"children": [
+						129,
+						131,
+						136,
+						107,
+						113,
+						92,
+						86,
+						98,
+						80,
+						74,
+						68,
+						83,
+						65,
+						71,
+						77,
+						133,
+						5,
+						50,
+						53,
+						41,
+						59,
+						44,
+						56,
+						38,
+						47,
+						62,
+						23,
+						29,
+						35,
+						17,
+						32,
+						14,
+						20,
+						26,
+						104,
+						122,
+						119,
+						110,
+						116,
+						95,
+						89,
+						101
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "index.ts",
+					"line": 18,
+					"character": 36
+				}
+			],
+			"extendedTypes": [
+				{
+					"type": "reference",
+					"name": "BaseComponent"
+				}
+			]
+		}
+	],
+	"groups": [
+		{
+			"title": "Classes",
+			"kind": 128,
+			"children": [
+				1
+			]
+		}
+	],
+	"sources": [
+		{
+			"fileName": "index.ts",
+			"line": 1,
+			"character": 0
+		}
+	]
+}
