@@ -373,7 +373,7 @@ export default class FunctionCompute extends BaseComponent {
 		if (this.checkField({ serviceName })) return
 		try {
 			result = await this.client.deleteService(serviceName)
-			return yaml.dump(result.data)
+			if (typeof result.data !== 'undefined' && result.data !== null) return this.deleteSuccessInfo('Service', serviceName)
 		} catch (error) {
 			this.errorReport(error)
 			throw error
@@ -391,7 +391,7 @@ export default class FunctionCompute extends BaseComponent {
 		if (this.checkField({ serviceName, functionName })) return
 		try {
 			result = await this.client.deleteFunction(serviceName, functionName)
-			return yaml.dump(result.data)
+			if (typeof result.data !== 'undefined' && result.data !== null) return this.deleteSuccessInfo('Function', functionName)
 		} catch (error) {
 			this.errorReport(error)
 			throw error
@@ -409,7 +409,7 @@ export default class FunctionCompute extends BaseComponent {
 		if (this.checkField({ serviceName, functionName, triggerName })) return
 		try {
 			result = await this.client.deleteTrigger(serviceName, functionName, triggerName)
-			return yaml.dump(result.data)
+			if (typeof result.data !== 'undefined' && result.data !== null) return this.deleteSuccessInfo('Trigger', triggerName)
 		} catch (error) {
 			this.errorReport(error)
 			throw error
@@ -427,7 +427,7 @@ export default class FunctionCompute extends BaseComponent {
 		if (this.checkField({ domainName })) return
 		try {
 			result = await this.client.deleteCustomDomain(domainName)
-			return yaml.dump(result.data)
+			if (typeof result.data !== 'undefined' && result.data !== null) return this.deleteSuccessInfo('CustomDomain', domainName)
 		} catch (error) {
 			this.errorReport(error)
 			throw error
@@ -445,7 +445,7 @@ export default class FunctionCompute extends BaseComponent {
 		if (this.checkField({ serviceName, versionId })) return
 		try {
 			result = await this.client.deleteVersion(serviceName, versionId)
-			return yaml.dump(result.data)
+			if (typeof result.data !== 'undefined' && result.data !== null) return this.deleteSuccessInfo('Version', versionId)
 		} catch (error) {
 			this.errorReport(error)
 			throw error
@@ -463,7 +463,7 @@ export default class FunctionCompute extends BaseComponent {
 		if (this.checkField({ serviceName, aliasName })) return
 		try {
 			result = await this.client.deleteAlias(serviceName, aliasName)
-			return yaml.dump(result.data)
+			if (typeof result.data !== 'undefined' && result.data !== null) return this.deleteSuccessInfo('Alias', aliasName)
 		} catch (error) {
 			this.errorReport(error)
 			throw error
@@ -481,7 +481,7 @@ export default class FunctionCompute extends BaseComponent {
 		if (this.checkField({ serviceName, functionName })) return
 		try {
 			result = await this.client.deleteFunctionAsyncConfig(serviceName, functionName, qualifier)
-			return yaml.dump(result.data)
+			if (typeof result.data !== 'undefined' && result.data !== null) return this.deleteSuccessInfo('Function', 'AsyncConfig')
 		} catch (error) {
 			this.errorReport(error)
 			throw error

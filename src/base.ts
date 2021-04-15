@@ -160,4 +160,8 @@ export default class BaseComponent {
 			}
 		}
 	}
+
+	protected deleteSuccessInfo(type: string, name: string): string {
+		return `${type} ${name} delete success`
+	}
 }

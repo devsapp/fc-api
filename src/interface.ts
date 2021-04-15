@@ -5,7 +5,7 @@ export interface Inputs {
 export interface ApiGetAndListParmas {
   serviceName?: string;
   aliasName?: string;
-  versionId?: number;
+  versionId?: string;
   domainName?: string;
   event?: object;
   functionName?: string;
