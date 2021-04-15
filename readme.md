@@ -18,5 +18,5 @@ s cli s-fc -d  // 查看api 内容及调用方法
 ```
 s cli s-fc listServices -a default -r cn-hangzhou // 查询Function Compute服务列表， 指定默认秘钥， 指定查询 region
 ```
-[更多文档查看](doc/index.html)
+[更多文档查看](https://devsapp.github.io/s-fc/doc/index.html)
 
