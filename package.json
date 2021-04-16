@@ -32,7 +32,7 @@
   "dependencies": {
     "@alicloud/fc2": "^2.2.2",
     "@alicloud/pop-core": "^1.7.10",
-    "@serverless-devs/core": "0.0.60",
+    "@serverless-devs/core": "0.0.63",
     "cli-table": "^0.3.6",
     "fs-extra": "^9.0.1",
     "i18n": "^0.13.2",

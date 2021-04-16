@@ -165,7 +165,7 @@
 					"sources": [
 						{
 							"fileName": "base.ts",
-							"line": 40,
+							"line": 46,
 							"character": 16
 						}
 					],
@@ -202,7 +202,7 @@
 					"sources": [
 						{
 							"fileName": "base.ts",
-							"line": 114,
+							"line": 120,
 							"character": 20
 						}
 					],
@@ -239,7 +239,7 @@
 					"sources": [
 						{
 							"fileName": "base.ts",
-							"line": 153,
+							"line": 159,
 							"character": 21
 						}
 					],
@@ -1099,7 +1099,7 @@
 					"sources": [
 						{
 							"fileName": "base.ts",
-							"line": 149,
+							"line": 155,
 							"character": 28
 						}
 					],
@@ -2255,7 +2255,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "\"\"\n"
+										"text": "\n"
 									},
 									"type": {
 										"type": "reference",

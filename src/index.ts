@@ -1,3 +1,6 @@
+
+import { reportComponent, getCredential } from '@serverless-devs/core'
+import fc from '@alicloud/fc2'
 import {
 	ApiGetAndListParmas,
 	ApiCreateServiceAndUpdateServiceParmas,
@@ -9,15 +12,34 @@ import {
 	FunctionAsyncInvokeConfig,
 } from './interface'
 import BaseComponent from './base'
-import yaml from 'js-yaml'
+import yaml from 'js-yaml';
+
+
 let result: any
 let resultData: string[] = []
 let _limit: Number | null
 let _nextToken, _prefix, _startKey: string | null
 
 export default class FunctionCompute extends BaseComponent {
-	constructor(props) {
-		super(props)
+
+	protected client
+	constructor(protected inputs) {
+		super();
+	}
+
+	private async init() {
+		if (!this.client) {
+			const { region, access = 'default' } = this.inputs
+			const { AccountID, AccessKeyID, AccessKeySecret } = await getCredential(access) as any
+			reportComponent('S-FC', { uid: AccountID, command: 's cli' })
+			this.client = new fc(AccountID, {
+				accessKeyID: AccessKeyID,
+				accessKeySecret: AccessKeySecret,
+				securityToken: '',
+				region: region || 'cn-hangzhou',
+				timeout: 6000000,
+			})
+		}
 	}
 
 	/**
@@ -37,7 +59,7 @@ export default class FunctionCompute extends BaseComponent {
 			prefix: _prefix,
 			startKey: _startKey,
 		}
-
+		await this.init();
 		const switchApi = {
 			listServices: async () => {
 				result = await this.client[api]({ ...optional })

@@ -1,7 +1,10 @@
 import { ApiGetAndListParmas, ApiCreateServiceAndUpdateServiceParmas, ApiCreateFunctionAndUpdateFunction, ApiCreateTriggerAndUpdateTrigger, ApiPublishVersionAndCreateAlias, ApiCustomDomain, ProvisionConfig, FunctionAsyncInvokeConfig } from './interface';
 import BaseComponent from './base';
 export default class FunctionCompute extends BaseComponent {
-    constructor(props: any);
+    protected inputs: any;
+    protected client: any;
+    constructor(inputs: any);
+    private init;
     /**
      * 请求list相关api
      * @param {string} api 判断调用的api
@@ -15,7 +18,7 @@ export default class FunctionCompute extends BaseComponent {
     private fetchData;
     /**
      * 查询服务列表
-     * @param inputs ""
+     * @param inputs
      */
     listServices(inputs?: ApiGetAndListParmas): Promise<any>;
     /**
