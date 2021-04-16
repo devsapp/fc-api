@@ -25,7 +25,7 @@ export default class FunctionCompute extends BaseComponent {
 		super();
 	}
 
-	private async init() {
+	private async getClient() {
 		if (!this.client) {
 			const { region, access = 'default' } = this.inputs
 			const { AccountID, AccessKeyID, AccessKeySecret } = await getCredential(access) as any
@@ -57,7 +57,7 @@ export default class FunctionCompute extends BaseComponent {
 			prefix: _prefix,
 			startKey: _startKey,
 		}
-		await this.init();
+		await this.getClient();
 		const switchApi = {
 			listServices: async () => {
 				result = await this.client[api]({ ...optional })
@@ -230,6 +230,7 @@ export default class FunctionCompute extends BaseComponent {
 		const { serviceName, qualifier } = inputs
 		if (this.checkField({ serviceName })) return
 		try {
+			await this.getClient();
 			result = await this.client.getService(serviceName, {}, qualifier)
 			return yaml.dump(result.data)
 		} catch (error) {
@@ -248,6 +249,7 @@ export default class FunctionCompute extends BaseComponent {
 		const { serviceName, functionName, qualifier } = inputs
 		if (this.checkField({ serviceName, functionName })) return
 		try {
+			await this.getClient();
 			result = await this.client.getFunction(serviceName, functionName, {}, qualifier)
 			return yaml.dump(result.data)
 		} catch (error) {
@@ -266,6 +268,7 @@ export default class FunctionCompute extends BaseComponent {
 		const { serviceName, functionName, qualifier } = inputs
 		if (this.checkField({ serviceName, functionName })) return
 		try {
+			await this.getClient();
 			result = await this.client.getFunctionCode(serviceName, functionName, {}, qualifier)
 			return yaml.dump(result.data)
 		} catch (error) {
@@ -284,6 +287,7 @@ export default class FunctionCompute extends BaseComponent {
 		const { serviceName, functionName, triggerName } = inputs
 		if (this.checkField({ serviceName, functionName, triggerName })) return
 		try {
+			await this.getClient();
 			result = await this.client.getTrigger(serviceName, functionName, triggerName)
 			return yaml.dump(result.data)
 		} catch (error) {
@@ -302,6 +306,7 @@ export default class FunctionCompute extends BaseComponent {
 		const { serviceName, aliasName } = inputs
 		if (this.checkField({ serviceName, aliasName })) return
 		try {
+			await this.getClient();
 			result = await this.client.getAlias(serviceName, aliasName)
 			return yaml.dump(result.data)
 		} catch (error) {
@@ -320,6 +325,7 @@ export default class FunctionCompute extends BaseComponent {
 		const { domainName } = inputs
 		if (this.checkField({ domainName })) return
 		try {
+			await this.getClient();
 			result = await this.client.getCustomDomain(domainName)
 			return yaml.dump(result.data)
 		} catch (error) {
@@ -338,6 +344,7 @@ export default class FunctionCompute extends BaseComponent {
 		const { serviceName, functionName, qualifier } = inputs
 		if (this.checkField({ serviceName, functionName, qualifier })) return
 		try {
+			await this.getClient();
 			result = await this.client.getProvisionConfig(serviceName, functionName, qualifier)
 			return yaml.dump(result.data)
 		} catch (error) {
@@ -356,6 +363,7 @@ export default class FunctionCompute extends BaseComponent {
 		const { serviceName, functionName, qualifier } = inputs
 		if (this.checkField({ serviceName, functionName, qualifier })) return
 		try {
+			await this.getClient();
 			result = await this.client.getFunctionAsyncConfig(serviceName, functionName, qualifier)
 			return yaml.dump(result.data)
 		} catch (error) {
@@ -374,6 +382,7 @@ export default class FunctionCompute extends BaseComponent {
 		const { serviceName, functionName, event } = inputs
 		if (this.checkField({ serviceName, functionName })) return
 		try {
+			await this.getClient();
 			result = await this.client.invokeFunction(serviceName, functionName, JSON.stringify(event))
 			return yaml.dump(result.data)
 		} catch (error) {
@@ -392,6 +401,7 @@ export default class FunctionCompute extends BaseComponent {
 		const { serviceName } = inputs
 		if (this.checkField({ serviceName })) return
 		try {
+			await this.getClient();
 			result = await this.client.deleteService(serviceName)
 			if (typeof result.data !== 'undefined' && result.data !== null) return this.deleteSuccessInfo('Service', serviceName)
 		} catch (error) {
@@ -410,6 +420,7 @@ export default class FunctionCompute extends BaseComponent {
 		const { serviceName, functionName } = inputs
 		if (this.checkField({ serviceName, functionName })) return
 		try {
+			await this.getClient();
 			result = await this.client.deleteFunction(serviceName, functionName)
 			if (typeof result.data !== 'undefined' && result.data !== null) return this.deleteSuccessInfo('Function', functionName)
 		} catch (error) {
@@ -428,6 +439,7 @@ export default class FunctionCompute extends BaseComponent {
 		const { serviceName, functionName, triggerName } = inputs
 		if (this.checkField({ serviceName, functionName, triggerName })) return
 		try {
+			await this.getClient();
 			result = await this.client.deleteTrigger(serviceName, functionName, triggerName)
 			if (typeof result.data !== 'undefined' && result.data !== null) return this.deleteSuccessInfo('Trigger', triggerName)
 		} catch (error) {
@@ -446,6 +458,7 @@ export default class FunctionCompute extends BaseComponent {
 		const { domainName } = inputs
 		if (this.checkField({ domainName })) return
 		try {
+			await this.getClient();
 			result = await this.client.deleteCustomDomain(domainName)
 			if (typeof result.data !== 'undefined' && result.data !== null) return this.deleteSuccessInfo('CustomDomain', domainName)
 		} catch (error) {
@@ -464,6 +477,7 @@ export default class FunctionCompute extends BaseComponent {
 		const { serviceName, versionId } = inputs
 		if (this.checkField({ serviceName, versionId })) return
 		try {
+			await this.getClient();
 			result = await this.client.deleteVersion(serviceName, versionId)
 			if (typeof result.data !== 'undefined' && result.data !== null) return this.deleteSuccessInfo('Version', versionId)
 		} catch (error) {
@@ -482,6 +496,7 @@ export default class FunctionCompute extends BaseComponent {
 		const { serviceName, aliasName } = inputs
 		if (this.checkField({ serviceName, aliasName })) return
 		try {
+			await this.getClient();
 			result = await this.client.deleteAlias(serviceName, aliasName)
 			if (typeof result.data !== 'undefined' && result.data !== null) return this.deleteSuccessInfo('Alias', aliasName)
 		} catch (error) {
@@ -500,6 +515,7 @@ export default class FunctionCompute extends BaseComponent {
 		const { serviceName, functionName, qualifier } = inputs
 		if (this.checkField({ serviceName, functionName })) return
 		try {
+			await this.getClient();
 			result = await this.client.deleteFunctionAsyncConfig(serviceName, functionName, qualifier)
 			if (typeof result.data !== 'undefined' && result.data !== null) return this.deleteSuccessInfo('Function', 'AsyncConfig')
 		} catch (error) {
@@ -519,6 +535,7 @@ export default class FunctionCompute extends BaseComponent {
 		let sName: string = defaultServiceName ? defaultServiceName : serviceName
 		if (this.checkField({ sName })) return
 		try {
+			await this.getClient();
 			result = await this.client.createService(sName, {
 				description,
 				internetAccess,
@@ -545,6 +562,7 @@ export default class FunctionCompute extends BaseComponent {
 		const { serviceName, description, internetAccess, role, logConfig, nasConfig, vpcConfig, tracingConfig } = inputs
 		if (this.checkField({ serviceName })) return
 		try {
+			await this.getClient();
 			result = await this.client.updateService(serviceName, {
 				description,
 				internetAccess,
@@ -585,6 +603,7 @@ export default class FunctionCompute extends BaseComponent {
 			delete functionCode.ossObjectName
 		}
 		try {
+			await this.getClient();
 			result = await this.client.createFunction(serviceName, {
 				functionName,
 				code: functionCode,
@@ -615,6 +634,7 @@ export default class FunctionCompute extends BaseComponent {
 		const { serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort } = inputs
 		if (this.checkField({ serviceName, functionName })) return
 		try {
+			await this.getClient();
 			result = await this.client.updateFunction(serviceName, functionName, {
 				code,
 				customContainerConfig,
@@ -644,6 +664,7 @@ export default class FunctionCompute extends BaseComponent {
 		const { serviceName, functionName, invocationRole, qualifier, sourceArn, triggerConfig, triggerName, triggerType } = inputs
 		if (this.checkField({ serviceName, functionName, triggerName, triggerType, invocationRole })) return
 		try {
+			await this.getClient();
 			result = await this.client.createTrigger(serviceName, functionName, {
 				invocationRole,
 				qualifier,
@@ -669,6 +690,7 @@ export default class FunctionCompute extends BaseComponent {
 		const { serviceName, functionName, invocationRole, qualifier, triggerConfig, triggerName } = inputs
 		if (this.checkField({ serviceName, functionName, triggerName })) return
 		try {
+			await this.getClient();
 			result = await this.client.updateTrigger(serviceName, functionName, triggerName, {
 				invocationRole,
 				qualifier,
@@ -691,6 +713,7 @@ export default class FunctionCompute extends BaseComponent {
 		const { serviceName, description } = inputs
 		if (this.checkField({ serviceName })) return
 		try {
+			await this.getClient();
 			result = await this.client.publishVersion(serviceName, description)
 			return yaml.dump(result.data)
 		} catch (error) {
@@ -709,6 +732,7 @@ export default class FunctionCompute extends BaseComponent {
 		const { serviceName, aliasName, versionId, additionalVersionWeight, description } = inputs
 		if (this.checkField({ serviceName, aliasName, versionId })) return
 		try {
+			await this.getClient();
 			result = await this.client.createAlias(serviceName, aliasName, versionId, {
 				additionalVersionWeight,
 				description,
@@ -730,6 +754,7 @@ export default class FunctionCompute extends BaseComponent {
 		const { serviceName, aliasName, versionId, additionalVersionWeight, description } = inputs
 		if (this.checkField({ serviceName, aliasName, versionId })) return
 		try {
+			await this.getClient();
 			result = await this.client.updateAlias(serviceName, aliasName, versionId, {
 				additionalVersionWeight,
 				description,
@@ -751,6 +776,7 @@ export default class FunctionCompute extends BaseComponent {
 		const { domainName, protocol, certConfig, routeConfig } = inputs
 		if (this.checkField({ domainName })) return
 		try {
+			await this.getClient();
 			result = await this.client.createCustomDomain(domainName, {
 				protocol,
 				certConfig,
@@ -773,6 +799,7 @@ export default class FunctionCompute extends BaseComponent {
 		const { domainName, protocol, certConfig, routeConfig } = inputs
 		if (this.checkField({ domainName })) return
 		try {
+			await this.getClient();
 			result = await this.client.updateCustomDomain(domainName, {
 				protocol,
 				certConfig,
@@ -795,6 +822,7 @@ export default class FunctionCompute extends BaseComponent {
 		const { serviceName, functionName, qualifier, target, scheduledActions, targetTrackingPolicies } = inputs
 		if (this.checkField({ serviceName, functionName })) return
 		try {
+			await this.getClient();
 			result = await this.client.putProvisionConfig(serviceName, functionName, qualifier, {
 				target,
 				scheduledActions,
@@ -817,6 +845,7 @@ export default class FunctionCompute extends BaseComponent {
 		const { serviceName, functionName, qualifier, destinationConfig, maxAsyncEventAgeInSeconds, maxAsyncRetryAttempts } = inputs
 		if (this.checkField({ serviceName, functionName })) return
 		try {
+			await this.getClient();
 			result = await this.client.putFunctionAsyncConfig(serviceName, functionName, qualifier, {
 				destinationConfig,
 				maxAsyncEventAgeInSeconds,
@@ -844,6 +873,7 @@ export default class FunctionCompute extends BaseComponent {
 			await this.createService(inputs, defaultServiceName)
 		}
 		try {
+			await this.getClient();
 			result = await this.client.createFunction(defaultServiceName, {
 				functionName,
 				code,

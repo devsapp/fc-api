@@ -4,7 +4,7 @@ export default class FunctionCompute extends BaseComponent {
     protected inputs: any;
     protected client: any;
     constructor(inputs: any);
-    private init;
+    private getClient;
     /**
      * 请求list相关api
      * @param {string} api 判断调用的api
