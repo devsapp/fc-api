@@ -1,3 +1,4 @@
+import yaml from 'js-yaml'
 import {
 	ApiGetAndListParmas,
 	ApiCreateServiceAndUpdateServiceParmas,
@@ -9,7 +10,6 @@ import {
 	FunctionAsyncInvokeConfig,
 } from './interface'
 import BaseComponent from './base'
-import yaml from 'js-yaml'
 let result: any
 let resultData: string[] = []
 let _limit: Number | null
@@ -544,16 +544,30 @@ export default class FunctionCompute extends BaseComponent {
 	/**
 	 * 创建函数
 	 * @param inputs  s cli fc createFunction -p '{"serviceName": "", "functionName": "","handler":"index.handler","runtime": "nodejs10","code":{"ossBucketName": "","ossObjectName":""}}'
+	 * code: {"ossBucketName": "","ossObjectName":""} 或 {"zipFile": "代码包存放的位置，绝对路径文件，文件以 .zip 或 .jar 为后缀，如果文件超过 50MB，请使用 OSS 上传"}
 	 * @typeParam Required --serviceName --functionName --code --handler --runtime
 	 * @typeParam Optional --description --customContainerConfig --initializationTimeout --initializer --memorySize --runtime --timeout --caPort
 	 */
 	public async createFunction(inputs: ApiCreateFunctionAndUpdateFunction = {}) {
 		const { serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort } = inputs
+		let functionCode: any = {}
 		if (this.checkField({ serviceName, functionName, code, handler, runtime })) return
+		if (code.ossBucketName && code.ossObjectName) {
+			functionCode.ossBucketName = code.ossBucketName
+			functionCode.ossObjectName = code.ossObjectName
+			delete functionCode.zipFile
+		}
+		if (code.zipFile) {
+			const codeFize: any = await this.getZipFile(code.zipFile)
+			if (!codeFize) return
+			functionCode.zipFile = codeFize
+			delete functionCode.ossBucketName
+			delete functionCode.ossObjectName
+		}
 		try {
 			result = await this.client.createFunction(serviceName, {
 				functionName,
-				code,
+				code: functionCode,
 				customContainerConfig,
 				description,
 				handler,

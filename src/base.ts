@@ -56,7 +56,7 @@ export default class BaseComponent {
 					headerColor: 'cyan',
 					color: 'cyan',
 					align: 'left',
-					width: '18%',
+					width: '25%',
 					formatter: function (value) {
 						return value
 					},
@@ -66,7 +66,7 @@ export default class BaseComponent {
 					headerColor: 'cyan',
 					color: 'cyan',
 					align: 'left',
-					width: '18%',
+					width: '25%',
 					formatter: function (value) {
 						return value
 					},
@@ -163,5 +163,14 @@ export default class BaseComponent {
 
 	protected deleteSuccessInfo(type: string, name: string): string {
 		return `${type} ${name} delete success`
+	}
+
+	protected async getZipFile(path: string): Promise<any> {
+		try {
+			const data = fs.readFileSync(path)
+			return Buffer.from(data).toString('base64')
+		} catch (e) {
+			this.logger.error('File does not exist or file is invalid. please check')
+		}
 	}
 }
