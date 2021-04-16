@@ -494,11 +494,12 @@ export default class FunctionCompute extends BaseComponent {
 	 * @typeParam Required --serviceName
 	 * @typeParam Optional --description --internetAccess --role --logConfig --nasConfig --vpcConfig --tracingConfig
 	 */
-	public async createService(inputs: ApiCreateServiceAndUpdateServiceParmas = {}) {
+	public async createService(inputs: ApiCreateServiceAndUpdateServiceParmas = {}, defaultServiceName: string) {
 		const { serviceName, description, internetAccess, role, logConfig, nasConfig, vpcConfig, tracingConfig } = inputs
-		if (this.checkField({ serviceName })) return
+		let sName: string = defaultServiceName ? defaultServiceName : serviceName
+		if (this.checkField({ sName })) return
 		try {
-			result = await this.client.createService(serviceName, {
+			result = await this.client.createService(sName, {
 				description,
 				internetAccess,
 				role,
@@ -542,7 +543,7 @@ export default class FunctionCompute extends BaseComponent {
 
 	/**
 	 * 创建函数
-	 * @param inputs  s cli fc createFunction -p '{"serviceName": "","functionName": "","handler":"index.handler","runtime": "nodejs10","code":{"ossBucketName": "","ossObjectName":""}}'
+	 * @param inputs  s cli fc createFunction -p '{"serviceName": "", "functionName": "","handler":"index.handler","runtime": "nodejs10","code":{"ossBucketName": "","ossObjectName":""}}'
 	 * @typeParam Required --serviceName --functionName --code --handler --runtime
 	 * @typeParam Optional --description --customContainerConfig --initializationTimeout --initializer --memorySize --runtime --timeout --caPort
 	 */
@@ -774,7 +775,7 @@ export default class FunctionCompute extends BaseComponent {
 
 	/**
 	 * 函数异步配置
-	 * @param inputs  s cli f c putFunctionAsyncConfig -p '{"serviceName": "","aliasName": "","versionId": "1","additionalVersionWeight": {}}'
+	 * @param inputs  s cli fc putFunctionAsyncConfig -p '{"serviceName": "","aliasName": "","versionId": "1","additionalVersionWeight": {}}'
 	 * @typeParam Required --serviceName --functionName --qualifier
 	 * @typeParam Optional --destinationConfig --maxAsyncEventAgeInSeconds --maxAsyncRetryAttempts
 	 */
@@ -786,6 +787,41 @@ export default class FunctionCompute extends BaseComponent {
 				destinationConfig,
 				maxAsyncEventAgeInSeconds,
 				maxAsyncRetryAttempts,
+			})
+			return yaml.dump(result.data)
+		} catch (error) {
+			this.errorReport(error)
+			throw error
+		}
+	}
+
+	/**
+	 * 创建函数，如不指定服务名称，会默认创建一个服务名称为 'Service'+functionName
+	 * @param inputs  s cli fc createFunctionDefaultService -p '{"functionName": "","handler":"index.handler","runtime": "nodejs10","code":{"ossBucketName": "","ossObjectName":""}}'
+	 * @typeParam Required --functionName --code --handler --runtime
+	 * @typeParam Optional --serviceName --description --customContainerConfig --initializationTimeout --initializer --memorySize --runtime --timeout --caPort
+	 */
+	public async createFunctionDefaultService(inputs: ApiCreateFunctionAndUpdateFunction = {}) {
+		const { serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort } = inputs
+		if (this.checkField({ functionName, code, handler, runtime })) return
+		let defaultServiceName: string = serviceName
+		if (!serviceName || serviceName.length === 0) {
+			defaultServiceName = `Service${functionName}`
+			await this.createService(inputs, defaultServiceName)
+		}
+		try {
+			result = await this.client.createFunction(defaultServiceName, {
+				functionName,
+				code,
+				customContainerConfig,
+				description,
+				handler,
+				initializationTimeout,
+				initializer,
+				memorySize,
+				runtime,
+				timeout,
+				caPort,
 			})
 			return yaml.dump(result.data)
 		} catch (error) {
