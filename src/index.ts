@@ -1,6 +1,7 @@
 
 import { reportComponent, getCredential } from '@serverless-devs/core'
 import fc from '@alicloud/fc2'
+import yaml from 'js-yaml'
 import {
 	ApiGetAndListParmas,
 	ApiCreateServiceAndUpdateServiceParmas,
@@ -12,9 +13,6 @@ import {
 	FunctionAsyncInvokeConfig,
 } from './interface'
 import BaseComponent from './base'
-import yaml from 'js-yaml';
-
-
 let result: any
 let resultData: string[] = []
 let _limit: Number | null
@@ -197,7 +195,7 @@ export default class FunctionCompute extends BaseComponent {
 
 	/**
 	 * 查询预留配置列表
-	 * @param inputs 
+	 * @param inputs
 	 * @typeParam Required --serviceName
 	 * @typeParam Optional --limit --nextToken --prefix --startKey
 	 */
@@ -395,7 +393,7 @@ export default class FunctionCompute extends BaseComponent {
 		if (this.checkField({ serviceName })) return
 		try {
 			result = await this.client.deleteService(serviceName)
-			return yaml.dump(result.data)
+			if (typeof result.data !== 'undefined' && result.data !== null) return this.deleteSuccessInfo('Service', serviceName)
 		} catch (error) {
 			this.errorReport(error)
 			throw error
@@ -413,7 +411,7 @@ export default class FunctionCompute extends BaseComponent {
 		if (this.checkField({ serviceName, functionName })) return
 		try {
 			result = await this.client.deleteFunction(serviceName, functionName)
-			return yaml.dump(result.data)
+			if (typeof result.data !== 'undefined' && result.data !== null) return this.deleteSuccessInfo('Function', functionName)
 		} catch (error) {
 			this.errorReport(error)
 			throw error
@@ -431,7 +429,7 @@ export default class FunctionCompute extends BaseComponent {
 		if (this.checkField({ serviceName, functionName, triggerName })) return
 		try {
 			result = await this.client.deleteTrigger(serviceName, functionName, triggerName)
-			return yaml.dump(result.data)
+			if (typeof result.data !== 'undefined' && result.data !== null) return this.deleteSuccessInfo('Trigger', triggerName)
 		} catch (error) {
 			this.errorReport(error)
 			throw error
@@ -449,7 +447,7 @@ export default class FunctionCompute extends BaseComponent {
 		if (this.checkField({ domainName })) return
 		try {
 			result = await this.client.deleteCustomDomain(domainName)
-			return yaml.dump(result.data)
+			if (typeof result.data !== 'undefined' && result.data !== null) return this.deleteSuccessInfo('CustomDomain', domainName)
 		} catch (error) {
 			this.errorReport(error)
 			throw error
@@ -467,7 +465,7 @@ export default class FunctionCompute extends BaseComponent {
 		if (this.checkField({ serviceName, versionId })) return
 		try {
 			result = await this.client.deleteVersion(serviceName, versionId)
-			return yaml.dump(result.data)
+			if (typeof result.data !== 'undefined' && result.data !== null) return this.deleteSuccessInfo('Version', versionId)
 		} catch (error) {
 			this.errorReport(error)
 			throw error
@@ -485,7 +483,7 @@ export default class FunctionCompute extends BaseComponent {
 		if (this.checkField({ serviceName, aliasName })) return
 		try {
 			result = await this.client.deleteAlias(serviceName, aliasName)
-			return yaml.dump(result.data)
+			if (typeof result.data !== 'undefined' && result.data !== null) return this.deleteSuccessInfo('Alias', aliasName)
 		} catch (error) {
 			this.errorReport(error)
 			throw error
@@ -503,7 +501,7 @@ export default class FunctionCompute extends BaseComponent {
 		if (this.checkField({ serviceName, functionName })) return
 		try {
 			result = await this.client.deleteFunctionAsyncConfig(serviceName, functionName, qualifier)
-			return yaml.dump(result.data)
+			if (typeof result.data !== 'undefined' && result.data !== null) return this.deleteSuccessInfo('Function', 'AsyncConfig')
 		} catch (error) {
 			this.errorReport(error)
 			throw error
@@ -516,11 +514,12 @@ export default class FunctionCompute extends BaseComponent {
 	 * @typeParam Required --serviceName
 	 * @typeParam Optional --description --internetAccess --role --logConfig --nasConfig --vpcConfig --tracingConfig
 	 */
-	public async createService(inputs: ApiCreateServiceAndUpdateServiceParmas = {}) {
+	public async createService(inputs: ApiCreateServiceAndUpdateServiceParmas = {}, defaultServiceName: string) {
 		const { serviceName, description, internetAccess, role, logConfig, nasConfig, vpcConfig, tracingConfig } = inputs
-		if (this.checkField({ serviceName })) return
+		let sName: string = defaultServiceName ? defaultServiceName : serviceName
+		if (this.checkField({ sName })) return
 		try {
-			result = await this.client.createService(serviceName, {
+			result = await this.client.createService(sName, {
 				description,
 				internetAccess,
 				role,
@@ -564,17 +563,31 @@ export default class FunctionCompute extends BaseComponent {
 
 	/**
 	 * 创建函数
-	 * @param inputs '{"serviceName": "","functionName": "","handler":"index.handler","runtime": "nodejs10","code":{"ossBucketName": "","ossObjectName":""}}'
+	 * @param inputs '{"serviceName": "", "functionName": "","handler":"index.handler","runtime": "nodejs10","code":{"ossBucketName": "","ossObjectName":""}}'
+	 * code: {"ossBucketName": "","ossObjectName":""} 或 {"zipFile": "代码包存放的位置，绝对路径文件，文件以 .zip 或 .jar 为后缀，如果文件超过 50MB，请使用 OSS 上传"}
 	 * @typeParam Required --serviceName --functionName --code --handler --runtime
 	 * @typeParam Optional --description --customContainerConfig --initializationTimeout --initializer --memorySize --runtime --timeout --caPort
 	 */
 	public async createFunction(inputs: ApiCreateFunctionAndUpdateFunction = {}) {
 		const { serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort } = inputs
+		let functionCode: any = {}
 		if (this.checkField({ serviceName, functionName, code, handler, runtime })) return
+		if (code.ossBucketName && code.ossObjectName) {
+			functionCode.ossBucketName = code.ossBucketName
+			functionCode.ossObjectName = code.ossObjectName
+			delete functionCode.zipFile
+		}
+		if (code.zipFile) {
+			const codeFize: any = await this.getZipFile(code.zipFile)
+			if (!codeFize) return
+			functionCode.zipFile = codeFize
+			delete functionCode.ossBucketName
+			delete functionCode.ossObjectName
+		}
 		try {
 			result = await this.client.createFunction(serviceName, {
 				functionName,
-				code,
+				code: functionCode,
 				customContainerConfig,
 				description,
 				handler,
@@ -808,6 +821,41 @@ export default class FunctionCompute extends BaseComponent {
 				destinationConfig,
 				maxAsyncEventAgeInSeconds,
 				maxAsyncRetryAttempts,
+			})
+			return yaml.dump(result.data)
+		} catch (error) {
+			this.errorReport(error)
+			throw error
+		}
+	}
+
+	/**
+	 * 创建函数，如不指定服务名称，会默认创建一个服务名称为 'Service'+functionName
+	 * @param inputs '{"functionName": "","handler":"index.handler","runtime": "nodejs10","code":{"ossBucketName": "","ossObjectName":""}}'
+	 * @typeParam Required --functionName --code --handler --runtime
+	 * @typeParam Optional --serviceName --description --customContainerConfig --initializationTimeout --initializer --memorySize --runtime --timeout --caPort
+	 */
+	public async createFunctionDefaultService(inputs: ApiCreateFunctionAndUpdateFunction = {}) {
+		const { serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort } = inputs
+		if (this.checkField({ functionName, code, handler, runtime })) return
+		let defaultServiceName: string = serviceName
+		if (!serviceName || serviceName.length === 0) {
+			defaultServiceName = `Service${functionName}`
+			await this.createService(inputs, defaultServiceName)
+		}
+		try {
+			result = await this.client.createFunction(defaultServiceName, {
+				functionName,
+				code,
+				customContainerConfig,
+				description,
+				handler,
+				initializationTimeout,
+				initializer,
+				memorySize,
+				runtime,
+				timeout,
+				caPort,
 			})
 			return yaml.dump(result.data)
 		} catch (error) {

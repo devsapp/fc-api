@@ -11,4 +11,6 @@ export default class BaseComponent {
      */
     protected errorReport(error: any): Promise<void>;
     protected checkField(filed: {}): boolean;
+    protected deleteSuccessInfo(type: string, name: string): string;
+    protected getZipFile(path: string): Promise<any>;
 }
