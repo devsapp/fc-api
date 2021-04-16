@@ -2,40 +2,19 @@ import fs from 'fs'
 import os from 'os'
 import path from 'path'
 import get from 'lodash.get'
-import fc from '@alicloud/fc2'
 import yaml from 'js-yaml'
 import Table from 'tty-table'
 import JSZip from 'jszip'
-import { decryptCredential, reportComponent, ILogger, HLogger } from '@serverless-devs/core'
+import { ILogger, HLogger } from '@serverless-devs/core'
 let zip = new JSZip()
 export default class BaseComponent {
 	@HLogger('FC') logger: ILogger
-	protected client
 	public name: string
-	constructor(protected inputs) {
+	constructor() {
 		const pkgPath = path.join(__dirname, '..', 'package.json')
 		if (pkgPath) {
 			const pkg = yaml.load(fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf8'))
 			this.name = pkg.name
-		}
-		this.init(inputs)
-	}
-
-	private init(inputs) {
-		const { access = 'gjl88', region } = inputs
-		if (!this.client && inputs) {
-			const accessFile = path.join(os.homedir(), '.s', 'access.yaml')
-			const accessInfo = yaml.load(fs.readFileSync(accessFile, 'utf8'))
-			const result = accessInfo[access]
-			const { AccountID, AccessKeyID, AccessKeySecret } = decryptCredential(result) as any
-			reportComponent('S-FC', { uid: AccountID, command: 's cli' })
-			this.client = new fc(AccountID, {
-				accessKeyID: AccessKeyID,
-				accessKeySecret: AccessKeySecret,
-				securityToken: '',
-				region: region || 'cn-hangzhou',
-				timeout: 6000000,
-			})
 		}
 	}
 

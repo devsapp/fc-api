@@ -88,11 +88,11 @@
 								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="default.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section tsd-is-inherited">
+						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="default.html#client" class="tsd-kind-icon">client</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="default.html#inputs" class="tsd-kind-icon">inputs</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="default.html#client" class="tsd-kind-icon">client</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="default.html#inputs" class="tsd-kind-icon">inputs</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="default.html#logger" class="tsd-kind-icon">logger</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="default.html#name" class="tsd-kind-icon">name</a></li>
 							</ul>
@@ -106,6 +106,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="default.html#createalias" class="tsd-kind-icon">create<wbr>Alias</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="default.html#createcustomdomain" class="tsd-kind-icon">create<wbr>Custom<wbr>Domain</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="default.html#createfunction" class="tsd-kind-icon">create<wbr>Function</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="default.html#createfunctiondefaultservice" class="tsd-kind-icon">create<wbr>Function<wbr>Default<wbr>Service</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="default.html#createservice" class="tsd-kind-icon">create<wbr>Service</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="default.html#createtrigger" class="tsd-kind-icon">create<wbr>Trigger</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="default.html#deletealias" class="tsd-kind-icon">delete<wbr>Alias</a></li>
@@ -113,6 +114,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="default.html#deletefunction" class="tsd-kind-icon">delete<wbr>Function</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="default.html#deletefunctionasyncconfig" class="tsd-kind-icon">delete<wbr>Function<wbr>Async<wbr>Config</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="default.html#deleteservice" class="tsd-kind-icon">delete<wbr>Service</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="default.html#deletesuccessinfo" class="tsd-kind-icon">delete<wbr>Success<wbr>Info</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="default.html#deletetrigger" class="tsd-kind-icon">delete<wbr>Trigger</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="default.html#deleteversion" class="tsd-kind-icon">delete<wbr>Version</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="default.html#errorreport" class="tsd-kind-icon">error<wbr>Report</a></li>
@@ -125,6 +127,8 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="default.html#getprovisionconfig" class="tsd-kind-icon">get<wbr>Provision<wbr>Config</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="default.html#getservice" class="tsd-kind-icon">get<wbr>Service</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="default.html#gettrigger" class="tsd-kind-icon">get<wbr>Trigger</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="default.html#getzipfile" class="tsd-kind-icon">get<wbr>Zip<wbr>File</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="default.html#init" class="tsd-kind-icon">init</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="default.html#invokefunction" class="tsd-kind-icon">invoke<wbr>Function</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="default.html#listaliases" class="tsd-kind-icon">list<wbr>Aliases</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="default.html#listcustomdomains" class="tsd-kind-icon">list<wbr>Custom<wbr>Domains</a></li>
@@ -153,20 +157,20 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new default<span class="tsd-signature-symbol">(</span>props<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="default.html" class="tsd-signature-type" data-tsd-kind="Class">default</a></li>
+						<li class="tsd-signature tsd-kind-icon">new default<span class="tsd-signature-symbol">(</span>inputs<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="default.html" class="tsd-signature-type" data-tsd-kind="Class">default</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides BaseComponent.constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/index.ts#L18">index.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L23">index.ts:23</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>props: <span class="tsd-signature-type">any</span></h5>
+									<h5>inputs: <span class="tsd-signature-type">any</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="default.html" class="tsd-signature-type" data-tsd-kind="Class">default</a></h4>
@@ -174,25 +178,23 @@
 					</ul>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 					<a name="client" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> client</h3>
 					<div class="tsd-signature tsd-kind-icon">client<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from BaseComponent.client</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/base.ts#L11">base.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L23">index.ts:23</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 					<a name="inputs" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> inputs</h3>
 					<div class="tsd-signature tsd-kind-icon">inputs<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from BaseComponent.inputs</p>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
@@ -202,7 +204,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from BaseComponent.logger</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/base.ts#L10">base.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/base.ts#L8">base.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -213,7 +215,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from BaseComponent.name</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/base.ts#L12">base.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/base.ts#L9">base.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -231,7 +233,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from BaseComponent.__doc</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/base.ts#L40">base.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/base.ts#L20">base.ts:20</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -249,7 +251,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from BaseComponent.__listApi</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/base.ts#L114">base.ts:114</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/base.ts#L94">base.ts:94</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
@@ -267,7 +269,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from BaseComponent.checkField</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/base.ts#L153">base.ts:153</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/base.ts#L133">base.ts:133</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -292,7 +294,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/index.ts#L673">index.ts:673</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L708">index.ts:708</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -331,7 +333,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/index.ts#L715">index.ts:715</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L750">index.ts:750</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -370,7 +372,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/index.ts#L549">index.ts:549</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L571">index.ts:571</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -391,7 +393,47 @@
 								<li>
 									<h5>inputs: <span class="tsd-signature-type">ApiCreateFunctionAndUpdateFunction</span><span class="tsd-signature-symbol"> = {}</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>&#39;{&quot;serviceName&quot;: &quot;&quot;,&quot;functionName&quot;: &quot;&quot;,&quot;handler&quot;:&quot;index.handler&quot;,&quot;runtime&quot;: &quot;nodejs10&quot;,&quot;code&quot;:{&quot;ossBucketName&quot;: &quot;&quot;,&quot;ossObjectName&quot;:&quot;&quot;}}&#39;</p>
+										<p>&#39;{&quot;serviceName&quot;: &quot;&quot;, &quot;functionName&quot;: &quot;&quot;,&quot;handler&quot;:&quot;index.handler&quot;,&quot;runtime&quot;: &quot;nodejs10&quot;,&quot;code&quot;:{&quot;ossBucketName&quot;: &quot;&quot;,&quot;ossObjectName&quot;:&quot;&quot;}}&#39;
+										code: {&quot;ossBucketName&quot;: &quot;&quot;,&quot;ossObjectName&quot;:&quot;&quot;} 或 {&quot;zipFile&quot;: &quot;代码包存放的位置，绝对路径文件，文件以 .zip 或 .jar 为后缀，如果文件超过 50MB，请使用 OSS 上传&quot;}</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="createfunctiondefaultservice" class="tsd-anchor"></a>
+					<h3>create<wbr>Function<wbr>Default<wbr>Service</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Function<wbr>Default<wbr>Service<span class="tsd-signature-symbol">(</span>inputs<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ApiCreateFunctionAndUpdateFunction</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L838">index.ts:838</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>创建函数，如不指定服务名称，会默认创建一个服务名称为 &#39;Service&#39;+functionName</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>typeparam</dt>
+									<dd><p>--functionName --code --handler --runtime</p>
+									</dd>
+									<dt>typeparam</dt>
+									<dd><p>--serviceName --description --customContainerConfig --initializationTimeout --initializer --memorySize --runtime --timeout --caPort</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>inputs: <span class="tsd-signature-type">ApiCreateFunctionAndUpdateFunction</span><span class="tsd-signature-symbol"> = {}</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>&#39;{&quot;functionName&quot;: &quot;&quot;,&quot;handler&quot;:&quot;index.handler&quot;,&quot;runtime&quot;: &quot;nodejs10&quot;,&quot;code&quot;:{&quot;ossBucketName&quot;: &quot;&quot;,&quot;ossObjectName&quot;:&quot;&quot;}}&#39;</p>
 									</div>
 								</li>
 							</ul>
@@ -403,13 +445,13 @@
 					<a name="createservice" class="tsd-anchor"></a>
 					<h3>create<wbr>Service</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Service<span class="tsd-signature-symbol">(</span>inputs<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ApiCreateServiceAndUpdateServiceParmas</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Service<span class="tsd-signature-symbol">(</span>inputs<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ApiCreateServiceAndUpdateServiceParmas</span>, defaultServiceName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/index.ts#L497">index.ts:497</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L517">index.ts:517</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -433,6 +475,9 @@
 										<p>&#39;{&quot;serviceName&quot;: &quot;&quot;,&quot;tracingConfig&quot;: {&quot;type&quot;: &quot;Jaeger&quot;,&quot;params&quot;: {&quot;endpoint&quot;:&quot;&quot;}}}&#39;</p>
 									</div>
 								</li>
+								<li>
+									<h5>defaultServiceName: <span class="tsd-signature-type">string</span></h5>
+								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
@@ -448,7 +493,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/index.ts#L608">index.ts:608</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L643">index.ts:643</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -481,13 +526,13 @@
 					<a name="deletealias" class="tsd-anchor"></a>
 					<h3>delete<wbr>Alias</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">delete<wbr>Alias<span class="tsd-signature-symbol">(</span>inputs<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ApiGetAndListParmas</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">delete<wbr>Alias<span class="tsd-signature-symbol">(</span>inputs<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ApiGetAndListParmas</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/index.ts#L461">index.ts:461</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L481">index.ts:481</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -511,7 +556,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -519,13 +564,13 @@
 					<a name="deletecustomdomain" class="tsd-anchor"></a>
 					<h3>delete<wbr>Custom<wbr>Domain</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">delete<wbr>Custom<wbr>Domain<span class="tsd-signature-symbol">(</span>inputs<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ApiGetAndListParmas</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">delete<wbr>Custom<wbr>Domain<span class="tsd-signature-symbol">(</span>inputs<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ApiGetAndListParmas</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/index.ts#L425">index.ts:425</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L445">index.ts:445</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -549,7 +594,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -557,13 +602,13 @@
 					<a name="deletefunction" class="tsd-anchor"></a>
 					<h3>delete<wbr>Function</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">delete<wbr>Function<span class="tsd-signature-symbol">(</span>inputs<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ApiGetAndListParmas</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">delete<wbr>Function<span class="tsd-signature-symbol">(</span>inputs<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ApiGetAndListParmas</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/index.ts#L389">index.ts:389</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L409">index.ts:409</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -587,7 +632,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -595,13 +640,13 @@
 					<a name="deletefunctionasyncconfig" class="tsd-anchor"></a>
 					<h3>delete<wbr>Function<wbr>Async<wbr>Config</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">delete<wbr>Function<wbr>Async<wbr>Config<span class="tsd-signature-symbol">(</span>inputs<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ApiGetAndListParmas</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">delete<wbr>Function<wbr>Async<wbr>Config<span class="tsd-signature-symbol">(</span>inputs<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ApiGetAndListParmas</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/index.ts#L479">index.ts:479</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L499">index.ts:499</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -626,7 +671,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -634,13 +679,13 @@
 					<a name="deleteservice" class="tsd-anchor"></a>
 					<h3>delete<wbr>Service</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">delete<wbr>Service<span class="tsd-signature-symbol">(</span>inputs<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ApiGetAndListParmas</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">delete<wbr>Service<span class="tsd-signature-symbol">(</span>inputs<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ApiGetAndListParmas</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/index.ts#L371">index.ts:371</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L391">index.ts:391</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -664,7 +709,34 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+					<a name="deletesuccessinfo" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> delete<wbr>Success<wbr>Info</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">delete<wbr>Success<wbr>Info<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from BaseComponent.deleteSuccessInfo</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/base.ts#L144">base.ts:144</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>type: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>name: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -672,13 +744,13 @@
 					<a name="deletetrigger" class="tsd-anchor"></a>
 					<h3>delete<wbr>Trigger</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">delete<wbr>Trigger<span class="tsd-signature-symbol">(</span>inputs<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ApiGetAndListParmas</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">delete<wbr>Trigger<span class="tsd-signature-symbol">(</span>inputs<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ApiGetAndListParmas</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/index.ts#L407">index.ts:407</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L427">index.ts:427</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -702,7 +774,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -710,13 +782,13 @@
 					<a name="deleteversion" class="tsd-anchor"></a>
 					<h3>delete<wbr>Version</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">delete<wbr>Version<span class="tsd-signature-symbol">(</span>inputs<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ApiGetAndListParmas</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">delete<wbr>Version<span class="tsd-signature-symbol">(</span>inputs<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ApiGetAndListParmas</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/index.ts#L443">index.ts:443</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L463">index.ts:463</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -740,7 +812,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -755,7 +827,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from BaseComponent.errorReport</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/base.ts#L149">base.ts:149</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/base.ts#L129">base.ts:129</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -785,7 +857,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/index.ts#L33">index.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L53">index.ts:53</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -842,7 +914,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/index.ts#L281">index.ts:281</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L301">index.ts:301</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -880,7 +952,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/index.ts#L299">index.ts:299</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L319">index.ts:319</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -918,7 +990,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/index.ts#L227">index.ts:227</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L247">index.ts:247</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -957,7 +1029,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/index.ts#L335">index.ts:335</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L355">index.ts:355</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -996,7 +1068,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/index.ts#L245">index.ts:245</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L265">index.ts:265</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1035,7 +1107,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/index.ts#L317">index.ts:317</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L337">index.ts:337</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1074,7 +1146,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/index.ts#L209">index.ts:209</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L229">index.ts:229</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1113,7 +1185,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/index.ts#L263">index.ts:263</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L283">index.ts:283</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1141,6 +1213,47 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+					<a name="getzipfile" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> get<wbr>Zip<wbr>File</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Zip<wbr>File<span class="tsd-signature-symbol">(</span>path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from BaseComponent.getZipFile</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/base.ts#L148">base.ts:148</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>path: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="init" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> init</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">init<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L28">index.ts:28</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="invokefunction" class="tsd-anchor"></a>
 					<h3>invoke<wbr>Function</h3>
@@ -1151,7 +1264,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/index.ts#L353">index.ts:353</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L373">index.ts:373</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1190,7 +1303,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/index.ts#L135">index.ts:135</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L155">index.ts:155</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1229,7 +1342,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/index.ts#L167">index.ts:167</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L187">index.ts:187</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1264,7 +1377,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/index.ts#L195">index.ts:195</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L215">index.ts:215</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1303,7 +1416,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/index.ts#L103">index.ts:103</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L123">index.ts:123</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1342,7 +1455,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/index.ts#L182">index.ts:182</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L202">index.ts:202</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1378,7 +1491,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/index.ts#L88">index.ts:88</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L108">index.ts:108</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1391,7 +1504,6 @@
 								<li>
 									<h5>inputs: <span class="tsd-signature-type">ApiGetAndListParmas</span><span class="tsd-signature-symbol"> = {}</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>&quot;&quot;</p>
 									</div>
 								</li>
 							</ul>
@@ -1409,7 +1521,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/index.ts#L119">index.ts:119</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L139">index.ts:139</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1448,7 +1560,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/index.ts#L151">index.ts:151</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L171">index.ts:171</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1487,7 +1599,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/index.ts#L655">index.ts:655</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L690">index.ts:690</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1525,7 +1637,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/index.ts#L781">index.ts:781</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L816">index.ts:816</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1564,7 +1676,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/index.ts#L759">index.ts:759</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L794">index.ts:794</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1603,7 +1715,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/index.ts#L694">index.ts:694</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L729">index.ts:729</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1642,7 +1754,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/index.ts#L737">index.ts:737</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L772">index.ts:772</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1681,7 +1793,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/index.ts#L579">index.ts:579</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L614">index.ts:614</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1720,7 +1832,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/index.ts#L523">index.ts:523</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L544">index.ts:544</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1759,7 +1871,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/6a0bbe2/src/index.ts#L633">index.ts:633</a></li>
+									<li>Defined in <a href="https://github.com/devsapp/s-fc/blob/8d460bb/src/index.ts#L668">index.ts:668</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1808,10 +1920,10 @@
 							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
 								<a href="default.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 								<a href="default.html#client" class="tsd-kind-icon">client</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 								<a href="default.html#inputs" class="tsd-kind-icon">inputs</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
@@ -1839,6 +1951,9 @@
 								<a href="default.html#createfunction" class="tsd-kind-icon">create<wbr>Function</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="default.html#createfunctiondefaultservice" class="tsd-kind-icon">create<wbr>Function<wbr>Default<wbr>Service</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="default.html#createservice" class="tsd-kind-icon">create<wbr>Service</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -1858,6 +1973,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="default.html#deleteservice" class="tsd-kind-icon">delete<wbr>Service</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="default.html#deletesuccessinfo" class="tsd-kind-icon">delete<wbr>Success<wbr>Info</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="default.html#deletetrigger" class="tsd-kind-icon">delete<wbr>Trigger</a>
@@ -1894,6 +2012,12 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="default.html#gettrigger" class="tsd-kind-icon">get<wbr>Trigger</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="default.html#getzipfile" class="tsd-kind-icon">get<wbr>Zip<wbr>File</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="default.html#init" class="tsd-kind-icon">init</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="default.html#invokefunction" class="tsd-kind-icon">invoke<wbr>Function</a>
@@ -1965,6 +2089,9 @@
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
