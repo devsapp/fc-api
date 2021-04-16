@@ -15,7 +15,7 @@ export default class FunctionCompute extends BaseComponent {
     private fetchData;
     /**
      * 查询服务列表
-     * @param inputs ""
+     * @param inputs
      */
     listServices(inputs?: ApiGetAndListParmas): Promise<any>;
     /**
@@ -136,56 +136,56 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Required --serviceName
      * @typeParam Optional
      */
-    deleteService(inputs?: ApiGetAndListParmas): Promise<any>;
+    deleteService(inputs?: ApiGetAndListParmas): Promise<string>;
     /**
      * 删除函数
      * @param inputs '{"serviceName": "","functionName": ""}'
      * @typeParam Required --serviceName --functionName
      * @typeParam Optional
      */
-    deleteFunction(inputs?: ApiGetAndListParmas): Promise<any>;
+    deleteFunction(inputs?: ApiGetAndListParmas): Promise<string>;
     /**
      * 删除触发器
      * @param inputs '{"serviceName": "fcls","functionName":"ggk", "triggerName":"test3"}'
      * @typeParam Required --serviceName --functionName --triggerName
      * @typeParam Optional
      */
-    deleteTrigger(inputs?: ApiGetAndListParmas): Promise<any>;
+    deleteTrigger(inputs?: ApiGetAndListParmas): Promise<string>;
     /**
      * 删除自定义域名
      * @param inputs '{"domainName": ""}'
      * @typeParam Required --domainName
      * @typeParam Optional
      */
-    deleteCustomDomain(inputs?: ApiGetAndListParmas): Promise<any>;
+    deleteCustomDomain(inputs?: ApiGetAndListParmas): Promise<string>;
     /**
      * 删除版本
      * @param inputs '{"serviceName": "","versionId":""}'
      * @typeParam Required --serviceName --versionId
      * @typeParam Optional
      */
-    deleteVersion(inputs?: ApiGetAndListParmas): Promise<any>;
+    deleteVersion(inputs?: ApiGetAndListParmas): Promise<string>;
     /**
      * 删除别名
      * @param inputs '{"serviceName": "","aliasName":""}'
      * @typeParam Required --serviceName --aliasName
      * @typeParam Optional
      */
-    deleteAlias(inputs?: ApiGetAndListParmas): Promise<any>;
+    deleteAlias(inputs?: ApiGetAndListParmas): Promise<string>;
     /**
      * 删除函数异步配置
      * @param inputs '{"serviceName": "","functionName": ""}'
      * @typeParam Required --serviceName --functionName
      * @typeParam Optional --qualifier
      */
-    deleteFunctionAsyncConfig(inputs?: ApiGetAndListParmas): Promise<any>;
+    deleteFunctionAsyncConfig(inputs?: ApiGetAndListParmas): Promise<string>;
     /**
      * 创建服务
      * @param inputs '{"serviceName": "","tracingConfig": {"type": "Jaeger","params": {"endpoint":""}}}'
      * @typeParam Required --serviceName
      * @typeParam Optional --description --internetAccess --role --logConfig --nasConfig --vpcConfig --tracingConfig
      */
-    createService(inputs?: ApiCreateServiceAndUpdateServiceParmas): Promise<any>;
+    createService(inputs: ApiCreateServiceAndUpdateServiceParmas, defaultServiceName: string): Promise<any>;
     /**
      * 更新服务配置
      * @param inputs '{"serviceName": "","tracingConfig": {"type": "Jaeger","params": {"endpoint":""}}}'
@@ -195,7 +195,8 @@ export default class FunctionCompute extends BaseComponent {
     updateService(inputs?: ApiCreateServiceAndUpdateServiceParmas): Promise<any>;
     /**
      * 创建函数
-     * @param inputs '{"serviceName": "","functionName": "","handler":"index.handler","runtime": "nodejs10","code":{"ossBucketName": "","ossObjectName":""}}'
+     * @param inputs '{"serviceName": "", "functionName": "","handler":"index.handler","runtime": "nodejs10","code":{"ossBucketName": "","ossObjectName":""}}'
+     * code: {"ossBucketName": "","ossObjectName":""} 或 {"zipFile": "代码包存放的位置，绝对路径文件，文件以 .zip 或 .jar 为后缀，如果文件超过 50MB，请使用 OSS 上传"}
      * @typeParam Required --serviceName --functionName --code --handler --runtime
      * @typeParam Optional --description --customContainerConfig --initializationTimeout --initializer --memorySize --runtime --timeout --caPort
      */
@@ -270,4 +271,11 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Optional --destinationConfig --maxAsyncEventAgeInSeconds --maxAsyncRetryAttempts
      */
     putFunctionAsyncConfig(inputs?: FunctionAsyncInvokeConfig): Promise<any>;
+    /**
+     * 创建函数，如不指定服务名称，会默认创建一个服务名称为 'Service'+functionName
+     * @param inputs '{"functionName": "","handler":"index.handler","runtime": "nodejs10","code":{"ossBucketName": "","ossObjectName":""}}'
+     * @typeParam Required --functionName --code --handler --runtime
+     * @typeParam Optional --serviceName --description --customContainerConfig --initializationTimeout --initializer --memorySize --runtime --timeout --caPort
+     */
+    createFunctionDefaultService(inputs?: ApiCreateFunctionAndUpdateFunction): Promise<any>;
 }
