@@ -596,7 +596,12 @@ export default class FunctionCompute extends BaseComponent {
 			delete functionCode.zipFile
 		}
 		if (code.zipFile) {
-			const codeFize: any = await this.getZipFile(code.zipFile)
+			let codeFize: any
+			if (code.zipFile.includes('.zip') || code.zipFile.includes('.jar')) {
+				codeFize = await this.getZipFile(code.zipFile)
+			} else {
+				codeFize = await this.startZip(code.zipFile)
+			}
 			if (!codeFize) return
 			functionCode.zipFile = codeFize
 			delete functionCode.ossBucketName
@@ -872,11 +877,30 @@ export default class FunctionCompute extends BaseComponent {
 			defaultServiceName = `Service${functionName}`
 			await this.createService(inputs, defaultServiceName)
 		}
+		let functionCode: any = {}
+		if (code.ossBucketName && code.ossObjectName) {
+			functionCode.ossBucketName = code.ossBucketName
+			functionCode.ossObjectName = code.ossObjectName
+			delete functionCode.zipFile
+		}
+		let codeFize: any
+		if (code.zipFile) {
+			if (code.zipFile.includes('.zip') || code.zipFile.includes('.jar')) {
+				codeFize = await this.getZipFile(code.zipFile)
+			} else {
+				codeFize = await this.startZip(code.zipFile)
+			}
+			if (!codeFize) return
+			functionCode.zipFile = codeFize
+			delete functionCode.ossBucketName
+			delete functionCode.ossObjectName
+		}
+
 		try {
 			await this.getClient();
 			result = await this.client.createFunction(defaultServiceName, {
 				functionName,
-				code,
+				code: functionCode,
 				customContainerConfig,
 				description,
 				handler,

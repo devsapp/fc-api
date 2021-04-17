@@ -1,9 +1,12 @@
 import fs from 'fs'
+import os from 'os'
 import path from 'path'
 import get from 'lodash.get'
 import yaml from 'js-yaml'
 import Table from 'tty-table'
+import JSZip from 'jszip'
 import { ILogger, HLogger } from '@serverless-devs/core'
+let zip = new JSZip()
 export default class BaseComponent {
 	@HLogger('FC') logger: ILogger
 	public name: string
@@ -13,10 +16,8 @@ export default class BaseComponent {
 			const pkg = yaml.load(fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf8'))
 			this.name = pkg.name
 		}
-	
 	}
 
-	
 	protected __doc() {
 		const docPath = path.join(__dirname, '..', 'doc', 'doc.json')
 		if (fs.existsSync(docPath)) {
@@ -145,9 +146,58 @@ export default class BaseComponent {
 		return `${type} ${name} delete success`
 	}
 
-	protected async getZipFile(path: string): Promise<any> {
+	/**
+	 * 处理文件后缀为zip 或者 jar
+	 * @param codePath
+	 * @returns
+	 */
+	protected async getZipFile(codePath: string): Promise<any> {
+		const codeUrl = path.join(os.homedir(), codePath)
 		try {
-			const data = fs.readFileSync(path)
+			const data = fs.readFileSync(codeUrl)
+			return Buffer.from(data).toString('base64')
+		} catch (e) {
+			this.logger.error('File does not exist or file is invalid. please check')
+		}
+	}
+
+	/**
+	 * 读取目录及文件
+	 * @param obj
+	 * @param nowPath
+	 */
+	protected async readDir(obj, nowPath) {
+		try {
+			let files = fs.readdirSync(nowPath)
+			files.forEach((fileName, index) => {
+				let fillPath = nowPath + '/' + fileName
+				let file = fs.statSync(fillPath)
+				if (file.isDirectory()) {
+					let dirlist = zip.folder(fileName)
+					this.readDir(dirlist, fillPath)
+				} else {
+					obj.file(fileName, fs.readFileSync(fillPath))
+				}
+			})
+		} catch (e) {}
+	}
+
+	/**
+	 * 开始压缩文件
+	 * @param codePath
+	 * @returns
+	 */
+	protected async startZip(codePath: string) {
+		const targetDir = path.join(os.homedir(), codePath)
+		try {
+			this.readDir(zip, targetDir)
+			const data = await zip.generateAsync({
+				type: 'nodebuffer',
+				compression: 'DEFLATE',
+				compressionOptions: {
+					level: 9,
+				},
+			})
 			return Buffer.from(data).toString('base64')
 		} catch (e) {
 			this.logger.error('File does not exist or file is invalid. please check')

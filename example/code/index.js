@@ -8,6 +8,6 @@ exports.initializer = (context, callback) => {
 };
 */
 exports.handler = (event, context, callback) => {
-  console.log('gjl88');
+  console.log('hello word');
   callback(null, event);
 }

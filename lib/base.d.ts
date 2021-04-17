@@ -12,5 +12,22 @@ export default class BaseComponent {
     protected errorReport(error: any): Promise<void>;
     protected checkField(filed: {}): boolean;
     protected deleteSuccessInfo(type: string, name: string): string;
-    protected getZipFile(path: string): Promise<any>;
+    /**
+     * 处理文件后缀为zip 或者 jar
+     * @param codePath
+     * @returns
+     */
+    protected getZipFile(codePath: string): Promise<any>;
+    /**
+     * 读取目录及文件
+     * @param obj
+     * @param nowPath
+     */
+    protected readDir(obj: any, nowPath: any): Promise<void>;
+    /**
+     * 开始压缩文件
+     * @param codePath
+     * @returns
+     */
+    protected startZip(codePath: string): Promise<string>;
 }
