@@ -1,6 +1,6 @@
 {
   "name": "s-fc",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "The execution component of Function Compute, through which you can access the resources of function calculation",
   "keywords": [
     "Serverless",
