@@ -198,8 +198,8 @@ export default class FunctionCompute extends BaseComponent {
     updateService(inputs?: ApiCreateServiceAndUpdateServiceParmas): Promise<any>;
     /**
      * 创建函数
-     * @param inputs '{"serviceName": "", "functionName": "","handler":"index.handler","runtime": "nodejs10","code":{"ossBucketName": "","ossObjectName":""}}'
-     * code: {"ossBucketName": "","ossObjectName":""} 或 {"zipFile": "代码包存放的位置，绝对路径文件，文件以 .zip 或 .jar 为后缀，如果文件超过 50MB，请使用 OSS 上传"}
+     * @param inputs '{"serviceName": "", "functionName": "","handler":"index.handler","runtime": "nodejs10","code":{"zipFile": "example/code/index.js"}}'
+     * code: {"ossBucketName": "","ossObjectName":""} 或 {"zipFile": "代码包存放的位置，执行命令的目录下，如果文件超过 50MB，请使用 OSS 上传"}
      * @typeParam Required --serviceName --functionName --code --handler --runtime
      * @typeParam Optional --description --customContainerConfig --initializationTimeout --initializer --memorySize --runtime --timeout --caPort
      */

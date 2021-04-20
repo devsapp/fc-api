@@ -1,5 +1,4 @@
 import fs from 'fs'
-import os from 'os'
 import path from 'path'
 import get from 'lodash.get'
 import yaml from 'js-yaml'

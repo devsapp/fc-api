@@ -1,6 +1,6 @@
 {
 	"id": 0,
-	"name": "s-fc",
+	"name": "fc-api",
 	"kind": 0,
 	"kindString": "Project",
 	"flags": {},
@@ -66,7 +66,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 23,
+							"line": 21,
 							"character": 17
 						}
 					],
@@ -109,7 +109,7 @@
 					"sources": [
 						{
 							"fileName": "base.ts",
-							"line": 8,
+							"line": 10,
 							"character": 22
 						}
 					],
@@ -133,7 +133,7 @@
 					"sources": [
 						{
 							"fileName": "base.ts",
-							"line": 9,
+							"line": 11,
 							"character": 12
 						}
 					],
@@ -287,7 +287,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 708,
+							"line": 734,
 							"character": 25
 						}
 					],
@@ -354,7 +354,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 750,
+							"line": 778,
 							"character": 32
 						}
 					],
@@ -421,7 +421,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 571,
+							"line": 587,
 							"character": 28
 						}
 					],
@@ -455,7 +455,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"\", \"functionName\": \"\",\"handler\":\"index.handler\",\"runtime\": \"nodejs10\",\"code\":{\"ossBucketName\": \"\",\"ossObjectName\":\"\"}}'\ncode: {\"ossBucketName\": \"\",\"ossObjectName\":\"\"} 或 {\"zipFile\": \"代码包存放的位置，绝对路径文件，文件以 .zip 或 .jar 为后缀，如果文件超过 50MB，请使用 OSS 上传\"}"
+										"text": "'{\"serviceName\": \"\", \"functionName\": \"\",\"handler\":\"index.handler\",\"runtime\": \"nodejs10\",\"code\":{\"zipFile\": \"example/code/index.js\"}}'\ncode: {\"ossBucketName\": \"\",\"ossObjectName\":\"\"} 或 {\"zipFile\": \"代码包存放的位置，执行命令的目录下，如果文件超过 50MB，请使用 OSS 上传\"}"
 									},
 									"type": {
 										"type": "reference",
@@ -488,7 +488,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 838,
+							"line": 872,
 							"character": 42
 						}
 					],
@@ -504,12 +504,12 @@
 								"tags": [
 									{
 										"tag": "typeparam",
-										"text": "--functionName --code --handler --runtime",
+										"text": "--serviceName --functionName --code --handler --runtime",
 										"param": "Required"
 									},
 									{
 										"tag": "typeparam",
-										"text": "--serviceName --description --customContainerConfig --initializationTimeout --initializer --memorySize --runtime --timeout --caPort\n",
+										"text": "--description --customContainerConfig --initializationTimeout --initializer --memorySize --runtime --timeout --caPort\n",
 										"param": "Optional"
 									}
 								]
@@ -522,7 +522,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"functionName\": \"\",\"handler\":\"index.handler\",\"runtime\": \"nodejs10\",\"code\":{\"ossBucketName\": \"\",\"ossObjectName\":\"\"}}'"
+										"text": "'{\"serviceName\": \"\", \"functionName\": \"\",\"handler\":\"index.handler\",\"runtime\": \"nodejs10\",\"code\":{\"zipFile\": \"example/code/index.js\"}}'\ncode: {\"ossBucketName\": \"\",\"ossObjectName\":\"\"} 或 {\"zipFile\": \"代码包存放的位置，执行命令的目录下，如果文件超过 50MB，请使用 OSS 上传\"}"
 									},
 									"type": {
 										"type": "reference",
@@ -555,7 +555,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 517,
+							"line": 531,
 							"character": 27
 						}
 					],
@@ -633,7 +633,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 643,
+							"line": 666,
 							"character": 27
 						}
 					],
@@ -700,7 +700,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 481,
+							"line": 493,
 							"character": 25
 						}
 					],
@@ -767,7 +767,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 445,
+							"line": 455,
 							"character": 32
 						}
 					],
@@ -834,7 +834,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 409,
+							"line": 417,
 							"character": 28
 						}
 					],
@@ -901,7 +901,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 499,
+							"line": 512,
 							"character": 39
 						}
 					],
@@ -968,7 +968,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 391,
+							"line": 398,
 							"character": 27
 						}
 					],
@@ -1096,7 +1096,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 427,
+							"line": 436,
 							"character": 27
 						}
 					],
@@ -1163,7 +1163,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 463,
+							"line": 474,
 							"character": 27
 						}
 					],
@@ -1292,7 +1292,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 53,
+							"line": 51,
 							"character": 24
 						}
 					],
@@ -1430,7 +1430,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 301,
+							"line": 303,
 							"character": 22
 						}
 					],
@@ -1487,6 +1487,41 @@
 					]
 				},
 				{
+					"id": 7,
+					"name": "getClient",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPrivate": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 26,
+							"character": 24
+						}
+					],
+					"signatures": [
+						{
+							"id": 8,
+							"name": "getClient",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "void"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
 					"id": 57,
 					"name": "getCustomDomain",
 					"kind": 2048,
@@ -1497,7 +1532,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 319,
+							"line": 322,
 							"character": 29
 						}
 					],
@@ -1564,7 +1599,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 247,
+							"line": 246,
 							"character": 25
 						}
 					],
@@ -1631,7 +1666,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 355,
+							"line": 360,
 							"character": 36
 						}
 					],
@@ -1765,7 +1800,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 337,
+							"line": 341,
 							"character": 32
 						}
 					],
@@ -1832,7 +1867,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 229,
+							"line": 227,
 							"character": 24
 						}
 					],
@@ -1899,7 +1934,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 283,
+							"line": 284,
 							"character": 24
 						}
 					],
@@ -1966,7 +2001,7 @@
 					"sources": [
 						{
 							"fileName": "base.ts",
-							"line": 148,
+							"line": 153,
 							"character": 27
 						}
 					],
@@ -1977,13 +2012,18 @@
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
+							"comment": {
+								"shortText": "处理文件后缀为zip 或者 jar",
+								"returns": "\n"
+							},
 							"parameters": [
 								{
 									"id": 152,
-									"name": "path",
+									"name": "codePath",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
+									"comment": {},
 									"type": {
 										"type": "intrinsic",
 										"name": "string"
@@ -2012,41 +2052,6 @@
 					}
 				},
 				{
-					"id": 7,
-					"name": "init",
-					"kind": 2048,
-					"kindString": "Method",
-					"flags": {
-						"isPrivate": true
-					},
-					"sources": [
-						{
-							"fileName": "index.ts",
-							"line": 28,
-							"character": 19
-						}
-					],
-					"signatures": [
-						{
-							"id": 8,
-							"name": "init",
-							"kind": 4096,
-							"kindString": "Call signature",
-							"flags": {},
-							"type": {
-								"type": "reference",
-								"typeArguments": [
-									{
-										"type": "intrinsic",
-										"name": "void"
-									}
-								],
-								"name": "Promise"
-							}
-						}
-					]
-				},
-				{
 					"id": 66,
 					"name": "invokeFunction",
 					"kind": 2048,
@@ -2057,7 +2062,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 373,
+							"line": 379,
 							"character": 28
 						}
 					],
@@ -2124,7 +2129,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 155,
+							"line": 153,
 							"character": 25
 						}
 					],
@@ -2191,7 +2196,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 187,
+							"line": 185,
 							"character": 31
 						}
 					],
@@ -2256,7 +2261,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 215,
+							"line": 213,
 							"character": 38
 						}
 					],
@@ -2323,7 +2328,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 123,
+							"line": 121,
 							"character": 27
 						}
 					],
@@ -2390,7 +2395,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 202,
+							"line": 200,
 							"character": 34
 						}
 					],
@@ -2455,7 +2460,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 108,
+							"line": 106,
 							"character": 26
 						}
 					],
@@ -2510,7 +2515,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 139,
+							"line": 137,
 							"character": 26
 						}
 					],
@@ -2577,7 +2582,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 171,
+							"line": 169,
 							"character": 26
 						}
 					],
@@ -2644,7 +2649,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 690,
+							"line": 715,
 							"character": 28
 						}
 					],
@@ -2711,7 +2716,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 816,
+							"line": 847,
 							"character": 36
 						}
 					],
@@ -2778,7 +2783,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 794,
+							"line": 824,
 							"character": 32
 						}
 					],
@@ -2835,6 +2840,141 @@
 					]
 				},
 				{
+					"id": 153,
+					"name": "readDir",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isProtected": true
+					},
+					"sources": [
+						{
+							"fileName": "base.ts",
+							"line": 168,
+							"character": 24
+						}
+					],
+					"signatures": [
+						{
+							"id": 154,
+							"name": "readDir",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "读取目录及文件"
+							},
+							"parameters": [
+								{
+									"id": 155,
+									"name": "obj",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								},
+								{
+									"id": 156,
+									"name": "nowPath",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "\n"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "void"
+									}
+								],
+								"name": "Promise"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "BaseComponent.readDir"
+							}
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"name": "BaseComponent.readDir"
+					}
+				},
+				{
+					"id": 157,
+					"name": "startZip",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isProtected": true
+					},
+					"sources": [
+						{
+							"fileName": "base.ts",
+							"line": 195,
+							"character": 25
+						}
+					],
+					"signatures": [
+						{
+							"id": 158,
+							"name": "startZip",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "开始压缩文件",
+								"returns": "\n"
+							},
+							"parameters": [
+								{
+									"id": 159,
+									"name": "codePath",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									}
+								],
+								"name": "Promise"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "BaseComponent.startZip"
+							}
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"name": "BaseComponent.startZip"
+					}
+				},
+				{
 					"id": 115,
 					"name": "updateAlias",
 					"kind": 2048,
@@ -2845,7 +2985,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 729,
+							"line": 756,
 							"character": 25
 						}
 					],
@@ -2912,7 +3052,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 772,
+							"line": 801,
 							"character": 32
 						}
 					],
@@ -2979,7 +3119,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 614,
+							"line": 636,
 							"character": 28
 						}
 					],
@@ -3046,7 +3186,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 544,
+							"line": 559,
 							"character": 27
 						}
 					],
@@ -3113,7 +3253,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 668,
+							"line": 692,
 							"character": 27
 						}
 					],
@@ -3212,6 +3352,7 @@
 						139,
 						9,
 						54,
+						7,
 						57,
 						45,
 						63,
@@ -3220,7 +3361,6 @@
 						42,
 						51,
 						150,
-						7,
 						66,
 						27,
 						33,
@@ -3233,6 +3373,8 @@
 						109,
 						127,
 						124,
+						153,
+						157,
 						115,
 						121,
 						100,
@@ -3244,7 +3386,7 @@
 			"sources": [
 				{
 					"fileName": "index.ts",
-					"line": 21,
+					"line": 20,
 					"character": 36
 				}
 			],
