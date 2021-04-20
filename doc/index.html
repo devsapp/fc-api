@@ -74,17 +74,19 @@
 				<a href="#查看文档" id="查看文档" style="color: inherit; text-decoration: none;">
 					<h4>查看文档</h4>
 				</a>
-				<pre><code><span style="color: #001080">s</span><span style="color: #000000"> </span><span style="color: #001080">cli</span><span style="color: #000000"> </span><span style="color: #001080">s</span><span style="color: #000000">-</span><span style="color: #001080">fc</span><span style="color: #000000"> -</span><span style="color: #001080">d</span><span style="color: #000000">  </span><span style="color: #008000">// 查看api 内容及调用方法</span>
+				<pre><code><span style="color: #001080">s</span><span style="color: #000000"> </span><span style="color: #001080">cli</span><span style="color: #000000"> </span><span style="color: #001080">fc</span><span style="color: #000000">-</span><span style="color: #001080">api</span><span style="color: #000000"> -</span><span style="color: #001080">d</span><span style="color: #000000">  </span><span style="color: #008000">// 查看api 内容及调用方法</span>
 </code></pre>
 				<a href="#查询服务" id="查询服务" style="color: inherit; text-decoration: none;">
 					<h4>查询服务</h4>
 				</a>
-				<pre><code><span style="color: #001080">s</span><span style="color: #000000"> </span><span style="color: #001080">cli</span><span style="color: #000000"> </span><span style="color: #001080">s</span><span style="color: #000000">-</span><span style="color: #001080">fc</span><span style="color: #000000"> </span><span style="color: #001080">listServices</span><span style="color: #000000"> -</span><span style="color: #001080">a</span><span style="color: #000000"> </span><span style="color: #AF00DB">default</span><span style="color: #000000"> -</span><span style="color: #001080">r</span><span style="color: #000000"> </span><span style="color: #001080">cn</span><span style="color: #000000">-</span><span style="color: #001080">hangzhou</span><span style="color: #000000"> </span><span style="color: #008000">// 查询Function Compute服务列表， 指定默认秘钥， 指定查询 region</span>
+				<pre><code><span style="color: #001080">s</span><span style="color: #000000"> </span><span style="color: #001080">cli</span><span style="color: #000000"> </span><span style="color: #001080">fc</span><span style="color: #000000">-</span><span style="color: #001080">api</span><span style="color: #000000"> </span><span style="color: #001080">listServices</span><span style="color: #000000"> -</span><span style="color: #001080">a</span><span style="color: #000000"> </span><span style="color: #AF00DB">default</span><span style="color: #000000"> -</span><span style="color: #001080">r</span><span style="color: #000000"> </span><span style="color: #001080">cn</span><span style="color: #000000">-</span><span style="color: #001080">hangzhou</span><span style="color: #000000"> </span><span style="color: #008000">// 查询Function Compute服务列表， 指定默认秘钥， 指定查询 region</span>
 </code></pre>
 				<a href="#创建函数" id="创建函数" style="color: inherit; text-decoration: none;">
 					<h4>创建函数</h4>
 				</a>
 				<p>进入 example 目录操作,[详细查看]（example/readme.md）</p>
+				<pre><code><span style="color: #001080">s</span><span style="color: #000000"> </span><span style="color: #001080">cli</span><span style="color: #000000"> </span><span style="color: #001080">s</span><span style="color: #000000">-</span><span style="color: #001080">fc</span><span style="color: #000000"> </span><span style="color: #001080">createFunction</span><span style="color: #000000"> -</span><span style="color: #001080">p</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;{&quot;serviceName&quot;: &quot;hanxietest&quot;, &quot;functionName&quot;: &quot;s-fc&quot;,&quot;handler&quot;:&quot;index.handler&quot;,&quot;runtime&quot;: &quot;nodejs10&quot;,&quot;code&quot;:{&quot;filePath&quot;: &quot;index.js&quot;}}&#039;</span>
+</code></pre>
 				<p><a href="https://devsapp.github.io/s-fc/doc/index.html">更多文档查看</a></p>
 			</div>
 		</div>
