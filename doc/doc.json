@@ -504,12 +504,12 @@
 								"tags": [
 									{
 										"tag": "typeparam",
-										"text": "--functionName --code --handler --runtime",
+										"text": "--serviceName --functionName --code --handler --runtime",
 										"param": "Required"
 									},
 									{
 										"tag": "typeparam",
-										"text": "--serviceName --description --customContainerConfig --initializationTimeout --initializer --memorySize --runtime --timeout --caPort\n",
+										"text": "--description --customContainerConfig --initializationTimeout --initializer --memorySize --runtime --timeout --caPort\n",
 										"param": "Optional"
 									}
 								]
@@ -522,7 +522,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"functionName\": \"\",\"handler\":\"index.handler\",\"runtime\": \"nodejs10\",\"code\":{\"ossBucketName\": \"\",\"ossObjectName\":\"\"}}'"
+										"text": "'{\"serviceName\": \"\", \"functionName\": \"\",\"handler\":\"index.handler\",\"runtime\": \"nodejs10\",\"code\":{\"zipFile\": \"example/code/index.js\"}}'\ncode: {\"ossBucketName\": \"\",\"ossObjectName\":\"\"} 或 {\"zipFile\": \"代码包存放的位置，执行命令的目录下，如果文件超过 50MB，请使用 OSS 上传\"}"
 									},
 									"type": {
 										"type": "reference",
