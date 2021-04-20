@@ -27,7 +27,7 @@ export default class FunctionCompute extends BaseComponent {
 		if (!this.client) {
 			const { region, access = 'default' } = this.inputs
 			const { AccountID, AccessKeyID, AccessKeySecret } = (await getCredential(access)) as any
-			reportComponent('S-FC', { uid: AccountID, command: 's cli' })
+			reportComponent('fc-api', { uid: AccountID, command: 's cli' })
 			this.client = new fc(AccountID, {
 				accessKeyID: AccessKeyID,
 				accessKeySecret: AccessKeySecret,
@@ -579,7 +579,7 @@ export default class FunctionCompute extends BaseComponent {
 
 	/**
 	 * 创建函数
-	 * @param inputs '{"serviceName": "", "functionName": "","handler":"index.handler","runtime": "nodejs10","code":{"ossBucketName": "","ossObjectName":""}}'
+	 * @param inputs '{"serviceName": "", "functionName": "","handler":"index.handler","runtime": "nodejs10","code":{"zipFile": "example/code/index.js"}}'
 	 * code: {"ossBucketName": "","ossObjectName":""} 或 {"zipFile": "代码包存放的位置，执行命令的目录下，如果文件超过 50MB，请使用 OSS 上传"}
 	 * @typeParam Required --serviceName --functionName --code --handler --runtime
 	 * @typeParam Optional --description --customContainerConfig --initializationTimeout --initializer --memorySize --runtime --timeout --caPort
