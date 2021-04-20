@@ -1,6 +1,6 @@
 {
 	"id": 0,
-	"name": "s-fc",
+	"name": "fc-api",
 	"kind": 0,
 	"kindString": "Project",
 	"flags": {},
@@ -66,7 +66,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 23,
+							"line": 21,
 							"character": 17
 						}
 					],
@@ -109,7 +109,7 @@
 					"sources": [
 						{
 							"fileName": "base.ts",
-							"line": 11,
+							"line": 10,
 							"character": 22
 						}
 					],
@@ -133,7 +133,7 @@
 					"sources": [
 						{
 							"fileName": "base.ts",
-							"line": 12,
+							"line": 11,
 							"character": 12
 						}
 					],
@@ -157,7 +157,7 @@
 					"sources": [
 						{
 							"fileName": "base.ts",
-							"line": 21,
+							"line": 20,
 							"character": 16
 						}
 					],
@@ -194,7 +194,7 @@
 					"sources": [
 						{
 							"fileName": "base.ts",
-							"line": 95,
+							"line": 94,
 							"character": 20
 						}
 					],
@@ -231,7 +231,7 @@
 					"sources": [
 						{
 							"fileName": "base.ts",
-							"line": 134,
+							"line": 133,
 							"character": 21
 						}
 					],
@@ -287,7 +287,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 736,
+							"line": 734,
 							"character": 25
 						}
 					],
@@ -354,7 +354,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 780,
+							"line": 778,
 							"character": 32
 						}
 					],
@@ -421,7 +421,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 589,
+							"line": 587,
 							"character": 28
 						}
 					],
@@ -455,7 +455,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"\", \"functionName\": \"\",\"handler\":\"index.handler\",\"runtime\": \"nodejs10\",\"code\":{\"ossBucketName\": \"\",\"ossObjectName\":\"\"}}'\ncode: {\"ossBucketName\": \"\",\"ossObjectName\":\"\"} 或 {\"zipFile\": \"代码包存放的位置，绝对路径文件，文件以 .zip 或 .jar 为后缀，如果文件超过 50MB，请使用 OSS 上传\"}"
+										"text": "'{\"serviceName\": \"\", \"functionName\": \"\",\"handler\":\"index.handler\",\"runtime\": \"nodejs10\",\"code\":{\"zipFile\": \"example/code/index.js\"}}'\ncode: {\"ossBucketName\": \"\",\"ossObjectName\":\"\"} 或 {\"zipFile\": \"代码包存放的位置，执行命令的目录下，如果文件超过 50MB，请使用 OSS 上传\"}"
 									},
 									"type": {
 										"type": "reference",
@@ -488,7 +488,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 872,
+							"line": 870,
 							"character": 42
 						}
 					],
@@ -555,7 +555,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 533,
+							"line": 531,
 							"character": 27
 						}
 					],
@@ -633,7 +633,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 668,
+							"line": 666,
 							"character": 27
 						}
 					],
@@ -700,7 +700,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 495,
+							"line": 493,
 							"character": 25
 						}
 					],
@@ -767,7 +767,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 457,
+							"line": 455,
 							"character": 32
 						}
 					],
@@ -834,7 +834,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 419,
+							"line": 417,
 							"character": 28
 						}
 					],
@@ -901,7 +901,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 514,
+							"line": 512,
 							"character": 39
 						}
 					],
@@ -968,7 +968,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 400,
+							"line": 398,
 							"character": 27
 						}
 					],
@@ -1035,7 +1035,7 @@
 					"sources": [
 						{
 							"fileName": "base.ts",
-							"line": 145,
+							"line": 144,
 							"character": 28
 						}
 					],
@@ -1096,7 +1096,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 438,
+							"line": 436,
 							"character": 27
 						}
 					],
@@ -1163,7 +1163,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 476,
+							"line": 474,
 							"character": 27
 						}
 					],
@@ -1230,7 +1230,7 @@
 					"sources": [
 						{
 							"fileName": "base.ts",
-							"line": 130,
+							"line": 129,
 							"character": 28
 						}
 					],
@@ -1292,7 +1292,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 53,
+							"line": 51,
 							"character": 24
 						}
 					],
@@ -1430,7 +1430,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 305,
+							"line": 303,
 							"character": 22
 						}
 					],
@@ -1497,7 +1497,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 28,
+							"line": 26,
 							"character": 24
 						}
 					],
@@ -1532,7 +1532,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 324,
+							"line": 322,
 							"character": 29
 						}
 					],
@@ -1599,7 +1599,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 248,
+							"line": 246,
 							"character": 25
 						}
 					],
@@ -1666,7 +1666,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 362,
+							"line": 360,
 							"character": 36
 						}
 					],
@@ -1733,7 +1733,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 267,
+							"line": 265,
 							"character": 29
 						}
 					],
@@ -1800,7 +1800,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 343,
+							"line": 341,
 							"character": 32
 						}
 					],
@@ -1867,7 +1867,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 229,
+							"line": 227,
 							"character": 24
 						}
 					],
@@ -1934,7 +1934,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 286,
+							"line": 284,
 							"character": 24
 						}
 					],
@@ -2001,7 +2001,7 @@
 					"sources": [
 						{
 							"fileName": "base.ts",
-							"line": 154,
+							"line": 153,
 							"character": 27
 						}
 					],
@@ -2062,7 +2062,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 381,
+							"line": 379,
 							"character": 28
 						}
 					],
@@ -2129,7 +2129,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 155,
+							"line": 153,
 							"character": 25
 						}
 					],
@@ -2196,7 +2196,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 187,
+							"line": 185,
 							"character": 31
 						}
 					],
@@ -2261,7 +2261,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 215,
+							"line": 213,
 							"character": 38
 						}
 					],
@@ -2328,7 +2328,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 123,
+							"line": 121,
 							"character": 27
 						}
 					],
@@ -2395,7 +2395,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 202,
+							"line": 200,
 							"character": 34
 						}
 					],
@@ -2460,7 +2460,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 108,
+							"line": 106,
 							"character": 26
 						}
 					],
@@ -2515,7 +2515,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 139,
+							"line": 137,
 							"character": 26
 						}
 					],
@@ -2582,7 +2582,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 171,
+							"line": 169,
 							"character": 26
 						}
 					],
@@ -2649,7 +2649,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 717,
+							"line": 715,
 							"character": 28
 						}
 					],
@@ -2716,7 +2716,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 849,
+							"line": 847,
 							"character": 36
 						}
 					],
@@ -2783,7 +2783,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 826,
+							"line": 824,
 							"character": 32
 						}
 					],
@@ -2850,7 +2850,7 @@
 					"sources": [
 						{
 							"fileName": "base.ts",
-							"line": 169,
+							"line": 168,
 							"character": 24
 						}
 					],
@@ -2924,7 +2924,7 @@
 					"sources": [
 						{
 							"fileName": "base.ts",
-							"line": 190,
+							"line": 195,
 							"character": 25
 						}
 					],
@@ -2985,7 +2985,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 758,
+							"line": 756,
 							"character": 25
 						}
 					],
@@ -3052,7 +3052,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 803,
+							"line": 801,
 							"character": 32
 						}
 					],
@@ -3119,7 +3119,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 638,
+							"line": 636,
 							"character": 28
 						}
 					],
@@ -3186,7 +3186,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 561,
+							"line": 559,
 							"character": 27
 						}
 					],
@@ -3253,7 +3253,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 694,
+							"line": 692,
 							"character": 27
 						}
 					],
@@ -3386,7 +3386,7 @@
 			"sources": [
 				{
 					"fileName": "index.ts",
-					"line": 21,
+					"line": 20,
 					"character": 36
 				}
 			],
