@@ -152,7 +152,7 @@ export default class BaseComponent {
 	 * @returns
 	 */
 	protected async getZipFile(codePath: string): Promise<any> {
-		const codeUrl = path.join(os.homedir(), codePath)
+		const codeUrl = path.resolve(codePath)
 		try {
 			const data = fs.readFileSync(codeUrl)
 			return Buffer.from(data).toString('base64')
@@ -168,17 +168,23 @@ export default class BaseComponent {
 	 */
 	protected async readDir(obj, nowPath) {
 		try {
-			let files = fs.readdirSync(nowPath)
-			files.forEach((fileName, index) => {
-				let fillPath = nowPath + '/' + fileName
-				let file = fs.statSync(fillPath)
-				if (file.isDirectory()) {
-					let dirlist = zip.folder(fileName)
-					this.readDir(dirlist, fillPath)
-				} else {
-					obj.file(fileName, fs.readFileSync(fillPath))
-				}
-			})
+			const pathDir = nowPath.split('/')
+			const _dir = pathDir[pathDir.length - 1]
+			if (_dir.includes('.')) {
+				obj.file(_dir, fs.readFileSync(`${nowPath}`))
+			} else {
+				let files = fs.readdirSync(nowPath)
+				files.forEach((fileName, index) => {
+					let fillPath = nowPath + '/' + fileName
+					let file = fs.statSync(fillPath)
+					if (file.isDirectory()) {
+						let dirlist = zip.folder(fileName)
+						this.readDir(dirlist, fillPath)
+					} else {
+						obj.file(fileName, fs.readFileSync(fillPath))
+					}
+				})
+			}
 		} catch (e) {}
 	}
 
@@ -188,7 +194,7 @@ export default class BaseComponent {
 	 * @returns
 	 */
 	protected async startZip(codePath: string) {
-		const targetDir = path.join(os.homedir(), codePath)
+		const targetDir = path.resolve(codePath)
 		try {
 			this.readDir(zip, targetDir)
 			const data = await zip.generateAsync({
