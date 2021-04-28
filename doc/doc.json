@@ -2344,7 +2344,7 @@
 								"tags": [
 									{
 										"tag": "typeparam",
-										"text": "--functionName",
+										"text": "--serviceName",
 										"param": "Required"
 									},
 									{
