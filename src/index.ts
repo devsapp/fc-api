@@ -115,7 +115,7 @@ export default class FunctionCompute extends BaseComponent {
 	/**
 	 * 查询函数列表
 	 * @param inputs '{"serviceName": ""}'
-	 * @typeParam Required --functionName
+	 * @typeParam Required --serviceName
 	 * @typeParam Optional --qualifier --limit --nextToken --prefix --startKey
 	 */
 	public async listFunctions(inputs: ApiGetAndListParmas = {}) {
