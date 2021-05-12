@@ -276,9 +276,10 @@ export default class FunctionCompute extends BaseComponent {
     putFunctionAsyncConfig(inputs?: FunctionAsyncInvokeConfig): Promise<any>;
     /**
      * 创建函数，如不指定服务名称，会默认创建一个服务名称为 'Service'+functionName
-     * @param inputs '{"functionName": "","handler":"index.handler","runtime": "nodejs10","code":{"ossBucketName": "","ossObjectName":""}}'
-     * @typeParam Required --functionName --code --handler --runtime
-     * @typeParam Optional --serviceName --description --customContainerConfig --initializationTimeout --initializer --memorySize --runtime --timeout --caPort
+     * @param inputs '{"serviceName": "", "functionName": "","handler":"index.handler","runtime": "nodejs10","code":{"zipFile": "example/code/index.js"}}'
+     * code: {"ossBucketName": "","ossObjectName":""} 或 {"zipFile": "代码包存放的位置，执行命令的目录下，如果文件超过 50MB，请使用 OSS 上传"}
+     * @typeParam Required --serviceName --functionName --code --handler --runtime
+     * @typeParam Optional --description --customContainerConfig --initializationTimeout --initializer --memorySize --runtime --timeout --caPort
      */
     createFunctionDefaultService(inputs?: ApiCreateFunctionAndUpdateFunction): Promise<any>;
 }

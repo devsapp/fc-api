@@ -24,5 +24,5 @@ s cli fc-api listServices -a default -r cn-hangzhou // 查询Function Compute服
 s cli s-fc createFunction -p '{"serviceName": "hanxietest", "functionName": "s-fc","handler":"index.handler","runtime": "nodejs10","code":{"filePath": "index.js"}}'
 ```
 
-[更多文档查看](https://devsapp.github.io/s-fc/doc/index.html)
+[更多文档查看](https://devsapp.github.io/fc-api/doc/index.html)
 
