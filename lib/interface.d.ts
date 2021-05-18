@@ -2,6 +2,10 @@ export interface Inputs {
     region: string;
     credential: any;
 }
+export interface ComponentInputs {
+    props?: any;
+    args?: string;
+}
 export interface ApiGetAndListParmas {
     serviceName?: string;
     aliasName?: string;

@@ -135,7 +135,8 @@ export default class BaseComponent {
 		for (var key in filed) {
 			flag = filed[key] ? false : true
 			if (flag) {
-				this.logger.warn('Please check the parameters. use `s cli s-fc --doc` for info.')
+				this.logger.error(`Please check the parameters. These parameters are required: ${String(Object.keys(filed))}.`)
+				process.exit(-1)
 				return flag
 			}
 		}

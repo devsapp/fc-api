@@ -66,8 +66,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 21,
-							"character": 17
+							"line": 15,
+							"character": 20
 						}
 					],
 					"type": {
@@ -287,8 +287,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 734,
-							"character": 25
+							"line": 2305,
+							"character": 28
 						}
 					],
 					"signatures": [
@@ -325,9 +325,9 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "ApiPublishVersionAndCreateAlias"
+										"name": "ComponentInputs"
 									},
-									"defaultValue": "..."
+									"defaultValue": "{}"
 								}
 							],
 							"type": {
@@ -354,8 +354,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 778,
-							"character": 32
+							"line": 2459,
+							"character": 35
 						}
 					],
 					"signatures": [
@@ -392,7 +392,7 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "ApiCustomDomain"
+										"name": "ComponentInputs"
 									},
 									"defaultValue": "{}"
 								}
@@ -421,8 +421,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 587,
-							"character": 28
+							"line": 1798,
+							"character": 31
 						}
 					],
 					"signatures": [
@@ -459,7 +459,7 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "ApiCreateFunctionAndUpdateFunction"
+										"name": "ComponentInputs"
 									},
 									"defaultValue": "{}"
 								}
@@ -488,8 +488,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 872,
-							"character": 42
+							"line": 2773,
+							"character": 45
 						}
 					],
 					"signatures": [
@@ -526,7 +526,7 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "ApiCreateFunctionAndUpdateFunction"
+										"name": "ComponentInputs"
 									},
 									"defaultValue": "{}"
 								}
@@ -555,8 +555,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 531,
-							"character": 27
+							"line": 1602,
+							"character": 30
 						}
 					],
 					"signatures": [
@@ -593,7 +593,7 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "ApiCreateServiceAndUpdateServiceParmas"
+										"name": "ComponentInputs"
 									},
 									"defaultValue": "{}"
 								},
@@ -633,8 +633,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 666,
-							"character": 27
+							"line": 2057,
+							"character": 30
 						}
 					],
 					"signatures": [
@@ -671,7 +671,7 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "ApiCreateTriggerAndUpdateTrigger"
+										"name": "ComponentInputs"
 									},
 									"defaultValue": "{}"
 								}
@@ -700,8 +700,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 493,
-							"character": 25
+							"line": 1479,
+							"character": 28
 						}
 					],
 					"signatures": [
@@ -738,7 +738,7 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "ApiGetAndListParmas"
+										"name": "ComponentInputs"
 									},
 									"defaultValue": "{}"
 								}
@@ -767,8 +767,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 455,
-							"character": 32
+							"line": 1366,
+							"character": 35
 						}
 					],
 					"signatures": [
@@ -805,7 +805,7 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "ApiGetAndListParmas"
+										"name": "ComponentInputs"
 									},
 									"defaultValue": "{}"
 								}
@@ -834,8 +834,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 417,
-							"character": 28
+							"line": 1243,
+							"character": 31
 						}
 					],
 					"signatures": [
@@ -872,7 +872,7 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "ApiGetAndListParmas"
+										"name": "ComponentInputs"
 									},
 									"defaultValue": "{}"
 								}
@@ -901,8 +901,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 512,
-							"character": 39
+							"line": 1538,
+							"character": 42
 						}
 					],
 					"signatures": [
@@ -939,7 +939,7 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "ApiGetAndListParmas"
+										"name": "ComponentInputs"
 									},
 									"defaultValue": "{}"
 								}
@@ -968,8 +968,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 398,
-							"character": 27
+							"line": 1189,
+							"character": 30
 						}
 					],
 					"signatures": [
@@ -1006,7 +1006,7 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "ApiGetAndListParmas"
+										"name": "ComponentInputs"
 									},
 									"defaultValue": "{}"
 								}
@@ -1035,7 +1035,7 @@
 					"sources": [
 						{
 							"fileName": "base.ts",
-							"line": 144,
+							"line": 145,
 							"character": 28
 						}
 					],
@@ -1096,8 +1096,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 436,
-							"character": 27
+							"line": 1302,
+							"character": 30
 						}
 					],
 					"signatures": [
@@ -1134,7 +1134,7 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "ApiGetAndListParmas"
+										"name": "ComponentInputs"
 									},
 									"defaultValue": "{}"
 								}
@@ -1163,8 +1163,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 474,
-							"character": 27
+							"line": 1420,
+							"character": 30
 						}
 					],
 					"signatures": [
@@ -1201,7 +1201,7 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "ApiGetAndListParmas"
+										"name": "ComponentInputs"
 									},
 									"defaultValue": "{}"
 								}
@@ -1292,8 +1292,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 51,
-							"character": 24
+							"line": 46,
+							"character": 27
 						}
 					],
 					"signatures": [
@@ -1430,8 +1430,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 303,
-							"character": 22
+							"line": 883,
+							"character": 25
 						}
 					],
 					"signatures": [
@@ -1468,7 +1468,7 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "ApiGetAndListParmas"
+										"name": "ComponentInputs"
 									},
 									"defaultValue": "{}"
 								}
@@ -1497,8 +1497,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 26,
-							"character": 24
+							"line": 21,
+							"character": 27
 						}
 					],
 					"signatures": [
@@ -1532,8 +1532,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 322,
-							"character": 29
+							"line": 942,
+							"character": 32
 						}
 					],
 					"signatures": [
@@ -1570,7 +1570,7 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "ApiGetAndListParmas"
+										"name": "ComponentInputs"
 									},
 									"defaultValue": "{}"
 								}
@@ -1599,8 +1599,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 246,
-							"character": 25
+							"line": 691,
+							"character": 28
 						}
 					],
 					"signatures": [
@@ -1637,7 +1637,7 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "ApiGetAndListParmas"
+										"name": "ComponentInputs"
 									},
 									"defaultValue": "{}"
 								}
@@ -1666,8 +1666,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 360,
-							"character": 36
+							"line": 1060,
+							"character": 39
 						}
 					],
 					"signatures": [
@@ -1704,7 +1704,7 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "ApiGetAndListParmas"
+										"name": "ComponentInputs"
 									},
 									"defaultValue": "{}"
 								}
@@ -1733,8 +1733,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 265,
-							"character": 29
+							"line": 755,
+							"character": 32
 						}
 					],
 					"signatures": [
@@ -1771,7 +1771,7 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "ApiGetAndListParmas"
+										"name": "ComponentInputs"
 									},
 									"defaultValue": "{}"
 								}
@@ -1800,8 +1800,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 341,
-							"character": 32
+							"line": 996,
+							"character": 35
 						}
 					],
 					"signatures": [
@@ -1838,7 +1838,7 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "ApiGetAndListParmas"
+										"name": "ComponentInputs"
 									},
 									"defaultValue": "{}"
 								}
@@ -1867,8 +1867,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 227,
-							"character": 24
+							"line": 632,
+							"character": 27
 						}
 					],
 					"signatures": [
@@ -1905,7 +1905,7 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "ApiGetAndListParmas"
+										"name": "ComponentInputs"
 									},
 									"defaultValue": "{}"
 								}
@@ -1934,8 +1934,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 284,
-							"character": 24
+							"line": 819,
+							"character": 27
 						}
 					],
 					"signatures": [
@@ -1972,7 +1972,7 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "ApiGetAndListParmas"
+										"name": "ComponentInputs"
 									},
 									"defaultValue": "{}"
 								}
@@ -2001,7 +2001,7 @@
 					"sources": [
 						{
 							"fileName": "base.ts",
-							"line": 153,
+							"line": 154,
 							"character": 27
 						}
 					],
@@ -2062,8 +2062,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 379,
-							"character": 28
+							"line": 1125,
+							"character": 31
 						}
 					],
 					"signatures": [
@@ -2100,7 +2100,7 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "ApiGetAndListParmas"
+										"name": "ComponentInputs"
 									},
 									"defaultValue": "{}"
 								}
@@ -2129,8 +2129,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 153,
-							"character": 25
+							"line": 298,
+							"character": 28
 						}
 					],
 					"signatures": [
@@ -2167,7 +2167,7 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "ApiGetAndListParmas"
+										"name": "ComponentInputs"
 									},
 									"defaultValue": "{}"
 								}
@@ -2196,8 +2196,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 185,
-							"character": 31
+							"line": 440,
+							"character": 34
 						}
 					],
 					"signatures": [
@@ -2232,7 +2232,7 @@
 									"comment": {},
 									"type": {
 										"type": "reference",
-										"name": "ApiGetAndListParmas"
+										"name": "ComponentInputs"
 									},
 									"defaultValue": "{}"
 								}
@@ -2261,8 +2261,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 213,
-							"character": 38
+							"line": 568,
+							"character": 41
 						}
 					],
 					"signatures": [
@@ -2299,7 +2299,7 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "ApiGetAndListParmas"
+										"name": "ComponentInputs"
 									},
 									"defaultValue": "{}"
 								}
@@ -2328,8 +2328,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 121,
-							"character": 27
+							"line": 146,
+							"character": 30
 						}
 					],
 					"signatures": [
@@ -2366,7 +2366,7 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "ApiGetAndListParmas"
+										"name": "ComponentInputs"
 									},
 									"defaultValue": "{}"
 								}
@@ -2395,8 +2395,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 200,
-							"character": 34
+							"line": 505,
+							"character": 37
 						}
 					],
 					"signatures": [
@@ -2431,7 +2431,7 @@
 									"comment": {},
 									"type": {
 										"type": "reference",
-										"name": "ApiGetAndListParmas"
+										"name": "ComponentInputs"
 									},
 									"defaultValue": "{}"
 								}
@@ -2460,8 +2460,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 106,
-							"character": 26
+							"line": 101,
+							"character": 29
 						}
 					],
 					"signatures": [
@@ -2486,7 +2486,7 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "ApiGetAndListParmas"
+										"name": "ComponentInputs"
 									},
 									"defaultValue": "{}"
 								}
@@ -2515,8 +2515,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 137,
-							"character": 26
+							"line": 222,
+							"character": 29
 						}
 					],
 					"signatures": [
@@ -2553,7 +2553,7 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "ApiGetAndListParmas"
+										"name": "ComponentInputs"
 									},
 									"defaultValue": "{}"
 								}
@@ -2582,8 +2582,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 169,
-							"character": 26
+							"line": 369,
+							"character": 29
 						}
 					],
 					"signatures": [
@@ -2620,7 +2620,7 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "ApiGetAndListParmas"
+										"name": "ComponentInputs"
 									},
 									"defaultValue": "{}"
 								}
@@ -2649,8 +2649,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 715,
-							"character": 28
+							"line": 2246,
+							"character": 31
 						}
 					],
 					"signatures": [
@@ -2687,7 +2687,7 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "ApiPublishVersionAndCreateAlias"
+										"name": "ComponentInputs"
 									},
 									"defaultValue": "{}"
 								}
@@ -2716,8 +2716,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 847,
-							"character": 36
+							"line": 2688,
+							"character": 39
 						}
 					],
 					"signatures": [
@@ -2754,7 +2754,7 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "FunctionAsyncInvokeConfig"
+										"name": "ComponentInputs"
 									},
 									"defaultValue": "{}"
 								}
@@ -2783,8 +2783,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 824,
-							"character": 32
+							"line": 2605,
+							"character": 35
 						}
 					],
 					"signatures": [
@@ -2821,7 +2821,7 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "ProvisionConfig"
+										"name": "ComponentInputs"
 									},
 									"defaultValue": "{}"
 								}
@@ -2850,7 +2850,7 @@
 					"sources": [
 						{
 							"fileName": "base.ts",
-							"line": 168,
+							"line": 169,
 							"character": 24
 						}
 					],
@@ -2924,7 +2924,7 @@
 					"sources": [
 						{
 							"fileName": "base.ts",
-							"line": 195,
+							"line": 196,
 							"character": 25
 						}
 					],
@@ -2985,8 +2985,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 756,
-							"character": 25
+							"line": 2382,
+							"character": 28
 						}
 					],
 					"signatures": [
@@ -3023,7 +3023,7 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "ApiPublishVersionAndCreateAlias"
+										"name": "ComponentInputs"
 									},
 									"defaultValue": "{}"
 								}
@@ -3052,8 +3052,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 801,
-							"character": 32
+							"line": 2532,
+							"character": 35
 						}
 					],
 					"signatures": [
@@ -3090,7 +3090,7 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "ApiCustomDomain"
+										"name": "ComponentInputs"
 									},
 									"defaultValue": "{}"
 								}
@@ -3119,8 +3119,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 636,
-							"character": 28
+							"line": 1937,
+							"character": 31
 						}
 					],
 					"signatures": [
@@ -3157,7 +3157,7 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "ApiCreateFunctionAndUpdateFunction"
+										"name": "ComponentInputs"
 									},
 									"defaultValue": "{}"
 								}
@@ -3186,8 +3186,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 559,
-							"character": 27
+							"line": 1700,
+							"character": 30
 						}
 					],
 					"signatures": [
@@ -3224,7 +3224,7 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "ApiCreateServiceAndUpdateServiceParmas"
+										"name": "ComponentInputs"
 									},
 									"defaultValue": "{}"
 								}
@@ -3253,8 +3253,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 692,
-							"character": 27
+							"line": 2153,
+							"character": 30
 						}
 					],
 					"signatures": [
@@ -3291,7 +3291,7 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "ApiCreateTriggerAndUpdateTrigger"
+										"name": "ComponentInputs"
 									},
 									"defaultValue": "{}"
 								}
@@ -3386,7 +3386,7 @@
 			"sources": [
 				{
 					"fileName": "index.ts",
-					"line": 20,
+					"line": 14,
 					"character": 36
 				}
 			],
