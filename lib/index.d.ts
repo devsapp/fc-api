@@ -1,5 +1,6 @@
 import { ComponentInputs } from './interface';
 import BaseComponent from './base';
+export declare function input(prompt?: string): Promise<any>;
 export default class FunctionCompute extends BaseComponent {
     protected inputs: any;
     protected client: any;
@@ -16,6 +17,7 @@ export default class FunctionCompute extends BaseComponent {
      * @@return {Promise} 返回查询指定api的列表信息
      */
     private fetchData;
+    private index;
     /**
      * 查询服务列表
      * @param inputs

@@ -1,15 +1,34 @@
 import {reportComponent, getCredential, commandParse, help} from '@serverless-devs/core'
 import fc from '@alicloud/fc2'
+import readline from 'readline'
 import yaml from 'js-yaml'
 import {
     ComponentInputs
 } from './interface'
 import BaseComponent from './base'
 
+const {spawnSync} = require('child_process');
+
 let result: any
 let resultData: string[] = []
 let _limit: Number | null
 let _nextToken, _prefix, _startKey: string | null
+
+export function input(prompt: string = ""): Promise<any> {
+    return new Promise((resolve: (value: string) => void): void => {
+        let rl = readline.createInterface({
+            input: process.stdin,
+            output: process.stdout
+        });
+        rl.setPrompt(prompt);
+        rl.prompt();
+        rl.on("line", (line: string): void => {
+            rl.close();
+            resolve(line);
+        });
+    });
+}
+
 
 export default class FunctionCompute extends BaseComponent {
     protected client
@@ -92,6 +111,36 @@ export default class FunctionCompute extends BaseComponent {
             throw error
         }
         return yaml.dump(resultData)
+    }
+
+    private async index(inputs: ComponentInputs = {}) {
+        const newInputs = inputs
+        let addContent = ""
+        if (newInputs.project.access) {
+            addContent = ` -a ${newInputs.project.access}`
+        }
+        console.log(` _____     __       ____  ____   ____ 
+|     |   /  ]     /    ||    \\ |    |
+|   __|  /  /     |  o  ||  o  ) |  | 
+|  |_   /  /      |     ||   _/  |  | 
+|   _] /   \\_     |  _  ||  |    |  | 
+|  |   \\     |    |  |  ||  |    |  | 
+|__|    \\____|    |__|__||__|   |____|
+                                      `)
+        console.log("🎼 If you need help, you could input 'help'. ")
+        console.log("🎼 You can use FC API to operate directly.")
+        console.log("🎼 For example: [listServices]")
+        console.log("🎼 Quit: control + c/z")
+        while (true) {
+            const commandData = await input('> ')
+
+            spawnSync(`s cli fc-api ${commandData === "help" ? "-h" : commandData}${addContent}`, [], {
+                cwd: './',
+                stdio: 'inherit',
+                shell: true
+            });
+        }
+
     }
 
     /**
@@ -204,7 +253,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {limit, nextToken, prefix, startKey, serviceName, qualifier} = Object.assign(inputs.props,  comParse.data || {})
+        const {limit, nextToken, prefix, startKey, serviceName, qualifier} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName})) return
         _nextToken = nextToken
         _limit = limit || 100
@@ -280,7 +329,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {limit, nextToken, prefix, startKey, serviceName, functionName} = Object.assign(inputs.props,  comParse.data || {})
+        const {limit, nextToken, prefix, startKey, serviceName, functionName} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, functionName})) return
         _nextToken = nextToken
         _limit = limit || 100
@@ -351,7 +400,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {limit, nextToken, prefix, startKey, serviceName} = Object.assign(inputs.props,  comParse.data || {})
+        const {limit, nextToken, prefix, startKey, serviceName} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName})) return
         _nextToken = nextToken
         _limit = limit || 100
@@ -422,7 +471,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {limit, nextToken, prefix, startKey, serviceName} = Object.assign(inputs.props,  comParse.data || {})
+        const {limit, nextToken, prefix, startKey, serviceName} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName})) return
         _nextToken = nextToken
         _limit = limit || 100
@@ -488,7 +537,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {limit, nextToken, prefix, startKey} = Object.assign(inputs.props,  comParse.data || {})
+        const {limit, nextToken, prefix, startKey} = Object.assign(inputs.props, comParse.data || {})
         _nextToken = nextToken
         _limit = limit || 100
         _prefix = prefix
@@ -553,7 +602,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {limit, nextToken, serviceName, qualifier} = Object.assign(inputs.props,  comParse.data || {})
+        const {limit, nextToken, serviceName, qualifier} = Object.assign(inputs.props, comParse.data || {})
         _nextToken = nextToken
         _limit = limit || 100
         return this.fetchData('listProvisionConfigs', 'provisionConfigs', nextToken, limit, serviceName, null, qualifier)
@@ -566,7 +615,7 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Optional --limit --nextToken
      */
     public async listFunctionAsyncConfigs(inputs: ComponentInputs = {}) {
-    	const apts = {
+        const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
@@ -616,7 +665,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {limit, nextToken, serviceName, functionName} = Object.assign(inputs.props,  comParse.data || {})
+        const {limit, nextToken, serviceName, functionName} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, functionName})) return
         _nextToken = nextToken
         _limit = limit || 100
@@ -630,7 +679,7 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Optional --qualifier
      */
     public async getService(inputs: ComponentInputs = {}) {
-    	const apts = {
+        const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
@@ -670,7 +719,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, qualifier} = Object.assign(inputs.props,  comParse.data || {})
+        const {serviceName, qualifier} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName})) return
         try {
             await this.getClient()
@@ -689,7 +738,7 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Optional --qualifier
      */
     public async getFunction(inputs: ComponentInputs = {}) {
-    	const apts = {
+        const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
@@ -720,7 +769,7 @@ export default class FunctionCompute extends BaseComponent {
                             description: 'The name of the service.',
                             type: String,
                         },
-						{
+                        {
                             name: 'functionName',
                             description: 'The name of the function.',
                             type: String,
@@ -734,7 +783,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, qualifier} = Object.assign(inputs.props,  comParse.data || {})
+        const {serviceName, functionName, qualifier} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, functionName})) return
         try {
             await this.getClient()
@@ -753,7 +802,7 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Optional --qualifier
      */
     public async getFunctionCode(inputs: ComponentInputs = {}) {
-    	const apts = {
+        const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
@@ -784,7 +833,7 @@ export default class FunctionCompute extends BaseComponent {
                             description: 'The name of the service.',
                             type: String,
                         },
-						{
+                        {
                             name: 'functionName',
                             description: 'The name of the function.',
                             type: String,
@@ -798,7 +847,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, qualifier} = Object.assign(inputs.props,  comParse.data || {})
+        const {serviceName, functionName, qualifier} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, functionName})) return
         try {
             await this.getClient()
@@ -817,7 +866,7 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Optional
      */
     public async getTrigger(inputs: ComponentInputs = {}) {
-    	const apts = {
+        const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
@@ -848,7 +897,7 @@ export default class FunctionCompute extends BaseComponent {
                             description: 'The name of the service.',
                             type: String,
                         },
-						{
+                        {
                             name: 'functionName',
                             description: 'The name of the function.',
                             type: String,
@@ -862,7 +911,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, triggerName} = Object.assign(inputs.props,  comParse.data || {})
+        const {serviceName, functionName, triggerName} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, functionName, triggerName})) return
         try {
             await this.getClient()
@@ -881,7 +930,7 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Optional
      */
     public async getAlias(inputs: ComponentInputs = {}) {
-    	const apts = {
+        const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
@@ -921,7 +970,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, aliasName} = Object.assign(inputs.props,  comParse.data || {})
+        const {serviceName, aliasName} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, aliasName})) return
         try {
             await this.getClient()
@@ -940,7 +989,7 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Optional
      */
     public async getCustomDomain(inputs: ComponentInputs = {}) {
-    	const apts = {
+        const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
@@ -975,7 +1024,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {domainName} = Object.assign(inputs.props,  comParse.data || {})
+        const {domainName} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({domainName})) return
         try {
             await this.getClient()
@@ -994,7 +1043,7 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Optional --qualifier
      */
     public async getProvisionConfig(inputs: ComponentInputs = {}) {
-    	const apts = {
+        const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
@@ -1025,12 +1074,12 @@ export default class FunctionCompute extends BaseComponent {
                             description: 'The name of the service.',
                             type: String,
                         },
-						{
+                        {
                             name: 'functionName',
                             description: 'The name of the function.',
                             type: String,
                         },
-						{
+                        {
                             name: 'qualifier',
                             description: 'The version or alias of the service.',
                             type: String,
@@ -1039,7 +1088,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, qualifier} = Object.assign(inputs.props,  comParse.data || {})
+        const {serviceName, functionName, qualifier} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, functionName, qualifier})) return
         try {
             await this.getClient()
@@ -1059,7 +1108,7 @@ export default class FunctionCompute extends BaseComponent {
      */
     public async getFunctionAsyncConfig(inputs: ComponentInputs = {}) {
 
-    	const apts = {
+        const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
@@ -1090,12 +1139,12 @@ export default class FunctionCompute extends BaseComponent {
                             description: 'The name of the service.',
                             type: String,
                         },
-						{
+                        {
                             name: 'functionName',
                             description: 'The name of the function.',
                             type: String,
                         },
-						{
+                        {
                             name: 'qualifier',
                             description: 'The version or alias of the service.',
                             type: String,
@@ -1104,7 +1153,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, qualifier} = Object.assign(inputs.props,  comParse.data || {})
+        const {serviceName, functionName, qualifier} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, functionName, qualifier})) return
         try {
             await this.getClient()
@@ -1123,7 +1172,7 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Optional --qualifier --even
      */
     public async invokeFunction(inputs: ComponentInputs = {}) {
-    	const apts = {
+        const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
@@ -1154,12 +1203,12 @@ export default class FunctionCompute extends BaseComponent {
                             description: 'The name of the service.',
                             type: String,
                         },
-						{
+                        {
                             name: 'functionName',
                             description: 'The name of the function.',
                             type: String,
                         },
-						{
+                        {
                             name: 'event',
                             description: 'The event of the function. The value of this parameter is a binary array. Function Compute passes the event to the function for processing.',
                             type: String,
@@ -1168,7 +1217,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, event} = Object.assign(inputs.props,  comParse.data || {})
+        const {serviceName, functionName, event} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, functionName})) return
         try {
             await this.getClient()
@@ -1187,7 +1236,7 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Optional
      */
     public async deleteService(inputs: ComponentInputs = {}) {
-    	const apts = {
+        const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
@@ -1222,7 +1271,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName} = Object.assign(inputs.props,  comParse.data || {})
+        const {serviceName} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName})) return
         try {
             await this.getClient()
@@ -1241,7 +1290,7 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Optional
      */
     public async deleteFunction(inputs: ComponentInputs = {}) {
-    	const apts = {
+        const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
@@ -1272,7 +1321,7 @@ export default class FunctionCompute extends BaseComponent {
                             description: 'The name of the service.',
                             type: String,
                         },
-						{
+                        {
                             name: 'functionName',
                             description: 'The name of the function.',
                             type: String,
@@ -1281,7 +1330,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName} = Object.assign(inputs.props,  comParse.data || {})
+        const {serviceName, functionName} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, functionName})) return
         try {
             await this.getClient()
@@ -1300,7 +1349,7 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Optional
      */
     public async deleteTrigger(inputs: ComponentInputs = {}) {
-    	const apts = {
+        const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
@@ -1331,12 +1380,12 @@ export default class FunctionCompute extends BaseComponent {
                             description: 'The name of the service.',
                             type: String,
                         },
-						{
+                        {
                             name: 'functionName',
                             description: 'The name of the function.',
                             type: String,
                         },
-						{
+                        {
                             name: 'triggerName',
                             description: 'The name of the trigger.',
                             type: String,
@@ -1345,7 +1394,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, triggerName} = Object.assign(inputs.props,  comParse.data || {})
+        const {serviceName, functionName, triggerName} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, functionName, triggerName})) return
         try {
             await this.getClient()
@@ -1364,7 +1413,7 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Optional
      */
     public async deleteCustomDomain(inputs: ComponentInputs = {}) {
-    	const apts = {
+        const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
@@ -1399,7 +1448,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {domainName} = Object.assign(inputs.props,  comParse.data || {})
+        const {domainName} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({domainName})) return
         try {
             await this.getClient()
@@ -1418,7 +1467,7 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Optional
      */
     public async deleteVersion(inputs: ComponentInputs = {}) {
-    	const apts = {
+        const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
@@ -1449,7 +1498,7 @@ export default class FunctionCompute extends BaseComponent {
                             description: 'The name of the service.',
                             type: String,
                         },
-						{
+                        {
                             name: 'versionId',
                             description: 'The version of the service.',
                             type: String,
@@ -1458,7 +1507,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, versionId} = Object.assign(inputs.props,  comParse.data || {})
+        const {serviceName, versionId} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, versionId})) return
         try {
             await this.getClient()
@@ -1477,7 +1526,7 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Optional
      */
     public async deleteAlias(inputs: ComponentInputs = {}) {
-    	const apts = {
+        const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
@@ -1508,7 +1557,7 @@ export default class FunctionCompute extends BaseComponent {
                             description: 'The name of the service.',
                             type: String,
                         },
-						{
+                        {
                             name: 'aliasName',
                             description: 'The name of the alias.',
                             type: String,
@@ -1517,7 +1566,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, aliasName} = Object.assign(inputs.props,  comParse.data || {})
+        const {serviceName, aliasName} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, aliasName})) return
         try {
             await this.getClient()
@@ -1536,7 +1585,7 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Optional --qualifier
      */
     public async deleteFunctionAsyncConfig(inputs: ComponentInputs = {}) {
-    	const apts = {
+        const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
@@ -1567,12 +1616,12 @@ export default class FunctionCompute extends BaseComponent {
                             description: 'The name of the service.',
                             type: String,
                         },
-						{
+                        {
                             name: 'functionName',
                             description: 'The name of the function.',
                             type: String,
                         },
-						{
+                        {
                             name: 'qualifier',
                             description: 'The version or alias of the service.',
                             type: String,
@@ -1581,7 +1630,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, qualifier} = Object.assign(inputs.props,  comParse.data || {})
+        const {serviceName, functionName, qualifier} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, functionName})) return
         try {
             await this.getClient()
@@ -1600,7 +1649,7 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Optional --description --internetAccess --role --logConfig --nasConfig --vpcConfig --tracingConfig
      */
     public async createService(inputs: ComponentInputs = {}, defaultServiceName: string) {
-    	const apts = {
+        const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
@@ -1631,37 +1680,37 @@ export default class FunctionCompute extends BaseComponent {
                             description: 'The name of the service.',
                             type: String,
                         },
-						{
+                        {
                             name: 'description',
                             description: 'The description of the service.',
                             type: String,
                         },
-						{
+                        {
                             name: 'internetAccess',
                             description: 'Specifies whether to allow functions to access the Internet. Valid values: true/false',
                             type: String,
                         },
-						{
+                        {
                             name: 'role',
                             description: 'The RAM role that is used to grant required permissions to Function Compute. The role is used in the following scenarios: 1）Sends logs generated by a function to your Logstore. 2）Generates a token for a function to access other cloud resources during function execution.',
                             type: String,
                         },
-						{
+                        {
                             name: 'logConfig',
                             description: 'The log configuration. This parameter specifies a Logstore to store function execution logs.',
                             type: String,
                         },
-						{
+                        {
                             name: 'nasConfig',
                             description: 'The Apsara File Storage NAS (NAS) file system configuration, which enables a function to access the specified NAS file system.',
                             type: String,
                         },
-						{
+                        {
                             name: 'vpcConfig',
                             description: 'The VPC configuration, which enables a function to access the specified VPC.',
                             type: String,
                         },
-						{
+                        {
                             name: 'tracingConfig',
                             description: 'The configuration of Tracing Analysis. After Function Compute integrates with Tracing Analysis, you can record the stay time of a request in Function Compute, view the cold start time for a function, and record the execution time of a function. For more information.',
                             type: String,
@@ -1670,7 +1719,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, description, internetAccess, role, logConfig, nasConfig, vpcConfig, tracingConfig} = Object.assign(inputs.props,  comParse.data || {})
+        const {serviceName, description, internetAccess, role, logConfig, nasConfig, vpcConfig, tracingConfig} = Object.assign(inputs.props, comParse.data || {})
         let sName: string = defaultServiceName ? defaultServiceName : serviceName
         if (this.checkField({sName})) return
         try {
@@ -1729,37 +1778,37 @@ export default class FunctionCompute extends BaseComponent {
                             description: 'The name of the service.',
                             type: String,
                         },
-						{
+                        {
                             name: 'description',
                             description: 'The description of the service.',
                             type: String,
                         },
-						{
+                        {
                             name: 'internetAccess',
                             description: 'Specifies whether to allow functions to access the Internet. Valid values: true/false',
                             type: String,
                         },
-						{
+                        {
                             name: 'role',
                             description: 'The RAM role that is used to grant required permissions to Function Compute. The role is used in the following scenarios: 1）Sends logs generated by a function to your Logstore. 2）Generates a token for a function to access other cloud resources during function execution.',
                             type: String,
                         },
-						{
+                        {
                             name: 'logConfig',
                             description: 'The log configuration. This parameter specifies a Logstore to store function execution logs.',
                             type: String,
                         },
-						{
+                        {
                             name: 'nasConfig',
                             description: 'The Apsara File Storage NAS (NAS) file system configuration, which enables a function to access the specified NAS file system.',
                             type: String,
                         },
-						{
+                        {
                             name: 'vpcConfig',
                             description: 'The VPC configuration, which enables a function to access the specified VPC.',
                             type: String,
                         },
-						{
+                        {
                             name: 'tracingConfig',
                             description: 'The configuration of Tracing Analysis. After Function Compute integrates with Tracing Analysis, you can record the stay time of a request in Function Compute, view the cold start time for a function, and record the execution time of a function. For more information.',
                             type: String,
@@ -1768,7 +1817,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-    	const {serviceName, description, internetAccess, role, logConfig, nasConfig, vpcConfig, tracingConfig} = Object.assign(inputs.props,  comParse.data || {})
+        const {serviceName, description, internetAccess, role, logConfig, nasConfig, vpcConfig, tracingConfig} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName})) return
         try {
             await this.getClient()
@@ -1796,7 +1845,7 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Optional --description --customContainerConfig --initializationTimeout --initializer --memorySize --runtime --timeout --caPort
      */
     public async createFunction(inputs: ComponentInputs = {}) {
-    	const apts = {
+        const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
@@ -1827,57 +1876,57 @@ export default class FunctionCompute extends BaseComponent {
                             description: 'The name of the service.',
                             type: String,
                         },
-						{
+                        {
                             name: 'functionName',
                             description: 'The description of the function.',
                             type: String,
                         },
-						{
+                        {
                             name: 'code',
                             description: 'The code of the function. The code must be packaged into a ZIP file.',
                             type: String,
                         },
-						{
+                        {
                             name: 'customContainerConfig',
                             description: 'The configuration of the custom container runtime. After you configure the custom container runtime, you can use custom container images to execute functions.',
                             type: String,
                         },
-						{
+                        {
                             name: 'description',
                             description: 'The description of the function.',
                             type: String,
                         },
-						{
+                        {
                             name: 'handler',
                             description: 'The handler of the function. The format is determined by the programming language.',
                             type: String,
                         },
-						{
+                        {
                             name: 'initializationTimeout',
                             description: 'The timeout period for Function Compute to run the initializer function. Unit: seconds. Default value: 3. Valid values: 1 to 300. When this period expires, the execution of the initializer function is terminated.',
                             type: String,
                         },
-						{
+                        {
                             name: 'initializer',
                             description: 'The handler of the initializer function. The format is determined by the programming language.',
                             type: String,
                         },
-						{
+                        {
                             name: 'memorySize',
                             description: 'The memory size of the function. Unit: MB. The memory size must be a multiple of 64 MB. Instance types have different memory specifications.',
                             type: String,
                         },
-						{
+                        {
                             name: 'runtime',
                             description: 'The runtime environment of the function. Valid values: nodejs4.4, nodejs6, nodejs8, nodejs10, nodejs12, python2.7, python3, java8, java11, php7.2, dotnetcore2.1, custom, and custom-container.',
                             type: String,
                         },
-						{
+                        {
                             name: 'timeout',
                             description: 'The timeout period for the execution of the function. Unit: seconds. Default value: 60. Valid values: 1 to 600. When this period expires, the execution of the function is terminated.',
                             type: String,
                         },
-						{
+                        {
                             name: 'caPort',
                             description: 'The port on which the HTTP server listens for the custom runtime or custom container runtime.',
                             type: String,
@@ -1886,7 +1935,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort} = Object.assign(inputs.props,  comParse.data || {})
+        const {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort} = Object.assign(inputs.props, comParse.data || {})
         let functionCode: any = {}
         if (this.checkField({serviceName, functionName, code, handler, runtime})) return
         if (code.ossBucketName && code.ossObjectName) {
@@ -1935,7 +1984,7 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Optional --description --customContainerConfig --initializationTimeout --initializer --memorySize --runtime --timeout --caPort --code --handler --runtime
      */
     public async updateFunction(inputs: ComponentInputs = {}) {
-           	const apts = {
+        const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
@@ -1966,57 +2015,57 @@ export default class FunctionCompute extends BaseComponent {
                             description: 'The name of the service.',
                             type: String,
                         },
-						{
+                        {
                             name: 'functionName',
                             description: 'The description of the function.',
                             type: String,
                         },
-						{
+                        {
                             name: 'code',
                             description: 'The code of the function. The code must be packaged into a ZIP file.',
                             type: String,
                         },
-						{
+                        {
                             name: 'customContainerConfig',
                             description: 'The configuration of the custom container runtime. After you configure the custom container runtime, you can use custom container images to execute functions.',
                             type: String,
                         },
-						{
+                        {
                             name: 'description',
                             description: 'The description of the function.',
                             type: String,
                         },
-						{
+                        {
                             name: 'handler',
                             description: 'The handler of the function. The format is determined by the programming language.',
                             type: String,
                         },
-						{
+                        {
                             name: 'initializationTimeout',
                             description: 'The timeout period for Function Compute to run the initializer function. Unit: seconds. Default value: 3. Valid values: 1 to 300. When this period expires, the execution of the initializer function is terminated.',
                             type: String,
                         },
-						{
+                        {
                             name: 'initializer',
                             description: 'The handler of the initializer function. The format is determined by the programming language.',
                             type: String,
                         },
-						{
+                        {
                             name: 'memorySize',
                             description: 'The memory size of the function. Unit: MB. The memory size must be a multiple of 64 MB. Instance types have different memory specifications.',
                             type: String,
                         },
-						{
+                        {
                             name: 'runtime',
                             description: 'The runtime environment of the function. Valid values: nodejs4.4, nodejs6, nodejs8, nodejs10, nodejs12, python2.7, python3, java8, java11, php7.2, dotnetcore2.1, custom, and custom-container.',
                             type: String,
                         },
-						{
+                        {
                             name: 'timeout',
                             description: 'The timeout period for the execution of the function. Unit: seconds. Default value: 60. Valid values: 1 to 600. When this period expires, the execution of the function is terminated.',
                             type: String,
                         },
-						{
+                        {
                             name: 'caPort',
                             description: 'The port on which the HTTP server listens for the custom runtime or custom container runtime.',
                             type: String,
@@ -2025,7 +2074,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-    	const {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort} = Object.assign(inputs.props,  comParse.data || {})
+        const {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, functionName})) return
         try {
             await this.getClient()
@@ -2055,7 +2104,7 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Optional --invocationRole --qualifier --sourceArn --triggerConfig
      */
     public async createTrigger(inputs: ComponentInputs = {}) {
-    	          	const apts = {
+        const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
@@ -2086,37 +2135,37 @@ export default class FunctionCompute extends BaseComponent {
                             description: 'The name of the service.',
                             type: String,
                         },
-						{
+                        {
                             name: 'functionName',
                             description: 'The description of the function.',
                             type: String,
                         },
-						{
+                        {
                             name: 'invocationRole',
                             description: 'The role required when the trigger source such as OSS invokes the function. ',
                             type: String,
                         },
-						{
+                        {
                             name: 'qualifier',
                             description: 'The version or alias of the service.',
                             type: String,
                         },
-						{
+                        {
                             name: 'sourceArn',
                             description: 'The Alibaba Cloud Resource Name (ARN) of the event source for the trigger.',
                             type: String,
                         },
-						{
+                        {
                             name: 'triggerConfig',
                             description: 'The configurations of the trigger. The configurations vary with trigger types.',
                             type: String,
                         },
-						{
+                        {
                             name: 'triggerName',
                             description: 'The name of the trigger.',
                             type: String,
                         },
-						{
+                        {
                             name: 'triggerType',
                             description: 'The type of the trigger: oss/log/timer/http/tablestore/cdn_events/mns_topic.',
                             type: String,
@@ -2125,7 +2174,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, invocationRole, qualifier, sourceArn, triggerConfig, triggerName, triggerType} = Object.assign(inputs.props,  comParse.data || {})
+        const {serviceName, functionName, invocationRole, qualifier, sourceArn, triggerConfig, triggerName, triggerType} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, functionName, triggerName, triggerType, invocationRole})) return
         try {
             await this.getClient()
@@ -2151,7 +2200,7 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Optional --invocationRole --qualifier --triggerConfig
      */
     public async updateTrigger(inputs: ComponentInputs = {}) {
-    	const apts = {
+        const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
@@ -2182,37 +2231,37 @@ export default class FunctionCompute extends BaseComponent {
                             description: 'The name of the service.',
                             type: String,
                         },
-						{
+                        {
                             name: 'functionName',
                             description: 'The description of the function.',
                             type: String,
                         },
-						{
+                        {
                             name: 'invocationRole',
                             description: 'The role required when the trigger source such as OSS invokes the function. ',
                             type: String,
                         },
-						{
+                        {
                             name: 'qualifier',
                             description: 'The version or alias of the service.',
                             type: String,
                         },
-						{
+                        {
                             name: 'sourceArn',
                             description: 'The Alibaba Cloud Resource Name (ARN) of the event source for the trigger.',
                             type: String,
                         },
-						{
+                        {
                             name: 'triggerConfig',
                             description: 'The configurations of the trigger. The configurations vary with trigger types.',
                             type: String,
                         },
-						{
+                        {
                             name: 'triggerName',
                             description: 'The name of the trigger.',
                             type: String,
                         },
-						{
+                        {
                             name: 'triggerType',
                             description: 'The type of the trigger: oss/log/timer/http/tablestore/cdn_events/mns_topic.',
                             type: String,
@@ -2221,7 +2270,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, invocationRole, qualifier, triggerConfig, triggerName} = Object.assign(inputs.props,  comParse.data || {})
+        const {serviceName, functionName, invocationRole, qualifier, triggerConfig, triggerName} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, functionName, triggerName})) return
         try {
             await this.getClient()
@@ -2244,7 +2293,7 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Optional
      */
     public async publishVersion(inputs: ComponentInputs = {}) {
-    	const apts = {
+        const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
@@ -2275,7 +2324,7 @@ export default class FunctionCompute extends BaseComponent {
                             description: 'The name of the service.',
                             type: String,
                         },
-						{
+                        {
                             name: 'description',
                             description: 'The description of the service version.',
                             type: String,
@@ -2284,7 +2333,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, description} = Object.assign(inputs.props,  comParse.data || {})
+        const {serviceName, description} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName})) return
         try {
             await this.getClient()
@@ -2303,7 +2352,7 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Optional --additionalVersionWeight --description
      */
     public async createAlias(inputs: ComponentInputs = {}) {
-    	const apts = {
+        const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
@@ -2334,22 +2383,22 @@ export default class FunctionCompute extends BaseComponent {
                             description: 'The name of the service.',
                             type: String,
                         },
-						{
+                        {
                             name: 'aliasName',
                             description: 'The name of the alias.',
                             type: String,
                         },
-						{
+                        {
                             name: 'versionId',
                             description: 'The version to which the alias points.',
                             type: String,
                         },
-						{
+                        {
                             name: 'additionalVersionWeight',
                             description: 'The additional version to which the alias points and the weight of the additional version.',
                             type: String,
                         },
-						{
+                        {
                             name: 'description',
                             description: 'The description of the alias.',
                             type: String,
@@ -2358,7 +2407,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, aliasName, versionId, additionalVersionWeight, description} = Object.assign(inputs.props,  comParse.data || {})
+        const {serviceName, aliasName, versionId, additionalVersionWeight, description} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, aliasName, versionId})) return
         try {
             await this.getClient()
@@ -2380,7 +2429,7 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Optional --additionalVersionWeight --description
      */
     public async updateAlias(inputs: ComponentInputs = {}) {
-    	const apts = {
+        const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
@@ -2411,22 +2460,22 @@ export default class FunctionCompute extends BaseComponent {
                             description: 'The name of the service.',
                             type: String,
                         },
-						{
+                        {
                             name: 'aliasName',
                             description: 'The name of the alias.',
                             type: String,
                         },
-						{
+                        {
                             name: 'versionId',
                             description: 'The version to which the alias points.',
                             type: String,
                         },
-						{
+                        {
                             name: 'additionalVersionWeight',
                             description: 'The additional version to which the alias points and the weight of the additional version.',
                             type: String,
                         },
-						{
+                        {
                             name: 'description',
                             description: 'The description of the alias.',
                             type: String,
@@ -2435,7 +2484,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, aliasName, versionId, additionalVersionWeight, description} = Object.assign(inputs.props,  comParse.data || {})
+        const {serviceName, aliasName, versionId, additionalVersionWeight, description} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, aliasName, versionId})) return
         try {
             await this.getClient()
@@ -2457,7 +2506,7 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Optional --protocol --certConfig --routeConfig
      */
     public async createCustomDomain(inputs: ComponentInputs = {}) {
-    	const apts = {
+        const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
@@ -2488,17 +2537,17 @@ export default class FunctionCompute extends BaseComponent {
                             description: 'The domain name.',
                             type: String,
                         },
-						{
+                        {
                             name: 'protocol',
                             description: 'The protocol types supported by the domain name. Valid values: HTTP/HTTP,HTTPS',
                             type: String,
                         },
-						{
+                        {
                             name: 'certConfig',
                             description: 'The configurations of the HTTPS certificate.',
                             type: String,
                         },
-						{
+                        {
                             name: 'routeConfig',
                             description: 'The route table that maps paths to functions when the functions are invoked by using the custom domain name.',
                             type: String,
@@ -2507,7 +2556,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {domainName, protocol, certConfig, routeConfig} = Object.assign(inputs.props,  comParse.data || {})
+        const {domainName, protocol, certConfig, routeConfig} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({domainName})) return
         try {
             await this.getClient()
@@ -2530,7 +2579,7 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Optional --protocol --certConfig --routeConfig
      */
     public async updateCustomDomain(inputs: ComponentInputs = {}) {
-    	const apts = {
+        const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
@@ -2561,17 +2610,17 @@ export default class FunctionCompute extends BaseComponent {
                             description: 'The domain name.',
                             type: String,
                         },
-						{
+                        {
                             name: 'protocol',
                             description: 'The protocol types supported by the domain name. Valid values: HTTP/HTTP,HTTPS',
                             type: String,
                         },
-						{
+                        {
                             name: 'certConfig',
                             description: 'The configurations of the HTTPS certificate.',
                             type: String,
                         },
-						{
+                        {
                             name: 'routeConfig',
                             description: 'The route table that maps paths to functions when the functions are invoked by using the custom domain name.',
                             type: String,
@@ -2580,7 +2629,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {domainName, protocol, certConfig, routeConfig} = Object.assign(inputs.props,  comParse.data || {})
+        const {domainName, protocol, certConfig, routeConfig} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({domainName})) return
         try {
             await this.getClient()
@@ -2603,7 +2652,7 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Optional --target --scheduledActions --targetTrackingPolicies
      */
     public async putProvisionConfig(inputs: ComponentInputs = {}) {
-    	const apts = {
+        const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
@@ -2634,17 +2683,17 @@ export default class FunctionCompute extends BaseComponent {
                             description: 'The name of the service.',
                             type: String,
                         },
-						{
+                        {
                             name: 'functionName',
                             description: 'The name of the function.',
                             type: String,
                         },
-						{
+                        {
                             name: 'qualifier',
                             description: 'The version or alias of the service.',
                             type: String,
                         },
-						{
+                        {
                             name: 'target',
                             description: 'The expected number of provisioned instances.',
                             type: String,
@@ -2654,7 +2703,7 @@ export default class FunctionCompute extends BaseComponent {
                             description: 'The configuration of scheduled auto scaling. You can perform scheduled auto scaling to flexibly configure provisioned instances. You can configure the number of provisioned instances to be automatically adjusted to a specified value at a specified time. This way, the number of provisioned instances can meet the concurrency of your business.',
                             type: String,
                         },
-						{
+                        {
                             name: 'targetTrackingPolicies',
                             description: 'The configuration of metric tracking auto scaling. Provisioned instances are scaled in or out every minute based on the concurrency utilization of provisioned instances.',
                             type: String,
@@ -2663,7 +2712,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, qualifier, target, scheduledActions, targetTrackingPolicies} = Object.assign(inputs.props,  comParse.data || {})
+        const {serviceName, functionName, qualifier, target, scheduledActions, targetTrackingPolicies} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, functionName})) return
         try {
             await this.getClient()
@@ -2686,7 +2735,7 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Optional --destinationConfig --maxAsyncEventAgeInSeconds --maxAsyncRetryAttempts
      */
     public async putFunctionAsyncConfig(inputs: ComponentInputs = {}) {
-    	const apts = {
+        const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
@@ -2717,17 +2766,17 @@ export default class FunctionCompute extends BaseComponent {
                             description: 'The name of the service.',
                             type: String,
                         },
-						{
+                        {
                             name: 'functionName',
                             description: 'The name of the function.',
                             type: String,
                         },
-						{
+                        {
                             name: 'qualifier',
                             description: 'The version or alias of the service.',
                             type: String,
                         },
-						{
+                        {
                             name: 'destinationConfig',
                             description: 'The configuration structure of the destination for asynchronous invocation.',
                             type: String,
@@ -2737,7 +2786,7 @@ export default class FunctionCompute extends BaseComponent {
                             description: 'The validity period of requests. Valid values: 1 to 2592000. Unit: seconds.',
                             type: String,
                         },
-						{
+                        {
                             name: 'maxAsyncRetryAttempts',
                             description: 'The maximum number of retries after an asynchronous invocation fails. Default value: 3. Valid values: 0 to 8.',
                             type: String,
@@ -2746,7 +2795,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, qualifier, destinationConfig, maxAsyncEventAgeInSeconds, maxAsyncRetryAttempts} = Object.assign(inputs.props,  comParse.data || {})
+        const {serviceName, functionName, qualifier, destinationConfig, maxAsyncEventAgeInSeconds, maxAsyncRetryAttempts} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, functionName})) return
         try {
             await this.getClient()
@@ -2771,7 +2820,7 @@ export default class FunctionCompute extends BaseComponent {
      */
 
     public async createFunctionDefaultService(inputs: ComponentInputs = {}) {
-    	const apts = {
+        const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
@@ -2802,57 +2851,57 @@ export default class FunctionCompute extends BaseComponent {
                             description: 'The name of the service.',
                             type: String,
                         },
-						{
+                        {
                             name: 'functionName',
                             description: 'The description of the function.',
                             type: String,
                         },
-						{
+                        {
                             name: 'code',
                             description: 'The code of the function. The code must be packaged into a ZIP file.',
                             type: String,
                         },
-						{
+                        {
                             name: 'customContainerConfig',
                             description: 'The configuration of the custom container runtime. After you configure the custom container runtime, you can use custom container images to execute functions.',
                             type: String,
                         },
-						{
+                        {
                             name: 'description',
                             description: 'The description of the function.',
                             type: String,
                         },
-						{
+                        {
                             name: 'handler',
                             description: 'The handler of the function. The format is determined by the programming language.',
                             type: String,
                         },
-						{
+                        {
                             name: 'initializationTimeout',
                             description: 'The timeout period for Function Compute to run the initializer function. Unit: seconds. Default value: 3. Valid values: 1 to 300. When this period expires, the execution of the initializer function is terminated.',
                             type: String,
                         },
-						{
+                        {
                             name: 'initializer',
                             description: 'The handler of the initializer function. The format is determined by the programming language.',
                             type: String,
                         },
-						{
+                        {
                             name: 'memorySize',
                             description: 'The memory size of the function. Unit: MB. The memory size must be a multiple of 64 MB. Instance types have different memory specifications.',
                             type: String,
                         },
-						{
+                        {
                             name: 'runtime',
                             description: 'The runtime environment of the function. Valid values: nodejs4.4, nodejs6, nodejs8, nodejs10, nodejs12, python2.7, python3, java8, java11, php7.2, dotnetcore2.1, custom, and custom-container.',
                             type: String,
                         },
-						{
+                        {
                             name: 'timeout',
                             description: 'The timeout period for the execution of the function. Unit: seconds. Default value: 60. Valid values: 1 to 600. When this period expires, the execution of the function is terminated.',
                             type: String,
                         },
-						{
+                        {
                             name: 'caPort',
                             description: 'The port on which the HTTP server listens for the custom runtime or custom container runtime.',
                             type: String,
@@ -2861,7 +2910,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort} = Object.assign(inputs.props,  comParse.data || {})
+        const {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({functionName, code, handler, runtime})) return
         let defaultServiceName: string = serviceName
         if (!serviceName || serviceName.length === 0) {
