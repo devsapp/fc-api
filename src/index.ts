@@ -133,12 +133,15 @@ export default class FunctionCompute extends BaseComponent {
         console.log("🎼 Quit: control + c/z")
         while (true) {
             const commandData = await input('> ')
-
-            spawnSync(`s cli fc-api ${commandData === "help" ? "-h" : commandData}${addContent}`, [], {
-                cwd: './',
-                stdio: 'inherit',
-                shell: true
-            });
+            if (commandData) {
+                spawnSync(`s cli fc-api ${commandData === "help" ? "-h" : commandData}${addContent}`, [], {
+                    cwd: './',
+                    stdio: 'inherit',
+                    shell: true
+                });
+            } else {
+                console.log("")
+            }
         }
 
     }
