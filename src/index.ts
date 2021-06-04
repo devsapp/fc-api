@@ -37,9 +37,9 @@ export default class FunctionCompute extends BaseComponent {
         super()
     }
 
-    private async getClient() {
+    private async getClient(region, access) {
         if (!this.client) {
-            const {region, access = 'default'} = this.inputs
+            access = access || this.inputs.access || 'default'
             const {AccountID, AccessKeyID, AccessKeySecret} = (await getCredential(access)) as any
             reportComponent('fc-api', {uid: AccountID, command: 's cli'})
             this.client = new fc(AccountID, {
@@ -62,14 +62,14 @@ export default class FunctionCompute extends BaseComponent {
      * @param {string} qualifier
      * @@return {Promise} 返回查询指定api的列表信息
      */
-    private async fetchData(api: string, field: string, nextToken: string, limit: number, serviceName?: string, functionName?: string, qualifier?: number) {
+    private async fetchData(access: string, region: string, api: string, field: string, nextToken: string, limit: number, serviceName?: string, functionName?: string, qualifier?: number) {
         let optional: any = {
             limit: _limit,
             nextToken: _nextToken,
             prefix: _prefix,
             startKey: _startKey,
         }
-        await this.getClient()
+        await this.getClient(region, access)
         const switchApi = {
             listServices: async () => {
                 result = await this.client[api]({...optional})
@@ -134,6 +134,7 @@ export default class FunctionCompute extends BaseComponent {
         while (true) {
             const commandData = await input('> ')
             if (commandData) {
+                console.log(`s cli fc-api ${commandData === "help" ? "-h" : commandData}${addContent}`)
                 spawnSync(`s cli fc-api ${commandData === "help" ? "-h" : commandData}${addContent}`, [], {
                     cwd: './',
                     stdio: 'inherit',
@@ -166,27 +167,33 @@ export default class FunctionCompute extends BaseComponent {
                     header: 'Options',
                     optionList: [
                         {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
                             name: 'access',
                             description: 'Specify the key name.',
-                            alias: 'a',
+
                             type: String,
                         },
                         {
                             name: 'props',
                             description: 'The json string of props.',
-                            alias: 'p',
+
                             type: String,
-                        },
+                        }
                     ],
                 },]);
             return;
         }
-        const {limit, nextToken, prefix, startKey} = inputs.props
+        const {limit, nextToken, prefix, startKey, region, access} = Object.assign(inputs.props, comParse.data || {})
         _nextToken = nextToken
         _limit = limit || 100
         _prefix = prefix
         _startKey = startKey
-        return this.fetchData('listServices', 'services', nextToken, limit)
+        return this.fetchData(access, region, 'listServices', 'services', nextToken, limit)
     }
 
     /**
@@ -211,15 +218,21 @@ export default class FunctionCompute extends BaseComponent {
                     header: 'Options',
                     optionList: [
                         {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
                             name: 'access',
                             description: 'Specify the key name.',
-                            alias: 'a',
+
                             type: String,
                         },
                         {
                             name: 'props',
                             description: 'The json string of props.',
-                            alias: 'p',
+
                             type: String,
                         },
                         {
@@ -256,13 +269,13 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {limit, nextToken, prefix, startKey, serviceName, qualifier} = Object.assign(inputs.props, comParse.data || {})
+        const {limit, nextToken, prefix, startKey, serviceName, qualifier, region, access} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName})) return
         _nextToken = nextToken
         _limit = limit || 100
         _prefix = prefix
         _startKey = startKey
-        return this.fetchData('listFunctions', 'functions', nextToken, limit, serviceName, null, qualifier)
+        return this.fetchData(access, region, 'listFunctions', 'functions', nextToken, limit, serviceName, null, qualifier)
     }
 
     /**
@@ -287,15 +300,21 @@ export default class FunctionCompute extends BaseComponent {
                     header: 'Options',
                     optionList: [
                         {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
                             name: 'access',
                             description: 'Specify the key name.',
-                            alias: 'a',
+
                             type: String,
                         },
                         {
                             name: 'props',
                             description: 'The json string of props.',
-                            alias: 'p',
+
                             type: String,
                         },
                         {
@@ -332,13 +351,13 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {limit, nextToken, prefix, startKey, serviceName, functionName} = Object.assign(inputs.props, comParse.data || {})
+        const {limit, nextToken, prefix, startKey, serviceName, functionName, region, access} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, functionName})) return
         _nextToken = nextToken
         _limit = limit || 100
         _prefix = prefix
         _startKey = startKey
-        return this.fetchData('listTriggers', 'triggers', nextToken, limit, serviceName, functionName)
+        return this.fetchData(access, region, 'listTriggers', 'triggers', nextToken, limit, serviceName, functionName)
     }
 
     /**
@@ -363,15 +382,21 @@ export default class FunctionCompute extends BaseComponent {
                     header: 'Options',
                     optionList: [
                         {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
                             name: 'access',
                             description: 'Specify the key name.',
-                            alias: 'a',
+
                             type: String,
                         },
                         {
                             name: 'props',
                             description: 'The json string of props.',
-                            alias: 'p',
+
                             type: String,
                         },
                         {
@@ -403,13 +428,13 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {limit, nextToken, prefix, startKey, serviceName} = Object.assign(inputs.props, comParse.data || {})
+        const {limit, nextToken, prefix, startKey, serviceName, region, access} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName})) return
         _nextToken = nextToken
         _limit = limit || 100
         _prefix = prefix
         _startKey = startKey
-        return this.fetchData('listAliases', 'aliases', nextToken, limit, serviceName)
+        return this.fetchData(access, region, 'listAliases', 'aliases', nextToken, limit, serviceName)
     }
 
     /**
@@ -434,15 +459,21 @@ export default class FunctionCompute extends BaseComponent {
                     header: 'Options',
                     optionList: [
                         {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
                             name: 'access',
                             description: 'Specify the key name.',
-                            alias: 'a',
+
                             type: String,
                         },
                         {
                             name: 'props',
                             description: 'The json string of props.',
-                            alias: 'p',
+
                             type: String,
                         },
                         {
@@ -474,13 +505,13 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {limit, nextToken, prefix, startKey, serviceName} = Object.assign(inputs.props, comParse.data || {})
+        const {limit, nextToken, prefix, startKey, serviceName, region, access} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName})) return
         _nextToken = nextToken
         _limit = limit || 100
         _prefix = prefix
         _startKey = startKey
-        return this.fetchData('listVersions', 'versions', nextToken, limit, serviceName)
+        return this.fetchData(access, region, 'listVersions', 'versions', nextToken, limit, serviceName)
     }
 
     /**
@@ -505,15 +536,21 @@ export default class FunctionCompute extends BaseComponent {
                     header: 'Options',
                     optionList: [
                         {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
                             name: 'access',
                             description: 'Specify the key name.',
-                            alias: 'a',
+
                             type: String,
                         },
                         {
                             name: 'props',
                             description: 'The json string of props.',
-                            alias: 'p',
+
                             type: String,
                         },
                         {
@@ -540,12 +577,12 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {limit, nextToken, prefix, startKey} = Object.assign(inputs.props, comParse.data || {})
+        const {limit, nextToken, prefix, startKey, region, access} = Object.assign(inputs.props, comParse.data || {})
         _nextToken = nextToken
         _limit = limit || 100
         _prefix = prefix
         _startKey = startKey
-        return this.fetchData('listCustomDomains', 'customDomains', nextToken, limit)
+        return this.fetchData(access, region, 'listCustomDomains', 'customDomains', nextToken, limit)
     }
 
     /**
@@ -570,15 +607,21 @@ export default class FunctionCompute extends BaseComponent {
                     header: 'Options',
                     optionList: [
                         {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
                             name: 'access',
                             description: 'Specify the key name.',
-                            alias: 'a',
+
                             type: String,
                         },
                         {
                             name: 'props',
                             description: 'The json string of props.',
-                            alias: 'p',
+
                             type: String,
                         },
                         {
@@ -605,10 +648,10 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {limit, nextToken, serviceName, qualifier} = Object.assign(inputs.props, comParse.data || {})
+        const {limit, nextToken, serviceName, qualifier, region, access} = Object.assign(inputs.props, comParse.data || {})
         _nextToken = nextToken
         _limit = limit || 100
-        return this.fetchData('listProvisionConfigs', 'provisionConfigs', nextToken, limit, serviceName, null, qualifier)
+        return this.fetchData(access, region, 'listProvisionConfigs', 'provisionConfigs', nextToken, limit, serviceName, null, qualifier)
     }
 
     /**
@@ -633,15 +676,21 @@ export default class FunctionCompute extends BaseComponent {
                     header: 'Options',
                     optionList: [
                         {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
                             name: 'access',
                             description: 'Specify the key name.',
-                            alias: 'a',
+
                             type: String,
                         },
                         {
                             name: 'props',
                             description: 'The json string of props.',
-                            alias: 'p',
+
                             type: String,
                         },
                         {
@@ -668,11 +717,11 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {limit, nextToken, serviceName, functionName} = Object.assign(inputs.props, comParse.data || {})
+        const {limit, nextToken, serviceName, functionName, region, access} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, functionName})) return
         _nextToken = nextToken
         _limit = limit || 100
-        return this.fetchData('listFunctionAsyncConfigs', 'configs', nextToken, limit, serviceName, functionName)
+        return this.fetchData(access, region, 'listFunctionAsyncConfigs', 'configs', nextToken, limit, serviceName, functionName)
     }
 
     /**
@@ -697,15 +746,21 @@ export default class FunctionCompute extends BaseComponent {
                     header: 'Options',
                     optionList: [
                         {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
                             name: 'access',
                             description: 'Specify the key name.',
-                            alias: 'a',
+
                             type: String,
                         },
                         {
                             name: 'props',
                             description: 'The json string of props.',
-                            alias: 'p',
+
                             type: String,
                         },
                         {
@@ -722,10 +777,10 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, qualifier} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, qualifier, region, access} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName})) return
         try {
-            await this.getClient()
+            await this.getClient(region, access)
             result = await this.client.getService(serviceName, {}, qualifier)
             return yaml.dump(result.data)
         } catch (error) {
@@ -756,15 +811,21 @@ export default class FunctionCompute extends BaseComponent {
                     header: 'Options',
                     optionList: [
                         {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
                             name: 'access',
                             description: 'Specify the key name.',
-                            alias: 'a',
+
                             type: String,
                         },
                         {
                             name: 'props',
                             description: 'The json string of props.',
-                            alias: 'p',
+
                             type: String,
                         },
                         {
@@ -786,10 +847,10 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, qualifier} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, functionName, qualifier, region, access} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, functionName})) return
         try {
-            await this.getClient()
+            await this.getClient(region, access)
             result = await this.client.getFunction(serviceName, functionName, {}, qualifier)
             return yaml.dump(result.data)
         } catch (error) {
@@ -820,15 +881,21 @@ export default class FunctionCompute extends BaseComponent {
                     header: 'Options',
                     optionList: [
                         {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
                             name: 'access',
                             description: 'Specify the key name.',
-                            alias: 'a',
+
                             type: String,
                         },
                         {
                             name: 'props',
                             description: 'The json string of props.',
-                            alias: 'p',
+
                             type: String,
                         },
                         {
@@ -850,10 +917,10 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, qualifier} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, functionName, qualifier, region, access} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, functionName})) return
         try {
-            await this.getClient()
+            await this.getClient(region, access)
             result = await this.client.getFunctionCode(serviceName, functionName, {}, qualifier)
             return yaml.dump(result.data)
         } catch (error) {
@@ -884,15 +951,21 @@ export default class FunctionCompute extends BaseComponent {
                     header: 'Options',
                     optionList: [
                         {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
                             name: 'access',
                             description: 'Specify the key name.',
-                            alias: 'a',
+
                             type: String,
                         },
                         {
                             name: 'props',
                             description: 'The json string of props.',
-                            alias: 'p',
+
                             type: String,
                         },
                         {
@@ -914,10 +987,10 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, triggerName} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, functionName, triggerName, region, access} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, functionName, triggerName})) return
         try {
-            await this.getClient()
+            await this.getClient(region, access)
             result = await this.client.getTrigger(serviceName, functionName, triggerName)
             return yaml.dump(result.data)
         } catch (error) {
@@ -948,15 +1021,21 @@ export default class FunctionCompute extends BaseComponent {
                     header: 'Options',
                     optionList: [
                         {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
                             name: 'access',
                             description: 'Specify the key name.',
-                            alias: 'a',
+
                             type: String,
                         },
                         {
                             name: 'props',
                             description: 'The json string of props.',
-                            alias: 'p',
+
                             type: String,
                         },
                         {
@@ -973,10 +1052,10 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, aliasName} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, aliasName, region, access} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, aliasName})) return
         try {
-            await this.getClient()
+            await this.getClient(region, access)
             result = await this.client.getAlias(serviceName, aliasName)
             return yaml.dump(result.data)
         } catch (error) {
@@ -1007,15 +1086,21 @@ export default class FunctionCompute extends BaseComponent {
                     header: 'Options',
                     optionList: [
                         {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
                             name: 'access',
                             description: 'Specify the key name.',
-                            alias: 'a',
+
                             type: String,
                         },
                         {
                             name: 'props',
                             description: 'The json string of props.',
-                            alias: 'p',
+
                             type: String,
                         },
                         {
@@ -1027,10 +1112,10 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {domainName} = Object.assign(inputs.props, comParse.data || {})
+        const {domainName, region, access} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({domainName})) return
         try {
-            await this.getClient()
+            await this.getClient(region, access)
             result = await this.client.getCustomDomain(domainName)
             return yaml.dump(result.data)
         } catch (error) {
@@ -1061,15 +1146,21 @@ export default class FunctionCompute extends BaseComponent {
                     header: 'Options',
                     optionList: [
                         {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
                             name: 'access',
                             description: 'Specify the key name.',
-                            alias: 'a',
+
                             type: String,
                         },
                         {
                             name: 'props',
                             description: 'The json string of props.',
-                            alias: 'p',
+
                             type: String,
                         },
                         {
@@ -1091,10 +1182,10 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, qualifier} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, functionName, qualifier, region, access} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, functionName, qualifier})) return
         try {
-            await this.getClient()
+            await this.getClient(region, access)
             result = await this.client.getProvisionConfig(serviceName, functionName, qualifier)
             return yaml.dump(result.data)
         } catch (error) {
@@ -1126,15 +1217,21 @@ export default class FunctionCompute extends BaseComponent {
                     header: 'Options',
                     optionList: [
                         {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
                             name: 'access',
                             description: 'Specify the key name.',
-                            alias: 'a',
+
                             type: String,
                         },
                         {
                             name: 'props',
                             description: 'The json string of props.',
-                            alias: 'p',
+
                             type: String,
                         },
                         {
@@ -1156,10 +1253,10 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, qualifier} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, functionName, qualifier, region, access} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, functionName, qualifier})) return
         try {
-            await this.getClient()
+            await this.getClient(region, access)
             result = await this.client.getFunctionAsyncConfig(serviceName, functionName, qualifier)
             return yaml.dump(result.data)
         } catch (error) {
@@ -1190,15 +1287,21 @@ export default class FunctionCompute extends BaseComponent {
                     header: 'Options',
                     optionList: [
                         {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
                             name: 'access',
                             description: 'Specify the key name.',
-                            alias: 'a',
+
                             type: String,
                         },
                         {
                             name: 'props',
                             description: 'The json string of props.',
-                            alias: 'p',
+
                             type: String,
                         },
                         {
@@ -1220,10 +1323,10 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, event} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, functionName, event, region, access} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, functionName})) return
         try {
-            await this.getClient()
+            await this.getClient(region, access)
             result = await this.client.invokeFunction(serviceName, functionName, JSON.stringify(event))
             return yaml.dump(result.data)
         } catch (error) {
@@ -1254,15 +1357,21 @@ export default class FunctionCompute extends BaseComponent {
                     header: 'Options',
                     optionList: [
                         {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
                             name: 'access',
                             description: 'Specify the key name.',
-                            alias: 'a',
+
                             type: String,
                         },
                         {
                             name: 'props',
                             description: 'The json string of props.',
-                            alias: 'p',
+
                             type: String,
                         },
                         {
@@ -1274,10 +1383,10 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, region, access} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName})) return
         try {
-            await this.getClient()
+            await this.getClient(region, access)
             result = await this.client.deleteService(serviceName)
             if (typeof result.data !== 'undefined' && result.data !== null) return this.deleteSuccessInfo('Service', serviceName)
         } catch (error) {
@@ -1308,15 +1417,21 @@ export default class FunctionCompute extends BaseComponent {
                     header: 'Options',
                     optionList: [
                         {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
                             name: 'access',
                             description: 'Specify the key name.',
-                            alias: 'a',
+
                             type: String,
                         },
                         {
                             name: 'props',
                             description: 'The json string of props.',
-                            alias: 'p',
+
                             type: String,
                         },
                         {
@@ -1333,10 +1448,10 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, functionName, region, access} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, functionName})) return
         try {
-            await this.getClient()
+            await this.getClient(region, access)
             result = await this.client.deleteFunction(serviceName, functionName)
             if (typeof result.data !== 'undefined' && result.data !== null) return this.deleteSuccessInfo('Function', functionName)
         } catch (error) {
@@ -1367,15 +1482,21 @@ export default class FunctionCompute extends BaseComponent {
                     header: 'Options',
                     optionList: [
                         {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
                             name: 'access',
                             description: 'Specify the key name.',
-                            alias: 'a',
+
                             type: String,
                         },
                         {
                             name: 'props',
                             description: 'The json string of props.',
-                            alias: 'p',
+
                             type: String,
                         },
                         {
@@ -1397,10 +1518,10 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, triggerName} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, functionName, triggerName, region, access} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, functionName, triggerName})) return
         try {
-            await this.getClient()
+            await this.getClient(region, access)
             result = await this.client.deleteTrigger(serviceName, functionName, triggerName)
             if (typeof result.data !== 'undefined' && result.data !== null) return this.deleteSuccessInfo('Trigger', triggerName)
         } catch (error) {
@@ -1431,15 +1552,21 @@ export default class FunctionCompute extends BaseComponent {
                     header: 'Options',
                     optionList: [
                         {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
                             name: 'access',
                             description: 'Specify the key name.',
-                            alias: 'a',
+
                             type: String,
                         },
                         {
                             name: 'props',
                             description: 'The json string of props.',
-                            alias: 'p',
+
                             type: String,
                         },
                         {
@@ -1451,10 +1578,10 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {domainName} = Object.assign(inputs.props, comParse.data || {})
+        const {domainName, region, access} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({domainName})) return
         try {
-            await this.getClient()
+            await this.getClient(region, access)
             result = await this.client.deleteCustomDomain(domainName)
             if (typeof result.data !== 'undefined' && result.data !== null) return this.deleteSuccessInfo('CustomDomain', domainName)
         } catch (error) {
@@ -1485,15 +1612,21 @@ export default class FunctionCompute extends BaseComponent {
                     header: 'Options',
                     optionList: [
                         {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
                             name: 'access',
                             description: 'Specify the key name.',
-                            alias: 'a',
+
                             type: String,
                         },
                         {
                             name: 'props',
                             description: 'The json string of props.',
-                            alias: 'p',
+
                             type: String,
                         },
                         {
@@ -1510,10 +1643,10 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, versionId} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, versionId, region, access} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, versionId})) return
         try {
-            await this.getClient()
+            await this.getClient(region, access)
             result = await this.client.deleteVersion(serviceName, versionId)
             if (typeof result.data !== 'undefined' && result.data !== null) return this.deleteSuccessInfo('Version', versionId)
         } catch (error) {
@@ -1544,15 +1677,21 @@ export default class FunctionCompute extends BaseComponent {
                     header: 'Options',
                     optionList: [
                         {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
                             name: 'access',
                             description: 'Specify the key name.',
-                            alias: 'a',
+
                             type: String,
                         },
                         {
                             name: 'props',
                             description: 'The json string of props.',
-                            alias: 'p',
+
                             type: String,
                         },
                         {
@@ -1569,10 +1708,10 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, aliasName} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, aliasName, region, access} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, aliasName})) return
         try {
-            await this.getClient()
+            await this.getClient(region, access)
             result = await this.client.deleteAlias(serviceName, aliasName)
             if (typeof result.data !== 'undefined' && result.data !== null) return this.deleteSuccessInfo('Alias', aliasName)
         } catch (error) {
@@ -1603,15 +1742,21 @@ export default class FunctionCompute extends BaseComponent {
                     header: 'Options',
                     optionList: [
                         {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
                             name: 'access',
                             description: 'Specify the key name.',
-                            alias: 'a',
+
                             type: String,
                         },
                         {
                             name: 'props',
                             description: 'The json string of props.',
-                            alias: 'p',
+
                             type: String,
                         },
                         {
@@ -1633,10 +1778,10 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, qualifier} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, functionName, qualifier, region, access} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, functionName})) return
         try {
-            await this.getClient()
+            await this.getClient(region, access)
             result = await this.client.deleteFunctionAsyncConfig(serviceName, functionName, qualifier)
             if (typeof result.data !== 'undefined' && result.data !== null) return this.deleteSuccessInfo('Function', 'AsyncConfig')
         } catch (error) {
@@ -1667,15 +1812,21 @@ export default class FunctionCompute extends BaseComponent {
                     header: 'Options',
                     optionList: [
                         {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
                             name: 'access',
                             description: 'Specify the key name.',
-                            alias: 'a',
+
                             type: String,
                         },
                         {
                             name: 'props',
                             description: 'The json string of props.',
-                            alias: 'p',
+
                             type: String,
                         },
                         {
@@ -1722,11 +1873,11 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, description, internetAccess, role, logConfig, nasConfig, vpcConfig, tracingConfig} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, description, internetAccess, role, logConfig, nasConfig, vpcConfig, tracingConfig, region, access} = Object.assign(inputs.props, comParse.data || {})
         let sName: string = defaultServiceName ? defaultServiceName : serviceName
         if (this.checkField({sName})) return
         try {
-            await this.getClient()
+            await this.getClient(region, access)
             result = await this.client.createService(sName, {
                 description,
                 internetAccess,
@@ -1765,15 +1916,21 @@ export default class FunctionCompute extends BaseComponent {
                     header: 'Options',
                     optionList: [
                         {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
                             name: 'access',
                             description: 'Specify the key name.',
-                            alias: 'a',
+
                             type: String,
                         },
                         {
                             name: 'props',
                             description: 'The json string of props.',
-                            alias: 'p',
+
                             type: String,
                         },
                         {
@@ -1820,10 +1977,10 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, description, internetAccess, role, logConfig, nasConfig, vpcConfig, tracingConfig} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, description, internetAccess, role, logConfig, nasConfig, vpcConfig, tracingConfig, region, access} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName})) return
         try {
-            await this.getClient()
+            await this.getClient(region, access)
             result = await this.client.updateService(serviceName, {
                 description,
                 internetAccess,
@@ -1863,15 +2020,21 @@ export default class FunctionCompute extends BaseComponent {
                     header: 'Options',
                     optionList: [
                         {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
                             name: 'access',
                             description: 'Specify the key name.',
-                            alias: 'a',
+
                             type: String,
                         },
                         {
                             name: 'props',
                             description: 'The json string of props.',
-                            alias: 'p',
+
                             type: String,
                         },
                         {
@@ -1938,7 +2101,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort, region, access} = Object.assign(inputs.props, comParse.data || {})
         let functionCode: any = {}
         if (this.checkField({serviceName, functionName, code, handler, runtime})) return
         if (code.ossBucketName && code.ossObjectName) {
@@ -1959,7 +2122,7 @@ export default class FunctionCompute extends BaseComponent {
             delete functionCode.ossObjectName
         }
         try {
-            await this.getClient()
+            await this.getClient(region, access)
             result = await this.client.createFunction(serviceName, {
                 functionName,
                 code: functionCode,
@@ -2002,15 +2165,21 @@ export default class FunctionCompute extends BaseComponent {
                     header: 'Options',
                     optionList: [
                         {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
                             name: 'access',
                             description: 'Specify the key name.',
-                            alias: 'a',
+
                             type: String,
                         },
                         {
                             name: 'props',
                             description: 'The json string of props.',
-                            alias: 'p',
+
                             type: String,
                         },
                         {
@@ -2077,10 +2246,10 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort, region, access} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, functionName})) return
         try {
-            await this.getClient()
+            await this.getClient(region, access)
             result = await this.client.updateFunction(serviceName, functionName, {
                 code,
                 customContainerConfig,
@@ -2122,15 +2291,21 @@ export default class FunctionCompute extends BaseComponent {
                     header: 'Options',
                     optionList: [
                         {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
                             name: 'access',
                             description: 'Specify the key name.',
-                            alias: 'a',
+
                             type: String,
                         },
                         {
                             name: 'props',
                             description: 'The json string of props.',
-                            alias: 'p',
+
                             type: String,
                         },
                         {
@@ -2177,10 +2352,10 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, invocationRole, qualifier, sourceArn, triggerConfig, triggerName, triggerType} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, functionName, invocationRole, qualifier, sourceArn, triggerConfig, triggerName, triggerType, region, access} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, functionName, triggerName, triggerType, invocationRole})) return
         try {
-            await this.getClient()
+            await this.getClient(region, access)
             result = await this.client.createTrigger(serviceName, functionName, {
                 invocationRole,
                 qualifier,
@@ -2218,15 +2393,21 @@ export default class FunctionCompute extends BaseComponent {
                     header: 'Options',
                     optionList: [
                         {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
                             name: 'access',
                             description: 'Specify the key name.',
-                            alias: 'a',
+
                             type: String,
                         },
                         {
                             name: 'props',
                             description: 'The json string of props.',
-                            alias: 'p',
+
                             type: String,
                         },
                         {
@@ -2273,10 +2454,10 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, invocationRole, qualifier, triggerConfig, triggerName} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, functionName, invocationRole, qualifier, triggerConfig, triggerName, region, access} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, functionName, triggerName})) return
         try {
-            await this.getClient()
+            await this.getClient(region, access)
             result = await this.client.updateTrigger(serviceName, functionName, triggerName, {
                 invocationRole,
                 qualifier,
@@ -2311,15 +2492,21 @@ export default class FunctionCompute extends BaseComponent {
                     header: 'Options',
                     optionList: [
                         {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
                             name: 'access',
                             description: 'Specify the key name.',
-                            alias: 'a',
+
                             type: String,
                         },
                         {
                             name: 'props',
                             description: 'The json string of props.',
-                            alias: 'p',
+
                             type: String,
                         },
                         {
@@ -2336,10 +2523,10 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, description} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, description, region, access} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName})) return
         try {
-            await this.getClient()
+            await this.getClient(region, access)
             result = await this.client.publishVersion(serviceName, description)
             return yaml.dump(result.data)
         } catch (error) {
@@ -2370,15 +2557,21 @@ export default class FunctionCompute extends BaseComponent {
                     header: 'Options',
                     optionList: [
                         {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
                             name: 'access',
                             description: 'Specify the key name.',
-                            alias: 'a',
+
                             type: String,
                         },
                         {
                             name: 'props',
                             description: 'The json string of props.',
-                            alias: 'p',
+
                             type: String,
                         },
                         {
@@ -2410,10 +2603,10 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, aliasName, versionId, additionalVersionWeight, description} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, aliasName, versionId, additionalVersionWeight, description, region, access} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, aliasName, versionId})) return
         try {
-            await this.getClient()
+            await this.getClient(region, access)
             result = await this.client.createAlias(serviceName, aliasName, versionId, {
                 additionalVersionWeight: additionalVersionWeight || {},
                 description,
@@ -2447,15 +2640,21 @@ export default class FunctionCompute extends BaseComponent {
                     header: 'Options',
                     optionList: [
                         {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
                             name: 'access',
                             description: 'Specify the key name.',
-                            alias: 'a',
+
                             type: String,
                         },
                         {
                             name: 'props',
                             description: 'The json string of props.',
-                            alias: 'p',
+
                             type: String,
                         },
                         {
@@ -2487,10 +2686,10 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, aliasName, versionId, additionalVersionWeight, description} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, aliasName, versionId, additionalVersionWeight, description, region, access} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, aliasName, versionId})) return
         try {
-            await this.getClient()
+            await this.getClient(region, access)
             result = await this.client.updateAlias(serviceName, aliasName, versionId, {
                 additionalVersionWeight,
                 description,
@@ -2524,15 +2723,21 @@ export default class FunctionCompute extends BaseComponent {
                     header: 'Options',
                     optionList: [
                         {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
                             name: 'access',
                             description: 'Specify the key name.',
-                            alias: 'a',
+
                             type: String,
                         },
                         {
                             name: 'props',
                             description: 'The json string of props.',
-                            alias: 'p',
+
                             type: String,
                         },
                         {
@@ -2559,10 +2764,10 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {domainName, protocol, certConfig, routeConfig} = Object.assign(inputs.props, comParse.data || {})
+        const {domainName, protocol, certConfig, routeConfig, region, access} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({domainName})) return
         try {
-            await this.getClient()
+            await this.getClient(region, access)
             result = await this.client.createCustomDomain(domainName, {
                 protocol,
                 certConfig,
@@ -2597,15 +2802,21 @@ export default class FunctionCompute extends BaseComponent {
                     header: 'Options',
                     optionList: [
                         {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
                             name: 'access',
                             description: 'Specify the key name.',
-                            alias: 'a',
+
                             type: String,
                         },
                         {
                             name: 'props',
                             description: 'The json string of props.',
-                            alias: 'p',
+
                             type: String,
                         },
                         {
@@ -2632,10 +2843,10 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {domainName, protocol, certConfig, routeConfig} = Object.assign(inputs.props, comParse.data || {})
+        const {domainName, protocol, certConfig, routeConfig, region, access} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({domainName})) return
         try {
-            await this.getClient()
+            await this.getClient(region, access)
             result = await this.client.updateCustomDomain(domainName, {
                 protocol,
                 certConfig,
@@ -2670,15 +2881,21 @@ export default class FunctionCompute extends BaseComponent {
                     header: 'Options',
                     optionList: [
                         {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
                             name: 'access',
                             description: 'Specify the key name.',
-                            alias: 'a',
+
                             type: String,
                         },
                         {
                             name: 'props',
                             description: 'The json string of props.',
-                            alias: 'p',
+
                             type: String,
                         },
                         {
@@ -2715,10 +2932,10 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, qualifier, target, scheduledActions, targetTrackingPolicies} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, functionName, qualifier, target, scheduledActions, targetTrackingPolicies, region, access} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, functionName})) return
         try {
-            await this.getClient()
+            await this.getClient(region, access)
             result = await this.client.putProvisionConfig(serviceName, functionName, qualifier, {
                 target,
                 scheduledActions,
@@ -2753,15 +2970,21 @@ export default class FunctionCompute extends BaseComponent {
                     header: 'Options',
                     optionList: [
                         {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
                             name: 'access',
                             description: 'Specify the key name.',
-                            alias: 'a',
+
                             type: String,
                         },
                         {
                             name: 'props',
                             description: 'The json string of props.',
-                            alias: 'p',
+
                             type: String,
                         },
                         {
@@ -2798,10 +3021,10 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, qualifier, destinationConfig, maxAsyncEventAgeInSeconds, maxAsyncRetryAttempts} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, functionName, qualifier, destinationConfig, maxAsyncEventAgeInSeconds, maxAsyncRetryAttempts, region, access} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, functionName})) return
         try {
-            await this.getClient()
+            await this.getClient(region, access)
             result = await this.client.putFunctionAsyncConfig(serviceName, functionName, qualifier, {
                 destinationConfig,
                 maxAsyncEventAgeInSeconds,
@@ -2838,15 +3061,21 @@ export default class FunctionCompute extends BaseComponent {
                     header: 'Options',
                     optionList: [
                         {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
                             name: 'access',
                             description: 'Specify the key name.',
-                            alias: 'a',
+
                             type: String,
                         },
                         {
                             name: 'props',
                             description: 'The json string of props.',
-                            alias: 'p',
+
                             type: String,
                         },
                         {
@@ -2913,7 +3142,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort, region, access} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({functionName, code, handler, runtime})) return
         let defaultServiceName: string = serviceName
         if (!serviceName || serviceName.length === 0) {
@@ -2940,7 +3169,7 @@ export default class FunctionCompute extends BaseComponent {
         }
 
         try {
-            await this.getClient()
+            await this.getClient(region, access)
             result = await this.client.createFunction(defaultServiceName, {
                 functionName,
                 code: functionCode,

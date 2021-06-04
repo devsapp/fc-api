@@ -34,6 +34,44 @@ Options
 
 ```
 
+## 使用案例
+
+### 查询账号下的服务
+
+执行命令：`s cli fc-api listServices`
+得到结果：
+```
+|
+  - serviceName: serverless-album
+    description: 基于函数计算的人工智能相册系统
+    role: acs:ram::1583208943291465:role/serverlesstooldefaultrole
+    logConfig:
+      project: serverless-album
+      logstore: functions
+      enableRequestMetrics: true
+      enableInstanceMetrics: false
+    serviceId: f5ad903b-7eb3-4d69-bbda-a53e7a11cbe9
+    createdTime: '2021-05-05T08:08:43Z'
+    lastModifiedTime: '2021-05-27T03:11:31Z'
+    vpcConfig:
+      vpcId: vpc-bp1tdtit5zns398r6wrw6
+      vSwitchIds:
+        - vsw-bp1ti6ysm8kpt7g3wvuh8
+      securityGroupId: sg-bp13mkmwsaey3xkhuouc
+      role: ''
+    internetAccess: true
+    nasConfig:
+      userId: 10003
+      groupId: 10003
+      mountPoints:
+        - serverAddr: 0e56349b3f-bgn22.cn-hangzhou.nas.aliyuncs.com:/serverless-album
+          mountDir: /mnt/auto
+    vendorConfig: null
+    tracingConfig:
+      type: null
+      params: null
+```
+
 ## 支持的接口
 - createAlias         ： 创建别名
 - createCustomDomain  ： 创建自定义域名
