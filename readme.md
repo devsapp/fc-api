@@ -38,7 +38,7 @@ Options
 
 ### 查询账号下的服务
 
-执行命令：`s cli fc-api listServices`
+执行命令：`s cli fc-api listServices --region cn-hangzhou`
 得到结果：
 ```
 |
