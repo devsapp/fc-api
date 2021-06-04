@@ -44,13 +44,8 @@ Options
 |
   - serviceName: serverless-album
     description: 基于函数计算的人工智能相册系统
-    role: acs:ram::1583208943291465:role/serverlesstooldefaultrole
-    logConfig:
-      project: serverless-album
-      logstore: functions
-      enableRequestMetrics: true
-      enableInstanceMetrics: false
-    serviceId: f5ad903b-7eb3-4d69-bbda-a53e7a11cbe9
+    role: acs:ram:::role/
+    serviceId: f5ad903b-7eb3-4d69-bbda-
     createdTime: '2021-05-05T08:08:43Z'
     lastModifiedTime: '2021-05-27T03:11:31Z'
     vpcConfig:
@@ -60,16 +55,43 @@ Options
       securityGroupId: sg-bp13mkmwsaey3xkhuouc
       role: ''
     internetAccess: true
-    nasConfig:
-      userId: 10003
-      groupId: 10003
-      mountPoints:
-        - serverAddr: 0e56349b3f-bgn22.cn-hangzhou.nas.aliyuncs.com:/serverless-album
-          mountDir: /mnt/auto
     vendorConfig: null
     tracingConfig:
       type: null
       params: null
+```
+
+### 查询服务下的函数
+
+执行命令：`s cli fc-api listFunctions --serviceName serverless-album --region cn-hangzhou`
+得到结果：
+```
+|
+  - functionId: 86cfe445-c19f-47b4-bd34
+    functionName: api-server
+    description: ''
+    runtime: python3
+    handler: index.app
+    timeout: 60
+    initializer: ''
+    initializationTimeout: 3
+    codeSize: 12408
+    codeChecksum: ''
+    memorySize: 192
+    createdTime: '2021-05-05T08:08:44Z'
+    lastModifiedTime: '2021-05-27T03:11:31Z'
+    instanceConcurrency: 1
+    customContainerConfig: null
+    caPort: null
+    instanceType: e1
+    layers: null
+    instanceLifecycleConfig:
+      preFreeze:
+        handler: ''
+        timeout: 3
+      preStop:
+        handler: ''
+        timeout: 3
 ```
 
 ## 支持的接口
