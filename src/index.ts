@@ -160,7 +160,7 @@ export default class FunctionCompute extends BaseComponent {
         if (comParse.data && comParse.data.help) {
             help([{
                 header: 'Usage',
-                content: `s cli fc-api listServices`
+                content: `s cli fc-api listServices\n API Document: https://help.aliyun.com/document_detail/175559.htm`
             },
                 {
                     header: 'Options',
@@ -205,7 +205,7 @@ export default class FunctionCompute extends BaseComponent {
         if (comParse.data && comParse.data.help) {
             help([{
                 header: 'Usage',
-                content: `s cli fc-api listFunctions`
+                content: `s cli fc-api listFunctions\n API Document: https://help.aliyun.com/document_detail/191155.htm`
             },
                 {
                     header: 'Options',
@@ -281,7 +281,7 @@ export default class FunctionCompute extends BaseComponent {
         if (comParse.data && comParse.data.help) {
             help([{
                 header: 'Usage',
-                content: `s cli fc-api listTriggers`
+                content: `s cli fc-api listTriggers\n API Document: https://help.aliyun.com/document_detail/191158.htm`
             },
                 {
                     header: 'Options',
@@ -357,7 +357,7 @@ export default class FunctionCompute extends BaseComponent {
         if (comParse.data && comParse.data.help) {
             help([{
                 header: 'Usage',
-                content: `s cli fc-api listAliases`
+                content: `s cli fc-api listAliases\nAPI Document: https://help.aliyun.com/document_detail/191166.html`
             },
                 {
                     header: 'Options',
@@ -428,7 +428,7 @@ export default class FunctionCompute extends BaseComponent {
         if (comParse.data && comParse.data.help) {
             help([{
                 header: 'Usage',
-                content: `s cli fc-api listVersions`
+                content: `s cli fc-api listVersions\nAPI Document: https://help.aliyun.com/document_detail/191162.html`
             },
                 {
                     header: 'Options',
@@ -499,7 +499,7 @@ export default class FunctionCompute extends BaseComponent {
         if (comParse.data && comParse.data.help) {
             help([{
                 header: 'Usage',
-                content: `s cli fc-api listCustomDomains`
+                content: `s cli fc-api listCustomDomains\nAPI Document: https://help.aliyun.com/document_detail/191170.html`
             },
                 {
                     header: 'Options',
@@ -564,7 +564,7 @@ export default class FunctionCompute extends BaseComponent {
         if (comParse.data && comParse.data.help) {
             help([{
                 header: 'Usage',
-                content: `s cli fc-api listCustomDomains`
+                content: `s cli fc-api listProvisionConfigs\nAPI Document: https://help.aliyun.com/document_detail/191174.html`
             },
                 {
                     header: 'Options',
@@ -627,7 +627,7 @@ export default class FunctionCompute extends BaseComponent {
         if (comParse.data && comParse.data.help) {
             help([{
                 header: 'Usage',
-                content: `s cli fc-api listFunctionAsyncConfigs`
+                content: `s cli fc-api listFunctionAsyncConfigs\nAPI Document: https://help.aliyun.com/document_detail/181754.html`
             },
                 {
                     header: 'Options',
@@ -691,7 +691,7 @@ export default class FunctionCompute extends BaseComponent {
         if (comParse.data && comParse.data.help) {
             help([{
                 header: 'Usage',
-                content: `s cli fc-api getService`
+                content: `s cli fc-api getService\nAPI Document: https://help.aliyun.com/document_detail/189225.html`
             },
                 {
                     header: 'Options',
@@ -750,7 +750,7 @@ export default class FunctionCompute extends BaseComponent {
         if (comParse.data && comParse.data.help) {
             help([{
                 header: 'Usage',
-                content: `s cli fc-api getFunction`
+                content: `s cli fc-api getFunction\nAPI Document: https://help.aliyun.com/document_detail/189985.html`
             },
                 {
                     header: 'Options',
@@ -814,7 +814,7 @@ export default class FunctionCompute extends BaseComponent {
         if (comParse.data && comParse.data.help) {
             help([{
                 header: 'Usage',
-                content: `s cli fc-api getFunctionCode`
+                content: `s cli fc-api getFunctionCode\nAPI Document: https://help.aliyun.com/document_detail/191154.html`
             },
                 {
                     header: 'Options',
@@ -878,7 +878,7 @@ export default class FunctionCompute extends BaseComponent {
         if (comParse.data && comParse.data.help) {
             help([{
                 header: 'Usage',
-                content: `s cli fc-api getTrigger`
+                content: `s cli fc-api getTrigger\nAPI Document: https://help.aliyun.com/document_detail/190056.html`
             },
                 {
                     header: 'Options',
@@ -942,7 +942,7 @@ export default class FunctionCompute extends BaseComponent {
         if (comParse.data && comParse.data.help) {
             help([{
                 header: 'Usage',
-                content: `s cli fc-api getAlias`
+                content: `s cli fc-api getAlias\nAPI Document: https://help.aliyun.com/document_detail/191165.html`
             },
                 {
                     header: 'Options',
@@ -1001,7 +1001,7 @@ export default class FunctionCompute extends BaseComponent {
         if (comParse.data && comParse.data.help) {
             help([{
                 header: 'Usage',
-                content: `s cli fc-api getCustomDomain`
+                content: `s cli fc-api getCustomDomain\nAPI Document: https://help.aliyun.com/document_detail/191169.html`
             },
                 {
                     header: 'Options',
@@ -1055,7 +1055,7 @@ export default class FunctionCompute extends BaseComponent {
         if (comParse.data && comParse.data.help) {
             help([{
                 header: 'Usage',
-                content: `s cli fc-api getProvisionConfig`
+                content: `s cli fc-api getProvisionConfig\nAPI Document: https://help.aliyun.com/document_detail/191173.html`
             },
                 {
                     header: 'Options',
@@ -1120,7 +1120,7 @@ export default class FunctionCompute extends BaseComponent {
         if (comParse.data && comParse.data.help) {
             help([{
                 header: 'Usage',
-                content: `s cli fc-api getFunctionAsyncConfig`
+                content: `s cli fc-api getFunctionAsyncConfig\nAPI Document: https://help.aliyun.com/document_detail/181753.html`
             },
                 {
                     header: 'Options',
@@ -1184,7 +1184,7 @@ export default class FunctionCompute extends BaseComponent {
         if (comParse.data && comParse.data.help) {
             help([{
                 header: 'Usage',
-                content: `s cli fc-api invokeFunction`
+                content: `s cli fc-api invokeFunction\nAPI Document: https://help.aliyun.com/document_detail/191156.html`
             },
                 {
                     header: 'Options',
@@ -1248,7 +1248,7 @@ export default class FunctionCompute extends BaseComponent {
         if (comParse.data && comParse.data.help) {
             help([{
                 header: 'Usage',
-                content: `s cli fc-api deleteService`
+                content: `s cli fc-api deleteService\nAPI Document: https://help.aliyun.com/document_detail/189227.html`
             },
                 {
                     header: 'Options',
@@ -1302,7 +1302,7 @@ export default class FunctionCompute extends BaseComponent {
         if (comParse.data && comParse.data.help) {
             help([{
                 header: 'Usage',
-                content: `s cli fc-api deleteFunction`
+                content: `s cli fc-api deleteFunction\nAPI Document: https://help.aliyun.com/document_detail/191153.html`
             },
                 {
                     header: 'Options',
@@ -1361,7 +1361,7 @@ export default class FunctionCompute extends BaseComponent {
         if (comParse.data && comParse.data.help) {
             help([{
                 header: 'Usage',
-                content: `s cli fc-api deleteTrigger`
+                content: `s cli fc-api deleteTrigger\nAPI Document: https://help.aliyun.com/document_detail/191157.html`
             },
                 {
                     header: 'Options',
@@ -1425,7 +1425,7 @@ export default class FunctionCompute extends BaseComponent {
         if (comParse.data && comParse.data.help) {
             help([{
                 header: 'Usage',
-                content: `s cli fc-api deleteCustomDomain`
+                content: `s cli fc-api deleteCustomDomain\nAPI Document: https://help.aliyun.com/document_detail/191167.html`
             },
                 {
                     header: 'Options',
@@ -1479,7 +1479,7 @@ export default class FunctionCompute extends BaseComponent {
         if (comParse.data && comParse.data.help) {
             help([{
                 header: 'Usage',
-                content: `s cli fc-api deleteVersion`
+                content: `s cli fc-api deleteVersion\nAPI Document: https://help.aliyun.com/document_detail/191161.html`
             },
                 {
                     header: 'Options',
@@ -1538,7 +1538,7 @@ export default class FunctionCompute extends BaseComponent {
         if (comParse.data && comParse.data.help) {
             help([{
                 header: 'Usage',
-                content: `s cli fc-api deleteAlias`
+                content: `s cli fc-api deleteAlias\nAPI Document: https://help.aliyun.com/document_detail/191163.html`
             },
                 {
                     header: 'Options',
@@ -1597,7 +1597,7 @@ export default class FunctionCompute extends BaseComponent {
         if (comParse.data && comParse.data.help) {
             help([{
                 header: 'Usage',
-                content: `s cli fc-api deleteFunctionAsyncConfig`
+                content: `s cli fc-api deleteFunctionAsyncConfig\nAPI Document: https://help.aliyun.com/document_detail/181755.html`
             },
                 {
                     header: 'Options',
@@ -1661,7 +1661,7 @@ export default class FunctionCompute extends BaseComponent {
         if (comParse.data && comParse.data.help) {
             help([{
                 header: 'Usage',
-                content: `s cli fc-api createService`
+                content: `s cli fc-api createService\nAPI Document: https://help.aliyun.com/document_detail/175256.html`
             },
                 {
                     header: 'Options',
@@ -1759,7 +1759,7 @@ export default class FunctionCompute extends BaseComponent {
         if (comParse.data && comParse.data.help) {
             help([{
                 header: 'Usage',
-                content: `s cli fc-api updateService`
+                content: `s cli fc-api updateService\nAPI Document: https://help.aliyun.com/document_detail/188167.html`
             },
                 {
                     header: 'Options',
@@ -1857,7 +1857,7 @@ export default class FunctionCompute extends BaseComponent {
         if (comParse.data && comParse.data.help) {
             help([{
                 header: 'Usage',
-                content: `s cli fc-api createFunction`
+                content: `s cli fc-api createFunction\nAPI Document: https://help.aliyun.com/document_detail/189984.html`
             },
                 {
                     header: 'Options',
@@ -1996,7 +1996,7 @@ export default class FunctionCompute extends BaseComponent {
         if (comParse.data && comParse.data.help) {
             help([{
                 header: 'Usage',
-                content: `s cli fc-api updateFunction`
+                content: `s cli fc-api updateFunction\nAPI Document: https://help.aliyun.com/document_detail/189986.html`
             },
                 {
                     header: 'Options',
@@ -2116,7 +2116,7 @@ export default class FunctionCompute extends BaseComponent {
         if (comParse.data && comParse.data.help) {
             help([{
                 header: 'Usage',
-                content: `s cli fc-api createTrigger`
+                content: `s cli fc-api createTrigger\nAPI Document: https://help.aliyun.com/document_detail/190054.html`
             },
                 {
                     header: 'Options',
@@ -2212,7 +2212,7 @@ export default class FunctionCompute extends BaseComponent {
         if (comParse.data && comParse.data.help) {
             help([{
                 header: 'Usage',
-                content: `s cli fc-api updateTrigger`
+                content: `s cli fc-api updateTrigger\nAPI Document: https://help.aliyun.com/document_detail/190055.html`
             },
                 {
                     header: 'Options',
@@ -2305,7 +2305,7 @@ export default class FunctionCompute extends BaseComponent {
         if (comParse.data && comParse.data.help) {
             help([{
                 header: 'Usage',
-                content: `s cli fc-api publishVersion`
+                content: `s cli fc-api publishVersion\nAPI Document: https://help.aliyun.com/document_detail/191160.html`
             },
                 {
                     header: 'Options',
@@ -2364,7 +2364,7 @@ export default class FunctionCompute extends BaseComponent {
         if (comParse.data && comParse.data.help) {
             help([{
                 header: 'Usage',
-                content: `s cli fc-api createAlias`
+                content: `s cli fc-api createAlias\nAPI Document: https://help.aliyun.com/document_detail/162952.html`
             },
                 {
                     header: 'Options',
@@ -2441,7 +2441,7 @@ export default class FunctionCompute extends BaseComponent {
         if (comParse.data && comParse.data.help) {
             help([{
                 header: 'Usage',
-                content: `s cli fc-api updateAlias`
+                content: `s cli fc-api updateAlias\nAPI Document: https://help.aliyun.com/document_detail/191164.html`
             },
                 {
                     header: 'Options',
@@ -2518,7 +2518,7 @@ export default class FunctionCompute extends BaseComponent {
         if (comParse.data && comParse.data.help) {
             help([{
                 header: 'Usage',
-                content: `s cli fc-api createCustomDomain`
+                content: `s cli fc-api createCustomDomain\nAPI Document: https://help.aliyun.com/document_detail/175234.html`
             },
                 {
                     header: 'Options',
@@ -2591,7 +2591,7 @@ export default class FunctionCompute extends BaseComponent {
         if (comParse.data && comParse.data.help) {
             help([{
                 header: 'Usage',
-                content: `s cli fc-api updateCustomDomain`
+                content: `s cli fc-api updateCustomDomain\nAPI Document: https://help.aliyun.com/document_detail/191168.html`
             },
                 {
                     header: 'Options',
@@ -2664,7 +2664,7 @@ export default class FunctionCompute extends BaseComponent {
         if (comParse.data && comParse.data.help) {
             help([{
                 header: 'Usage',
-                content: `s cli fc-api putProvisionConfig`
+                content: `s cli fc-api putProvisionConfig\nAPI Document: https://help.aliyun.com/document_detail/191172.html`
             },
                 {
                     header: 'Options',
@@ -2747,7 +2747,7 @@ export default class FunctionCompute extends BaseComponent {
         if (comParse.data && comParse.data.help) {
             help([{
                 header: 'Usage',
-                content: `s cli fc-api putFunctionAsyncConfig`
+                content: `s cli fc-api putFunctionAsyncConfig\nAPI Document: https://help.aliyun.com/document_detail/181752.html`
             },
                 {
                     header: 'Options',
@@ -2832,7 +2832,7 @@ export default class FunctionCompute extends BaseComponent {
         if (comParse.data && comParse.data.help) {
             help([{
                 header: 'Usage',
-                content: `s cli fc-api createFunction`
+                content: `s cli fc-api createFunctionDefaultService\nAPI Document: https://help.aliyun.com/document_detail/189984.html`
             },
                 {
                     header: 'Options',

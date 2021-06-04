@@ -3,7 +3,6 @@ export interface Inputs {
     credential: any;
 }
 export interface ComponentInputs {
-    project: any;
     props?: any;
     args?: string;
 }
