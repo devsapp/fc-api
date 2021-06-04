@@ -133,3 +133,19 @@ Options
 - updateFunction      ： 更新函数 
 - updateService       ： 更新服务配置
 - updateTrigger       ： 更新触发器
+
+## 关于指定密钥、地域的说明
+
+在使用`fc-api`时，涉及到默认密钥和默认地域的配置，可以通过：
+1. 执行命令时增加`--region`、`--access`来指定，例如`s cli fc-api listServices --region cn-hongkong`
+2. 通过`s cli fc-api set`进行设置，可以参考`s cli fc-api set -h`:
+```
+Usage
+
+  s cli fc-api set [type] [value] 
+
+Examples
+
+  region   The region of fc endpoint. 
+  access   Specify the key name.
+```

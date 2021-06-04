@@ -1,14 +1,15 @@
 import {reportComponent, getCredential, commandParse, help} from '@serverless-devs/core'
 import fc from '@alicloud/fc2'
 import readline from 'readline'
-import yaml from 'js-yaml'
+const fs = require('fs');
+const yaml = require('js-yaml');
 import {
     ComponentInputs
 } from './interface'
 import BaseComponent from './base'
-
+// @ts-ignore
 const {spawnSync} = require('child_process');
-
+const defaultConfigFileObject = process.env.HOME + '/.s/.fc.api.default.yaml'
 let result: any
 let resultData: string[] = []
 let _limit: Number | null
@@ -30,6 +31,7 @@ export function input(prompt: string = ""): Promise<any> {
 }
 
 
+
 export default class FunctionCompute extends BaseComponent {
     protected client
 
@@ -37,9 +39,95 @@ export default class FunctionCompute extends BaseComponent {
         super()
     }
 
-    private async getClient(region, access) {
+    private async getConfigFromFile() {
+        let yamlData
+        try {
+            yamlData = await yaml.load(fs.readFileSync(defaultConfigFileObject, 'utf8'))
+        } catch (e) {
+            yamlData = {"region": "cn-hangzhou", "access": "default"}
+        }
+        return yamlData
+    }
+
+    private async writeToFile(key: string, value: string) {
+        const config = await this.getConfigFromFile()
+        config[key] = value
+        await fs.writeFileSync(defaultConfigFileObject, yaml.dump(config));
+        return true
+    }
+
+    /**
+     * 设置阿里云函数计算的默认值
+     * @param inputs
+     * @returns
+     */
+    private async set(inputs: ComponentInputs) {
+        reportComponent('fc-api', {
+            command: 'set',
+            uid: '',
+        });
+        const apts = {
+            boolean: ['help'],
+            alias: {help: 'h'},
+        };
+        const comParse = commandParse({args: inputs.args}, apts);
+        // @ts-ignore
+        if (comParse.data && comParse.data.help) {
+            help([{
+                header: 'Usage',
+                content: `s cli fc-api set [type] [value]`
+            },
+                {
+                    header: 'Examples',
+                    content: [
+                        {
+                            desc: 'region',
+                            example: 'The region of fc endpoint.'
+                        },
+                        {
+                            desc: 'access',
+                            example: 'Specify the key name.'
+                        }
+                    ],
+                },]);
+            return;
+        }
+        if (comParse.data && comParse.data._.length > 0) {
+            if (comParse.data._[0] == "region") {
+                await this.writeToFile("region", comParse.data._[1])
+            }
+            if (comParse.data._[0] == "access") {
+                await this.writeToFile("access", comParse.data._[1])
+            }
+
+        }
+        return await this.getConfigFromFile();
+    }
+
+    /**
+     * 获取所配置的阿里云函数计算默认值
+     * @param inputs
+     * @returns
+     */
+    private async get(inputs: {}) {
+        reportComponent('fc-api', {
+            command: 'get',
+            uid: '',
+        });
+       return await this.getConfigFromFile()
+    }
+
+    public async getClient(region, access) {
         if (!this.client) {
-            access = access || this.inputs.access || 'default'
+            const defaultData = await this.get({})
+            if(!access){
+                access = defaultData.access
+                console.log(`  🌍 Using default access: ${access}, If you want to change the default access for fc-api, you can [s cli fc-api set access Your-Access-Alias] to set default value.`)
+            }
+            if(!region){
+                region = defaultData.region
+                console.log(`  🔑 Using default region: ${region}, If you want to change the default region for fc-api, you can [s cli fc-api set region FC-Region] to set default value.`)
+            }
             const {AccountID, AccessKeyID, AccessKeySecret} = (await getCredential(access)) as any
             reportComponent('fc-api', {uid: AccountID, command: 's cli'})
             this.client = new fc(AccountID, {

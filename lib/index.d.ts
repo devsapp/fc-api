@@ -5,7 +5,21 @@ export default class FunctionCompute extends BaseComponent {
     protected inputs: any;
     protected client: any;
     constructor(inputs: any);
-    private getClient;
+    private getConfigFromFile;
+    private writeToFile;
+    /**
+     * 设置阿里云函数计算的默认值
+     * @param inputs
+     * @returns
+     */
+    private set;
+    /**
+     * 获取所配置的阿里云函数计算默认值
+     * @param inputs
+     * @returns
+     */
+    private get;
+    getClient(region: any, access: any): Promise<void>;
     /**
      * 请求list相关api
      * @param {string} api 判断调用的api
