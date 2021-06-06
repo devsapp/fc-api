@@ -122,11 +122,11 @@ export default class FunctionCompute extends BaseComponent {
             const defaultData = await this.get({})
             if(!access){
                 access = defaultData.access
-                console.log(`  🌍 Using default access: ${access}, If you want to change the default access for fc-api, you can [s cli fc-api set access Your-Access-Alias] to set default value.`)
+                console.log(`  🔑 Using default access: ${access}, If you want to change the default access for fc-api, you can [s cli fc-api set access Your-Access-Alias] to set default value.`)
             }
             if(!region){
                 region = defaultData.region
-                console.log(`  🔑 Using default region: ${region}, If you want to change the default region for fc-api, you can [s cli fc-api set region FC-Region] to set default value.`)
+                console.log(`  🌍 Using default region: ${region}, If you want to change the default region for fc-api, you can [s cli fc-api set region FC-Region] to set default value.`)
             }
             const {AccountID, AccessKeyID, AccessKeySecret} = (await getCredential(access)) as any
             reportComponent('fc-api', {uid: AccountID, command: 's cli'})
