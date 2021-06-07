@@ -222,7 +222,7 @@ export default class FunctionCompute extends BaseComponent {
         while (true) {
             const commandData = await input('> ')
             if (commandData) {
-                console.log(`s cli fc-api ${commandData === "help" ? "-h" : commandData}${addContent}`)
+                // console.log(`s cli fc-api ${commandData === "help" ? "-h" : commandData}${addContent}`)
                 spawnSync(`s cli fc-api ${commandData === "help" ? "-h" : commandData}${addContent}`, [], {
                     cwd: './',
                     stdio: 'inherit',
