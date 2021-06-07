@@ -192,7 +192,7 @@ export default class FunctionCompute extends BaseComponent {
             resultData = resultData.concat(result.data[field])
             if (typeof nextToken === 'undefined' && typeof limit === 'undefined') {
                 _nextToken = result.data.nextToken ? result.data.nextToken : null
-                console.log(_nextToken)
+                // console.log(_nextToken)
             } else {
                 _nextToken = null
             }
