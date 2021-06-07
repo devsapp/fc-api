@@ -1,6 +1,7 @@
 import {reportComponent, getCredential, commandParse, help} from '@serverless-devs/core'
 import fc from '@alicloud/fc2'
 import readline from 'readline'
+
 const fs = require('fs');
 const yaml = require('js-yaml');
 import {
@@ -29,7 +30,6 @@ export function input(prompt: string = ""): Promise<any> {
         });
     });
 }
-
 
 
 export default class FunctionCompute extends BaseComponent {
@@ -114,17 +114,17 @@ export default class FunctionCompute extends BaseComponent {
             command: 'get',
             uid: '',
         });
-       return await this.getConfigFromFile()
+        return await this.getConfigFromFile()
     }
 
     public async getClient(region, access) {
         if (!this.client) {
             const defaultData = await this.get({})
-            if(!access){
+            if (!access) {
                 access = defaultData.access
                 console.log(`  🔑 Using default access: ${access}, If you want to change the default access for fc-api, you can [s cli fc-api set access Your-Access-Alias] to set default value.`)
             }
-            if(!region){
+            if (!region) {
                 region = defaultData.region
                 console.log(`  🌍 Using default region: ${region}, If you want to change the default region for fc-api, you can [s cli fc-api set region FC-Region] to set default value.`)
             }
@@ -151,52 +151,51 @@ export default class FunctionCompute extends BaseComponent {
      * @@return {Promise} 返回查询指定api的列表信息
      */
     private async fetchData(access: string, region: string, api: string, field: string, nextToken: string, limit: number, serviceName?: string, functionName?: string, qualifier?: number) {
-        let optional: any = {
-            limit: _limit,
-            nextToken: _nextToken,
-            prefix: _prefix,
-            startKey: _startKey,
-        }
-        await this.getClient(region, access)
-        const switchApi = {
-            listServices: async () => {
-                result = await this.client[api]({...optional})
-            },
-            listFunctions: async () => {
-                result = await this.client[api](serviceName, {...optional}, {}, qualifier)
-            },
-            listTriggers: async () => {
-                result = await this.client[api](serviceName, functionName, {...optional})
-            },
-            listAliases: async () => {
-                result = await this.client[api](serviceName, {...optional})
-            },
-            listVersions: async () => {
-                result = await this.client[api](serviceName, {...optional})
-            },
-            listCustomDomains: async () => {
-                result = await this.client[api]({...optional})
-            },
-            listProvisionConfigs: async () => {
-                result = await this.client[api]({limit: _limit, nextToken: _nextToken, serviceName, qualifier})
-            },
-            listFunctionAsyncConfigs: async () => {
-                result = await this.client[api](serviceName, functionName, {limit: _limit, nextToken: _nextToken})
-            },
-        }
-        await switchApi[api].call(this)
-        try {
-            do {
-                resultData = resultData.concat(result.data[field])
-                if (typeof nextToken === 'undefined' && typeof limit === 'undefined') {
-                    _nextToken = result.data.nextToken ? result.data.nextToken : null
-                } else {
-                    _nextToken = null
-                }
-            } while (_nextToken)
-        } catch (error) {
-            this.errorReport(error)
-            throw error
+        resultData = []
+        let start = true
+        while (start || _nextToken) {
+            start = false
+            let optional: any = {
+                limit: _limit,
+                nextToken: _nextToken,
+                prefix: _prefix,
+                startKey: _startKey,
+            }
+            await this.getClient(region, access)
+            const switchApi = {
+                listServices: async () => {
+                    result = await this.client[api]({...optional})
+                },
+                listFunctions: async () => {
+                    result = await this.client[api](serviceName, {...optional}, {}, qualifier)
+                },
+                listTriggers: async () => {
+                    result = await this.client[api](serviceName, functionName, {...optional})
+                },
+                listAliases: async () => {
+                    result = await this.client[api](serviceName, {...optional})
+                },
+                listVersions: async () => {
+                    result = await this.client[api](serviceName, {...optional})
+                },
+                listCustomDomains: async () => {
+                    result = await this.client[api]({...optional})
+                },
+                listProvisionConfigs: async () => {
+                    result = await this.client[api]({limit: _limit, nextToken: _nextToken, serviceName, qualifier})
+                },
+                listFunctionAsyncConfigs: async () => {
+                    result = await this.client[api](serviceName, functionName, {limit: _limit, nextToken: _nextToken})
+                },
+            }
+            await switchApi[api].call(this)
+            resultData = resultData.concat(result.data[field])
+            if (typeof nextToken === 'undefined' && typeof limit === 'undefined') {
+                _nextToken = result.data.nextToken ? result.data.nextToken : null
+                console.log(_nextToken)
+            } else {
+                _nextToken = null
+            }
         }
         return yaml.dump(resultData)
     }
@@ -276,7 +275,8 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {limit, nextToken, prefix, startKey, region, access} = Object.assign(inputs.props, comParse.data || {})
+        const {limit, nextToken, prefix, startKey, region} = Object.assign(inputs.props, comParse.data || {})
+        let access = inputs.credentials.Alias
         _nextToken = nextToken
         _limit = limit || 100
         _prefix = prefix
@@ -357,7 +357,8 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {limit, nextToken, prefix, startKey, serviceName, qualifier, region, access} = Object.assign(inputs.props, comParse.data || {})
+        const {limit, nextToken, prefix, startKey, serviceName, qualifier, region} = Object.assign(inputs.props, comParse.data || {})
+        let access = inputs.credentials.Alias
         if (this.checkField({serviceName})) return
         _nextToken = nextToken
         _limit = limit || 100
@@ -439,7 +440,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {limit, nextToken, prefix, startKey, serviceName, functionName, region, access} = Object.assign(inputs.props, comParse.data || {})
+        const {limit, nextToken, prefix, startKey, serviceName, functionName, region,} = Object.assign(inputs.props, comParse.data || {})
         if (this.checkField({serviceName, functionName})) return
         _nextToken = nextToken
         _limit = limit || 100
@@ -516,7 +517,8 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {limit, nextToken, prefix, startKey, serviceName, region, access} = Object.assign(inputs.props, comParse.data || {})
+        const {limit, nextToken, prefix, startKey, serviceName, region,} = Object.assign(inputs.props, comParse.data || {})
+        let access = inputs.credentials.Alias
         if (this.checkField({serviceName})) return
         _nextToken = nextToken
         _limit = limit || 100
@@ -593,7 +595,8 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {limit, nextToken, prefix, startKey, serviceName, region, access} = Object.assign(inputs.props, comParse.data || {})
+        const {limit, nextToken, prefix, startKey, serviceName, region,} = Object.assign(inputs.props, comParse.data || {})
+        let access = inputs.credentials.Alias
         if (this.checkField({serviceName})) return
         _nextToken = nextToken
         _limit = limit || 100
@@ -665,7 +668,8 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {limit, nextToken, prefix, startKey, region, access} = Object.assign(inputs.props, comParse.data || {})
+        const {limit, nextToken, prefix, startKey, region,} = Object.assign(inputs.props, comParse.data || {})
+        let access = inputs.credentials.Alias
         _nextToken = nextToken
         _limit = limit || 100
         _prefix = prefix
@@ -736,7 +740,8 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {limit, nextToken, serviceName, qualifier, region, access} = Object.assign(inputs.props, comParse.data || {})
+        const {limit, nextToken, serviceName, qualifier, region,} = Object.assign(inputs.props, comParse.data || {})
+        let access = inputs.credentials.Alias
         _nextToken = nextToken
         _limit = limit || 100
         return this.fetchData(access, region, 'listProvisionConfigs', 'provisionConfigs', nextToken, limit, serviceName, null, qualifier)
@@ -805,7 +810,8 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {limit, nextToken, serviceName, functionName, region, access} = Object.assign(inputs.props, comParse.data || {})
+        const {limit, nextToken, serviceName, functionName, region,} = Object.assign(inputs.props, comParse.data || {})
+        let access = inputs.credentials.Alias
         if (this.checkField({serviceName, functionName})) return
         _nextToken = nextToken
         _limit = limit || 100
@@ -865,7 +871,8 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, qualifier, region, access} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, qualifier, region,} = Object.assign(inputs.props, comParse.data || {})
+        let access = inputs.credentials.Alias
         if (this.checkField({serviceName})) return
         try {
             await this.getClient(region, access)
@@ -935,7 +942,8 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, qualifier, region, access} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, functionName, qualifier, region,} = Object.assign(inputs.props, comParse.data || {})
+        let access = inputs.credentials.Alias
         if (this.checkField({serviceName, functionName})) return
         try {
             await this.getClient(region, access)
@@ -1005,7 +1013,8 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, qualifier, region, access} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, functionName, qualifier, region,} = Object.assign(inputs.props, comParse.data || {})
+        let access = inputs.credentials.Alias
         if (this.checkField({serviceName, functionName})) return
         try {
             await this.getClient(region, access)
@@ -1075,7 +1084,8 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, triggerName, region, access} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, functionName, triggerName, region,} = Object.assign(inputs.props, comParse.data || {})
+        let access = inputs.credentials.Alias
         if (this.checkField({serviceName, functionName, triggerName})) return
         try {
             await this.getClient(region, access)
@@ -1140,7 +1150,8 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, aliasName, region, access} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, aliasName, region,} = Object.assign(inputs.props, comParse.data || {})
+        let access = inputs.credentials.Alias
         if (this.checkField({serviceName, aliasName})) return
         try {
             await this.getClient(region, access)
@@ -1200,7 +1211,8 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {domainName, region, access} = Object.assign(inputs.props, comParse.data || {})
+        const {domainName, region,} = Object.assign(inputs.props, comParse.data || {})
+        let access = inputs.credentials.Alias
         if (this.checkField({domainName})) return
         try {
             await this.getClient(region, access)
@@ -1270,7 +1282,8 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, qualifier, region, access} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, functionName, qualifier, region,} = Object.assign(inputs.props, comParse.data || {})
+        let access = inputs.credentials.Alias
         if (this.checkField({serviceName, functionName, qualifier})) return
         try {
             await this.getClient(region, access)
@@ -1341,7 +1354,8 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, qualifier, region, access} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, functionName, qualifier, region,} = Object.assign(inputs.props, comParse.data || {})
+        let access = inputs.credentials.Alias
         if (this.checkField({serviceName, functionName, qualifier})) return
         try {
             await this.getClient(region, access)
@@ -1411,7 +1425,8 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, event, region, access} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, functionName, event, region,} = Object.assign(inputs.props, comParse.data || {})
+        let access = inputs.credentials.Alias
         if (this.checkField({serviceName, functionName})) return
         try {
             await this.getClient(region, access)
@@ -1471,7 +1486,8 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, region, access} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, region,} = Object.assign(inputs.props, comParse.data || {})
+        let access = inputs.credentials.Alias
         if (this.checkField({serviceName})) return
         try {
             await this.getClient(region, access)
@@ -1536,7 +1552,8 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, region, access} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, functionName, region,} = Object.assign(inputs.props, comParse.data || {})
+        let access = inputs.credentials.Alias
         if (this.checkField({serviceName, functionName})) return
         try {
             await this.getClient(region, access)
@@ -1606,7 +1623,8 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, triggerName, region, access} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, functionName, triggerName, region,} = Object.assign(inputs.props, comParse.data || {})
+        let access = inputs.credentials.Alias
         if (this.checkField({serviceName, functionName, triggerName})) return
         try {
             await this.getClient(region, access)
@@ -1666,7 +1684,8 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {domainName, region, access} = Object.assign(inputs.props, comParse.data || {})
+        const {domainName, region,} = Object.assign(inputs.props, comParse.data || {})
+        let access = inputs.credentials.Alias
         if (this.checkField({domainName})) return
         try {
             await this.getClient(region, access)
@@ -1731,7 +1750,8 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, versionId, region, access} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, versionId, region,} = Object.assign(inputs.props, comParse.data || {})
+        let access = inputs.credentials.Alias
         if (this.checkField({serviceName, versionId})) return
         try {
             await this.getClient(region, access)
@@ -1796,7 +1816,8 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, aliasName, region, access} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, aliasName, region,} = Object.assign(inputs.props, comParse.data || {})
+        let access = inputs.credentials.Alias
         if (this.checkField({serviceName, aliasName})) return
         try {
             await this.getClient(region, access)
@@ -1866,7 +1887,8 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, qualifier, region, access} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, functionName, qualifier, region,} = Object.assign(inputs.props, comParse.data || {})
+        let access = inputs.credentials.Alias
         if (this.checkField({serviceName, functionName})) return
         try {
             await this.getClient(region, access)
@@ -1961,7 +1983,8 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, description, internetAccess, role, logConfig, nasConfig, vpcConfig, tracingConfig, region, access} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, description, internetAccess, role, logConfig, nasConfig, vpcConfig, tracingConfig, region,} = Object.assign(inputs.props, comParse.data || {})
+        let access = inputs.credentials.Alias
         let sName: string = defaultServiceName ? defaultServiceName : serviceName
         if (this.checkField({sName})) return
         try {
@@ -2065,7 +2088,8 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, description, internetAccess, role, logConfig, nasConfig, vpcConfig, tracingConfig, region, access} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, description, internetAccess, role, logConfig, nasConfig, vpcConfig, tracingConfig, region,} = Object.assign(inputs.props, comParse.data || {})
+        let access = inputs.credentials.Alias
         if (this.checkField({serviceName})) return
         try {
             await this.getClient(region, access)
@@ -2189,7 +2213,8 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort, region, access} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort, region,} = Object.assign(inputs.props, comParse.data || {})
+        let access = inputs.credentials.Alias
         let functionCode: any = {}
         if (this.checkField({serviceName, functionName, code, handler, runtime})) return
         if (code.ossBucketName && code.ossObjectName) {
@@ -2334,7 +2359,8 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort, region, access} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort, region,} = Object.assign(inputs.props, comParse.data || {})
+        let access = inputs.credentials.Alias
         if (this.checkField({serviceName, functionName})) return
         try {
             await this.getClient(region, access)
@@ -2440,7 +2466,8 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, invocationRole, qualifier, sourceArn, triggerConfig, triggerName, triggerType, region, access} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, functionName, invocationRole, qualifier, sourceArn, triggerConfig, triggerName, triggerType, region,} = Object.assign(inputs.props, comParse.data || {})
+        let access = inputs.credentials.Alias
         if (this.checkField({serviceName, functionName, triggerName, triggerType, invocationRole})) return
         try {
             await this.getClient(region, access)
@@ -2542,7 +2569,8 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, invocationRole, qualifier, triggerConfig, triggerName, region, access} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, functionName, invocationRole, qualifier, triggerConfig, triggerName, region,} = Object.assign(inputs.props, comParse.data || {})
+        let access = inputs.credentials.Alias
         if (this.checkField({serviceName, functionName, triggerName})) return
         try {
             await this.getClient(region, access)
@@ -2611,7 +2639,8 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, description, region, access} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, description, region,} = Object.assign(inputs.props, comParse.data || {})
+        let access = inputs.credentials.Alias
         if (this.checkField({serviceName})) return
         try {
             await this.getClient(region, access)
@@ -2691,7 +2720,8 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, aliasName, versionId, additionalVersionWeight, description, region, access} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, aliasName, versionId, additionalVersionWeight, description, region,} = Object.assign(inputs.props, comParse.data || {})
+        let access = inputs.credentials.Alias
         if (this.checkField({serviceName, aliasName, versionId})) return
         try {
             await this.getClient(region, access)
@@ -2774,7 +2804,8 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, aliasName, versionId, additionalVersionWeight, description, region, access} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, aliasName, versionId, additionalVersionWeight, description, region,} = Object.assign(inputs.props, comParse.data || {})
+        let access = inputs.credentials.Alias
         if (this.checkField({serviceName, aliasName, versionId})) return
         try {
             await this.getClient(region, access)
@@ -2852,7 +2883,8 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {domainName, protocol, certConfig, routeConfig, region, access} = Object.assign(inputs.props, comParse.data || {})
+        const {domainName, protocol, certConfig, routeConfig, region,} = Object.assign(inputs.props, comParse.data || {})
+        let access = inputs.credentials.Alias
         if (this.checkField({domainName})) return
         try {
             await this.getClient(region, access)
@@ -2931,7 +2963,8 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {domainName, protocol, certConfig, routeConfig, region, access} = Object.assign(inputs.props, comParse.data || {})
+        const {domainName, protocol, certConfig, routeConfig, region,} = Object.assign(inputs.props, comParse.data || {})
+        let access = inputs.credentials.Alias
         if (this.checkField({domainName})) return
         try {
             await this.getClient(region, access)
@@ -3020,7 +3053,8 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, qualifier, target, scheduledActions, targetTrackingPolicies, region, access} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, functionName, qualifier, target, scheduledActions, targetTrackingPolicies, region,} = Object.assign(inputs.props, comParse.data || {})
+        let access = inputs.credentials.Alias
         if (this.checkField({serviceName, functionName})) return
         try {
             await this.getClient(region, access)
@@ -3109,7 +3143,8 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, qualifier, destinationConfig, maxAsyncEventAgeInSeconds, maxAsyncRetryAttempts, region, access} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, functionName, qualifier, destinationConfig, maxAsyncEventAgeInSeconds, maxAsyncRetryAttempts, region,} = Object.assign(inputs.props, comParse.data || {})
+        let access = inputs.credentials.Alias
         if (this.checkField({serviceName, functionName})) return
         try {
             await this.getClient(region, access)
@@ -3230,7 +3265,8 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort, region, access} = Object.assign(inputs.props, comParse.data || {})
+        const {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort, region,} = Object.assign(inputs.props, comParse.data || {})
+        let access = inputs.credentials.Alias
         if (this.checkField({functionName, code, handler, runtime})) return
         let defaultServiceName: string = serviceName
         if (!serviceName || serviceName.length === 0) {

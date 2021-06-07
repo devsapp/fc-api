@@ -4,6 +4,7 @@ export interface Inputs {
 }
 
 export interface ComponentInputs {
+  credentials: any;
   props?: any
   args?:string
 }
