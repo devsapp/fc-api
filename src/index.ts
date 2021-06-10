@@ -192,7 +192,6 @@ export default class FunctionCompute extends BaseComponent {
             resultData = resultData.concat(result.data[field])
             if (typeof nextToken === 'undefined' && typeof limit === 'undefined') {
                 _nextToken = result.data.nextToken ? result.data.nextToken : null
-                // console.log(_nextToken)
             } else {
                 _nextToken = null
             }
@@ -221,7 +220,6 @@ export default class FunctionCompute extends BaseComponent {
         while (true) {
             const commandData = await input('> ')
             if (commandData) {
-                // console.log(`s cli fc-api ${commandData === "help" ? "-h" : commandData}${addContent}`)
                 spawnSync(`s cli fc-api ${commandData === "help" ? "-h" : commandData}${addContent}`, [], {
                     cwd: './',
                     stdio: 'inherit',
@@ -243,10 +241,8 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-        console.log(inputs)
         // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj, argsObj: inputs.argsObj}, apts);
-        console.log(comParse)
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
             help([{
