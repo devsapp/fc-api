@@ -70,7 +70,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-        const comParse = commandParse({args: inputs.args}, apts);
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
             help([{
@@ -243,7 +243,10 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-        const comParse = commandParse({args: inputs.args}, apts);
+        console.log(inputs)
+        // @ts-ignore
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj, argsObj: inputs.argsObj}, apts);
+        console.log(comParse)
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
             help([{
@@ -295,7 +298,8 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-        const comParse = commandParse({args: inputs.args}, apts);
+        // @ts-ignore
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
             help([{
@@ -378,7 +382,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-        const comParse = commandParse({args: inputs.args}, apts);
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
             help([{
@@ -460,7 +464,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-        const comParse = commandParse({args: inputs.args}, apts);
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
             help([{
@@ -538,7 +542,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-        const comParse = commandParse({args: inputs.args}, apts);
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
             help([{
@@ -616,7 +620,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-        const comParse = commandParse({args: inputs.args}, apts);
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
             help([{
@@ -688,7 +692,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-        const comParse = commandParse({args: inputs.args}, apts);
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
             help([{
@@ -758,7 +762,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-        const comParse = commandParse({args: inputs.args}, apts);
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
             help([{
@@ -829,7 +833,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-        const comParse = commandParse({args: inputs.args}, apts);
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
             help([{
@@ -895,7 +899,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-        const comParse = commandParse({args: inputs.args}, apts);
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
             help([{
@@ -966,7 +970,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-        const comParse = commandParse({args: inputs.args}, apts);
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
             help([{
@@ -1037,7 +1041,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-        const comParse = commandParse({args: inputs.args}, apts);
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
             help([{
@@ -1108,7 +1112,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-        const comParse = commandParse({args: inputs.args}, apts);
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
             help([{
@@ -1174,7 +1178,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-        const comParse = commandParse({args: inputs.args}, apts);
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
             help([{
@@ -1235,7 +1239,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-        const comParse = commandParse({args: inputs.args}, apts);
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
             help([{
@@ -1307,7 +1311,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-        const comParse = commandParse({args: inputs.args}, apts);
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
             help([{
@@ -1378,7 +1382,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-        const comParse = commandParse({args: inputs.args}, apts);
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
             help([{
@@ -1449,7 +1453,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-        const comParse = commandParse({args: inputs.args}, apts);
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
             help([{
@@ -1510,7 +1514,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-        const comParse = commandParse({args: inputs.args}, apts);
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
             help([{
@@ -1576,7 +1580,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-        const comParse = commandParse({args: inputs.args}, apts);
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
             help([{
@@ -1647,7 +1651,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-        const comParse = commandParse({args: inputs.args}, apts);
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
             help([{
@@ -1708,7 +1712,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-        const comParse = commandParse({args: inputs.args}, apts);
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
             help([{
@@ -1774,7 +1778,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-        const comParse = commandParse({args: inputs.args}, apts);
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
             help([{
@@ -1840,7 +1844,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-        const comParse = commandParse({args: inputs.args}, apts);
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
             help([{
@@ -1911,7 +1915,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-        const comParse = commandParse({args: inputs.args}, apts);
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
             help([{
@@ -2016,7 +2020,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-        const comParse = commandParse({args: inputs.args}, apts);
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
             help([{
@@ -2121,7 +2125,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-        const comParse = commandParse({args: inputs.args}, apts);
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
             help([{
@@ -2267,7 +2271,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-        const comParse = commandParse({args: inputs.args}, apts);
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
             help([{
@@ -2394,7 +2398,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-        const comParse = commandParse({args: inputs.args}, apts);
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
             help([{
@@ -2497,7 +2501,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-        const comParse = commandParse({args: inputs.args}, apts);
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
             help([{
@@ -2597,7 +2601,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-        const comParse = commandParse({args: inputs.args}, apts);
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
             help([{
@@ -2663,7 +2667,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-        const comParse = commandParse({args: inputs.args}, apts);
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
             help([{
@@ -2747,7 +2751,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-        const comParse = commandParse({args: inputs.args}, apts);
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
             help([{
@@ -2831,7 +2835,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-        const comParse = commandParse({args: inputs.args}, apts);
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
             help([{
@@ -2911,7 +2915,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-        const comParse = commandParse({args: inputs.args}, apts);
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
             help([{
@@ -2991,7 +2995,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-        const comParse = commandParse({args: inputs.args}, apts);
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
             help([{
@@ -3081,7 +3085,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-        const comParse = commandParse({args: inputs.args}, apts);
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
             help([{
@@ -3173,7 +3177,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-        const comParse = commandParse({args: inputs.args}, apts);
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
             help([{
