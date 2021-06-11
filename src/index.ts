@@ -70,7 +70,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-                // @ts-ignore
+        // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -379,7 +379,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-                // @ts-ignore
+        // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -463,7 +463,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-                // @ts-ignore
+        // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -542,7 +542,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-                // @ts-ignore
+        // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -621,7 +621,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-                // @ts-ignore
+        // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -694,7 +694,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-                // @ts-ignore
+        // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -765,7 +765,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-                // @ts-ignore
+        // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -837,7 +837,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-                // @ts-ignore
+        // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -904,7 +904,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-                // @ts-ignore
+        // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -976,7 +976,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-                // @ts-ignore
+        // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -1048,7 +1048,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-                // @ts-ignore
+        // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -1120,7 +1120,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-                // @ts-ignore
+        // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -1187,7 +1187,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-                // @ts-ignore
+        // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -1249,7 +1249,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-                // @ts-ignore
+        // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -1394,7 +1394,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-                // @ts-ignore
+        // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -1466,7 +1466,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-                // @ts-ignore
+        // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -1528,7 +1528,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-                // @ts-ignore
+        // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -1595,7 +1595,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-                // @ts-ignore
+        // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -1667,7 +1667,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-                // @ts-ignore
+        // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -1729,7 +1729,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-                // @ts-ignore
+        // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -1796,7 +1796,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-                // @ts-ignore
+        // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -1863,7 +1863,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-                // @ts-ignore
+        // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -1930,12 +1930,15 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Required --serviceName
      * @typeParam Optional --description --internetAccess --role --logConfig --nasConfig --vpcConfig --tracingConfig
      */
-    public async createService(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}, defaultServiceName: string) {
+    public async createService(inputs: ComponentInputs = {
+        argsObj: undefined,
+        credentials: undefined
+    }, defaultServiceName: string) {
         const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-                // @ts-ignore
+        // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -2018,10 +2021,10 @@ export default class FunctionCompute extends BaseComponent {
                 description,
                 internetAccess: internetAccess === "false" ? false : true,
                 role,
-                logConfig: logConfig ? JSON.parse(logConfig) : undefined,
-                nasConfig: nasConfig ? JSON.parse(nasConfig) : undefined,
-                vpcConfig: vpcConfig ? JSON.parse(vpcConfig) : undefined,
-                tracingConfig: tracingConfig ? JSON.parse(tracingConfig) : undefined,
+                logConfig: logConfig ? (typeof logConfig == 'string' ? JSON.parse(logConfig) : logConfig) : undefined,
+                nasConfig: nasConfig ? (typeof nasConfig == 'string' ? JSON.parse(nasConfig) : nasConfig) : undefined,
+                vpcConfig: vpcConfig ? (typeof vpcConfig == 'string' ? JSON.parse(vpcConfig) : vpcConfig) : undefined,
+                tracingConfig: tracingConfig ? (typeof tracingConfig == 'string' ? JSON.parse(tracingConfig) : tracingConfig) : undefined,
             })
             return yaml.dump(result.data)
         } catch (error) {
@@ -2041,7 +2044,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-                // @ts-ignore
+        // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -2123,10 +2126,10 @@ export default class FunctionCompute extends BaseComponent {
                 description,
                 role,
                 internetAccess: internetAccess === "false" ? false : true,
-                logConfig: logConfig ? JSON.parse(logConfig) : undefined,
-                nasConfig: nasConfig ? JSON.parse(nasConfig) : undefined,
-                vpcConfig: vpcConfig ? JSON.parse(vpcConfig) : undefined,
-                tracingConfig: tracingConfig ? JSON.parse(tracingConfig) : undefined,
+                logConfig: logConfig ? (typeof logConfig == 'string' ? JSON.parse(logConfig) : logConfig) : undefined,
+                nasConfig: nasConfig ? (typeof nasConfig == 'string' ? JSON.parse(nasConfig) : nasConfig) : undefined,
+                vpcConfig: vpcConfig ? (typeof vpcConfig == 'string' ? JSON.parse(vpcConfig) : vpcConfig) : undefined,
+                tracingConfig: tracingConfig ? (typeof tracingConfig == 'string' ? JSON.parse(tracingConfig) : tracingConfig) : undefined,
             })
             return yaml.dump(result.data)
         } catch (error) {
@@ -2147,7 +2150,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-                // @ts-ignore
+        // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -2244,7 +2247,7 @@ export default class FunctionCompute extends BaseComponent {
         let access = inputs.credentials.Alias
         let functionCode: any = {}
         if (this.checkField({serviceName, functionName, code, handler, runtime})) return
-        code = code ? JSON.parse(code) : undefined
+        code = code ? (typeof code == 'string' ? JSON.parse(code) : code) : undefined
         if (code && code.ossBucketName && code.ossObjectName) {
             functionCode.ossBucketName = code.ossBucketName
             functionCode.ossObjectName = code.ossObjectName
@@ -2267,7 +2270,7 @@ export default class FunctionCompute extends BaseComponent {
             result = await this.client.createFunction(serviceName, {
                 functionName,
                 code: Object.keys(functionCode).length > 0 ? functionCode : undefined,
-                customContainerConfig: customContainerConfig ? JSON.parse(customContainerConfig) : undefined,
+                customContainerConfig: customContainerConfig ? (typeof customContainerConfig == 'string' ? JSON.parse(customContainerConfig) : customContainerConfig) : undefined,
                 description,
                 handler,
                 initializationTimeout,
@@ -2295,7 +2298,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-                // @ts-ignore
+        // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -2389,7 +2392,7 @@ export default class FunctionCompute extends BaseComponent {
             return;
         }
         let {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort, region,} = Object.assign(inputs.props, comParse.data || {})
-        code = code ? JSON.parse(code) : undefined
+        code = code ? (typeof code == 'string' ? JSON.parse(code) : code) : undefined
         let functionCode: any = {}
         if (code && code.ossBucketName && code.ossObjectName) {
             functionCode.ossBucketName = code.ossBucketName
@@ -2414,7 +2417,7 @@ export default class FunctionCompute extends BaseComponent {
             await this.getClient(region, access)
             result = await this.client.updateFunction(serviceName, functionName, {
                 code: Object.keys(functionCode).length > 0 ? functionCode : undefined,
-                customContainerConfig: customContainerConfig ? JSON.parse(customContainerConfig) : undefined,
+                customContainerConfig: customContainerConfig ? (typeof customContainerConfig == 'string' ? JSON.parse(customContainerConfig) : customContainerConfig) : undefined,
                 description,
                 handler,
                 initializationTimeout,
@@ -2442,7 +2445,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-                // @ts-ignore
+        // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -2546,7 +2549,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-                // @ts-ignore
+        // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -2647,7 +2650,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-                // @ts-ignore
+        // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -2714,7 +2717,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-                // @ts-ignore
+        // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -2778,7 +2781,7 @@ export default class FunctionCompute extends BaseComponent {
         try {
             await this.getClient(region, access)
             result = await this.client.createAlias(serviceName, aliasName, String(versionId), {
-                additionalVersionWeight: JSON.parse(additionalVersionWeight || '{}'),
+                additionalVersionWeight: typeof additionalVersionWeight == 'object' ? additionalVersionWeight : JSON.parse(additionalVersionWeight || '{}'),
                 description,
             })
             return yaml.dump(result.data)
@@ -2799,7 +2802,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-                // @ts-ignore
+        // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -2863,7 +2866,7 @@ export default class FunctionCompute extends BaseComponent {
         try {
             await this.getClient(region, access)
             result = await this.client.updateAlias(serviceName, aliasName, String(versionId), {
-                additionalVersionWeight: JSON.parse(additionalVersionWeight || '{}'),
+                additionalVersionWeight: typeof additionalVersionWeight == 'object' ? additionalVersionWeight : JSON.parse(additionalVersionWeight || '{}'),
                 description,
             })
             return yaml.dump(result.data)
@@ -2884,7 +2887,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-                // @ts-ignore
+        // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -2944,8 +2947,8 @@ export default class FunctionCompute extends BaseComponent {
             await this.getClient(region, access)
             result = await this.client.createCustomDomain(domainName, {
                 protocol,
-                certConfig: certConfig ? JSON.parse(certConfig) : undefined,
-                routeConfig: routeConfig ? JSON.parse(routeConfig) : undefined,
+                certConfig: certConfig ? (typeof certConfig == 'string' ? JSON.parse(certConfig) : certConfig) : undefined,
+                routeConfig: routeConfig ? (typeof routeConfig == 'string' ? JSON.parse(routeConfig) : routeConfig) : undefined,
             })
             return yaml.dump(result.data)
         } catch (error) {
@@ -2965,7 +2968,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-                // @ts-ignore
+        // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -3025,8 +3028,8 @@ export default class FunctionCompute extends BaseComponent {
             await this.getClient(region, access)
             result = await this.client.updateCustomDomain(domainName, {
                 protocol,
-                certConfig: certConfig ? JSON.parse(certConfig) : undefined,
-                routeConfig: routeConfig ? JSON.parse(routeConfig) : undefined,
+                certConfig: certConfig ? (typeof certConfig == 'string' ? JSON.parse(certConfig) : certConfig) : undefined,
+                routeConfig: routeConfig ? (typeof routeConfig == 'string' ? JSON.parse(routeConfig) : routeConfig ) : undefined,
             })
             return yaml.dump(result.data)
         } catch (error) {
@@ -3046,7 +3049,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-                // @ts-ignore
+        // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -3116,8 +3119,8 @@ export default class FunctionCompute extends BaseComponent {
             await this.getClient(region, access)
             result = await this.client.putProvisionConfig(serviceName, functionName, qualifier, {
                 target,
-                scheduledActions: scheduledActions ? JSON.parse(scheduledActions) : undefined,
-                targetTrackingPolicies: targetTrackingPolicies ? JSON.parse(targetTrackingPolicies) : undefined,
+                scheduledActions: scheduledActions ? (typeof scheduledActions == 'string' ? JSON.parse(scheduledActions) : scheduledActions) : undefined,
+                targetTrackingPolicies: targetTrackingPolicies ? (typeof targetTrackingPolicies == 'string' ? JSON.parse(targetTrackingPolicies) : targetTrackingPolicies) : undefined,
             })
             return yaml.dump(result.data)
         } catch (error) {
@@ -3137,7 +3140,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-                // @ts-ignore
+        // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -3206,7 +3209,7 @@ export default class FunctionCompute extends BaseComponent {
         try {
             await this.getClient(region, access)
             result = await this.client.putFunctionAsyncConfig(serviceName, functionName, qualifier, {
-                destinationConfig: destinationConfig ? JSON.parse(destinationConfig) : undefined,
+                destinationConfig: destinationConfig ? (typeof destinationConfig == 'string' ? JSON.parse(destinationConfig) : destinationConfig) : undefined,
                 maxAsyncEventAgeInSeconds,
                 maxAsyncRetryAttempts,
             })
@@ -3230,7 +3233,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
-                // @ts-ignore
+        // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -3326,7 +3329,7 @@ export default class FunctionCompute extends BaseComponent {
         let {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort, region,} = Object.assign(inputs.props, comParse.data || {})
         let access = inputs.credentials.Alias
         if (this.checkField({functionName, code, handler, runtime})) return
-        code = code ? JSON.parse(code) : undefined
+        code = code ? (typeof code == 'string' ? JSON.parse(code) : code) : undefined
         let defaultServiceName: string = serviceName
         if (!serviceName || serviceName.length === 0) {
             defaultServiceName = `Service${functionName}`
@@ -3356,7 +3359,7 @@ export default class FunctionCompute extends BaseComponent {
             result = await this.client.createFunction(defaultServiceName, {
                 functionName,
                 code: Object.keys(functionCode).length > 0 ? functionCode : undefined,
-                customContainerConfig: customContainerConfig ? JSON.parse(customContainerConfig) : undefined,
+                customContainerConfig: customContainerConfig ? (typeof customContainerConfig == 'string' ? JSON.parse(customContainerConfig) : customContainerConfig) : undefined,
                 description,
                 handler,
                 initializationTimeout,
