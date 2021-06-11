@@ -61,7 +61,7 @@ export default class FunctionCompute extends BaseComponent {
      * @param inputs
      * @returns
      */
-    private async set(inputs: ComponentInputs) {
+    async set(inputs: ComponentInputs) {
         reportComponent('fc-api', {
             command: 'set',
             uid: '',
@@ -70,6 +70,7 @@ export default class FunctionCompute extends BaseComponent {
             boolean: ['help'],
             alias: {help: 'h'},
         };
+                // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -92,12 +93,12 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        if (comParse.data && comParse.data._.length > 0) {
-            if (comParse.data._[0] == "region") {
-                await this.writeToFile("region", comParse.data._[1])
+        if (comParse.data && comParse.data['_'].length > 0) {
+            if (comParse.data['_'][0] == "region") {
+                await this.writeToFile("region", comParse.data['_'][1])
             }
-            if (comParse.data._[0] == "access") {
-                await this.writeToFile("access", comParse.data._[1])
+            if (comParse.data['_'][0] == "access") {
+                await this.writeToFile("access", comParse.data['_'][1])
             }
 
         }
@@ -109,7 +110,7 @@ export default class FunctionCompute extends BaseComponent {
      * @param inputs
      * @returns
      */
-    private async get(inputs: {}) {
+    async get(inputs: {}) {
         reportComponent('fc-api', {
             command: 'get',
             uid: '',
@@ -199,11 +200,11 @@ export default class FunctionCompute extends BaseComponent {
         return yaml.dump(resultData)
     }
 
-    private async index(inputs: ComponentInputs = {}) {
+    async index(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
         const newInputs = inputs
         let addContent = ""
-        if (newInputs.project.access) {
-            addContent = ` -a ${newInputs.project.access}`
+        if (newInputs.project['access']) {
+            addContent = ` -a ${newInputs.project['access']}`
         }
         console.log(` _____     __       ____  ____   ____ 
 |     |   /  ]     /    ||    \\ |    |
@@ -236,7 +237,7 @@ export default class FunctionCompute extends BaseComponent {
      * 查询服务列表
      * @param inputs
      */
-    public async listServices(inputs: ComponentInputs = {}) {
+    public async listServices(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
         const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
@@ -289,7 +290,7 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Required --serviceName
      * @typeParam Optional --qualifier --limit --nextToken --prefix --startKey
      */
-    public async listFunctions(inputs: ComponentInputs = {}) {
+    public async listFunctions(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
         const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
@@ -373,11 +374,12 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Required --serviceName --functionName
      * @typeParam Optional --limit --nextToken --prefix --startKey
      */
-    public async listTriggers(inputs: ComponentInputs = {}) {
+    public async listTriggers(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
         const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
+                // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -446,6 +448,7 @@ export default class FunctionCompute extends BaseComponent {
         _limit = limit || 100
         _prefix = prefix
         _startKey = startKey
+        let access = inputs.credentials.Alias
         return this.fetchData(access, region, 'listTriggers', 'triggers', nextToken, limit, serviceName, functionName)
     }
 
@@ -455,11 +458,12 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Required --serviceName
      * @typeParam Optional --limit --nextToken --prefix --startKey
      */
-    public async listAliases(inputs: ComponentInputs = {}) {
+    public async listAliases(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
         const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
+                // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -533,11 +537,12 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Required --serviceName
      * @typeParam Optional --limit --nextToken --prefix --startKey
      */
-    public async listVersions(inputs: ComponentInputs = {}) {
+    public async listVersions(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
         const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
+                // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -611,11 +616,12 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Required
      * @typeParam Optional --limit --nextToken --prefix --startKey
      */
-    public async listCustomDomains(inputs: ComponentInputs = {}) {
+    public async listCustomDomains(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
         const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
+                // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -683,11 +689,12 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Required --serviceName
      * @typeParam Optional --limit --nextToken --prefix --startKey
      */
-    public async listProvisionConfigs(inputs: ComponentInputs = {}) {
+    public async listProvisionConfigs(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
         const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
+                // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -753,11 +760,12 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Required --serviceName --functionName
      * @typeParam Optional --limit --nextToken
      */
-    public async listFunctionAsyncConfigs(inputs: ComponentInputs = {}) {
+    public async listFunctionAsyncConfigs(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
         const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
+                // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -824,11 +832,12 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Required --serviceName
      * @typeParam Optional --qualifier
      */
-    public async getService(inputs: ComponentInputs = {}) {
+    public async getService(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
         const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
+                // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -890,11 +899,12 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Required --serviceName --functionName
      * @typeParam Optional --qualifier
      */
-    public async getFunction(inputs: ComponentInputs = {}) {
+    public async getFunction(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
         const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
+                // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -961,11 +971,12 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Required --serviceName --functionName
      * @typeParam Optional --qualifier
      */
-    public async getFunctionCode(inputs: ComponentInputs = {}) {
+    public async getFunctionCode(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
         const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
+                // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -1032,11 +1043,12 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Required --serviceName --functionName --triggerName
      * @typeParam Optional
      */
-    public async getTrigger(inputs: ComponentInputs = {}) {
+    public async getTrigger(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
         const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
+                // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -1103,11 +1115,12 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Required --serviceName --aliasName
      * @typeParam Optional
      */
-    public async getAlias(inputs: ComponentInputs = {}) {
+    public async getAlias(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
         const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
+                // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -1169,11 +1182,12 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Required --domainName
      * @typeParam Optional
      */
-    public async getCustomDomain(inputs: ComponentInputs = {}) {
+    public async getCustomDomain(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
         const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
+                // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -1230,11 +1244,12 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Required --serviceName --functionName
      * @typeParam Optional --qualifier
      */
-    public async getProvisionConfig(inputs: ComponentInputs = {}) {
+    public async getProvisionConfig(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
         const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
+                // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -1301,12 +1316,13 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Required --serviceName --functionName
      * @typeParam Optional --qualifier
      */
-    public async getFunctionAsyncConfig(inputs: ComponentInputs = {}) {
+    public async getFunctionAsyncConfig(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
 
         const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
+        // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -1373,11 +1389,12 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Required --serviceName --functionName
      * @typeParam Optional --qualifier --even
      */
-    public async invokeFunction(inputs: ComponentInputs = {}) {
+    public async invokeFunction(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
         const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
+                // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -1444,11 +1461,12 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Required --serviceName
      * @typeParam Optional
      */
-    public async deleteService(inputs: ComponentInputs = {}) {
+    public async deleteService(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
         const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
+                // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -1505,11 +1523,12 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Required --serviceName --functionName
      * @typeParam Optional
      */
-    public async deleteFunction(inputs: ComponentInputs = {}) {
+    public async deleteFunction(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
         const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
+                // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -1571,11 +1590,12 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Required --serviceName --functionName --triggerName
      * @typeParam Optional
      */
-    public async deleteTrigger(inputs: ComponentInputs = {}) {
+    public async deleteTrigger(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
         const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
+                // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -1642,11 +1662,12 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Required --domainName
      * @typeParam Optional
      */
-    public async deleteCustomDomain(inputs: ComponentInputs = {}) {
+    public async deleteCustomDomain(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
         const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
+                // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -1703,11 +1724,12 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Required --serviceName --versionId
      * @typeParam Optional
      */
-    public async deleteVersion(inputs: ComponentInputs = {}) {
+    public async deleteVersion(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
         const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
+                // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -1769,11 +1791,12 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Required --serviceName --aliasName
      * @typeParam Optional
      */
-    public async deleteAlias(inputs: ComponentInputs = {}) {
+    public async deleteAlias(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
         const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
+                // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -1835,11 +1858,12 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Required --serviceName --functionName
      * @typeParam Optional --qualifier
      */
-    public async deleteFunctionAsyncConfig(inputs: ComponentInputs = {}) {
+    public async deleteFunctionAsyncConfig(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
         const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
+                // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -1906,11 +1930,12 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Required --serviceName
      * @typeParam Optional --description --internetAccess --role --logConfig --nasConfig --vpcConfig --tracingConfig
      */
-    public async createService(inputs: ComponentInputs = {}, defaultServiceName: string) {
+    public async createService(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}, defaultServiceName: string) {
         const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
+                // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -1961,22 +1986,22 @@ export default class FunctionCompute extends BaseComponent {
                         },
                         {
                             name: 'logConfig',
-                            description: 'The log configuration. This parameter specifies a Logstore to store function execution logs.',
+                            description: '[JSON String] The log configuration. This parameter specifies a Logstore to store function execution logs.',
                             type: String,
                         },
                         {
                             name: 'nasConfig',
-                            description: 'The Apsara File Storage NAS (NAS) file system configuration, which enables a function to access the specified NAS file system.',
+                            description: '[JSON String] The Apsara File Storage NAS (NAS) file system configuration, which enables a function to access the specified NAS file system.',
                             type: String,
                         },
                         {
                             name: 'vpcConfig',
-                            description: 'The VPC configuration, which enables a function to access the specified VPC.',
+                            description: '[JSON String] The VPC configuration, which enables a function to access the specified VPC.',
                             type: String,
                         },
                         {
                             name: 'tracingConfig',
-                            description: 'The configuration of Tracing Analysis. After Function Compute integrates with Tracing Analysis, you can record the stay time of a request in Function Compute, view the cold start time for a function, and record the execution time of a function. For more information.',
+                            description: '[JSON String] The configuration of Tracing Analysis. After Function Compute integrates with Tracing Analysis, you can record the stay time of a request in Function Compute, view the cold start time for a function, and record the execution time of a function. For more information.',
                             type: String,
                         },
                     ],
@@ -1991,12 +2016,12 @@ export default class FunctionCompute extends BaseComponent {
             await this.getClient(region, access)
             result = await this.client.createService(sName, {
                 description,
-                internetAccess,
+                internetAccess: internetAccess === "false" ? false : true,
                 role,
-                logConfig,
-                nasConfig,
-                vpcConfig,
-                tracingConfig,
+                logConfig: logConfig ? JSON.parse(logConfig) : undefined,
+                nasConfig: nasConfig ? JSON.parse(nasConfig) : undefined,
+                vpcConfig: vpcConfig ? JSON.parse(vpcConfig) : undefined,
+                tracingConfig: tracingConfig ? JSON.parse(tracingConfig) : undefined,
             })
             return yaml.dump(result.data)
         } catch (error) {
@@ -2011,11 +2036,12 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Required --serviceName
      * @typeParam Optional --description --internetAccess --role --logConfig --nasConfig --vpcConfig --tracingConfig
      */
-    public async updateService(inputs: ComponentInputs = {}) {
+    public async updateService(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
         const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
+                // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -2066,22 +2092,22 @@ export default class FunctionCompute extends BaseComponent {
                         },
                         {
                             name: 'logConfig',
-                            description: 'The log configuration. This parameter specifies a Logstore to store function execution logs.',
+                            description: '[JSON String] The log configuration. This parameter specifies a Logstore to store function execution logs.',
                             type: String,
                         },
                         {
                             name: 'nasConfig',
-                            description: 'The Apsara File Storage NAS (NAS) file system configuration, which enables a function to access the specified NAS file system.',
+                            description: '[JSON String] The Apsara File Storage NAS (NAS) file system configuration, which enables a function to access the specified NAS file system.',
                             type: String,
                         },
                         {
                             name: 'vpcConfig',
-                            description: 'The VPC configuration, which enables a function to access the specified VPC.',
+                            description: '[JSON String] The VPC configuration, which enables a function to access the specified VPC.',
                             type: String,
                         },
                         {
                             name: 'tracingConfig',
-                            description: 'The configuration of Tracing Analysis. After Function Compute integrates with Tracing Analysis, you can record the stay time of a request in Function Compute, view the cold start time for a function, and record the execution time of a function. For more information.',
+                            description: '[JSON String] The configuration of Tracing Analysis. After Function Compute integrates with Tracing Analysis, you can record the stay time of a request in Function Compute, view the cold start time for a function, and record the execution time of a function. For more information.',
                             type: String,
                         },
                     ],
@@ -2095,12 +2121,12 @@ export default class FunctionCompute extends BaseComponent {
             await this.getClient(region, access)
             result = await this.client.updateService(serviceName, {
                 description,
-                internetAccess,
                 role,
-                logConfig,
-                nasConfig,
-                vpcConfig,
-                tracingConfig,
+                internetAccess: internetAccess === "false" ? false : true,
+                logConfig: logConfig ? JSON.parse(logConfig) : undefined,
+                nasConfig: nasConfig ? JSON.parse(nasConfig) : undefined,
+                vpcConfig: vpcConfig ? JSON.parse(vpcConfig) : undefined,
+                tracingConfig: tracingConfig ? JSON.parse(tracingConfig) : undefined,
             })
             return yaml.dump(result.data)
         } catch (error) {
@@ -2116,11 +2142,12 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Required --serviceName --functionName --code --handler --runtime
      * @typeParam Optional --description --customContainerConfig --initializationTimeout --initializer --memorySize --runtime --timeout --caPort
      */
-    public async createFunction(inputs: ComponentInputs = {}) {
+    public async createFunction(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
         const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
+                // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -2161,12 +2188,12 @@ export default class FunctionCompute extends BaseComponent {
                         },
                         {
                             name: 'code',
-                            description: 'The code of the function. The code must be packaged into a ZIP file.',
+                            description: '[JSON String] The code of the function. The code must be packaged into a ZIP file.',
                             type: String,
                         },
                         {
                             name: 'customContainerConfig',
-                            description: 'The configuration of the custom container runtime. After you configure the custom container runtime, you can use custom container images to execute functions.',
+                            description: '[JSON String] The configuration of the custom container runtime. After you configure the custom container runtime, you can use custom container images to execute functions.',
                             type: String,
                         },
                         {
@@ -2182,7 +2209,7 @@ export default class FunctionCompute extends BaseComponent {
                         {
                             name: 'initializationTimeout',
                             description: 'The timeout period for Function Compute to run the initializer function. Unit: seconds. Default value: 3. Valid values: 1 to 300. When this period expires, the execution of the initializer function is terminated.',
-                            type: String,
+                            type: Number,
                         },
                         {
                             name: 'initializer',
@@ -2192,7 +2219,7 @@ export default class FunctionCompute extends BaseComponent {
                         {
                             name: 'memorySize',
                             description: 'The memory size of the function. Unit: MB. The memory size must be a multiple of 64 MB. Instance types have different memory specifications.',
-                            type: String,
+                            type: Number,
                         },
                         {
                             name: 'runtime',
@@ -2202,21 +2229,22 @@ export default class FunctionCompute extends BaseComponent {
                         {
                             name: 'timeout',
                             description: 'The timeout period for the execution of the function. Unit: seconds. Default value: 60. Valid values: 1 to 600. When this period expires, the execution of the function is terminated.',
-                            type: String,
+                            type: Number,
                         },
                         {
                             name: 'caPort',
                             description: 'The port on which the HTTP server listens for the custom runtime or custom container runtime.',
-                            type: String,
+                            type: Number,
                         },
                     ],
                 },]);
             return;
         }
-        const {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort, region,} = Object.assign(inputs.props, comParse.data || {})
+        let {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort, region,} = Object.assign(inputs.props, comParse.data || {})
         let access = inputs.credentials.Alias
         let functionCode: any = {}
         if (this.checkField({serviceName, functionName, code, handler, runtime})) return
+        code = code ? JSON.parse(code) : undefined
         if (code.ossBucketName && code.ossObjectName) {
             functionCode.ossBucketName = code.ossBucketName
             functionCode.ossObjectName = code.ossObjectName
@@ -2239,7 +2267,7 @@ export default class FunctionCompute extends BaseComponent {
             result = await this.client.createFunction(serviceName, {
                 functionName,
                 code: functionCode,
-                customContainerConfig,
+                customContainerConfig: customContainerConfig ? JSON.parse(customContainerConfig) : undefined,
                 description,
                 handler,
                 initializationTimeout,
@@ -2262,11 +2290,12 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Required --serviceName --functionName
      * @typeParam Optional --description --customContainerConfig --initializationTimeout --initializer --memorySize --runtime --timeout --caPort --code --handler --runtime
      */
-    public async updateFunction(inputs: ComponentInputs = {}) {
+    public async updateFunction(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
         const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
+                // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -2307,12 +2336,12 @@ export default class FunctionCompute extends BaseComponent {
                         },
                         {
                             name: 'code',
-                            description: 'The code of the function. The code must be packaged into a ZIP file.',
+                            description: '[JSON String] The code of the function. The code must be packaged into a ZIP file.',
                             type: String,
                         },
                         {
                             name: 'customContainerConfig',
-                            description: 'The configuration of the custom container runtime. After you configure the custom container runtime, you can use custom container images to execute functions.',
+                            description: '[JSON String] The configuration of the custom container runtime. After you configure the custom container runtime, you can use custom container images to execute functions.',
                             type: String,
                         },
                         {
@@ -2328,7 +2357,7 @@ export default class FunctionCompute extends BaseComponent {
                         {
                             name: 'initializationTimeout',
                             description: 'The timeout period for Function Compute to run the initializer function. Unit: seconds. Default value: 3. Valid values: 1 to 300. When this period expires, the execution of the initializer function is terminated.',
-                            type: String,
+                            type: Number,
                         },
                         {
                             name: 'initializer',
@@ -2338,7 +2367,7 @@ export default class FunctionCompute extends BaseComponent {
                         {
                             name: 'memorySize',
                             description: 'The memory size of the function. Unit: MB. The memory size must be a multiple of 64 MB. Instance types have different memory specifications.',
-                            type: String,
+                            type: Number,
                         },
                         {
                             name: 'runtime',
@@ -2348,25 +2377,44 @@ export default class FunctionCompute extends BaseComponent {
                         {
                             name: 'timeout',
                             description: 'The timeout period for the execution of the function. Unit: seconds. Default value: 60. Valid values: 1 to 600. When this period expires, the execution of the function is terminated.',
-                            type: String,
+                            type: Number,
                         },
                         {
                             name: 'caPort',
                             description: 'The port on which the HTTP server listens for the custom runtime or custom container runtime.',
-                            type: String,
+                            type: Number,
                         },
                     ],
                 },]);
             return;
         }
-        const {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort, region,} = Object.assign(inputs.props, comParse.data || {})
+        let {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort, region,} = Object.assign(inputs.props, comParse.data || {})
+        code = code ? JSON.parse(code) : undefined
+        let functionCode: any = {}
+        if (code.ossBucketName && code.ossObjectName) {
+            functionCode.ossBucketName = code.ossBucketName
+            functionCode.ossObjectName = code.ossObjectName
+            delete functionCode.zipFile
+        }
+        if (code.zipFile) {
+            let codeFize: any
+            if (code.zipFile.includes('.zip') || code.zipFile.includes('.jar')) {
+                codeFize = await this.getZipFile(code.zipFile)
+            } else {
+                codeFize = await this.startZip(code.zipFile)
+            }
+            if (!codeFize) return
+            functionCode.zipFile = codeFize
+            delete functionCode.ossBucketName
+            delete functionCode.ossObjectName
+        }
         let access = inputs.credentials.Alias
         if (this.checkField({serviceName, functionName})) return
         try {
             await this.getClient(region, access)
             result = await this.client.updateFunction(serviceName, functionName, {
-                code,
-                customContainerConfig,
+                code: functionCode,
+                customContainerConfig: customContainerConfig ? JSON.parse(customContainerConfig) : undefined,
                 description,
                 handler,
                 initializationTimeout,
@@ -2389,11 +2437,12 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Required --serviceName --functionName --triggerName --triggerType
      * @typeParam Optional --invocationRole --qualifier --sourceArn --triggerConfig
      */
-    public async createTrigger(inputs: ComponentInputs = {}) {
+    public async createTrigger(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
         const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
+                // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -2492,11 +2541,12 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Required --serviceName --functionName --triggerName
      * @typeParam Optional --invocationRole --qualifier --triggerConfig
      */
-    public async updateTrigger(inputs: ComponentInputs = {}) {
+    public async updateTrigger(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
         const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
+                // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -2592,11 +2642,12 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Required --serviceName --description
      * @typeParam Optional
      */
-    public async publishVersion(inputs: ComponentInputs = {}) {
+    public async publishVersion(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
         const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
+                // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -2658,11 +2709,12 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Required --serviceName --aliasName --versionId
      * @typeParam Optional --additionalVersionWeight --description
      */
-    public async createAlias(inputs: ComponentInputs = {}) {
+    public async createAlias(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
         const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
+                // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -2708,7 +2760,7 @@ export default class FunctionCompute extends BaseComponent {
                         },
                         {
                             name: 'additionalVersionWeight',
-                            description: 'The additional version to which the alias points and the weight of the additional version.',
+                            description: `[JSON String] The additional version to which the alias points and the weight of the additional version. like '{"2": 0.1}'`,
                             type: String,
                         },
                         {
@@ -2725,8 +2777,8 @@ export default class FunctionCompute extends BaseComponent {
         if (this.checkField({serviceName, aliasName, versionId})) return
         try {
             await this.getClient(region, access)
-            result = await this.client.createAlias(serviceName, aliasName, versionId, {
-                additionalVersionWeight: additionalVersionWeight || {},
+            result = await this.client.createAlias(serviceName, aliasName, String(versionId), {
+                additionalVersionWeight: JSON.parse(additionalVersionWeight || '{}'),
                 description,
             })
             return yaml.dump(result.data)
@@ -2742,11 +2794,12 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Required --serviceName --aliasName --versionId
      * @typeParam Optional --additionalVersionWeight --description
      */
-    public async updateAlias(inputs: ComponentInputs = {}) {
+    public async updateAlias(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
         const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
+                // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -2792,7 +2845,7 @@ export default class FunctionCompute extends BaseComponent {
                         },
                         {
                             name: 'additionalVersionWeight',
-                            description: 'The additional version to which the alias points and the weight of the additional version.',
+                            description: `[JSON String] The additional version to which the alias points and the weight of the additional version. like '{"2": 0.1}'`,
                             type: String,
                         },
                         {
@@ -2809,8 +2862,8 @@ export default class FunctionCompute extends BaseComponent {
         if (this.checkField({serviceName, aliasName, versionId})) return
         try {
             await this.getClient(region, access)
-            result = await this.client.updateAlias(serviceName, aliasName, versionId, {
-                additionalVersionWeight,
+            result = await this.client.updateAlias(serviceName, aliasName, String(versionId), {
+                additionalVersionWeight: JSON.parse(additionalVersionWeight || '{}'),
                 description,
             })
             return yaml.dump(result.data)
@@ -2826,11 +2879,12 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Required --domainName
      * @typeParam Optional --protocol --certConfig --routeConfig
      */
-    public async createCustomDomain(inputs: ComponentInputs = {}) {
+    public async createCustomDomain(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
         const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
+                // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -2890,8 +2944,8 @@ export default class FunctionCompute extends BaseComponent {
             await this.getClient(region, access)
             result = await this.client.createCustomDomain(domainName, {
                 protocol,
-                certConfig,
-                routeConfig,
+                certConfig: certConfig ? JSON.parse(certConfig) : undefined,
+                routeConfig: routeConfig ? JSON.parse(routeConfig) : undefined,
             })
             return yaml.dump(result.data)
         } catch (error) {
@@ -2906,11 +2960,12 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Required --domainName
      * @typeParam Optional --protocol --certConfig --routeConfig
      */
-    public async updateCustomDomain(inputs: ComponentInputs = {}) {
+    public async updateCustomDomain(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
         const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
+                // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -2970,8 +3025,8 @@ export default class FunctionCompute extends BaseComponent {
             await this.getClient(region, access)
             result = await this.client.updateCustomDomain(domainName, {
                 protocol,
-                certConfig,
-                routeConfig,
+                certConfig: certConfig ? JSON.parse(certConfig) : undefined,
+                routeConfig: routeConfig ? JSON.parse(routeConfig) : undefined,
             })
             return yaml.dump(result.data)
         } catch (error) {
@@ -2986,11 +3041,12 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Required --serviceName --functionName --qualifier
      * @typeParam Optional --target --scheduledActions --targetTrackingPolicies
      */
-    public async putProvisionConfig(inputs: ComponentInputs = {}) {
+    public async putProvisionConfig(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
         const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
+                // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -3037,16 +3093,16 @@ export default class FunctionCompute extends BaseComponent {
                         {
                             name: 'target',
                             description: 'The expected number of provisioned instances.',
-                            type: String,
+                            type: Number,
                         },
                         {
                             name: 'scheduledActions',
-                            description: 'The configuration of scheduled auto scaling. You can perform scheduled auto scaling to flexibly configure provisioned instances. You can configure the number of provisioned instances to be automatically adjusted to a specified value at a specified time. This way, the number of provisioned instances can meet the concurrency of your business.',
+                            description: '[JSON String] The configuration of scheduled auto scaling. You can perform scheduled auto scaling to flexibly configure provisioned instances. You can configure the number of provisioned instances to be automatically adjusted to a specified value at a specified time. This way, the number of provisioned instances can meet the concurrency of your business.',
                             type: String,
                         },
                         {
                             name: 'targetTrackingPolicies',
-                            description: 'The configuration of metric tracking auto scaling. Provisioned instances are scaled in or out every minute based on the concurrency utilization of provisioned instances.',
+                            description: '[Json String] The configuration of metric tracking auto scaling. Provisioned instances are scaled in or out every minute based on the concurrency utilization of provisioned instances.',
                             type: String,
                         },
                     ],
@@ -3060,8 +3116,8 @@ export default class FunctionCompute extends BaseComponent {
             await this.getClient(region, access)
             result = await this.client.putProvisionConfig(serviceName, functionName, qualifier, {
                 target,
-                scheduledActions,
-                targetTrackingPolicies,
+                scheduledActions: scheduledActions ? JSON.parse(scheduledActions) : undefined,
+                targetTrackingPolicies: targetTrackingPolicies ? JSON.parse(targetTrackingPolicies) : undefined,
             })
             return yaml.dump(result.data)
         } catch (error) {
@@ -3076,11 +3132,12 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Required --serviceName --functionName --qualifier
      * @typeParam Optional --destinationConfig --maxAsyncEventAgeInSeconds --maxAsyncRetryAttempts
      */
-    public async putFunctionAsyncConfig(inputs: ComponentInputs = {}) {
+    public async putFunctionAsyncConfig(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
         const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
+                // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -3126,18 +3183,18 @@ export default class FunctionCompute extends BaseComponent {
                         },
                         {
                             name: 'destinationConfig',
-                            description: 'The configuration structure of the destination for asynchronous invocation.',
+                            description: '[JSON String] The configuration structure of the destination for asynchronous invocation.',
                             type: String,
                         },
                         {
                             name: 'maxAsyncEventAgeInSeconds',
                             description: 'The validity period of requests. Valid values: 1 to 2592000. Unit: seconds.',
-                            type: String,
+                            type: Number,
                         },
                         {
                             name: 'maxAsyncRetryAttempts',
                             description: 'The maximum number of retries after an asynchronous invocation fails. Default value: 3. Valid values: 0 to 8.',
-                            type: String,
+                            type: Number,
                         },
                     ],
                 },]);
@@ -3149,7 +3206,7 @@ export default class FunctionCompute extends BaseComponent {
         try {
             await this.getClient(region, access)
             result = await this.client.putFunctionAsyncConfig(serviceName, functionName, qualifier, {
-                destinationConfig,
+                destinationConfig: destinationConfig ? JSON.parse(destinationConfig) : undefined,
                 maxAsyncEventAgeInSeconds,
                 maxAsyncRetryAttempts,
             })
@@ -3168,11 +3225,12 @@ export default class FunctionCompute extends BaseComponent {
      * @typeParam Optional --description --customContainerConfig --initializationTimeout --initializer --memorySize --runtime --timeout --caPort
      */
 
-    public async createFunctionDefaultService(inputs: ComponentInputs = {}) {
+    public async createFunctionDefaultService(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
         const apts = {
             boolean: ['help'],
             alias: {help: 'h'},
         };
+                // @ts-ignore
         const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
         // @ts-ignore
         if (comParse.data && comParse.data.help) {
@@ -3213,12 +3271,12 @@ export default class FunctionCompute extends BaseComponent {
                         },
                         {
                             name: 'code',
-                            description: 'The code of the function. The code must be packaged into a ZIP file.',
+                            description: '[JSON String] The code of the function. The code must be packaged into a ZIP file.',
                             type: String,
                         },
                         {
                             name: 'customContainerConfig',
-                            description: 'The configuration of the custom container runtime. After you configure the custom container runtime, you can use custom container images to execute functions.',
+                            description: '[JSON String] The configuration of the custom container runtime. After you configure the custom container runtime, you can use custom container images to execute functions.',
                             type: String,
                         },
                         {
@@ -3234,7 +3292,7 @@ export default class FunctionCompute extends BaseComponent {
                         {
                             name: 'initializationTimeout',
                             description: 'The timeout period for Function Compute to run the initializer function. Unit: seconds. Default value: 3. Valid values: 1 to 300. When this period expires, the execution of the initializer function is terminated.',
-                            type: String,
+                            type: Number,
                         },
                         {
                             name: 'initializer',
@@ -3244,7 +3302,7 @@ export default class FunctionCompute extends BaseComponent {
                         {
                             name: 'memorySize',
                             description: 'The memory size of the function. Unit: MB. The memory size must be a multiple of 64 MB. Instance types have different memory specifications.',
-                            type: String,
+                            type: Number,
                         },
                         {
                             name: 'runtime',
@@ -3254,20 +3312,21 @@ export default class FunctionCompute extends BaseComponent {
                         {
                             name: 'timeout',
                             description: 'The timeout period for the execution of the function. Unit: seconds. Default value: 60. Valid values: 1 to 600. When this period expires, the execution of the function is terminated.',
-                            type: String,
+                            type: Number,
                         },
                         {
                             name: 'caPort',
                             description: 'The port on which the HTTP server listens for the custom runtime or custom container runtime.',
-                            type: String,
+                            type: Number,
                         },
                     ],
                 },]);
             return;
         }
-        const {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort, region,} = Object.assign(inputs.props, comParse.data || {})
+        let {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort, region,} = Object.assign(inputs.props, comParse.data || {})
         let access = inputs.credentials.Alias
         if (this.checkField({functionName, code, handler, runtime})) return
+        code = code ? JSON.parse(code) : undefined
         let defaultServiceName: string = serviceName
         if (!serviceName || serviceName.length === 0) {
             defaultServiceName = `Service${functionName}`
@@ -3297,7 +3356,7 @@ export default class FunctionCompute extends BaseComponent {
             result = await this.client.createFunction(defaultServiceName, {
                 functionName,
                 code: functionCode,
-                customContainerConfig,
+                customContainerConfig: customContainerConfig ? JSON.parse(customContainerConfig) : undefined,
                 description,
                 handler,
                 initializationTimeout,

@@ -12,7 +12,21 @@
 > 
 > 该组件更适合在一些原子操作，或者自动化测试的模块中发挥作用。如果纯粹的手动通过该组件创建函数等，虽然是可以的，但是确实是不合适，如果涉及到项目的管理，强烈推荐[阿里云函数计算(FC)组件](https://github.com/devsapp/fc)
 
-## 使用
+
+## 目录
+
+- [入门](#入门)
+- [使用案例](#使用案例)
+    - [查询账号下的服务](#查询账号下的服务)
+    - [查询服务下的函数](#查询服务下的函数)
+    - [发布版本](#发布版本)
+    - [创建别名](#创建别名)
+    - [更新别名](#更新别名)
+- [支持的接口](#支持的接口)
+- [关于指定密钥和地域的说明](#关于指定密钥和地域的说明) 
+- [可能出现的问题](#可能出现的问题)
+
+## 入门
 
 > 在使用之前，需要进行阿里云密钥的配置。
 > 配置密钥的方法，可以[参考密钥配置文档](http://www.serverless-devs.com/docs/command#config%E6%8C%87%E4%BB%A4) ，获取阿里云密钥的具体流程，可以参考[阿里云密钥文档](http://www.serverless-devs.com/docs/provider-config/alibabacloud)
@@ -102,6 +116,47 @@ Options
         timeout: 3
 ```
 
+### 发布版本
+
+执行命令：`s cli fc-api publishVersion --serviceName serverless-china`
+得到结果：
+```
+|
+  versionId: '2'
+  description: ''
+  createdTime: '2021-06-11T02:28:39Z'
+  lastModifiedTime: '2021-06-11T02:28:39Z'
+```
+
+### 创建别名
+
+执行命令：`s cli fc-api createAlias --serviceName serverless-china --versionId '2' --aliasName test  --description ''`
+得到结果：
+```
+|
+  aliasName: test
+  versionId: '2'
+  description: ''
+  additionalVersionWeight: {}
+  createdTime: '2021-06-11T02:30:19Z'
+  lastModifiedTime: '2021-06-11T02:30:19Z'
+```
+
+### 更新别名
+
+执行命令：`s cli fc-api updateAlias --aliasName release --description tttt --versionId '1' --additionalVersionWeight '{"2": 0.1}' --serviceName serverless-china`
+得到结果：
+```
+|
+  aliasName: release
+  versionId: '1'
+  description: tttt
+  additionalVersionWeight:
+    '2': 0.3
+  createdTime: '2021-06-11T02:22:50Z'
+  lastModifiedTime: '2021-06-11T02:35:18Z'
+```
+
 ## 支持的接口
 - createAlias         ： 创建别名
 - createCustomDomain  ： 创建自定义域名
@@ -142,7 +197,7 @@ Options
 - updateService       ： 更新服务配置
 - updateTrigger       ： 更新触发器
 
-## 关于指定密钥、地域的说明
+## 关于指定密钥和地域的说明
 
 在使用`fc-api`时，涉及到默认密钥和默认地域的配置，可以通过：
 1. 执行命令时增加`--region`、`--access`来指定，例如`s cli fc-api listServices --region cn-hongkong`
@@ -157,3 +212,9 @@ Examples
   region   The region of fc endpoint. 
   access   Specify the key name.
 ```
+
+-----
+
+## 可能出现的问题
+
+- `message: Bad data in request body`: 请通过Help帮助方法查看每个字段类型，确定字段类型和取值是否正确；

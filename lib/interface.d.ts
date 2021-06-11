@@ -3,9 +3,11 @@ export interface Inputs {
     credential: any;
 }
 export interface ComponentInputs {
+    project?: Boolean;
     credentials: any;
     props?: any;
     args?: string;
+    argsObj: any;
 }
 export interface ApiGetAndListParmas {
     serviceName?: string;

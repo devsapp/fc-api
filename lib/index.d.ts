@@ -12,13 +12,13 @@ export default class FunctionCompute extends BaseComponent {
      * @param inputs
      * @returns
      */
-    private set;
+    set(inputs: ComponentInputs): Promise<any>;
     /**
      * 获取所配置的阿里云函数计算默认值
      * @param inputs
      * @returns
      */
-    private get;
+    get(inputs: {}): Promise<any>;
     getClient(region: any, access: any): Promise<void>;
     /**
      * 请求list相关api
@@ -31,7 +31,7 @@ export default class FunctionCompute extends BaseComponent {
      * @@return {Promise} 返回查询指定api的列表信息
      */
     private fetchData;
-    private index;
+    index(inputs?: ComponentInputs): Promise<void>;
     /**
      * 查询服务列表
      * @param inputs
