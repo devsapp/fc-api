@@ -2245,12 +2245,12 @@ export default class FunctionCompute extends BaseComponent {
         let functionCode: any = {}
         if (this.checkField({serviceName, functionName, code, handler, runtime})) return
         code = code ? JSON.parse(code) : undefined
-        if (code.ossBucketName && code.ossObjectName) {
+        if (code && code.ossBucketName && code.ossObjectName) {
             functionCode.ossBucketName = code.ossBucketName
             functionCode.ossObjectName = code.ossObjectName
             delete functionCode.zipFile
         }
-        if (code.zipFile) {
+        if (code && code.zipFile) {
             let codeFize: any
             if (code.zipFile.includes('.zip') || code.zipFile.includes('.jar')) {
                 codeFize = await this.getZipFile(code.zipFile)
@@ -2266,7 +2266,7 @@ export default class FunctionCompute extends BaseComponent {
             await this.getClient(region, access)
             result = await this.client.createFunction(serviceName, {
                 functionName,
-                code: functionCode,
+                code: Object.keys(functionCode).length > 0 ? functionCode : undefined,
                 customContainerConfig: customContainerConfig ? JSON.parse(customContainerConfig) : undefined,
                 description,
                 handler,
@@ -2391,12 +2391,12 @@ export default class FunctionCompute extends BaseComponent {
         let {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort, region,} = Object.assign(inputs.props, comParse.data || {})
         code = code ? JSON.parse(code) : undefined
         let functionCode: any = {}
-        if (code.ossBucketName && code.ossObjectName) {
+        if (code && code.ossBucketName && code.ossObjectName) {
             functionCode.ossBucketName = code.ossBucketName
             functionCode.ossObjectName = code.ossObjectName
             delete functionCode.zipFile
         }
-        if (code.zipFile) {
+        if (code && code.zipFile) {
             let codeFize: any
             if (code.zipFile.includes('.zip') || code.zipFile.includes('.jar')) {
                 codeFize = await this.getZipFile(code.zipFile)
@@ -2413,7 +2413,7 @@ export default class FunctionCompute extends BaseComponent {
         try {
             await this.getClient(region, access)
             result = await this.client.updateFunction(serviceName, functionName, {
-                code: functionCode,
+                code: Object.keys(functionCode).length > 0 ? functionCode : undefined,
                 customContainerConfig: customContainerConfig ? JSON.parse(customContainerConfig) : undefined,
                 description,
                 handler,
@@ -3333,13 +3333,13 @@ export default class FunctionCompute extends BaseComponent {
             await this.createService(inputs, defaultServiceName)
         }
         let functionCode: any = {}
-        if (code.ossBucketName && code.ossObjectName) {
+        if (code && code.ossBucketName && code.ossObjectName) {
             functionCode.ossBucketName = code.ossBucketName
             functionCode.ossObjectName = code.ossObjectName
             delete functionCode.zipFile
         }
         let codeFize: any
-        if (code.zipFile) {
+        if (code && code.zipFile) {
             if (code.zipFile.includes('.zip') || code.zipFile.includes('.jar')) {
                 codeFize = await this.getZipFile(code.zipFile)
             } else {
@@ -3355,7 +3355,7 @@ export default class FunctionCompute extends BaseComponent {
             await this.getClient(region, access)
             result = await this.client.createFunction(defaultServiceName, {
                 functionName,
-                code: functionCode,
+                code: Object.keys(functionCode).length > 0 ? functionCode : undefined,
                 customContainerConfig: customContainerConfig ? JSON.parse(customContainerConfig) : undefined,
                 description,
                 handler,
