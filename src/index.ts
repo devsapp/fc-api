@@ -2247,7 +2247,15 @@ export default class FunctionCompute extends BaseComponent {
         let access = inputs.credentials.Alias
         let functionCode: any = {}
         if (this.checkField({serviceName, functionName, code, handler, runtime})) return
-        code = code ? (typeof code == 'string' ? JSON.parse(code) : code) : undefined
+        let tempCode = undefined
+        if(typeof code == 'string'){
+            try{
+                tempCode = JSON.parse(code)
+            }catch (e){
+                tempCode = code
+            }
+        }
+        code = code ? tempCode : undefined
         if (code && code.ossBucketName && code.ossObjectName) {
             functionCode.ossBucketName = code.ossBucketName
             functionCode.ossObjectName = code.ossObjectName
@@ -2392,7 +2400,17 @@ export default class FunctionCompute extends BaseComponent {
             return;
         }
         let {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort, region,} = Object.assign(inputs.props, comParse.data || {})
-        code = code ? (typeof code == 'string' ? JSON.parse(code) : code) : undefined
+        let tempCode = undefined
+        if(typeof code == 'string'){
+            try{
+                tempCode = JSON.parse(code)
+            }catch (e){
+                tempCode = code
+            }
+        }
+
+        code = code ? tempCode : undefined
+
         let functionCode: any = {}
         if (code && code.ossBucketName && code.ossObjectName) {
             functionCode.ossBucketName = code.ossBucketName
@@ -3329,7 +3347,15 @@ export default class FunctionCompute extends BaseComponent {
         let {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort, region,} = Object.assign(inputs.props, comParse.data || {})
         let access = inputs.credentials.Alias
         if (this.checkField({functionName, code, handler, runtime})) return
-        code = code ? (typeof code == 'string' ? JSON.parse(code) : code) : undefined
+        let tempCode = undefined
+        if(typeof code == 'string'){
+            try{
+                tempCode = JSON.parse(code)
+            }catch (e){
+                tempCode = code
+            }
+        }
+        code = code ? tempCode : undefined
         let defaultServiceName: string = serviceName
         if (!serviceName || serviceName.length === 0) {
             defaultServiceName = `Service${functionName}`
