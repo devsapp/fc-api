@@ -58,36 +58,229 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<a href="#阿里云-function-compute-api-执行组件" id="阿里云-function-compute-api-执行组件" style="color: inherit; text-decoration: none;">
-					<h1>阿里云 Function Compute Api 执行组件</h1>
+				<a href="#阿里云函数计算（fc）api-执行组件" id="阿里云函数计算（fc）api-执行组件" style="color: inherit; text-decoration: none;">
+					<h1>阿里云函数计算（FC）Api 执行组件</h1>
 				</a>
 				<a href="#前言" id="前言" style="color: inherit; text-decoration: none;">
 					<h2>前言</h2>
 				</a>
-				<p>通过本组件，您可以无配置的执行 Function Compute 的相关api</p>
-				<a href="#使用" id="使用" style="color: inherit; text-decoration: none;">
-					<h2>使用</h2>
+				<p>通过该组件，使用者可以快速的基于阿里云函数计算（FC）的API进行函数的相关管理。</p>
+				<blockquote>
+					<p>关于该组件的一些应用场景。该组件实际上是API层面的一些原子化操作，在使用过程中更适合：</p>
+					<ul>
+						<li>查询某些列表，例如服务列表，函数列表，触发器列表，域名列表.....</li>
+						<li>查询详情，查询服务详情，函数详情，版本详情......</li>
+						<li>删除某些资源</li>
+						<li>发布某些资源，例如版本，别名等......      </li>
+					</ul>
+					<p>该组件更适合在一些原子操作，或者自动化测试的模块中发挥作用。如果纯粹的手动通过该组件创建函数等，虽然是可以的，但是确实是不合适，如果涉及到项目的管理，强烈推荐<a href="https://github.com/devsapp/fc">阿里云函数计算(FC)组件</a></p>
+				</blockquote>
+				<a href="#目录" id="目录" style="color: inherit; text-decoration: none;">
+					<h2>目录</h2>
 				</a>
-				<a href="#最简使用方法" id="最简使用方法" style="color: inherit; text-decoration: none;">
-					<h3>最简使用方法</h3>
+				<ul>
+					<li><a href="#%E5%85%A5%E9%97%A8">入门</a></li>
+					<li><a href="#%E4%BD%BF%E7%94%A8%E6%A1%88%E4%BE%8B">使用案例</a><ul>
+							<li><a href="#%E6%9F%A5%E8%AF%A2%E8%B4%A6%E5%8F%B7%E4%B8%8B%E7%9A%84%E6%9C%8D%E5%8A%A1">查询账号下的服务</a></li>
+							<li><a href="#%E6%9F%A5%E8%AF%A2%E6%9C%8D%E5%8A%A1%E4%B8%8B%E7%9A%84%E5%87%BD%E6%95%B0">查询服务下的函数</a></li>
+							<li><a href="#%E5%8F%91%E5%B8%83%E7%89%88%E6%9C%AC">发布版本</a></li>
+							<li><a href="#%E5%88%9B%E5%BB%BA%E5%88%AB%E5%90%8D">创建别名</a></li>
+							<li><a href="#%E6%9B%B4%E6%96%B0%E5%88%AB%E5%90%8D">更新别名</a></li>
+						</ul>
+					</li>
+					<li><a href="#%E6%94%AF%E6%8C%81%E7%9A%84%E6%8E%A5%E5%8F%A3">支持的接口</a></li>
+					<li><a href="#%E5%85%B3%E4%BA%8E%E6%8C%87%E5%AE%9A%E5%AF%86%E9%92%A5%E5%92%8C%E5%9C%B0%E5%9F%9F%E7%9A%84%E8%AF%B4%E6%98%8E">关于指定密钥和地域的说明</a> </li>
+					<li><a href="#%E5%8F%AF%E8%83%BD%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98">可能出现的问题</a></li>
+				</ul>
+				<a href="#入门" id="入门" style="color: inherit; text-decoration: none;">
+					<h2>入门</h2>
 				</a>
-				<a href="#查看文档" id="查看文档" style="color: inherit; text-decoration: none;">
-					<h4>查看文档</h4>
-				</a>
-				<pre><code><span style="color: #001080">s</span><span style="color: #000000"> </span><span style="color: #001080">cli</span><span style="color: #000000"> </span><span style="color: #001080">fc</span><span style="color: #000000">-</span><span style="color: #001080">api</span><span style="color: #000000"> -</span><span style="color: #001080">d</span><span style="color: #000000">  </span><span style="color: #008000">// 查看api 内容及调用方法</span>
+				<blockquote>
+					<p>在使用之前，需要进行阿里云密钥的配置。
+						配置密钥的方法，可以<a href="http://www.serverless-devs.com/docs/command#config%E6%8C%87%E4%BB%A4">参考密钥配置文档</a> ，获取阿里云密钥的具体流程，可以参考<a href="http://www.serverless-devs.com/docs/provider-config/alibabacloud">阿里云密钥文档</a>
+					也可以使用：<code>s config add --AccessKeyID 替换为你的阿里云AccessKeyID --AccessKeySecret 替换为你的阿里云AccessKeySecret --AccountID 替换为你的阿里云AccountID --aliasName default</code></p>
+				</blockquote>
+				<p>可以直接使用<code>s cli fc-api -h</code>查看目前已经支持的接口信息，以及简单的帮助信息。</p>
+				<p>当要使用某个具体方法时，同样可以通过<code>-h</code>的参数，查看帮助详情，例如:</p>
+				<pre><code><span style="color: #001080">$</span><span style="color: #000000"> </span><span style="color: #001080">s</span><span style="color: #000000"> </span><span style="color: #001080">cli</span><span style="color: #000000"> </span><span style="color: #001080">fc</span><span style="color: #000000">-</span><span style="color: #001080">api</span><span style="color: #000000"> </span><span style="color: #001080">createAlias</span><span style="color: #000000"> -</span><span style="color: #001080">h</span>
+
+<span style="color: #001080">Usage</span>
+
+<span style="color: #000000">  </span><span style="color: #001080">s</span><span style="color: #000000"> </span><span style="color: #001080">cli</span><span style="color: #000000"> </span><span style="color: #001080">fc</span><span style="color: #000000">-</span><span style="color: #001080">api</span><span style="color: #000000"> </span><span style="color: #001080">createAlias</span><span style="color: #000000"> </span>
+
+<span style="color: #001080">Options</span>
+
+<span style="color: #000000">  -</span><span style="color: #001080">a</span><span style="color: #000000">, --</span><span style="color: #001080">access</span><span style="color: #000000"> </span><span style="color: #001080">string</span><span style="color: #000000">                </span><span style="color: #001080">Specify</span><span style="color: #000000"> </span><span style="color: #001080">the</span><span style="color: #000000"> </span><span style="color: #001080">key</span><span style="color: #000000"> </span><span style="color: #001080">name</span><span style="color: #000000">.                                                         </span>
+<span style="color: #000000">  -</span><span style="color: #001080">p</span><span style="color: #000000">, --</span><span style="color: #001080">props</span><span style="color: #000000"> </span><span style="color: #001080">string</span><span style="color: #000000">                 </span><span style="color: #001080">The</span><span style="color: #000000"> </span><span style="color: #001080">json</span><span style="color: #000000"> </span><span style="color: #001080">string</span><span style="color: #000000"> </span><span style="color: #0000FF">of</span><span style="color: #000000"> </span><span style="color: #001080">props</span><span style="color: #000000">.                                                     </span>
+<span style="color: #000000">  --</span><span style="color: #001080">serviceName</span><span style="color: #000000"> </span><span style="color: #001080">string</span><span style="color: #000000">               </span><span style="color: #001080">The</span><span style="color: #000000"> </span><span style="color: #001080">name</span><span style="color: #000000"> </span><span style="color: #0000FF">of</span><span style="color: #000000"> </span><span style="color: #001080">the</span><span style="color: #000000"> </span><span style="color: #001080">service</span><span style="color: #000000">.                                                      </span>
+<span style="color: #000000">  --</span><span style="color: #001080">aliasName</span><span style="color: #000000"> </span><span style="color: #001080">string</span><span style="color: #000000">                 </span><span style="color: #001080">The</span><span style="color: #000000"> </span><span style="color: #001080">name</span><span style="color: #000000"> </span><span style="color: #0000FF">of</span><span style="color: #000000"> </span><span style="color: #001080">the</span><span style="color: #000000"> </span><span style="color: #001080">alias</span><span style="color: #000000">.                                                        </span>
+<span style="color: #000000">  --</span><span style="color: #001080">versionId</span><span style="color: #000000"> </span><span style="color: #001080">string</span><span style="color: #000000">                 </span><span style="color: #001080">The</span><span style="color: #000000"> </span><span style="color: #001080">version</span><span style="color: #000000"> </span><span style="color: #001080">to</span><span style="color: #000000"> </span><span style="color: #001080">which</span><span style="color: #000000"> </span><span style="color: #001080">the</span><span style="color: #000000"> </span><span style="color: #001080">alias</span><span style="color: #000000"> </span><span style="color: #001080">points</span><span style="color: #000000">.                                        </span>
+<span style="color: #000000">  --</span><span style="color: #001080">additionalVersionWeight</span><span style="color: #000000"> </span><span style="color: #001080">string</span><span style="color: #000000">   </span><span style="color: #001080">The</span><span style="color: #000000"> </span><span style="color: #001080">additional</span><span style="color: #000000"> </span><span style="color: #001080">version</span><span style="color: #000000"> </span><span style="color: #001080">to</span><span style="color: #000000"> </span><span style="color: #001080">which</span><span style="color: #000000"> </span><span style="color: #001080">the</span><span style="color: #000000"> </span><span style="color: #001080">alias</span><span style="color: #000000"> </span><span style="color: #001080">points</span><span style="color: #000000"> </span><span style="color: #001080">and</span><span style="color: #000000"> </span><span style="color: #001080">the</span><span style="color: #000000"> </span><span style="color: #001080">weight</span><span style="color: #000000"> </span><span style="color: #0000FF">of</span><span style="color: #000000"> </span><span style="color: #001080">the</span><span style="color: #000000">        </span>
+<span style="color: #000000">                                     </span><span style="color: #001080">additional</span><span style="color: #000000"> </span><span style="color: #001080">version</span><span style="color: #000000">.                                                           </span>
+<span style="color: #000000">  --</span><span style="color: #001080">description</span><span style="color: #000000"> </span><span style="color: #001080">string</span><span style="color: #000000">               </span><span style="color: #001080">The</span><span style="color: #000000"> </span><span style="color: #001080">description</span><span style="color: #000000"> </span><span style="color: #0000FF">of</span><span style="color: #000000"> </span><span style="color: #001080">the</span><span style="color: #000000"> </span><span style="color: #001080">alias</span><span style="color: #000000">.                                                 </span>
+
 </code></pre>
-				<a href="#查询服务" id="查询服务" style="color: inherit; text-decoration: none;">
-					<h4>查询服务</h4>
+				<a href="#使用案例" id="使用案例" style="color: inherit; text-decoration: none;">
+					<h2>使用案例</h2>
 				</a>
-				<pre><code><span style="color: #001080">s</span><span style="color: #000000"> </span><span style="color: #001080">cli</span><span style="color: #000000"> </span><span style="color: #001080">fc</span><span style="color: #000000">-</span><span style="color: #001080">api</span><span style="color: #000000"> </span><span style="color: #001080">listServices</span><span style="color: #000000"> -</span><span style="color: #001080">a</span><span style="color: #000000"> </span><span style="color: #AF00DB">default</span><span style="color: #000000"> -</span><span style="color: #001080">r</span><span style="color: #000000"> </span><span style="color: #001080">cn</span><span style="color: #000000">-</span><span style="color: #001080">hangzhou</span><span style="color: #000000"> </span><span style="color: #008000">// 查询Function Compute服务列表， 指定默认秘钥， 指定查询 region</span>
-</code></pre>
-				<a href="#创建函数" id="创建函数" style="color: inherit; text-decoration: none;">
-					<h4>创建函数</h4>
+				<a href="#查询账号下的服务" id="查询账号下的服务" style="color: inherit; text-decoration: none;">
+					<h3>查询账号下的服务</h3>
 				</a>
-				<p>进入 example 目录操作,[详细查看]（example/readme.md）</p>
-				<pre><code><span style="color: #001080">s</span><span style="color: #000000"> </span><span style="color: #001080">cli</span><span style="color: #000000"> </span><span style="color: #001080">s</span><span style="color: #000000">-</span><span style="color: #001080">fc</span><span style="color: #000000"> </span><span style="color: #001080">createFunction</span><span style="color: #000000"> -</span><span style="color: #001080">p</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;{&quot;serviceName&quot;: &quot;hanxietest&quot;, &quot;functionName&quot;: &quot;s-fc&quot;,&quot;handler&quot;:&quot;index.handler&quot;,&quot;runtime&quot;: &quot;nodejs10&quot;,&quot;code&quot;:{&quot;filePath&quot;: &quot;index.js&quot;}}&#039;</span>
+				<p>执行命令：<code>s cli fc-api listServices --region cn-hangzhou</code>
+				得到结果：</p>
+				<pre><code><span style="color: #000000">|</span>
+<span style="color: #000000">  - serviceName: </span><span style="color: #001080">serverless</span><span style="color: #000000">-</span><span style="color: #001080">album</span>
+<span style="color: #000000">    description: </span><span style="color: #001080">基于函数计算的人工智能相册系统</span>
+<span style="color: #000000">    role: acs:ram:::</span><span style="color: #001080">role</span><span style="color: #000000">/</span>
+<span style="color: #000000">    serviceId: </span><span style="color: #001080">f5ad903b</span><span style="color: #000000">-7</span><span style="color: #001080">eb3</span><span style="color: #000000">-4</span><span style="color: #001080">d69</span><span style="color: #000000">-</span><span style="color: #001080">bbda</span><span style="color: #000000">-</span>
+<span style="color: #000000">    createdTime: </span><span style="color: #A31515">&#039;2021-05-05T08:08:43Z&#039;</span>
+<span style="color: #000000">    lastModifiedTime: </span><span style="color: #A31515">&#039;2021-05-27T03:11:31Z&#039;</span>
+<span style="color: #000000">    vpcConfig:</span>
+<span style="color: #000000">      vpcId: </span><span style="color: #001080">vpc</span><span style="color: #000000">-</span><span style="color: #001080">bp1tdtit5zns398r6wrw6</span>
+<span style="color: #000000">      vSwitchIds:</span>
+<span style="color: #000000">        - </span><span style="color: #001080">vsw</span><span style="color: #000000">-</span><span style="color: #001080">bp1ti6ysm8kpt7g3wvuh8</span>
+<span style="color: #000000">      securityGroupId: </span><span style="color: #001080">sg</span><span style="color: #000000">-</span><span style="color: #001080">bp13mkmwsaey3xkhuouc</span>
+<span style="color: #000000">      role: </span><span style="color: #A31515">&#039;&#039;</span>
+<span style="color: #000000">    internetAccess: </span><span style="color: #0000FF">true</span>
+<span style="color: #000000">    vendorConfig: </span><span style="color: #0000FF">null</span>
+<span style="color: #000000">    tracingConfig:</span>
+<span style="color: #000000">      type: </span><span style="color: #0000FF">null</span>
+<span style="color: #000000">      params: </span><span style="color: #0000FF">null</span>
 </code></pre>
-				<p><a href="https://devsapp.github.io/fc-api/doc/index.html">更多文档查看</a></p>
+				<a href="#查询服务下的函数" id="查询服务下的函数" style="color: inherit; text-decoration: none;">
+					<h3>查询服务下的函数</h3>
+				</a>
+				<p>执行命令：<code>s cli fc-api listFunctions --serviceName serverless-album --region cn-hangzhou</code>
+				得到结果：</p>
+				<pre><code><span style="color: #000000">|</span>
+<span style="color: #000000">  - functionId: 86</span><span style="color: #001080">cfe445</span><span style="color: #000000">-</span><span style="color: #001080">c19f</span><span style="color: #000000">-47</span><span style="color: #001080">b4</span><span style="color: #000000">-</span><span style="color: #001080">bd34</span>
+<span style="color: #000000">    functionName: </span><span style="color: #001080">api</span><span style="color: #000000">-</span><span style="color: #001080">server</span>
+<span style="color: #000000">    description: </span><span style="color: #A31515">&#039;&#039;</span>
+<span style="color: #000000">    runtime: </span><span style="color: #001080">python3</span>
+<span style="color: #000000">    handler: </span><span style="color: #001080">index</span><span style="color: #000000">.</span><span style="color: #001080">app</span>
+<span style="color: #000000">    timeout: </span><span style="color: #098658">60</span>
+<span style="color: #000000">    initializer: </span><span style="color: #A31515">&#039;&#039;</span>
+<span style="color: #000000">    initializationTimeout: </span><span style="color: #098658">3</span>
+<span style="color: #000000">    codeSize: </span><span style="color: #098658">12408</span>
+<span style="color: #000000">    codeChecksum: </span><span style="color: #A31515">&#039;&#039;</span>
+<span style="color: #000000">    memorySize: </span><span style="color: #098658">192</span>
+<span style="color: #000000">    createdTime: </span><span style="color: #A31515">&#039;2021-05-05T08:08:44Z&#039;</span>
+<span style="color: #000000">    lastModifiedTime: </span><span style="color: #A31515">&#039;2021-05-27T03:11:31Z&#039;</span>
+<span style="color: #000000">    instanceConcurrency: </span><span style="color: #098658">1</span>
+<span style="color: #000000">    customContainerConfig: </span><span style="color: #0000FF">null</span>
+<span style="color: #000000">    caPort: </span><span style="color: #0000FF">null</span>
+<span style="color: #000000">    instanceType: </span><span style="color: #001080">e1</span>
+<span style="color: #000000">    layers: </span><span style="color: #0000FF">null</span>
+<span style="color: #000000">    instanceLifecycleConfig:</span>
+<span style="color: #000000">      preFreeze:</span>
+<span style="color: #000000">        handler: </span><span style="color: #A31515">&#039;&#039;</span>
+<span style="color: #000000">        timeout: </span><span style="color: #098658">3</span>
+<span style="color: #000000">      preStop:</span>
+<span style="color: #000000">        handler: </span><span style="color: #A31515">&#039;&#039;</span>
+<span style="color: #000000">        timeout: </span><span style="color: #098658">3</span>
+</code></pre>
+				<a href="#发布版本" id="发布版本" style="color: inherit; text-decoration: none;">
+					<h3>发布版本</h3>
+				</a>
+				<p>执行命令：<code>s cli fc-api publishVersion --serviceName serverless-china</code>
+				得到结果：</p>
+				<pre><code><span style="color: #000000">|</span>
+<span style="color: #000000">  versionId: </span><span style="color: #A31515">&#039;2&#039;</span>
+<span style="color: #000000">  description: </span><span style="color: #A31515">&#039;&#039;</span>
+<span style="color: #000000">  createdTime: </span><span style="color: #A31515">&#039;2021-06-11T02:28:39Z&#039;</span>
+<span style="color: #000000">  lastModifiedTime: </span><span style="color: #A31515">&#039;2021-06-11T02:28:39Z&#039;</span>
+</code></pre>
+				<a href="#创建别名" id="创建别名" style="color: inherit; text-decoration: none;">
+					<h3>创建别名</h3>
+				</a>
+				<p>执行命令：<code>s cli fc-api createAlias --serviceName serverless-china --versionId &#39;2&#39; --aliasName test  --description &#39;&#39;</code>
+				得到结果：</p>
+				<pre><code><span style="color: #000000">|</span>
+<span style="color: #000000">  aliasName: </span><span style="color: #001080">test</span>
+<span style="color: #000000">  versionId: </span><span style="color: #A31515">&#039;2&#039;</span>
+<span style="color: #000000">  description: </span><span style="color: #A31515">&#039;&#039;</span>
+<span style="color: #000000">  additionalVersionWeight: {}</span>
+<span style="color: #000000">  createdTime: </span><span style="color: #A31515">&#039;2021-06-11T02:30:19Z&#039;</span>
+<span style="color: #000000">  lastModifiedTime: </span><span style="color: #A31515">&#039;2021-06-11T02:30:19Z&#039;</span>
+</code></pre>
+				<a href="#更新别名" id="更新别名" style="color: inherit; text-decoration: none;">
+					<h3>更新别名</h3>
+				</a>
+				<p>执行命令：<code>s cli fc-api updateAlias --aliasName release --description tttt --versionId &#39;1&#39; --additionalVersionWeight &#39;{&quot;2&quot;: 0.1}&#39; --serviceName serverless-china</code>
+				得到结果：</p>
+				<pre><code><span style="color: #000000">|</span>
+<span style="color: #000000">  aliasName: </span><span style="color: #001080">release</span>
+<span style="color: #000000">  versionId: </span><span style="color: #A31515">&#039;1&#039;</span>
+<span style="color: #000000">  description: </span><span style="color: #001080">tttt</span>
+<span style="color: #000000">  additionalVersionWeight:</span>
+<span style="color: #000000">    </span><span style="color: #A31515">&#039;2&#039;</span><span style="color: #000000">: </span><span style="color: #098658">0.3</span>
+<span style="color: #000000">  createdTime: </span><span style="color: #A31515">&#039;2021-06-11T02:22:50Z&#039;</span>
+<span style="color: #000000">  lastModifiedTime: </span><span style="color: #A31515">&#039;2021-06-11T02:35:18Z&#039;</span>
+</code></pre>
+				<a href="#支持的接口" id="支持的接口" style="color: inherit; text-decoration: none;">
+					<h2>支持的接口</h2>
+				</a>
+				<ul>
+					<li>createAlias         ： 创建别名</li>
+					<li>createCustomDomain  ： 创建自定义域名</li>
+					<li>createFunction      ： 创建函数</li>
+					<li>createFunctionDefaultService：创建函数，如不指定服务名称，会默认创建一个服务名称为&#39;Service&#39;+functionName</li>
+					<li>createService       ： 创建服务</li>
+					<li>createTrigger       ： 创建触发器</li>
+					<li>deleteAlias         ： 删除别名</li>
+					<li>deleteCustomDomain  ： 删除自定义域名</li>
+					<li>deleteFunction      ： 删除函数  </li>
+					<li>deleteFunctionAsyncConfig ： 删除函数异步配置</li>
+					<li>deleteService       ： 删除服务</li>
+					<li>deleteTrigger       ： 删除触发器</li>
+					<li>deleteVersion       ： 删除版本</li>
+					<li>getAlias            ： 获取 alias 信息</li>
+					<li>getCustomDomain     ： 获取自定义域名信息</li>
+					<li>getFunction         ： 获取函数配置信息</li>
+					<li>getFunctionAsyncConfig ： 获取函数异步调用配置信</li>
+					<li>getFunctionCode     ： 获取函数 Code 信息</li>
+					<li>getProvisionConfig  ： 获取预留配置信息</li>
+					<li>getService          ： 获取服务配置信息 </li>
+					<li>getTrigger          ： 获取触发器配置信息</li>
+					<li>invokeFunction      ： 调用执行函数        </li>
+					<li>listAliases         ： 查询别名列表  </li>
+					<li>listCustomDomains   ： 查询自定义域名列表</li>
+					<li>listFunctionAsyncCofig ： 查询异步配置列表</li>
+					<li>listFunctions       ： 查询函数列表</li>
+					<li>listProvisionConfigs ： 查询预留配置列表</li>
+					<li>listServices        ： 查询服务列表</li>
+					<li>listTriggers        ： 查询触发器列表</li>
+					<li>listVersions        ： 查询版本列表</li>
+					<li>publishVersion      ： 创建版本</li>
+					<li>putFunctionAsyncCofig ： 函数异步配置</li>
+					<li>putProvisionConfig  ： 预留配置            </li>
+					<li>updateAlias         ： 更新别名 </li>
+					<li>updateCustomDomain  ： 更新自定义域名</li>
+					<li>updateFunction      ： 更新函数 </li>
+					<li>updateService       ： 更新服务配置</li>
+					<li>updateTrigger       ： 更新触发器</li>
+				</ul>
+				<a href="#关于指定密钥和地域的说明" id="关于指定密钥和地域的说明" style="color: inherit; text-decoration: none;">
+					<h2>关于指定密钥和地域的说明</h2>
+				</a>
+				<p>在使用<code>fc-api</code>时，涉及到默认密钥和默认地域的配置，可以通过：</p>
+				<ol>
+					<li>执行命令时增加<code>--region</code>、<code>--access</code>来指定，例如<code>s cli fc-api listServices --region cn-hongkong</code></li>
+					<li>通过<code>s cli fc-api set</code>进行设置，可以参考<code>s cli fc-api set -h</code>:
+						```
+					Usage</li>
+				</ol>
+				<p>  s cli fc-api set [type] [value] </p>
+				<p>Examples</p>
+				<p>  region   The region of fc endpoint.
+				access   Specify the key name.</p>
+				<pre><code>
+<span style="color: #000000">-----</span>
+
+<span style="color: #000000">## </span><span style="color: #001080">可能出现的问题</span>
+
+<span style="color: #000000">- </span><span style="color: #A31515">`message: Bad data in request body`</span><span style="color: #000000">: </span><span style="color: #001080">请通过Help帮助方法查看每个字段类型</span><span style="color: #000000">，</span><span style="color: #001080">确定字段类型和取值是否正确</span><span style="color: #000000">；</span>
+</code></pre>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -102,6 +295,9 @@
 				<ul class="before-current">
 					<li class=" tsd-kind-class">
 						<a href="classes/default.html" class="tsd-kind-icon">default</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#input" class="tsd-kind-icon">input</a>
 					</li>
 				</ul>
 			</nav>

@@ -23,7 +23,7 @@ export default class BaseComponent {
      * @param obj
      * @param nowPath
      */
-    protected readDir(obj: any, nowPath: any): Promise<void>;
+    protected readDir(obj: any, nowPath: any, targetDir: any): Promise<void>;
     /**
      * 开始压缩文件
      * @param codePath

@@ -154,7 +154,7 @@ export default class BaseComponent {
 	protected async getZipFile(codePath: string): Promise<any> {
 		const codeUrl = path.resolve(codePath)
 		try {
-			const data = fs.readFileSync(codeUrl)
+			const data = await fs.readFileSync(codeUrl)
 			return Buffer.from(data).toString('base64')
 		} catch (e) {
 			this.logger.error('File does not exist or file is invalid. please check')
@@ -166,7 +166,7 @@ export default class BaseComponent {
 	 * @param obj
 	 * @param nowPath
 	 */
-	protected async readDir(obj, nowPath) {
+	protected async readDir(obj, nowPath, targetDir) {
 		try {
 			const pathDir = nowPath.split('/')
 			const _dir = pathDir[pathDir.length - 1]
@@ -178,8 +178,8 @@ export default class BaseComponent {
 					let fillPath = nowPath + '/' + fileName
 					let file = fs.statSync(fillPath)
 					if (file.isDirectory()) {
-						let dirlist = zip.folder(fileName)
-						this.readDir(dirlist, fillPath)
+						let dirlist = zip.folder( path.relative(targetDir, fillPath))
+						this.readDir(dirlist, fillPath, targetDir)
 					} else {
 						obj.file(fileName, fs.readFileSync(fillPath))
 					}
@@ -196,15 +196,16 @@ export default class BaseComponent {
 	protected async startZip(codePath: string) {
 		const targetDir = path.resolve(codePath)
 		try {
-			this.readDir(zip, targetDir)
+			await this.readDir(zip, targetDir, targetDir)
 			const data = await zip.generateAsync({
 				type: 'nodebuffer',
 				compression: 'DEFLATE',
-				compressionOptions: {
-					level: 9,
-				},
 			})
+			fs.writeFile("hello.zip", data, function(err){/*...*/});
+
+
 			return Buffer.from(data).toString('base64')
+
 		} catch (e) {
 			this.logger.error('File does not exist or file is invalid. please check')
 		}
