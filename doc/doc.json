@@ -3075,6 +3075,17 @@
 										"type": "intrinsic",
 										"name": "any"
 									}
+								},
+								{
+									"id": 180,
+									"name": "targetDir",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
 								}
 							],
 							"type": {
@@ -3150,7 +3161,7 @@
 					]
 				},
 				{
-					"id": 180,
+					"id": 181,
 					"name": "startZip",
 					"kind": 2048,
 					"kindString": "Method",
@@ -3166,7 +3177,7 @@
 					],
 					"signatures": [
 						{
-							"id": 181,
+							"id": 182,
 							"name": "startZip",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3177,7 +3188,7 @@
 							},
 							"parameters": [
 								{
-									"id": 182,
+									"id": 183,
 									"name": "codePath",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3673,7 +3684,7 @@
 						147,
 						176,
 						16,
-						180,
+						181,
 						138,
 						144,
 						123,
