@@ -78,10 +78,12 @@ export default class BaseComponent {
 			data.forEach((item) => {
 				let parmasThat: string = ''
 				const params = get(item, 'signatures[0].parameters[0]', {})
-				console.log(item.signatures[0])
-				// if (item.signatures[0].comment.tags) {
-				// 	parmasThat = `Required:\n${item.signatures[0].comment.tags[0].text}\nOptional:\n${item.signatures[0].comment.tags[1].text}`
-				// }
+				// console.log(item.signatures[0])
+				try {
+					if (item.signatures[0].comment.tags) {
+						parmasThat = `Required:\n${item.signatures[0].comment.tags[0].text}\nOptional:\n${item.signatures[0].comment.tags[1].text}`
+					}
+				}catch (e){}
 				const paramText = get(params, 'comment.text', '')
 				rows.push([item.name, get(item, 'signatures[0].comment.shortText', ''), parmasThat, `s cli ${this.name} ${item.name} -p ${paramText} -a default -r cn-hangzhou`])
 			})
