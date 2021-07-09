@@ -204,9 +204,6 @@ export default class BaseComponent {
 				type: 'nodebuffer',
 				compression: 'DEFLATE',
 			})
-			fs.writeFile("hello.zip", data, function(err){/*...*/});
-
-
 			return Buffer.from(data).toString('base64')
 
 		} catch (e) {
