@@ -2538,14 +2538,14 @@ export default class FunctionCompute extends BaseComponent {
         }
         const {serviceName, functionName, invocationRole, qualifier, sourceArn, triggerConfig, triggerName, triggerType, region,} = Object.assign(inputs.props, comParse.data || {})
         let access = inputs.credentials.Alias
-        if (this.checkField({serviceName, functionName, triggerName, triggerType, invocationRole})) return
+        if (this.checkField({serviceName, functionName, triggerName, triggerType})) return
         try {
             await this.getClient(region, access)
             result = await this.client.createTrigger(serviceName, functionName, {
                 invocationRole,
-                qualifier,
+                qualifier: qualifier ? qualifier.toString() : undefined,
                 sourceArn,
-                triggerConfig,
+                triggerConfig: triggerConfig ? (typeof triggerConfig == 'string' ? JSON.parse(triggerConfig) : triggerConfig ) : undefined,
                 triggerName,
                 triggerType,
             })
