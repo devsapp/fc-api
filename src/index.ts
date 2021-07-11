@@ -118,7 +118,7 @@ export default class FunctionCompute extends BaseComponent {
         return await this.getConfigFromFile()
     }
 
-    public async getClient(region, access) {
+    private async getClient(region, access) {
         if (!this.client) {
             const defaultData = await this.get({})
             if (!access) {
@@ -141,16 +141,6 @@ export default class FunctionCompute extends BaseComponent {
         }
     }
 
-    /**
-     * 请求list相关api
-     * @param {string} api 判断调用的api
-     * @param {string} field 返回列表数据的固定字段
-     * @param {string} nextToken
-     * @param {number} limit
-     * @param {string} serverName
-     * @param {string} qualifier
-     * @@return {Promise} 返回查询指定api的列表信息
-     */
     private async fetchData(access: string, region: string, api: string, field: string, nextToken: string, limit: number, serviceName?: string, functionName?: string, qualifier?: number) {
         resultData = []
         let start = true
@@ -200,7 +190,7 @@ export default class FunctionCompute extends BaseComponent {
         return yaml.dump(resultData)
     }
 
-    async index(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
+    private async index(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
         const newInputs = inputs
         let addContent = ""
         if (newInputs.project['access']) {
@@ -235,7 +225,6 @@ export default class FunctionCompute extends BaseComponent {
 
     /**
      * 查询服务列表
-     * @param inputs
      */
     public async listServices(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
         const apts = {
@@ -264,12 +253,6 @@ export default class FunctionCompute extends BaseComponent {
                             description: 'Specify the key name.',
 
                             type: String,
-                        },
-                        {
-                            name: 'props',
-                            description: 'The json string of props.',
-
-                            type: String,
                         }
                     ],
                 },]);
@@ -286,7 +269,6 @@ export default class FunctionCompute extends BaseComponent {
 
     /**
      * 查询函数列表
-     * @param inputs '{"serviceName": ""}'
      * @typeParam Required --serviceName
      * @typeParam Optional --qualifier --limit --nextToken --prefix --startKey
      */
@@ -612,7 +594,6 @@ export default class FunctionCompute extends BaseComponent {
 
     /**
      * 查询自定义域名列表
-     * @param inputs
      * @typeParam Required
      * @typeParam Optional --limit --nextToken --prefix --startKey
      */
@@ -1039,7 +1020,7 @@ export default class FunctionCompute extends BaseComponent {
 
     /**
      * 获取触发器配置信息
-     * @param inputs '{"serviceName": "test","functionName": "", "triggerName": ""}'
+     * @param inputs '{"serviceName": "","functionName": "", "triggerName": ""}'
      * @typeParam Required --serviceName --functionName --triggerName
      * @typeParam Optional
      */
@@ -1110,7 +1091,7 @@ export default class FunctionCompute extends BaseComponent {
     }
 
     /**
-     * 获取 alias 信息
+     * 获取别名信息
      * @param inputs '{"serviceName": "","aliasName": ""}'
      * @typeParam Required --serviceName --aliasName
      * @typeParam Optional
@@ -2298,6 +2279,7 @@ export default class FunctionCompute extends BaseComponent {
     /**
      * 更新函数
      * @param inputs '{"serviceName": "","functionName": "","handler":"index.handler","runtime": "nodejs8","code":{"ossBucketName": "","ossObjectName":""}}'
+     * code: {"ossBucketName": "","ossObjectName":""} 或 {"zipFile": "代码包存放的位置，执行命令的目录下，如果文件超过 50MB，请使用 OSS 上传"}
      * @typeParam Required --serviceName --functionName
      * @typeParam Optional --description --customContainerConfig --initializationTimeout --initializer --memorySize --runtime --timeout --caPort --code --handler --runtime
      */
@@ -2454,7 +2436,7 @@ export default class FunctionCompute extends BaseComponent {
 
     /**
      * 创建触发器
-     * @param inputs '{"serviceName": "","functionName": "","triggerName": "","triggerType":"timer","triggerConfig": {}'
+     * @param inputs '{"serviceName": "","functionName": "","triggerName": "","triggerType":"timer","triggerConfig": "{}"'
      * @typeParam Required --serviceName --functionName --triggerName --triggerType
      * @typeParam Optional --invocationRole --qualifier --sourceArn --triggerConfig
      */
@@ -2558,7 +2540,7 @@ export default class FunctionCompute extends BaseComponent {
 
     /**
      * 更新触发器
-     * @param inputs '{"serviceName": "","functionName": "","triggerName": "","triggerType":"timer","triggerConfig": {}'
+     * @param inputs '{"serviceName": "","functionName": "","triggerName": "","triggerType":"timer","triggerConfig": "{}"'
      * @typeParam Required --serviceName --functionName --triggerName
      * @typeParam Optional --invocationRole --qualifier --triggerConfig
      */
@@ -2648,7 +2630,7 @@ export default class FunctionCompute extends BaseComponent {
             result = await this.client.updateTrigger(serviceName, functionName, triggerName, {
                 invocationRole,
                 qualifier,
-                triggerConfig,
+                triggerConfig: triggerConfig ? (typeof triggerConfig == 'string' ? JSON.parse(triggerConfig) : triggerConfig ) : undefined,
             })
             return yaml.dump(result.data)
         } catch (error) {
@@ -2896,7 +2878,7 @@ export default class FunctionCompute extends BaseComponent {
 
     /**
      * 创建自定义域名
-     * @param inputs '{"serviceName": "","aliasName": "","versionId": "1","additionalVersionWeight": {}}'
+     * @param inputs '{"domainName": ""}'
      * @typeParam Required --domainName
      * @typeParam Optional --protocol --certConfig --routeConfig
      */
@@ -2977,7 +2959,7 @@ export default class FunctionCompute extends BaseComponent {
 
     /**
      * 更新自定义域名
-     * @param inputs '{"serviceName": "","aliasName": "","versionId": "1","additionalVersionWeight": {}}'
+     * @param inputs '{"domainName": ""}'
      * @typeParam Required --domainName
      * @typeParam Optional --protocol --certConfig --routeConfig
      */
@@ -3056,9 +3038,109 @@ export default class FunctionCompute extends BaseComponent {
         }
     }
 
+
+    /**
+     * 追加路径配置
+     * @param inputs '{"domainName": "","appendRouteConfig": "[]"}'
+     * @typeParam Required --domainName --routeConfig
+     * @typeParam Optional
+     */
+    public async appendRoutes(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
+        const apts = {
+            boolean: ['help'],
+            alias: {help: 'h'},
+        };
+        // @ts-ignore
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
+        // @ts-ignore
+        if (comParse.data && comParse.data.help) {
+            help([{
+                header: 'Usage',
+                content: `s cli fc-api updateCustomDomain\nAPI Document: https://help.aliyun.com/document_detail/191168.html`
+            },
+                {
+                    header: 'Options',
+                    optionList: [
+                        {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
+                            name: 'access',
+                            description: 'Specify the key name.',
+
+                            type: String,
+                        },
+                        {
+                            name: 'props',
+                            description: 'The json string of props.',
+
+                            type: String,
+                        },
+                        {
+                            name: 'domainName',
+                            description: 'The domain name.',
+                            type: String,
+                        },
+                        {
+                            name: 'appendRouteConfig',
+                            description: 'The route table that maps paths to functions when the functions are invoked by using the custom domain name, like  \'[{"path":"/test","serviceName":"serverless-album","functionName":"demo","methods":["GET","POST","PUT","DELETE","HEAD","PATCH"]}]\'',
+                            type: String,
+                        }
+                    ],
+                },]);
+            return;
+        }
+        const {domainName, appendRouteConfig, region,} = Object.assign(inputs.props, comParse.data || {})
+        let access = inputs.credentials.Alias
+        if (this.checkField({domainName})) return
+
+        // 获取domain详情
+        try {
+            await this.getClient(region, access)
+            result = await this.client.getCustomDomain(domainName)
+        } catch (error) {
+            this.errorReport(error)
+            throw error
+        }
+
+        const alreadyRouteConfig = result['data']['routeConfig']['routes']
+        const targetRouteConfigPath = []
+        const targetRouteConfigList = []
+        const inputRouteConfig = JSON.parse(appendRouteConfig)
+        for(let i =0;i<inputRouteConfig.length;i++){
+            if(!targetRouteConfigPath.includes(inputRouteConfig[i].path)){
+                targetRouteConfigList.push(inputRouteConfig[i])
+                targetRouteConfigPath.push(inputRouteConfig[i].path)
+            }
+        }
+        for(let i =0;i<alreadyRouteConfig.length;i++){
+            if(!targetRouteConfigPath.includes(alreadyRouteConfig[i].path)){
+                targetRouteConfigList.push(alreadyRouteConfig[i])
+                targetRouteConfigPath.push(alreadyRouteConfig[i].path)
+            }
+        }
+
+        try {
+            await this.getClient(region, access)
+            result = await this.client.updateCustomDomain(domainName, {
+                routeConfig: {
+                    "routes": targetRouteConfigList
+                }
+            })
+            return yaml.dump(result.data)
+        } catch (error) {
+            this.errorReport(error)
+            throw error
+        }
+    }
+
+
     /**
      * 预留配置
-     * @param inputs '{"serviceName": "","aliasName": "","versionId": "1","additionalVersionWeight": {}}'
+     * @param inputs '{"serviceName": "","functionName": "","qualifier": "1"}'
      * @typeParam Required --serviceName --functionName --qualifier
      * @typeParam Optional --target --scheduledActions --targetTrackingPolicies
      */
@@ -3149,7 +3231,7 @@ export default class FunctionCompute extends BaseComponent {
 
     /**
      * 函数异步配置
-     * @param inputs '{"serviceName": "","aliasName": "","versionId": "1","additionalVersionWeight": {}}'
+     * @param inputs '{"serviceName": "","functionName": "","qualifier": "1"}'
      * @typeParam Required --serviceName --functionName --qualifier
      * @typeParam Optional --destinationConfig --maxAsyncEventAgeInSeconds --maxAsyncRetryAttempts
      */

@@ -85,7 +85,7 @@ export default class BaseComponent {
 					}
 				}catch (e){}
 				const paramText = get(params, 'comment.text', '')
-				rows.push([item.name, get(item, 'signatures[0].comment.shortText', ''), parmasThat, `s cli ${this.name} ${item.name} -p ${paramText} -a default -r cn-hangzhou`])
+				rows.push([item.name, get(item, 'signatures[0].comment.shortText', ''), parmasThat, `s cli ${this.name} ${item.name} ${paramText.length > 1 ?'--prop ' + paramText : ''} -a default -r cn-hangzhou`])
 			})
 
 			return Table(header, rows, options).render()

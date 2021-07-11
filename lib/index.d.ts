@@ -19,27 +19,15 @@ export default class FunctionCompute extends BaseComponent {
      * @returns
      */
     get(inputs: {}): Promise<any>;
-    getClient(region: any, access: any): Promise<void>;
-    /**
-     * 请求list相关api
-     * @param {string} api 判断调用的api
-     * @param {string} field 返回列表数据的固定字段
-     * @param {string} nextToken
-     * @param {number} limit
-     * @param {string} serverName
-     * @param {string} qualifier
-     * @@return {Promise} 返回查询指定api的列表信息
-     */
+    private getClient;
     private fetchData;
-    index(inputs?: ComponentInputs): Promise<void>;
+    private index;
     /**
      * 查询服务列表
-     * @param inputs
      */
     listServices(inputs?: ComponentInputs): Promise<any>;
     /**
      * 查询函数列表
-     * @param inputs '{"serviceName": ""}'
      * @typeParam Required --serviceName
      * @typeParam Optional --qualifier --limit --nextToken --prefix --startKey
      */
@@ -67,7 +55,6 @@ export default class FunctionCompute extends BaseComponent {
     listVersions(inputs?: ComponentInputs): Promise<any>;
     /**
      * 查询自定义域名列表
-     * @param inputs
      * @typeParam Required
      * @typeParam Optional --limit --nextToken --prefix --startKey
      */
@@ -109,13 +96,13 @@ export default class FunctionCompute extends BaseComponent {
     getFunctionCode(inputs?: ComponentInputs): Promise<any>;
     /**
      * 获取触发器配置信息
-     * @param inputs '{"serviceName": "test","functionName": "", "triggerName": ""}'
+     * @param inputs '{"serviceName": "","functionName": "", "triggerName": ""}'
      * @typeParam Required --serviceName --functionName --triggerName
      * @typeParam Optional
      */
     getTrigger(inputs?: ComponentInputs): Promise<any>;
     /**
-     * 获取 alias 信息
+     * 获取别名信息
      * @param inputs '{"serviceName": "","aliasName": ""}'
      * @typeParam Required --serviceName --aliasName
      * @typeParam Optional
@@ -223,20 +210,21 @@ export default class FunctionCompute extends BaseComponent {
     /**
      * 更新函数
      * @param inputs '{"serviceName": "","functionName": "","handler":"index.handler","runtime": "nodejs8","code":{"ossBucketName": "","ossObjectName":""}}'
+     * code: {"ossBucketName": "","ossObjectName":""} 或 {"zipFile": "代码包存放的位置，执行命令的目录下，如果文件超过 50MB，请使用 OSS 上传"}
      * @typeParam Required --serviceName --functionName
      * @typeParam Optional --description --customContainerConfig --initializationTimeout --initializer --memorySize --runtime --timeout --caPort --code --handler --runtime
      */
     updateFunction(inputs?: ComponentInputs): Promise<any>;
     /**
      * 创建触发器
-     * @param inputs '{"serviceName": "","functionName": "","triggerName": "","triggerType":"timer","triggerConfig": {}'
+     * @param inputs '{"serviceName": "","functionName": "","triggerName": "","triggerType":"timer","triggerConfig": "{}"'
      * @typeParam Required --serviceName --functionName --triggerName --triggerType
      * @typeParam Optional --invocationRole --qualifier --sourceArn --triggerConfig
      */
     createTrigger(inputs?: ComponentInputs): Promise<any>;
     /**
      * 更新触发器
-     * @param inputs '{"serviceName": "","functionName": "","triggerName": "","triggerType":"timer","triggerConfig": {}'
+     * @param inputs '{"serviceName": "","functionName": "","triggerName": "","triggerType":"timer","triggerConfig": "{}"'
      * @typeParam Required --serviceName --functionName --triggerName
      * @typeParam Optional --invocationRole --qualifier --triggerConfig
      */
@@ -264,28 +252,35 @@ export default class FunctionCompute extends BaseComponent {
     updateAlias(inputs?: ComponentInputs): Promise<any>;
     /**
      * 创建自定义域名
-     * @param inputs '{"serviceName": "","aliasName": "","versionId": "1","additionalVersionWeight": {}}'
+     * @param inputs '{"domainName": ""}'
      * @typeParam Required --domainName
      * @typeParam Optional --protocol --certConfig --routeConfig
      */
     createCustomDomain(inputs?: ComponentInputs): Promise<any>;
     /**
      * 更新自定义域名
-     * @param inputs '{"serviceName": "","aliasName": "","versionId": "1","additionalVersionWeight": {}}'
+     * @param inputs '{"domainName": ""}'
      * @typeParam Required --domainName
      * @typeParam Optional --protocol --certConfig --routeConfig
      */
     updateCustomDomain(inputs?: ComponentInputs): Promise<any>;
     /**
+     * 追加路径配置
+     * @param inputs '{"domainName": "","appendRouteConfig": "[]"}'
+     * @typeParam Required --domainName --routeConfig
+     * @typeParam Optional
+     */
+    appendRoutes(inputs?: ComponentInputs): Promise<any>;
+    /**
      * 预留配置
-     * @param inputs '{"serviceName": "","aliasName": "","versionId": "1","additionalVersionWeight": {}}'
+     * @param inputs '{"serviceName": "","functionName": "","qualifier": "1"}'
      * @typeParam Required --serviceName --functionName --qualifier
      * @typeParam Optional --target --scheduledActions --targetTrackingPolicies
      */
     putProvisionConfig(inputs?: ComponentInputs): Promise<any>;
     /**
      * 函数异步配置
-     * @param inputs '{"serviceName": "","aliasName": "","versionId": "1","additionalVersionWeight": {}}'
+     * @param inputs '{"serviceName": "","functionName": "","qualifier": "1"}'
      * @typeParam Required --serviceName --functionName --qualifier
      * @typeParam Optional --destinationConfig --maxAsyncEventAgeInSeconds --maxAsyncRetryAttempts
      */

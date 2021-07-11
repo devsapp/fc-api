@@ -61,6 +61,7 @@ Options
 ### 查询账号下的服务
 
 执行命令：`s cli fc-api listServices --region cn-hangzhou`
+
 得到结果：
 ```
 |
@@ -86,6 +87,7 @@ Options
 ### 查询服务下的函数
 
 执行命令：`s cli fc-api listFunctions --serviceName serverless-album --region cn-hangzhou`
+
 得到结果：
 ```
 |
@@ -119,6 +121,7 @@ Options
 ### 发布版本
 
 执行命令：`s cli fc-api publishVersion --serviceName serverless-china`
+
 得到结果：
 ```
 |
@@ -131,6 +134,7 @@ Options
 ### 创建别名
 
 执行命令：`s cli fc-api createAlias --serviceName serverless-china --versionId '2' --aliasName test  --description ''`
+
 得到结果：
 ```
 |
@@ -145,6 +149,7 @@ Options
 ### 更新别名
 
 执行命令：`s cli fc-api updateAlias --aliasName release --description tttt --versionId '1' --additionalVersionWeight '{"2": 0.1}' --serviceName serverless-china`
+
 得到结果：
 ```
 |
@@ -156,6 +161,50 @@ Options
   createdTime: '2021-06-11T02:22:50Z'
   lastModifiedTime: '2021-06-11T02:35:18Z'
 ```
+
+### 创建触发器
+
+执行命令：`s cli fc-api createTrigger --region cn-hangzhou --serviceName serverless-album --functionName pre-warm --triggerName mytrigger2  --triggerConfig '{"payload": "", "cronExpression": "@every 1m", "enable": true}' --triggerType timer `
+
+得到结果：
+
+```
+|
+  triggerName: mytrigger2
+  description: ''
+  triggerId: 1e785a17-20c1-4e40-8be9-9cabd732128f
+  sourceArn: null
+  triggerType: timer
+  invocationRole: null
+  qualifier: null
+  triggerConfig:
+    payload: ''
+    cronExpression: '@every 1m'
+    enable: true
+  createdTime: '2021-07-11T08:50:30Z'
+  lastModifiedTime: '2021-07-11T08:50:30Z'
+```
+
+### 只更新函数代码
+
+执行命令：`s cli fc-api updateFunction --region cn-hangzhou --serviceName fc-deploy-service --functionName http-trigger-function --code '{"zipFile": "./"}'`
+
+完成之后，即可看到函数最新的信息。
+
+> 更新代码的时候，需要指定代码，此时`code`参数的格式为：
+>```
+>{
+>   'ossBucketName': '存放函数代码ZIP包的OSS Bucket名称',
+>   'ossObjectName': '存放函数代码ZIP包的OSS Object名称',
+>   'zipFile': '函数代码ZIP包的Base 64编码'
+>}
+>````
+> 在这个结构中，`oss*`和`zipFile`不可以同时出现。但选择`zipFile`时，系统会根据您填写参数做以下处理：
+> 1. 是否`.zip`结尾，如果是则直接上传；
+> 2. 是否`.jar`结尾，如果是则直接上传；
+> 3. 如果是本地路径，则帮助用户打包上传；   
+> 
+> 上述内容，同样适用于`createFunction`接口
 
 ## 支持的接口
 - createAlias         ： 创建别名
