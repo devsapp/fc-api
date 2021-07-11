@@ -2543,7 +2543,7 @@ export default class FunctionCompute extends BaseComponent {
             await this.getClient(region, access)
             result = await this.client.createTrigger(serviceName, functionName, {
                 invocationRole,
-                qualifier: qualifier.toString(),
+                qualifier: qualifier ? qualifier.toString() : undefined,
                 sourceArn,
                 triggerConfig: triggerConfig ? (typeof triggerConfig == 'string' ? JSON.parse(triggerConfig) : triggerConfig ) : undefined,
                 triggerName,
