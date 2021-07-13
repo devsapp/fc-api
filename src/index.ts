@@ -1,7 +1,6 @@
 import {reportComponent, getCredential, commandParse, help} from '@serverless-devs/core'
 import fc from '@alicloud/fc2'
 import readline from 'readline'
-
 const fs = require('fs');
 const yaml = require('js-yaml');
 import {
@@ -88,6 +87,14 @@ export default class FunctionCompute extends BaseComponent {
                         {
                             desc: 'access',
                             example: 'Specify the key name.'
+                        },
+                        {
+                            desc: 'serviceName',
+                            example: 'Specify the serviceName.'
+                        },
+                        {
+                            desc: 'functionName',
+                            example: 'Specify the functionName.'
                         }
                     ],
                 },]);
@@ -100,8 +107,35 @@ export default class FunctionCompute extends BaseComponent {
             if (comParse.data['_'][0] == "access") {
                 await this.writeToFile("access", comParse.data['_'][1])
             }
-
+            if (comParse.data['_'][0] == "functionName") {
+                await this.writeToFile("functionName", comParse.data['_'][1])
+            }
+            if (comParse.data['_'][0] == "serviceName") {
+                await this.writeToFile("serviceName", comParse.data['_'][1])
+            }
         }
+
+        // @ts-ignore
+        if (comParse.data.region) {
+            // @ts-ignore
+            await this.writeToFile("region", comParse.data.region)
+        }
+        // @ts-ignore
+        if (comParse.data.access) {
+            // @ts-ignore
+            await this.writeToFile("access", comParse.data.access)
+        }
+        // @ts-ignore
+        if (comParse.data.functionName) {
+            // @ts-ignore
+            await this.writeToFile("functionName", comParse.data.functionName)
+        }
+        // @ts-ignore
+        if (comParse.data.serviceName) {
+            // @ts-ignore
+            await this.writeToFile("serviceName", comParse.data.serviceName)
+        }
+
         return await this.getConfigFromFile();
     }
 
@@ -340,7 +374,12 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {limit, nextToken, prefix, startKey, serviceName, qualifier, region} = Object.assign(inputs.props, comParse.data || {})
+        let {limit, nextToken, prefix, startKey, serviceName, qualifier, region} = Object.assign(inputs.props, comParse.data || {})
+        const defaultData = await this.get({})
+        if(!serviceName){
+            serviceName = defaultData.serviceName
+            console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
+        }
         let access = inputs.credentials.Alias
         if (this.checkField({serviceName})) return
         _nextToken = nextToken
@@ -424,7 +463,16 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {limit, nextToken, prefix, startKey, serviceName, functionName, region,} = Object.assign(inputs.props, comParse.data || {})
+        let {limit, nextToken, prefix, startKey, serviceName, functionName, region,} = Object.assign(inputs.props, comParse.data || {})
+        const defaultData = await this.get({})
+        if(!serviceName){
+            serviceName = defaultData.serviceName
+            console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
+        }
+        if(!functionName){
+            functionName = defaultData.functionName
+            console.log(`  🥺 Using default serviceName: ${functionName}, If you want to change the default functionName for fc-api, you can [s cli fc-api set functionName Your-Function-Name] to set default value.`)
+        }
         if (this.checkField({serviceName, functionName})) return
         _nextToken = nextToken
         _limit = limit || 100
@@ -503,7 +551,12 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {limit, nextToken, prefix, startKey, serviceName, region,} = Object.assign(inputs.props, comParse.data || {})
+        let {limit, nextToken, prefix, startKey, serviceName, region,} = Object.assign(inputs.props, comParse.data || {})
+        const defaultData = await this.get({})
+        if(!serviceName){
+            serviceName = defaultData.serviceName
+            console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
+        }
         let access = inputs.credentials.Alias
         if (this.checkField({serviceName})) return
         _nextToken = nextToken
@@ -582,7 +635,12 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {limit, nextToken, prefix, startKey, serviceName, region,} = Object.assign(inputs.props, comParse.data || {})
+        let {limit, nextToken, prefix, startKey, serviceName, region,} = Object.assign(inputs.props, comParse.data || {})
+        const defaultData = await this.get({})
+        if(!serviceName){
+            serviceName = defaultData.serviceName
+            console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
+        }
         let access = inputs.credentials.Alias
         if (this.checkField({serviceName})) return
         _nextToken = nextToken
@@ -728,7 +786,12 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {limit, nextToken, serviceName, qualifier, region,} = Object.assign(inputs.props, comParse.data || {})
+        let {limit, nextToken, serviceName, qualifier, region,} = Object.assign(inputs.props, comParse.data || {})
+        const defaultData = await this.get({})
+        if(!serviceName){
+            serviceName = defaultData.serviceName
+            console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
+        }
         let access = inputs.credentials.Alias
         _nextToken = nextToken
         _limit = limit || 100
@@ -799,7 +862,16 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {limit, nextToken, serviceName, functionName, region,} = Object.assign(inputs.props, comParse.data || {})
+        let {limit, nextToken, serviceName, functionName, region,} = Object.assign(inputs.props, comParse.data || {})
+        const defaultData = await this.get({})
+        if(!serviceName){
+            serviceName = defaultData.serviceName
+            console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
+        }
+        if(!functionName){
+            functionName = defaultData.functionName
+            console.log(`  🥺 Using default serviceName: ${functionName}, If you want to change the default functionName for fc-api, you can [s cli fc-api set functionName Your-Function-Name] to set default value.`)
+        }
         let access = inputs.credentials.Alias
         if (this.checkField({serviceName, functionName})) return
         _nextToken = nextToken
@@ -861,7 +933,12 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, qualifier, region,} = Object.assign(inputs.props, comParse.data || {})
+        let {serviceName, qualifier, region,} = Object.assign(inputs.props, comParse.data || {})
+        const defaultData = await this.get({})
+        if(!serviceName){
+            serviceName = defaultData.serviceName
+            console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
+        }
         let access = inputs.credentials.Alias
         if (this.checkField({serviceName})) return
         try {
@@ -933,7 +1010,16 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, qualifier, region,} = Object.assign(inputs.props, comParse.data || {})
+        let {serviceName, functionName, qualifier, region,} = Object.assign(inputs.props, comParse.data || {})
+        const defaultData = await this.get({})
+        if(!serviceName){
+            serviceName = defaultData.serviceName
+            console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
+        }
+        if(!functionName){
+            functionName = defaultData.functionName
+            console.log(`  🥺 Using default serviceName: ${functionName}, If you want to change the default functionName for fc-api, you can [s cli fc-api set functionName Your-Function-Name] to set default value.`)
+        }
         let access = inputs.credentials.Alias
         if (this.checkField({serviceName, functionName})) return
         try {
@@ -1005,7 +1091,16 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, qualifier, region,} = Object.assign(inputs.props, comParse.data || {})
+        let {serviceName, functionName, qualifier, region,} = Object.assign(inputs.props, comParse.data || {})
+        const defaultData = await this.get({})
+        if(!serviceName){
+            serviceName = defaultData.serviceName
+            console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
+        }
+        if(!functionName){
+            functionName = defaultData.functionName
+            console.log(`  🥺 Using default serviceName: ${functionName}, If you want to change the default functionName for fc-api, you can [s cli fc-api set functionName Your-Function-Name] to set default value.`)
+        }
         let access = inputs.credentials.Alias
         if (this.checkField({serviceName, functionName})) return
         try {
@@ -1077,7 +1172,16 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, triggerName, region,} = Object.assign(inputs.props, comParse.data || {})
+        let {serviceName, functionName, triggerName, region,} = Object.assign(inputs.props, comParse.data || {})
+        const defaultData = await this.get({})
+        if(!serviceName){
+            serviceName = defaultData.serviceName
+            console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
+        }
+        if(!functionName){
+            functionName = defaultData.functionName
+            console.log(`  🥺 Using default serviceName: ${functionName}, If you want to change the default functionName for fc-api, you can [s cli fc-api set functionName Your-Function-Name] to set default value.`)
+        }
         let access = inputs.credentials.Alias
         if (this.checkField({serviceName, functionName, triggerName})) return
         try {
@@ -1144,7 +1248,12 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, aliasName, region,} = Object.assign(inputs.props, comParse.data || {})
+        let {serviceName, aliasName, region,} = Object.assign(inputs.props, comParse.data || {})
+        const defaultData = await this.get({})
+        if(!serviceName){
+            serviceName = defaultData.serviceName
+            console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
+        }
         let access = inputs.credentials.Alias
         if (this.checkField({serviceName, aliasName})) return
         try {
@@ -1278,7 +1387,16 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, qualifier, region,} = Object.assign(inputs.props, comParse.data || {})
+        let {serviceName, functionName, qualifier, region,} = Object.assign(inputs.props, comParse.data || {})
+        const defaultData = await this.get({})
+        if(!serviceName){
+            serviceName = defaultData.serviceName
+            console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
+        }
+        if(!functionName){
+            functionName = defaultData.functionName
+            console.log(`  🥺 Using default serviceName: ${functionName}, If you want to change the default functionName for fc-api, you can [s cli fc-api set functionName Your-Function-Name] to set default value.`)
+        }
         let access = inputs.credentials.Alias
         if (this.checkField({serviceName, functionName, qualifier})) return
         try {
@@ -1351,7 +1469,16 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, qualifier, region,} = Object.assign(inputs.props, comParse.data || {})
+        let {serviceName, functionName, qualifier, region,} = Object.assign(inputs.props, comParse.data || {})
+        const defaultData = await this.get({})
+        if(!serviceName){
+            serviceName = defaultData.serviceName
+            console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
+        }
+        if(!functionName){
+            functionName = defaultData.functionName
+            console.log(`  🥺 Using default serviceName: ${functionName}, If you want to change the default functionName for fc-api, you can [s cli fc-api set functionName Your-Function-Name] to set default value.`)
+        }
         let access = inputs.credentials.Alias
         if (this.checkField({serviceName, functionName, qualifier})) return
         try {
@@ -1423,7 +1550,16 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, event, region,} = Object.assign(inputs.props, comParse.data || {})
+        let {serviceName, functionName, event, region,} = Object.assign(inputs.props, comParse.data || {})
+        const defaultData = await this.get({})
+        if(!serviceName){
+            serviceName = defaultData.serviceName
+            console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
+        }
+        if(!functionName){
+            functionName = defaultData.functionName
+            console.log(`  🥺 Using default serviceName: ${functionName}, If you want to change the default functionName for fc-api, you can [s cli fc-api set functionName Your-Function-Name] to set default value.`)
+        }
         let access = inputs.credentials.Alias
         if (this.checkField({serviceName, functionName})) return
         try {
@@ -1485,7 +1621,12 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, region,} = Object.assign(inputs.props, comParse.data || {})
+        let {serviceName, region,} = Object.assign(inputs.props, comParse.data || {})
+        const defaultData = await this.get({})
+        if(!serviceName){
+            serviceName = defaultData.serviceName
+            console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
+        }
         let access = inputs.credentials.Alias
         if (this.checkField({serviceName})) return
         try {
@@ -1552,7 +1693,16 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, region,} = Object.assign(inputs.props, comParse.data || {})
+        let {serviceName, functionName, region,} = Object.assign(inputs.props, comParse.data || {})
+        const defaultData = await this.get({})
+        if(!serviceName){
+            serviceName = defaultData.serviceName
+            console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
+        }
+        if(!functionName){
+            functionName = defaultData.functionName
+            console.log(`  🥺 Using default serviceName: ${functionName}, If you want to change the default functionName for fc-api, you can [s cli fc-api set functionName Your-Function-Name] to set default value.`)
+        }
         let access = inputs.credentials.Alias
         if (this.checkField({serviceName, functionName})) return
         try {
@@ -1624,7 +1774,16 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, triggerName, region,} = Object.assign(inputs.props, comParse.data || {})
+        let {serviceName, functionName, triggerName, region,} = Object.assign(inputs.props, comParse.data || {})
+        const defaultData = await this.get({})
+        if(!serviceName){
+            serviceName = defaultData.serviceName
+            console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
+        }
+        if(!functionName){
+            functionName = defaultData.functionName
+            console.log(`  🥺 Using default serviceName: ${functionName}, If you want to change the default functionName for fc-api, you can [s cli fc-api set functionName Your-Function-Name] to set default value.`)
+        }
         let access = inputs.credentials.Alias
         if (this.checkField({serviceName, functionName, triggerName})) return
         try {
@@ -1753,7 +1912,12 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, versionId, region,} = Object.assign(inputs.props, comParse.data || {})
+        let {serviceName, versionId, region,} = Object.assign(inputs.props, comParse.data || {})
+        const defaultData = await this.get({})
+        if(!serviceName){
+            serviceName = defaultData.serviceName
+            console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
+        }
         let access = inputs.credentials.Alias
         if (this.checkField({serviceName, versionId})) return
         try {
@@ -1820,7 +1984,12 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, aliasName, region,} = Object.assign(inputs.props, comParse.data || {})
+        let {serviceName, aliasName, region,} = Object.assign(inputs.props, comParse.data || {})
+        const defaultData = await this.get({})
+        if(!serviceName){
+            serviceName = defaultData.serviceName
+            console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
+        }
         let access = inputs.credentials.Alias
         if (this.checkField({serviceName, aliasName})) return
         try {
@@ -1892,7 +2061,16 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, qualifier, region,} = Object.assign(inputs.props, comParse.data || {})
+        let {serviceName, functionName, qualifier, region,} = Object.assign(inputs.props, comParse.data || {})
+        const defaultData = await this.get({})
+        if(!serviceName){
+            serviceName = defaultData.serviceName
+            console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
+        }
+        if(!functionName){
+            functionName = defaultData.functionName
+            console.log(`  🥺 Using default serviceName: ${functionName}, If you want to change the default functionName for fc-api, you can [s cli fc-api set functionName Your-Function-Name] to set default value.`)
+        }
         let access = inputs.credentials.Alias
         if (this.checkField({serviceName, functionName})) return
         try {
@@ -1992,7 +2170,12 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, description, internetAccess, role, logConfig, nasConfig, vpcConfig, tracingConfig, region,} = Object.assign(inputs.props, comParse.data || {})
+        let {serviceName, description, internetAccess, role, logConfig, nasConfig, vpcConfig, tracingConfig, region,} = Object.assign(inputs.props, comParse.data || {})
+        const defaultData = await this.get({})
+        if(!serviceName){
+            serviceName = defaultData.serviceName
+            console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
+        }
         let access = inputs.credentials.Alias
         let sName: string = defaultServiceName ? defaultServiceName : serviceName
         if (this.checkField({sName})) return
@@ -2098,7 +2281,12 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, description, internetAccess, role, logConfig, nasConfig, vpcConfig, tracingConfig, region,} = Object.assign(inputs.props, comParse.data || {})
+        let {serviceName, description, internetAccess, role, logConfig, nasConfig, vpcConfig, tracingConfig, region,} = Object.assign(inputs.props, comParse.data || {})
+        const defaultData = await this.get({})
+        if(!serviceName){
+            serviceName = defaultData.serviceName
+            console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
+        }
         let access = inputs.credentials.Alias
         if (this.checkField({serviceName})) return
         try {
@@ -2225,6 +2413,15 @@ export default class FunctionCompute extends BaseComponent {
             return;
         }
         let {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort, region,} = Object.assign(inputs.props, comParse.data || {})
+        const defaultData = await this.get({})
+        if(!serviceName){
+            serviceName = defaultData.serviceName
+            console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
+        }
+        if(!functionName){
+            functionName = defaultData.functionName
+            console.log(`  🥺 Using default serviceName: ${functionName}, If you want to change the default functionName for fc-api, you can [s cli fc-api set functionName Your-Function-Name] to set default value.`)
+        }
         let access = inputs.credentials.Alias
         let functionCode: any = {}
         if (this.checkField({serviceName, functionName, code, handler, runtime})) return
@@ -2382,6 +2579,15 @@ export default class FunctionCompute extends BaseComponent {
             return;
         }
         let {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort, region,} = Object.assign(inputs.props, comParse.data || {})
+        const defaultData = await this.get({})
+        if(!serviceName){
+            serviceName = defaultData.serviceName
+            console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
+        }
+        if(!functionName){
+            functionName = defaultData.functionName
+            console.log(`  🥺 Using default serviceName: ${functionName}, If you want to change the default functionName for fc-api, you can [s cli fc-api set functionName Your-Function-Name] to set default value.`)
+        }
         let tempCode = undefined
         if(typeof code == 'string'){
             try{
@@ -2518,7 +2724,16 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, invocationRole, qualifier, sourceArn, triggerConfig, triggerName, triggerType, region,} = Object.assign(inputs.props, comParse.data || {})
+        let {serviceName, functionName, invocationRole, qualifier, sourceArn, triggerConfig, triggerName, triggerType, region,} = Object.assign(inputs.props, comParse.data || {})
+        const defaultData = await this.get({})
+        if(!serviceName){
+            serviceName = defaultData.serviceName
+            console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
+        }
+        if(!functionName){
+            functionName = defaultData.functionName
+            console.log(`  🥺 Using default serviceName: ${functionName}, If you want to change the default functionName for fc-api, you can [s cli fc-api set functionName Your-Function-Name] to set default value.`)
+        }
         let access = inputs.credentials.Alias
         if (this.checkField({serviceName, functionName, triggerName, triggerType})) return
         try {
@@ -2622,7 +2837,16 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, invocationRole, qualifier, triggerConfig, triggerName, region,} = Object.assign(inputs.props, comParse.data || {})
+        let {serviceName, functionName, invocationRole, qualifier, triggerConfig, triggerName, region,} = Object.assign(inputs.props, comParse.data || {})
+        const defaultData = await this.get({})
+        if(!serviceName){
+            serviceName = defaultData.serviceName
+            console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
+        }
+        if(!functionName){
+            functionName = defaultData.functionName
+            console.log(`  🥺 Using default serviceName: ${functionName}, If you want to change the default functionName for fc-api, you can [s cli fc-api set functionName Your-Function-Name] to set default value.`)
+        }
         let access = inputs.credentials.Alias
         if (this.checkField({serviceName, functionName, triggerName})) return
         try {
@@ -2693,7 +2917,12 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, description, region,} = Object.assign(inputs.props, comParse.data || {})
+        let {serviceName, description, region,} = Object.assign(inputs.props, comParse.data || {})
+        const defaultData = await this.get({})
+        if(!serviceName){
+            serviceName = defaultData.serviceName
+            console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
+        }
         let access = inputs.credentials.Alias
         if (this.checkField({serviceName})) return
         try {
@@ -2775,7 +3004,12 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, aliasName, versionId, additionalVersionWeight, description, region,} = Object.assign(inputs.props, comParse.data || {})
+        let {serviceName, aliasName, versionId, additionalVersionWeight, description, region,} = Object.assign(inputs.props, comParse.data || {})
+        const defaultData = await this.get({})
+        if(!serviceName){
+            serviceName = defaultData.serviceName
+            console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
+        }
         let access = inputs.credentials.Alias
         if (this.checkField({serviceName, aliasName, versionId})) return
         try {
@@ -2784,6 +3018,7 @@ export default class FunctionCompute extends BaseComponent {
                 additionalVersionWeight: typeof additionalVersionWeight == 'object' ? additionalVersionWeight : JSON.parse(additionalVersionWeight || '{}'),
                 description,
             })
+
             return yaml.dump(result.data)
         } catch (error) {
             this.errorReport(error)
@@ -2860,7 +3095,12 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, aliasName, versionId, additionalVersionWeight, description, region,} = Object.assign(inputs.props, comParse.data || {})
+        let {serviceName, aliasName, versionId, additionalVersionWeight, description, region,} = Object.assign(inputs.props, comParse.data || {})
+        const defaultData = await this.get({})
+        if(!serviceName){
+            serviceName = defaultData.serviceName
+            console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
+        }
         let access = inputs.credentials.Alias
         if (this.checkField({serviceName, aliasName, versionId})) return
         try {
@@ -3212,7 +3452,16 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, qualifier, target, scheduledActions, targetTrackingPolicies, region,} = Object.assign(inputs.props, comParse.data || {})
+        let {serviceName, functionName, qualifier, target, scheduledActions, targetTrackingPolicies, region,} = Object.assign(inputs.props, comParse.data || {})
+        const defaultData = await this.get({})
+        if(!serviceName){
+            serviceName = defaultData.serviceName
+            console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
+        }
+        if(!functionName){
+            functionName = defaultData.functionName
+            console.log(`  🥺 Using default serviceName: ${functionName}, If you want to change the default functionName for fc-api, you can [s cli fc-api set functionName Your-Function-Name] to set default value.`)
+        }
         let access = inputs.credentials.Alias
         if (this.checkField({serviceName, functionName})) return
         try {
@@ -3303,7 +3552,16 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        const {serviceName, functionName, qualifier, destinationConfig, maxAsyncEventAgeInSeconds, maxAsyncRetryAttempts, region,} = Object.assign(inputs.props, comParse.data || {})
+        let {serviceName, functionName, qualifier, destinationConfig, maxAsyncEventAgeInSeconds, maxAsyncRetryAttempts, region,} = Object.assign(inputs.props, comParse.data || {})
+        const defaultData = await this.get({})
+        if(!serviceName){
+            serviceName = defaultData.serviceName
+            console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
+        }
+        if(!functionName){
+            functionName = defaultData.functionName
+            console.log(`  🥺 Using default serviceName: ${functionName}, If you want to change the default functionName for fc-api, you can [s cli fc-api set functionName Your-Function-Name] to set default value.`)
+        }
         let access = inputs.credentials.Alias
         if (this.checkField({serviceName, functionName})) return
         try {
@@ -3427,6 +3685,15 @@ export default class FunctionCompute extends BaseComponent {
             return;
         }
         let {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort, region,} = Object.assign(inputs.props, comParse.data || {})
+        const defaultData = await this.get({})
+        if(!serviceName){
+            serviceName = defaultData.serviceName
+            console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
+        }
+        if(!functionName){
+            functionName = defaultData.functionName
+            console.log(`  🥺 Using default serviceName: ${functionName}, If you want to change the default functionName for fc-api, you can [s cli fc-api set functionName Your-Function-Name] to set default value.`)
+        }
         let access = inputs.credentials.Alias
         if (this.checkField({functionName, code, handler, runtime})) return
         let tempCode = undefined
