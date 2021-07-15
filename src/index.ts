@@ -2620,6 +2620,18 @@ export default class FunctionCompute extends BaseComponent {
         let access = inputs.credentials.Alias
         if (this.checkField({serviceName, functionName})) return
         try {
+            console.log({
+                code: Object.keys(functionCode).length > 0 ? functionCode : undefined,
+                customContainerConfig: customContainerConfig ? (typeof customContainerConfig == 'string' ? JSON.parse(customContainerConfig) : customContainerConfig) : undefined,
+                description,
+                handler,
+                initializationTimeout,
+                initializer,
+                memorySize,
+                runtime,
+                timeout,
+                caPort,
+            })
             await this.getClient(region, access)
             result = await this.client.updateFunction(serviceName, functionName, {
                 code: Object.keys(functionCode).length > 0 ? functionCode : undefined,
@@ -2992,18 +3004,18 @@ export default class FunctionCompute extends BaseComponent {
                         },
                         {
                             name: 'additionalVersionWeight',
-                            description: `[JSON String] The additional version to which the alias points and the weight of the additional version. like '{"2": 0.1}'`,
+                            description: '[JSON String] The additional version to which the alias points and the weight of the additional version.',
                             type: String,
                         },
                         {
                             name: 'description',
                             description: 'The description of the alias.',
                             type: String,
-                        }
-                    ],
+                        }],
                 },]);
             return;
         }
+
         let {serviceName, aliasName, versionId, additionalVersionWeight, description, region,} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
         if(!serviceName){
@@ -3083,7 +3095,7 @@ export default class FunctionCompute extends BaseComponent {
                         },
                         {
                             name: 'additionalVersionWeight',
-                            description: `[JSON String] The additional version to which the alias points and the weight of the additional version. like '{"2": 0.1}'`,
+                            description: `[JSON String] The additional version to which the alias points and the weight of the additional version. `,
                             type: String,
                         },
                         {
@@ -3296,7 +3308,7 @@ export default class FunctionCompute extends BaseComponent {
         if (comParse.data && comParse.data.help) {
             help([{
                 header: 'Usage',
-                content: `s cli fc-api updateCustomDomain\nAPI Document: https://help.aliyun.com/document_detail/191168.html`
+                content: `s cli fc-api appendRoutes\nAPI Document: https://help.aliyun.com/document_detail/191168.html`
             },
                 {
                     header: 'Options',
@@ -3326,7 +3338,7 @@ export default class FunctionCompute extends BaseComponent {
                         },
                         {
                             name: 'appendRouteConfig',
-                            description: 'The route table that maps paths to functions when the functions are invoked by using the custom domain name, like  \'[{"path":"/test","serviceName":"serverless-album","functionName":"demo","methods":["GET","POST","PUT","DELETE","HEAD","PATCH"]}]\'',
+                            description: 'The route table that maps paths to functions when the functions are invoked by using the custom domain name.',
                             type: String,
                         }
                     ],
