@@ -374,6 +374,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
+        console.log(inputs)
         let {limit, nextToken, prefix, startKey, serviceName, qualifier, region} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
         if(!serviceName){
@@ -2620,18 +2621,6 @@ export default class FunctionCompute extends BaseComponent {
         let access = inputs.credentials.Alias
         if (this.checkField({serviceName, functionName})) return
         try {
-            console.log({
-                code: Object.keys(functionCode).length > 0 ? functionCode : undefined,
-                customContainerConfig: customContainerConfig ? (typeof customContainerConfig == 'string' ? JSON.parse(customContainerConfig) : customContainerConfig) : undefined,
-                description,
-                handler,
-                initializationTimeout,
-                initializer,
-                memorySize,
-                runtime,
-                timeout,
-                caPort,
-            })
             await this.getClient(region, access)
             result = await this.client.updateFunction(serviceName, functionName, {
                 code: Object.keys(functionCode).length > 0 ? functionCode : undefined,
