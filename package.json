@@ -1,6 +1,6 @@
 {
   "name": "fc-api",
-  "version": "0.0.35",
+  "version": "0.0.36",
   "description": "The execution component of Function Compute, through which you can access the resources of function calculation",
   "keywords": [
     "Serverless",
