@@ -1,6 +1,7 @@
 import {reportComponent, getCredential, commandParse, help} from '@serverless-devs/core'
 import fc from '@alicloud/fc2'
 import readline from 'readline'
+import { getFcEndpoint } from './endpoint'
 const fs = require('fs');
 const yaml = require('js-yaml');
 import {
@@ -155,22 +156,26 @@ export default class FunctionCompute extends BaseComponent {
     private async getClient(region, access) {
         if (!this.client) {
             const defaultData = await this.get({})
+            const customEndpoint = await getFcEndpoint();
+            // TODO: 自定义
             if (!access) {
                 access = defaultData.access
                 console.log(`  🔑 Using default access: ${access}, If you want to change the default access for fc-api, you can [s cli fc-api set access Your-Access-Alias] to set default value.`)
             }
-            if (!region) {
+            if (!(region || customEndpoint?.region)) {
                 region = defaultData.region
                 console.log(`  🌍 Using default region: ${region}, If you want to change the default region for fc-api, you can [s cli fc-api set region FC-Region] to set default value.`)
             }
-            const {AccountID, AccessKeyID, AccessKeySecret} = (await getCredential(access)) as any
-            reportComponent('fc-api', {uid: AccountID, command: 's cli'})
-            this.client = new fc(AccountID, {
+            const {AccountID, AccessKeyID, AccessKeySecret, SecurityToken} = (await getCredential(access)) as any
+            const uid = customEndpoint?.accountId || AccountID;
+            reportComponent('fc-api', {uid, command: 's cli'})
+            this.client = new fc(uid, {
                 accessKeyID: AccessKeyID,
                 accessKeySecret: AccessKeySecret,
-                securityToken: '',
-                region: region || 'cn-hangzhou',
+                securityToken: SecurityToken,
+                region: customEndpoint?.region || region || 'cn-hangzhou',
                 timeout: 6000000,
+                endpoint: customEndpoint?.fcEndpoint,
             })
         }
     }
