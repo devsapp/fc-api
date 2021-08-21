@@ -2188,7 +2188,7 @@ export default class FunctionCompute extends BaseComponent {
         try {
             await this.getClient(region, access)
             result = await this.client.createService(sName, {
-                description,
+                description: String(description),
                 internetAccess: internetAccess === "false" ? false : true,
                 role,
                 logConfig: logConfig ? (typeof logConfig == 'string' ? JSON.parse(logConfig) : logConfig) : undefined,
@@ -2298,7 +2298,7 @@ export default class FunctionCompute extends BaseComponent {
         try {
             await this.getClient(region, access)
             result = await this.client.updateService(serviceName, {
-                description,
+                description: String(description),
                 role,
                 internetAccess: internetAccess === "false" ? false : true,
                 logConfig: logConfig ? (typeof logConfig == 'string' ? JSON.parse(logConfig) : logConfig) : undefined,
@@ -2463,7 +2463,7 @@ export default class FunctionCompute extends BaseComponent {
                 functionName,
                 code: Object.keys(functionCode).length > 0 ? functionCode : undefined,
                 customContainerConfig: customContainerConfig ? (typeof customContainerConfig == 'string' ? JSON.parse(customContainerConfig) : customContainerConfig) : undefined,
-                description,
+                description: String(description),
                 handler,
                 initializationTimeout,
                 initializer,
@@ -2630,7 +2630,7 @@ export default class FunctionCompute extends BaseComponent {
             result = await this.client.updateFunction(serviceName, functionName, {
                 code: Object.keys(functionCode).length > 0 ? functionCode : undefined,
                 customContainerConfig: customContainerConfig ? (typeof customContainerConfig == 'string' ? JSON.parse(customContainerConfig) : customContainerConfig) : undefined,
-                description,
+                description: String(description),
                 handler,
                 initializationTimeout,
                 initializer,
@@ -2933,7 +2933,7 @@ export default class FunctionCompute extends BaseComponent {
         if (this.checkField({serviceName})) return
         try {
             await this.getClient(region, access)
-            result = await this.client.publishVersion(serviceName, description)
+            result = await this.client.publishVersion(serviceName, String(description))
             return yaml.dump(result.data)
         } catch (error) {
             this.errorReport(error)
@@ -3022,7 +3022,90 @@ export default class FunctionCompute extends BaseComponent {
             await this.getClient(region, access)
             result = await this.client.createAlias(serviceName, aliasName, String(versionId), {
                 additionalVersionWeight: typeof additionalVersionWeight == 'object' ? additionalVersionWeight : JSON.parse(additionalVersionWeight || '{}'),
-                description,
+                description: String(description),
+            })
+
+            return yaml.dump(result.data)
+        } catch (error) {
+            this.errorReport(error)
+            throw error
+        }
+    }
+
+    /**
+     * 创建别名通过最新版本
+     * @param inputs '{"serviceName": "","aliasName": ""}'
+     * @typeParam Required --serviceName --aliasName --versionId
+     * @typeParam Optional --additionalVersionWeight --description
+     */
+    public async createAliasWithNewVersion(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
+        const apts = {
+            boolean: ['help'],
+            alias: {help: 'h'},
+        };
+        // @ts-ignore
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
+        // @ts-ignore
+        if (comParse.data && comParse.data.help) {
+            help([{
+                header: 'Usage',
+                content: `s cli fc-api createAliasWithNewVersion\nAPI Document: https://help.aliyun.com/document_detail/162952.html`
+            },
+                {
+                    header: 'Options',
+                    optionList: [
+                        {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
+                            name: 'access',
+                            description: 'Specify the key name.',
+
+                            type: String,
+                        },
+                        {
+                            name: 'props',
+                            description: 'The json string of props.',
+
+                            type: String,
+                        },
+                        {
+                            name: 'serviceName',
+                            description: 'The name of the service.',
+                            type: String,
+                        },
+                        {
+                            name: 'aliasName',
+                            description: 'The name of the alias.',
+                            type: String,
+                        },
+                        {
+                            name: 'description',
+                            description: 'The description of the alias.',
+                            type: String,
+                        }],
+                },]);
+            return;
+        }
+
+        let {serviceName, aliasName, description, region,} = Object.assign(inputs.props, comParse.data || {})
+        const defaultData = await this.get({})
+        if(!serviceName){
+            serviceName = defaultData.serviceName
+            console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
+        }
+        let access = inputs.credentials.Alias
+        const versions = yaml.load(await this.listVersions(inputs))
+        const versionId = versions.length > 0 ? versions[0].versionId : undefined
+        if (this.checkField({serviceName, aliasName, versionId})) return
+        try {
+            await this.getClient(region, access)
+            result = await this.client.createAlias(serviceName, aliasName, String(versionId), {
+                additionalVersionWeight: {},
+                description: String(description),
             })
 
             return yaml.dump(result.data)
@@ -3113,7 +3196,89 @@ export default class FunctionCompute extends BaseComponent {
             await this.getClient(region, access)
             result = await this.client.updateAlias(serviceName, aliasName, String(versionId), {
                 additionalVersionWeight: typeof additionalVersionWeight == 'object' ? additionalVersionWeight : JSON.parse(additionalVersionWeight || '{}'),
-                description,
+                description: String(description),
+            })
+            return yaml.dump(result.data)
+        } catch (error) {
+            this.errorReport(error)
+            throw error
+        }
+    }
+
+    /**
+     * 更新别名通过最新版本
+     * @param inputs '{"serviceName": "","aliasName": "", "description": ""}'
+     * @typeParam Required --serviceName --aliasName --versionId
+     * @typeParam Optional --additionalVersionWeight --description
+     */
+    public async updateAliasWithNewVersion(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
+        const apts = {
+            boolean: ['help'],
+            alias: {help: 'h'},
+        };
+        // @ts-ignore
+        const comParse = commandParse({args: inputs.args, argsObj: inputs.argsObj}, apts);
+        // @ts-ignore
+        if (comParse.data && comParse.data.help) {
+            help([{
+                header: 'Usage',
+                content: `s cli fc-api updateAliasWithNewVersion\nAPI Document: https://help.aliyun.com/document_detail/191164.html`
+            },
+                {
+                    header: 'Options',
+                    optionList: [
+                        {
+                            name: 'region',
+                            description: 'The region of fc endpoint.',
+
+                            type: String,
+                        },
+                        {
+                            name: 'access',
+                            description: 'Specify the key name.',
+
+                            type: String,
+                        },
+                        {
+                            name: 'props',
+                            description: 'The json string of props.',
+
+                            type: String,
+                        },
+                        {
+                            name: 'serviceName',
+                            description: 'The name of the service.',
+                            type: String,
+                        },
+                        {
+                            name: 'aliasName',
+                            description: 'The name of the alias.',
+                            type: String,
+                        },
+                        {
+                            name: 'description',
+                            description: 'The description of the alias.',
+                            type: String,
+                        }
+                    ],
+                },]);
+            return;
+        }
+        let {serviceName, aliasName, description, region,} = Object.assign(inputs.props, comParse.data || {})
+        const versions = yaml.load(await this.listVersions(inputs))
+        const versionId = versions.length > 0 ? versions[0].versionId : undefined
+        const defaultData = await this.get({})
+        if(!serviceName){
+            serviceName = defaultData.serviceName
+            console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
+        }
+        let access = inputs.credentials.Alias
+        if (this.checkField({serviceName, aliasName, versionId})) return
+        try {
+            await this.getClient(region, access)
+            result = await this.client.updateAlias(serviceName, aliasName, String(versionId), {
+                additionalVersionWeight: {},
+                description: String(description),
             })
             return yaml.dump(result.data)
         } catch (error) {
@@ -3741,7 +3906,7 @@ export default class FunctionCompute extends BaseComponent {
                 functionName,
                 code: Object.keys(functionCode).length > 0 ? functionCode : undefined,
                 customContainerConfig: customContainerConfig ? (typeof customContainerConfig == 'string' ? JSON.parse(customContainerConfig) : customContainerConfig) : undefined,
-                description,
+                description: String(description),
                 handler,
                 initializationTimeout,
                 initializer,

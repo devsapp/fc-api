@@ -244,12 +244,26 @@ export default class FunctionCompute extends BaseComponent {
      */
     createAlias(inputs?: ComponentInputs): Promise<any>;
     /**
+     * 创建别名通过最新版本
+     * @param inputs '{"serviceName": "","aliasName": ""}'
+     * @typeParam Required --serviceName --aliasName --versionId
+     * @typeParam Optional --additionalVersionWeight --description
+     */
+    createAliasWithNewVersion(inputs?: ComponentInputs): Promise<any>;
+    /**
      * 更新别名
      * @param inputs '{"serviceName": "","aliasName": "","versionId": "1","additionalVersionWeight": {},"description": ""}'
      * @typeParam Required --serviceName --aliasName --versionId
      * @typeParam Optional --additionalVersionWeight --description
      */
     updateAlias(inputs?: ComponentInputs): Promise<any>;
+    /**
+     * 更新别名通过最新版本
+     * @param inputs '{"serviceName": "","aliasName": "", "description": ""}'
+     * @typeParam Required --serviceName --aliasName --versionId
+     * @typeParam Optional --additionalVersionWeight --description
+     */
+    updateAliasWithNewVersion(inputs?: ComponentInputs): Promise<any>;
     /**
      * 创建自定义域名
      * @param inputs '{"domainName": ""}'

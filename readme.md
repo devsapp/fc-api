@@ -32,6 +32,7 @@ FC-API组件是一款基于Serverless Devs的阿里云函数计算API操作工�
 目前，该工具已经支持包括创建函数、创建服务、创建触发器等在内的三十余个接口：
 
 - [createAlias         ： 创建别名](./commands/createAlias.md)
+- [createAliasWithNewVersion         ： 创建别名通过最新版本](./commands/createAliasWithNewVersion.md)
 - [createCustomDomain  ： 创建自定义域名](./commands/createCustomDomain.md)
 - [createFunction      ： 创建函数](./commands/createFunction.md)
 - [createService       ： 创建服务](./commands/createService.md)
@@ -62,8 +63,14 @@ FC-API组件是一款基于Serverless Devs的阿里云函数计算API操作工�
 - [publishVersion      ： 创建版本](./commands/publishVersion.md)
 - [putProvisionConfig  ： 预留配置](./commands/putProvisionConfig.md)       
 - [updateAlias         ： 更新别名](./commands/updateAlias.md)
+- [updateAliasWithNewVersion         ： 更新别名通过最新版本](./commands/updateAliasWithNewVersion.md)
 - [updateCustomDomain  ： 更新自定义域名](./commands/updateCustomDomain.md)
 - [updateFunction      ： 更新函数](./commands/updateFunction.md) 
 - [updateService       ： 更新服务配置](./commands/updateService.md)
 - [updateTrigger       ： 更新触发器](./commands/updateTrigger.md)
 - [appendRoutes        ： 追加路径配置](./commands/appendRoutes.md)
+
+## 最佳实践
+
+- [云效+Serverless Devs快速实现.NET5函数计算代码更新](http://serverless-devs.com/blog/yunxiao-dotNET-serverless-devs-ci-cd)
+- [只更新代码，然后发布版本：基于Serverless Devs原子化操作阿里云函数计算](http://serverless-devs.com/blog/serverless-devs-update-fc-code)
