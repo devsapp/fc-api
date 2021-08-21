@@ -3034,8 +3034,8 @@ export default class FunctionCompute extends BaseComponent {
 
     /**
      * 创建别名通过最新版本
-     * @param inputs '{"serviceName": "","aliasName": ""}'
-     * @typeParam Required --serviceName --aliasName --versionId
+     * @param inputs '{"serviceName": "","aliasName": "","additionalVersionWeight": {}}'
+     * @typeParam Required --serviceName --aliasName
      * @typeParam Optional --additionalVersionWeight --description
      */
     public async createAliasWithNewVersion(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
@@ -3078,6 +3078,11 @@ export default class FunctionCompute extends BaseComponent {
                             type: String,
                         },
                         {
+                            name: 'additionalVersionWeight',
+                            description: `[JSON String] The additional version to which the alias points and the weight of the additional version. `,
+                            type: String,
+                        },
+                        {
                             name: 'aliasName',
                             description: 'The name of the alias.',
                             type: String,
@@ -3091,7 +3096,7 @@ export default class FunctionCompute extends BaseComponent {
             return;
         }
 
-        let {serviceName, aliasName, description, region,} = Object.assign(inputs.props, comParse.data || {})
+        let {serviceName, aliasName, additionalVersionWeight, description, region,} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
         if(!serviceName){
             serviceName = defaultData.serviceName
@@ -3104,7 +3109,7 @@ export default class FunctionCompute extends BaseComponent {
         try {
             await this.getClient(region, access)
             result = await this.client.createAlias(serviceName, aliasName, String(versionId), {
-                additionalVersionWeight: {},
+                additionalVersionWeight: typeof additionalVersionWeight == 'object' ? additionalVersionWeight : JSON.parse(additionalVersionWeight || '{}'),
                 description: String(description),
             })
 
@@ -3207,8 +3212,8 @@ export default class FunctionCompute extends BaseComponent {
 
     /**
      * 更新别名通过最新版本
-     * @param inputs '{"serviceName": "","aliasName": "", "description": ""}'
-     * @typeParam Required --serviceName --aliasName --versionId
+     * @param inputs '{"serviceName": "","aliasName": "", "additionalVersionWeight": {}, "description": ""}'
+     * @typeParam Required --serviceName --aliasName
      * @typeParam Optional --additionalVersionWeight --description
      */
     public async updateAliasWithNewVersion(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
@@ -3256,6 +3261,11 @@ export default class FunctionCompute extends BaseComponent {
                             type: String,
                         },
                         {
+                            name: 'additionalVersionWeight',
+                            description: `[JSON String] The additional version to which the alias points and the weight of the additional version. `,
+                            type: String,
+                        },
+                        {
                             name: 'description',
                             description: 'The description of the alias.',
                             type: String,
@@ -3264,7 +3274,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        let {serviceName, aliasName, description, region,} = Object.assign(inputs.props, comParse.data || {})
+        let {serviceName, aliasName, additionalVersionWeight, description, region,} = Object.assign(inputs.props, comParse.data || {})
         const versions = yaml.load(await this.listVersions(inputs))
         const versionId = versions.length > 0 ? versions[0].versionId : undefined
         const defaultData = await this.get({})
@@ -3277,7 +3287,7 @@ export default class FunctionCompute extends BaseComponent {
         try {
             await this.getClient(region, access)
             result = await this.client.updateAlias(serviceName, aliasName, String(versionId), {
-                additionalVersionWeight: {},
+                additionalVersionWeight: typeof additionalVersionWeight == 'object' ? additionalVersionWeight : JSON.parse(additionalVersionWeight || '{}'),
                 description: String(description),
             })
             return yaml.dump(result.data)

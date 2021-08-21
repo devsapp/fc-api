@@ -14,7 +14,9 @@ Options
   --access string                    Specify the key name.                                                         
   --props string                     The json string of props.                                                     
   --serviceName string               The name of the service.                                                      
-  --aliasName string                 The name of the alias.                                                                                                      
+  --aliasName string                 The name of the alias.
+  --additionalVersionWeight string   [JSON String] The additional version to which the alias points and the weight 
+                                     of the additional version.                                                                                                          
   --description string               The description of the alias. 
 ```
 

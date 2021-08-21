@@ -245,8 +245,8 @@ export default class FunctionCompute extends BaseComponent {
     createAlias(inputs?: ComponentInputs): Promise<any>;
     /**
      * 创建别名通过最新版本
-     * @param inputs '{"serviceName": "","aliasName": ""}'
-     * @typeParam Required --serviceName --aliasName --versionId
+     * @param inputs '{"serviceName": "","aliasName": "","additionalVersionWeight": {}}'
+     * @typeParam Required --serviceName --aliasName
      * @typeParam Optional --additionalVersionWeight --description
      */
     createAliasWithNewVersion(inputs?: ComponentInputs): Promise<any>;
@@ -259,8 +259,8 @@ export default class FunctionCompute extends BaseComponent {
     updateAlias(inputs?: ComponentInputs): Promise<any>;
     /**
      * 更新别名通过最新版本
-     * @param inputs '{"serviceName": "","aliasName": "", "description": ""}'
-     * @typeParam Required --serviceName --aliasName --versionId
+     * @param inputs '{"serviceName": "","aliasName": "", "additionalVersionWeight": {}, "description": ""}'
+     * @typeParam Required --serviceName --aliasName
      * @typeParam Optional --additionalVersionWeight --description
      */
     updateAliasWithNewVersion(inputs?: ComponentInputs): Promise<any>;
