@@ -16,6 +16,14 @@ let resultData: string[] = []
 let _limit: Number | null
 let _nextToken, _prefix, _startKey: string | null
 
+fc.prototype.listVersions = async function (serviceName, options = {}, headers?) {
+    return this.get(`/services/${serviceName}/versions`, options, headers);
+};
+
+fc.prototype.listAliases = async function (serviceName, options = {}, headers?) {
+    return this.get(`/services/${serviceName}/aliases`, options, headers);
+};
+
 export function input(prompt: string = ""): Promise<any> {
     return new Promise((resolve: (value: string) => void): void => {
         let rl = readline.createInterface({
@@ -185,6 +193,7 @@ export default class FunctionCompute extends BaseComponent {
         let start = true
         while (start || _nextToken) {
             start = false
+
             let optional: any = {
                 limit: _limit,
                 nextToken: _nextToken,
@@ -218,10 +227,12 @@ export default class FunctionCompute extends BaseComponent {
                     result = await this.client[api](serviceName, functionName, {limit: _limit, nextToken: _nextToken})
                 },
             }
+
             await switchApi[api].call(this)
             resultData = resultData.concat(result.data[field])
             if (typeof nextToken === 'undefined' && typeof limit === 'undefined') {
-                _nextToken = result.data.nextToken ? result.data.nextToken : null
+                const _tempNextToken = result.data.nextToken ? result.data.nextToken : null
+                _nextToken = _nextToken==_tempNextToken ? null : _tempNextToken
             } else {
                 _nextToken = null
             }
@@ -3105,7 +3116,11 @@ export default class FunctionCompute extends BaseComponent {
         let access = inputs.credentials.Alias
         const versions = yaml.load(await this.listVersions(inputs))
         const versionId = versions.length > 0 ? versions[0].versionId : undefined
-        if (this.checkField({serviceName, aliasName, versionId})) return
+        if (this.checkField({serviceName, aliasName})) return
+        if(!versionId){
+            this.logger.error(`Could not find versionId, please check your version on release.`)
+            process.exit(-1)
+        }
         try {
             await this.getClient(region, access)
             result = await this.client.createAlias(serviceName, aliasName, String(versionId), {
@@ -3283,7 +3298,11 @@ export default class FunctionCompute extends BaseComponent {
             console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
         }
         let access = inputs.credentials.Alias
-        if (this.checkField({serviceName, aliasName, versionId})) return
+        if (this.checkField({serviceName, aliasName})) return
+        if(!versionId){
+            this.logger.error(`Could not find versionId, please check your version on release.`)
+            process.exit(-1)
+        }
         try {
             await this.getClient(region, access)
             result = await this.client.updateAlias(serviceName, aliasName, String(versionId), {
