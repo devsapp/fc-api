@@ -1,7 +1,8 @@
 import {reportComponent, getCredential, commandParse, help} from '@serverless-devs/core'
 import fc from '@alicloud/fc2'
 import readline from 'readline'
-import { getFcEndpoint } from './endpoint'
+import {getFcEndpoint} from './endpoint'
+
 const fs = require('fs');
 const yaml = require('js-yaml');
 import {
@@ -232,7 +233,7 @@ export default class FunctionCompute extends BaseComponent {
             resultData = resultData.concat(result.data[field])
             if (typeof nextToken === 'undefined' && typeof limit === 'undefined') {
                 const _tempNextToken = result.data.nextToken ? result.data.nextToken : null
-                _nextToken = _nextToken==_tempNextToken ? null : _tempNextToken
+                _nextToken = _nextToken == _tempNextToken ? null : _tempNextToken
             } else {
                 _nextToken = null
             }
@@ -393,7 +394,7 @@ export default class FunctionCompute extends BaseComponent {
         console.log(inputs)
         let {limit, nextToken, prefix, startKey, serviceName, qualifier, region} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
-        if(!serviceName){
+        if (!serviceName) {
             serviceName = defaultData.serviceName
             console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
         }
@@ -482,11 +483,11 @@ export default class FunctionCompute extends BaseComponent {
         }
         let {limit, nextToken, prefix, startKey, serviceName, functionName, region,} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
-        if(!serviceName){
+        if (!serviceName) {
             serviceName = defaultData.serviceName
             console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
         }
-        if(!functionName){
+        if (!functionName) {
             functionName = defaultData.functionName
             console.log(`  🥺 Using default serviceName: ${functionName}, If you want to change the default functionName for fc-api, you can [s cli fc-api set functionName Your-Function-Name] to set default value.`)
         }
@@ -570,7 +571,7 @@ export default class FunctionCompute extends BaseComponent {
         }
         let {limit, nextToken, prefix, startKey, serviceName, region,} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
-        if(!serviceName){
+        if (!serviceName) {
             serviceName = defaultData.serviceName
             console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
         }
@@ -654,7 +655,7 @@ export default class FunctionCompute extends BaseComponent {
         }
         let {limit, nextToken, prefix, startKey, serviceName, region,} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
-        if(!serviceName){
+        if (!serviceName) {
             serviceName = defaultData.serviceName
             console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
         }
@@ -805,7 +806,7 @@ export default class FunctionCompute extends BaseComponent {
         }
         let {limit, nextToken, serviceName, qualifier, region,} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
-        if(!serviceName){
+        if (!serviceName) {
             serviceName = defaultData.serviceName
             console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
         }
@@ -881,11 +882,11 @@ export default class FunctionCompute extends BaseComponent {
         }
         let {limit, nextToken, serviceName, functionName, region,} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
-        if(!serviceName){
+        if (!serviceName) {
             serviceName = defaultData.serviceName
             console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
         }
-        if(!functionName){
+        if (!functionName) {
             functionName = defaultData.functionName
             console.log(`  🥺 Using default serviceName: ${functionName}, If you want to change the default functionName for fc-api, you can [s cli fc-api set functionName Your-Function-Name] to set default value.`)
         }
@@ -952,7 +953,7 @@ export default class FunctionCompute extends BaseComponent {
         }
         let {serviceName, qualifier, region,} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
-        if(!serviceName){
+        if (!serviceName) {
             serviceName = defaultData.serviceName
             console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
         }
@@ -1029,11 +1030,11 @@ export default class FunctionCompute extends BaseComponent {
         }
         let {serviceName, functionName, qualifier, region,} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
-        if(!serviceName){
+        if (!serviceName) {
             serviceName = defaultData.serviceName
             console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
         }
-        if(!functionName){
+        if (!functionName) {
             functionName = defaultData.functionName
             console.log(`  🥺 Using default serviceName: ${functionName}, If you want to change the default functionName for fc-api, you can [s cli fc-api set functionName Your-Function-Name] to set default value.`)
         }
@@ -1110,11 +1111,11 @@ export default class FunctionCompute extends BaseComponent {
         }
         let {serviceName, functionName, qualifier, region,} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
-        if(!serviceName){
+        if (!serviceName) {
             serviceName = defaultData.serviceName
             console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
         }
-        if(!functionName){
+        if (!functionName) {
             functionName = defaultData.functionName
             console.log(`  🥺 Using default serviceName: ${functionName}, If you want to change the default functionName for fc-api, you can [s cli fc-api set functionName Your-Function-Name] to set default value.`)
         }
@@ -1191,11 +1192,11 @@ export default class FunctionCompute extends BaseComponent {
         }
         let {serviceName, functionName, triggerName, region,} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
-        if(!serviceName){
+        if (!serviceName) {
             serviceName = defaultData.serviceName
             console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
         }
-        if(!functionName){
+        if (!functionName) {
             functionName = defaultData.functionName
             console.log(`  🥺 Using default serviceName: ${functionName}, If you want to change the default functionName for fc-api, you can [s cli fc-api set functionName Your-Function-Name] to set default value.`)
         }
@@ -1267,7 +1268,7 @@ export default class FunctionCompute extends BaseComponent {
         }
         let {serviceName, aliasName, region,} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
-        if(!serviceName){
+        if (!serviceName) {
             serviceName = defaultData.serviceName
             console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
         }
@@ -1406,11 +1407,11 @@ export default class FunctionCompute extends BaseComponent {
         }
         let {serviceName, functionName, qualifier, region,} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
-        if(!serviceName){
+        if (!serviceName) {
             serviceName = defaultData.serviceName
             console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
         }
-        if(!functionName){
+        if (!functionName) {
             functionName = defaultData.functionName
             console.log(`  🥺 Using default serviceName: ${functionName}, If you want to change the default functionName for fc-api, you can [s cli fc-api set functionName Your-Function-Name] to set default value.`)
         }
@@ -1488,11 +1489,11 @@ export default class FunctionCompute extends BaseComponent {
         }
         let {serviceName, functionName, qualifier, region,} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
-        if(!serviceName){
+        if (!serviceName) {
             serviceName = defaultData.serviceName
             console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
         }
-        if(!functionName){
+        if (!functionName) {
             functionName = defaultData.functionName
             console.log(`  🥺 Using default serviceName: ${functionName}, If you want to change the default functionName for fc-api, you can [s cli fc-api set functionName Your-Function-Name] to set default value.`)
         }
@@ -1569,11 +1570,11 @@ export default class FunctionCompute extends BaseComponent {
         }
         let {serviceName, functionName, event, region,} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
-        if(!serviceName){
+        if (!serviceName) {
             serviceName = defaultData.serviceName
             console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
         }
-        if(!functionName){
+        if (!functionName) {
             functionName = defaultData.functionName
             console.log(`  🥺 Using default serviceName: ${functionName}, If you want to change the default functionName for fc-api, you can [s cli fc-api set functionName Your-Function-Name] to set default value.`)
         }
@@ -1640,7 +1641,7 @@ export default class FunctionCompute extends BaseComponent {
         }
         let {serviceName, region,} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
-        if(!serviceName){
+        if (!serviceName) {
             serviceName = defaultData.serviceName
             console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
         }
@@ -1712,11 +1713,11 @@ export default class FunctionCompute extends BaseComponent {
         }
         let {serviceName, functionName, region,} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
-        if(!serviceName){
+        if (!serviceName) {
             serviceName = defaultData.serviceName
             console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
         }
-        if(!functionName){
+        if (!functionName) {
             functionName = defaultData.functionName
             console.log(`  🥺 Using default serviceName: ${functionName}, If you want to change the default functionName for fc-api, you can [s cli fc-api set functionName Your-Function-Name] to set default value.`)
         }
@@ -1793,11 +1794,11 @@ export default class FunctionCompute extends BaseComponent {
         }
         let {serviceName, functionName, triggerName, region,} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
-        if(!serviceName){
+        if (!serviceName) {
             serviceName = defaultData.serviceName
             console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
         }
-        if(!functionName){
+        if (!functionName) {
             functionName = defaultData.functionName
             console.log(`  🥺 Using default serviceName: ${functionName}, If you want to change the default functionName for fc-api, you can [s cli fc-api set functionName Your-Function-Name] to set default value.`)
         }
@@ -1931,7 +1932,7 @@ export default class FunctionCompute extends BaseComponent {
         }
         let {serviceName, versionId, region,} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
-        if(!serviceName){
+        if (!serviceName) {
             serviceName = defaultData.serviceName
             console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
         }
@@ -2003,7 +2004,7 @@ export default class FunctionCompute extends BaseComponent {
         }
         let {serviceName, aliasName, region,} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
-        if(!serviceName){
+        if (!serviceName) {
             serviceName = defaultData.serviceName
             console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
         }
@@ -2080,11 +2081,11 @@ export default class FunctionCompute extends BaseComponent {
         }
         let {serviceName, functionName, qualifier, region,} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
-        if(!serviceName){
+        if (!serviceName) {
             serviceName = defaultData.serviceName
             console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
         }
-        if(!functionName){
+        if (!functionName) {
             functionName = defaultData.functionName
             console.log(`  🥺 Using default serviceName: ${functionName}, If you want to change the default functionName for fc-api, you can [s cli fc-api set functionName Your-Function-Name] to set default value.`)
         }
@@ -2189,7 +2190,7 @@ export default class FunctionCompute extends BaseComponent {
         }
         let {serviceName, description, internetAccess, role, logConfig, nasConfig, vpcConfig, tracingConfig, region,} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
-        if(!serviceName){
+        if (!serviceName) {
             serviceName = defaultData.serviceName
             console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
         }
@@ -2199,7 +2200,7 @@ export default class FunctionCompute extends BaseComponent {
         try {
             await this.getClient(region, access)
             result = await this.client.createService(sName, {
-                description: String(description),
+                description: description == undefined ? undefined : String(description),
                 internetAccess: internetAccess === "false" ? false : true,
                 role,
                 logConfig: logConfig ? (typeof logConfig == 'string' ? JSON.parse(logConfig) : logConfig) : undefined,
@@ -2300,7 +2301,7 @@ export default class FunctionCompute extends BaseComponent {
         }
         let {serviceName, description, internetAccess, role, logConfig, nasConfig, vpcConfig, tracingConfig, region,} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
-        if(!serviceName){
+        if (!serviceName) {
             serviceName = defaultData.serviceName
             console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
         }
@@ -2309,7 +2310,7 @@ export default class FunctionCompute extends BaseComponent {
         try {
             await this.getClient(region, access)
             result = await this.client.updateService(serviceName, {
-                description: String(description),
+                description: description == undefined ? undefined : String(description),
                 role,
                 internetAccess: internetAccess === "false" ? false : true,
                 logConfig: logConfig ? (typeof logConfig == 'string' ? JSON.parse(logConfig) : logConfig) : undefined,
@@ -2431,11 +2432,11 @@ export default class FunctionCompute extends BaseComponent {
         }
         let {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort, region,} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
-        if(!serviceName){
+        if (!serviceName) {
             serviceName = defaultData.serviceName
             console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
         }
-        if(!functionName){
+        if (!functionName) {
             functionName = defaultData.functionName
             console.log(`  🥺 Using default serviceName: ${functionName}, If you want to change the default functionName for fc-api, you can [s cli fc-api set functionName Your-Function-Name] to set default value.`)
         }
@@ -2443,10 +2444,10 @@ export default class FunctionCompute extends BaseComponent {
         let functionCode: any = {}
         if (this.checkField({serviceName, functionName, code, handler, runtime})) return
         let tempCode = undefined
-        if(typeof code == 'string'){
-            try{
+        if (typeof code == 'string') {
+            try {
                 tempCode = JSON.parse(code)
-            }catch (e){
+            } catch (e) {
                 tempCode = code
             }
         }
@@ -2474,7 +2475,7 @@ export default class FunctionCompute extends BaseComponent {
                 functionName,
                 code: Object.keys(functionCode).length > 0 ? functionCode : undefined,
                 customContainerConfig: customContainerConfig ? (typeof customContainerConfig == 'string' ? JSON.parse(customContainerConfig) : customContainerConfig) : undefined,
-                description: String(description),
+                description: description == undefined ? undefined : String(description),
                 handler,
                 initializationTimeout,
                 initializer,
@@ -2597,19 +2598,19 @@ export default class FunctionCompute extends BaseComponent {
         }
         let {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort, region,} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
-        if(!serviceName){
+        if (!serviceName) {
             serviceName = defaultData.serviceName
             console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
         }
-        if(!functionName){
+        if (!functionName) {
             functionName = defaultData.functionName
             console.log(`  🥺 Using default serviceName: ${functionName}, If you want to change the default functionName for fc-api, you can [s cli fc-api set functionName Your-Function-Name] to set default value.`)
         }
         let tempCode = undefined
-        if(typeof code == 'string'){
-            try{
+        if (typeof code == 'string') {
+            try {
                 tempCode = JSON.parse(code)
-            }catch (e){
+            } catch (e) {
                 tempCode = code
             }
         }
@@ -2641,7 +2642,7 @@ export default class FunctionCompute extends BaseComponent {
             result = await this.client.updateFunction(serviceName, functionName, {
                 code: Object.keys(functionCode).length > 0 ? functionCode : undefined,
                 customContainerConfig: customContainerConfig ? (typeof customContainerConfig == 'string' ? JSON.parse(customContainerConfig) : customContainerConfig) : undefined,
-                description: String(description),
+                description: description == undefined ? undefined : String(description),
                 handler,
                 initializationTimeout,
                 initializer,
@@ -2743,11 +2744,11 @@ export default class FunctionCompute extends BaseComponent {
         }
         let {serviceName, functionName, invocationRole, qualifier, sourceArn, triggerConfig, triggerName, triggerType, region,} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
-        if(!serviceName){
+        if (!serviceName) {
             serviceName = defaultData.serviceName
             console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
         }
-        if(!functionName){
+        if (!functionName) {
             functionName = defaultData.functionName
             console.log(`  🥺 Using default serviceName: ${functionName}, If you want to change the default functionName for fc-api, you can [s cli fc-api set functionName Your-Function-Name] to set default value.`)
         }
@@ -2759,7 +2760,7 @@ export default class FunctionCompute extends BaseComponent {
                 invocationRole,
                 qualifier: qualifier ? qualifier.toString() : undefined,
                 sourceArn,
-                triggerConfig: triggerConfig ? (typeof triggerConfig == 'string' ? JSON.parse(triggerConfig) : triggerConfig ) : undefined,
+                triggerConfig: triggerConfig ? (typeof triggerConfig == 'string' ? JSON.parse(triggerConfig) : triggerConfig) : undefined,
                 triggerName,
                 triggerType,
             })
@@ -2856,11 +2857,11 @@ export default class FunctionCompute extends BaseComponent {
         }
         let {serviceName, functionName, invocationRole, qualifier, triggerConfig, triggerName, region,} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
-        if(!serviceName){
+        if (!serviceName) {
             serviceName = defaultData.serviceName
             console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
         }
-        if(!functionName){
+        if (!functionName) {
             functionName = defaultData.functionName
             console.log(`  🥺 Using default serviceName: ${functionName}, If you want to change the default functionName for fc-api, you can [s cli fc-api set functionName Your-Function-Name] to set default value.`)
         }
@@ -2871,7 +2872,7 @@ export default class FunctionCompute extends BaseComponent {
             result = await this.client.updateTrigger(serviceName, functionName, triggerName, {
                 invocationRole,
                 qualifier,
-                triggerConfig: triggerConfig ? (typeof triggerConfig == 'string' ? JSON.parse(triggerConfig) : triggerConfig ) : undefined,
+                triggerConfig: triggerConfig ? (typeof triggerConfig == 'string' ? JSON.parse(triggerConfig) : triggerConfig) : undefined,
             })
             return yaml.dump(result.data)
         } catch (error) {
@@ -2936,7 +2937,7 @@ export default class FunctionCompute extends BaseComponent {
         }
         let {serviceName, description, region,} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
-        if(!serviceName){
+        if (!serviceName) {
             serviceName = defaultData.serviceName
             console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
         }
@@ -2944,7 +2945,7 @@ export default class FunctionCompute extends BaseComponent {
         if (this.checkField({serviceName})) return
         try {
             await this.getClient(region, access)
-            result = await this.client.publishVersion(serviceName, String(description))
+            result = await this.client.publishVersion(serviceName, description == undefined ? undefined : String(description))
             return yaml.dump(result.data)
         } catch (error) {
             this.errorReport(error)
@@ -3023,7 +3024,7 @@ export default class FunctionCompute extends BaseComponent {
 
         let {serviceName, aliasName, versionId, additionalVersionWeight, description, region,} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
-        if(!serviceName){
+        if (!serviceName) {
             serviceName = defaultData.serviceName
             console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
         }
@@ -3033,7 +3034,7 @@ export default class FunctionCompute extends BaseComponent {
             await this.getClient(region, access)
             result = await this.client.createAlias(serviceName, aliasName, String(versionId), {
                 additionalVersionWeight: typeof additionalVersionWeight == 'object' ? additionalVersionWeight : JSON.parse(additionalVersionWeight || '{}'),
-                description: String(description),
+                description: description == undefined ? undefined : String(description),
             })
 
             return yaml.dump(result.data)
@@ -3109,7 +3110,7 @@ export default class FunctionCompute extends BaseComponent {
 
         let {serviceName, aliasName, additionalVersionWeight, description, region,} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
-        if(!serviceName){
+        if (!serviceName) {
             serviceName = defaultData.serviceName
             console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
         }
@@ -3117,7 +3118,7 @@ export default class FunctionCompute extends BaseComponent {
         const versions = yaml.load(await this.listVersions(inputs))
         const versionId = versions.length > 0 ? versions[0].versionId : undefined
         if (this.checkField({serviceName, aliasName})) return
-        if(!versionId){
+        if (!versionId) {
             this.logger.error(`Could not find versionId, please check your version on release.`)
             process.exit(-1)
         }
@@ -3125,7 +3126,7 @@ export default class FunctionCompute extends BaseComponent {
             await this.getClient(region, access)
             result = await this.client.createAlias(serviceName, aliasName, String(versionId), {
                 additionalVersionWeight: typeof additionalVersionWeight == 'object' ? additionalVersionWeight : JSON.parse(additionalVersionWeight || '{}'),
-                description: String(description),
+                description: description == undefined ? undefined : String(description),
             })
 
             return yaml.dump(result.data)
@@ -3206,7 +3207,7 @@ export default class FunctionCompute extends BaseComponent {
         }
         let {serviceName, aliasName, versionId, additionalVersionWeight, description, region,} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
-        if(!serviceName){
+        if (!serviceName) {
             serviceName = defaultData.serviceName
             console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
         }
@@ -3216,7 +3217,7 @@ export default class FunctionCompute extends BaseComponent {
             await this.getClient(region, access)
             result = await this.client.updateAlias(serviceName, aliasName, String(versionId), {
                 additionalVersionWeight: typeof additionalVersionWeight == 'object' ? additionalVersionWeight : JSON.parse(additionalVersionWeight || '{}'),
-                description: String(description),
+                description: description == undefined ? undefined : String(description),
             })
             return yaml.dump(result.data)
         } catch (error) {
@@ -3293,13 +3294,13 @@ export default class FunctionCompute extends BaseComponent {
         const versions = yaml.load(await this.listVersions(inputs))
         const versionId = versions.length > 0 ? versions[0].versionId : undefined
         const defaultData = await this.get({})
-        if(!serviceName){
+        if (!serviceName) {
             serviceName = defaultData.serviceName
             console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
         }
         let access = inputs.credentials.Alias
         if (this.checkField({serviceName, aliasName})) return
-        if(!versionId){
+        if (!versionId) {
             this.logger.error(`Could not find versionId, please check your version on release.`)
             process.exit(-1)
         }
@@ -3307,7 +3308,7 @@ export default class FunctionCompute extends BaseComponent {
             await this.getClient(region, access)
             result = await this.client.updateAlias(serviceName, aliasName, String(versionId), {
                 additionalVersionWeight: typeof additionalVersionWeight == 'object' ? additionalVersionWeight : JSON.parse(additionalVersionWeight || '{}'),
-                description: String(description),
+                description: description == undefined ? undefined : String(description),
             })
             return yaml.dump(result.data)
         } catch (error) {
@@ -3469,7 +3470,7 @@ export default class FunctionCompute extends BaseComponent {
             result = await this.client.updateCustomDomain(domainName, {
                 protocol,
                 certConfig: certConfig ? (typeof certConfig == 'string' ? JSON.parse(certConfig) : certConfig) : undefined,
-                routeConfig: routeConfig ? (typeof routeConfig == 'string' ? JSON.parse(routeConfig) : routeConfig ) : undefined,
+                routeConfig: routeConfig ? (typeof routeConfig == 'string' ? JSON.parse(routeConfig) : routeConfig) : undefined,
             })
             return yaml.dump(result.data)
         } catch (error) {
@@ -3550,14 +3551,14 @@ export default class FunctionCompute extends BaseComponent {
         const targetRouteConfigPath = []
         const targetRouteConfigList = []
         const inputRouteConfig = JSON.parse(appendRouteConfig)
-        for(let i =0;i<inputRouteConfig.length;i++){
-            if(!targetRouteConfigPath.includes(inputRouteConfig[i].path)){
+        for (let i = 0; i < inputRouteConfig.length; i++) {
+            if (!targetRouteConfigPath.includes(inputRouteConfig[i].path)) {
                 targetRouteConfigList.push(inputRouteConfig[i])
                 targetRouteConfigPath.push(inputRouteConfig[i].path)
             }
         }
-        for(let i =0;i<alreadyRouteConfig.length;i++){
-            if(!targetRouteConfigPath.includes(alreadyRouteConfig[i].path)){
+        for (let i = 0; i < alreadyRouteConfig.length; i++) {
+            if (!targetRouteConfigPath.includes(alreadyRouteConfig[i].path)) {
                 targetRouteConfigList.push(alreadyRouteConfig[i])
                 targetRouteConfigPath.push(alreadyRouteConfig[i].path)
             }
@@ -3654,11 +3655,11 @@ export default class FunctionCompute extends BaseComponent {
         }
         let {serviceName, functionName, qualifier, target, scheduledActions, targetTrackingPolicies, region,} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
-        if(!serviceName){
+        if (!serviceName) {
             serviceName = defaultData.serviceName
             console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
         }
-        if(!functionName){
+        if (!functionName) {
             functionName = defaultData.functionName
             console.log(`  🥺 Using default serviceName: ${functionName}, If you want to change the default functionName for fc-api, you can [s cli fc-api set functionName Your-Function-Name] to set default value.`)
         }
@@ -3754,11 +3755,11 @@ export default class FunctionCompute extends BaseComponent {
         }
         let {serviceName, functionName, qualifier, destinationConfig, maxAsyncEventAgeInSeconds, maxAsyncRetryAttempts, region,} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
-        if(!serviceName){
+        if (!serviceName) {
             serviceName = defaultData.serviceName
             console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
         }
-        if(!functionName){
+        if (!functionName) {
             functionName = defaultData.functionName
             console.log(`  🥺 Using default serviceName: ${functionName}, If you want to change the default functionName for fc-api, you can [s cli fc-api set functionName Your-Function-Name] to set default value.`)
         }
@@ -3886,21 +3887,21 @@ export default class FunctionCompute extends BaseComponent {
         }
         let {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort, region,} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
-        if(!serviceName){
+        if (!serviceName) {
             serviceName = defaultData.serviceName
             console.log(`  🥺 Using default serviceName: ${serviceName}, If you want to change the default serviceName for fc-api, you can [s cli fc-api set serviceName Your-Service-Name] to set default value.`)
         }
-        if(!functionName){
+        if (!functionName) {
             functionName = defaultData.functionName
             console.log(`  🥺 Using default serviceName: ${functionName}, If you want to change the default functionName for fc-api, you can [s cli fc-api set functionName Your-Function-Name] to set default value.`)
         }
         let access = inputs.credentials.Alias
         if (this.checkField({functionName, code, handler, runtime})) return
         let tempCode = undefined
-        if(typeof code == 'string'){
-            try{
+        if (typeof code == 'string') {
+            try {
                 tempCode = JSON.parse(code)
-            }catch (e){
+            } catch (e) {
                 tempCode = code
             }
         }
@@ -3935,7 +3936,7 @@ export default class FunctionCompute extends BaseComponent {
                 functionName,
                 code: Object.keys(functionCode).length > 0 ? functionCode : undefined,
                 customContainerConfig: customContainerConfig ? (typeof customContainerConfig == 'string' ? JSON.parse(customContainerConfig) : customContainerConfig) : undefined,
-                description: String(description),
+                description: description == undefined ? undefined : String(description),
                 handler,
                 initializationTimeout,
                 initializer,
