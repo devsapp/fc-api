@@ -391,7 +391,6 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        console.log(inputs)
         let {limit, nextToken, prefix, startKey, serviceName, qualifier, region} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
         if (!serviceName) {
