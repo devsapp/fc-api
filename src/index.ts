@@ -2425,11 +2425,16 @@ export default class FunctionCompute extends BaseComponent {
                             description: 'The port on which the HTTP server listens for the custom runtime or custom container runtime.',
                             type: Number,
                         },
+                        {
+                            name: 'withoutShow',
+                            description: 'It will only tell you whether it is successful, and will not display the function details.',
+                            type: Boolean,
+                        },
                     ],
                 },]);
             return;
         }
-        let {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort, region,} = Object.assign(inputs.props, comParse.data || {})
+        let {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort, region,withoutShow} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
         if (!serviceName) {
             serviceName = defaultData.serviceName
@@ -2483,7 +2488,7 @@ export default class FunctionCompute extends BaseComponent {
                 timeout,
                 caPort,
             })
-            return yaml.dump(result.data)
+            return withoutShow==true ? 'Created successfully.' : yaml.dump(result.data)
         } catch (error) {
             this.errorReport(error)
             throw error
@@ -2591,11 +2596,16 @@ export default class FunctionCompute extends BaseComponent {
                             description: 'The port on which the HTTP server listens for the custom runtime or custom container runtime.',
                             type: Number,
                         },
+                        {
+                            name: 'withoutShow',
+                            description: 'It will only tell you whether it is successful, and will not display the function details.',
+                            type: Boolean,
+                        },
                     ],
                 },]);
             return;
         }
-        let {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort, region,} = Object.assign(inputs.props, comParse.data || {})
+        let {serviceName, functionName, code, withoutShow, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort, region,} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
         if (!serviceName) {
             serviceName = defaultData.serviceName
@@ -2650,7 +2660,7 @@ export default class FunctionCompute extends BaseComponent {
                 timeout,
                 caPort,
             })
-            return yaml.dump(result.data)
+            return withoutShow==true ? 'Created successfully.' : yaml.dump(result.data)
         } catch (error) {
             this.errorReport(error)
             throw error
@@ -3880,11 +3890,16 @@ export default class FunctionCompute extends BaseComponent {
                             description: 'The port on which the HTTP server listens for the custom runtime or custom container runtime.',
                             type: Number,
                         },
+                        {
+                            name: 'withoutShow',
+                            description: 'It will only tell you whether it is successful, and will not display the function details.',
+                            type: Boolean,
+                        },
                     ],
                 },]);
             return;
         }
-        let {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort, region,} = Object.assign(inputs.props, comParse.data || {})
+        let {serviceName, functionName, withoutShow, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort, region,} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
         if (!serviceName) {
             serviceName = defaultData.serviceName
@@ -3944,7 +3959,7 @@ export default class FunctionCompute extends BaseComponent {
                 timeout,
                 caPort,
             })
-            return yaml.dump(result.data)
+            return withoutShow==true ? 'Created successfully.' : yaml.dump(result.data)
         } catch (error) {
             this.errorReport(error)
             throw error
