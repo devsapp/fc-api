@@ -86,6 +86,7 @@ export interface ApiCreateFunctionAndUpdateFunction {
   initializationTimeout?: string;
   initializer?: string;
   memorySize?: number;
+  gpuMemorySize?: number;
   runtime?: string;
   timeout?: number;
   caPort?: number;
