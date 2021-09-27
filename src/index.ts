@@ -2411,6 +2411,11 @@ export default class FunctionCompute extends BaseComponent {
                             type: Number,
                         },
                         {
+                            name: 'gpuMemorySize',
+                            description: 'The GPU memory size of the function. Unit: MB. only 8192 or 16384 allowed now.',
+                            type: Number,
+                        },
+                        {
                             name: 'runtime',
                             description: 'The runtime environment of the function. Valid values: nodejs4.4, nodejs6, nodejs8, nodejs10, nodejs12, python2.7, python3, java8, java11, php7.2, dotnetcore2.1, custom, and custom-container.',
                             type: String,
@@ -2434,7 +2439,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        let {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort, region,withoutShow} = Object.assign(inputs.props, comParse.data || {})
+        let {serviceName, functionName, code, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, gpuMemorySize, runtime, timeout, caPort, region,withoutShow} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
         if (!serviceName) {
             serviceName = defaultData.serviceName
@@ -2484,6 +2489,7 @@ export default class FunctionCompute extends BaseComponent {
                 initializationTimeout,
                 initializer,
                 memorySize,
+                gpuMemorySize,
                 runtime,
                 timeout,
                 caPort,
@@ -2579,6 +2585,11 @@ export default class FunctionCompute extends BaseComponent {
                         {
                             name: 'memorySize',
                             description: 'The memory size of the function. Unit: MB. The memory size must be a multiple of 64 MB. Instance types have different memory specifications.',
+                            type: Number,
+                        },
+                        {
+                            name: 'gpuMemorySize',
+                            description: 'The GPU memory size of the function. Unit: MB. only 8192 or 16384 allowed now',
                             type: Number,
                         },
                         {
