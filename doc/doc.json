@@ -66,7 +66,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 36,
+							"line": 45,
 							"character": 20
 						}
 					],
@@ -89,21 +89,14 @@
 					}
 				},
 				{
-					"id": 156,
+					"id": 162,
 					"name": "logger",
 					"kind": 1024,
 					"kindString": "Property",
 					"flags": {},
 					"decorators": [
 						{
-							"name": "HLogger",
-							"type": {
-								"type": "reference",
-								"name": "HLogger"
-							},
-							"arguments": {
-								"context": "'FC'"
-							}
+							"name": "HLogger"
 						}
 					],
 					"sources": [
@@ -114,8 +107,8 @@
 						}
 					],
 					"type": {
-						"type": "reference",
-						"name": "ILogger"
+						"type": "intrinsic",
+						"name": "any"
 					},
 					"inheritedFrom": {
 						"type": "reference",
@@ -123,7 +116,7 @@
 					}
 				},
 				{
-					"id": 157,
+					"id": 163,
 					"name": "name",
 					"kind": 1024,
 					"kindString": "Property",
@@ -147,7 +140,7 @@
 					}
 				},
 				{
-					"id": 158,
+					"id": 164,
 					"name": "__doc",
 					"kind": 2048,
 					"kindString": "Method",
@@ -163,7 +156,7 @@
 					],
 					"signatures": [
 						{
-							"id": 159,
+							"id": 165,
 							"name": "__doc",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -184,7 +177,7 @@
 					}
 				},
 				{
-					"id": 160,
+					"id": 166,
 					"name": "__listApi",
 					"kind": 2048,
 					"kindString": "Method",
@@ -200,7 +193,7 @@
 					],
 					"signatures": [
 						{
-							"id": 161,
+							"id": 167,
 							"name": "__listApi",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -221,7 +214,74 @@
 					}
 				},
 				{
-					"id": 165,
+					"id": 150,
+					"name": "appendRoutes",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 3476,
+							"character": 29
+						}
+					],
+					"signatures": [
+						{
+							"id": 151,
+							"name": "appendRoutes",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "追加路径配置",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--domainName --routeConfig",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 152,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "'{\"domainName\": \"\",\"appendRouteConfig\": \"[]\"}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ComponentInputs"
+									},
+									"defaultValue": "..."
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 171,
 					"name": "checkField",
 					"kind": 2048,
 					"kindString": "Method",
@@ -237,14 +297,14 @@
 					],
 					"signatures": [
 						{
-							"id": 166,
+							"id": 172,
 							"name": "checkField",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 167,
+									"id": 173,
 									"name": "filed",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -252,7 +312,7 @@
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 168,
+											"id": 174,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
@@ -277,7 +337,7 @@
 					}
 				},
 				{
-					"id": 135,
+					"id": 132,
 					"name": "createAlias",
 					"kind": 2048,
 					"kindString": "Method",
@@ -287,13 +347,13 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 2733,
+							"line": 2949,
 							"character": 28
 						}
 					],
 					"signatures": [
 						{
-							"id": 136,
+							"id": 133,
 							"name": "createAlias",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -315,7 +375,7 @@
 							},
 							"parameters": [
 								{
-									"id": 137,
+									"id": 134,
 									"name": "inputs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -344,7 +404,74 @@
 					]
 				},
 				{
-					"id": 141,
+					"id": 135,
+					"name": "createAliasWithNewVersion",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 3040,
+							"character": 42
+						}
+					],
+					"signatures": [
+						{
+							"id": 136,
+							"name": "createAliasWithNewVersion",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "创建别名通过最新版本",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--serviceName --aliasName",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "--additionalVersionWeight --description\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 137,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "'{\"serviceName\": \"\",\"aliasName\": \"\",\"additionalVersionWeight\": {}}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ComponentInputs"
+									},
+									"defaultValue": "..."
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 144,
 					"name": "createCustomDomain",
 					"kind": 2048,
 					"kindString": "Method",
@@ -354,13 +481,13 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 2903,
+							"line": 3313,
 							"character": 35
 						}
 					],
 					"signatures": [
 						{
-							"id": 142,
+							"id": 145,
 							"name": "createCustomDomain",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -382,13 +509,13 @@
 							},
 							"parameters": [
 								{
-									"id": 143,
+									"id": 146,
 									"name": "inputs",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"\",\"aliasName\": \"\",\"versionId\": \"1\",\"additionalVersionWeight\": {}}'"
+										"text": "'{\"domainName\": \"\"}'"
 									},
 									"type": {
 										"type": "reference",
@@ -411,7 +538,7 @@
 					]
 				},
 				{
-					"id": 120,
+					"id": 117,
 					"name": "createFunction",
 					"kind": 2048,
 					"kindString": "Method",
@@ -421,13 +548,13 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 2148,
+							"line": 2301,
 							"character": 31
 						}
 					],
 					"signatures": [
 						{
-							"id": 121,
+							"id": 118,
 							"name": "createFunction",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -449,7 +576,7 @@
 							},
 							"parameters": [
 								{
-									"id": 122,
+									"id": 119,
 									"name": "inputs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -478,7 +605,7 @@
 					]
 				},
 				{
-					"id": 153,
+					"id": 159,
 					"name": "createFunctionDefaultService",
 					"kind": 2048,
 					"kindString": "Method",
@@ -488,13 +615,13 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 3249,
+							"line": 3777,
 							"character": 45
 						}
 					],
 					"signatures": [
 						{
-							"id": 154,
+							"id": 160,
 							"name": "createFunctionDefaultService",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -516,7 +643,7 @@
 							},
 							"parameters": [
 								{
-									"id": 155,
+									"id": 161,
 									"name": "inputs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -545,7 +672,7 @@
 					]
 				},
 				{
-					"id": 113,
+					"id": 110,
 					"name": "createService",
 					"kind": 2048,
 					"kindString": "Method",
@@ -555,13 +682,13 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 1933,
+							"line": 2076,
 							"character": 30
 						}
 					],
 					"signatures": [
 						{
-							"id": 114,
+							"id": 111,
 							"name": "createService",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -583,7 +710,7 @@
 							},
 							"parameters": [
 								{
-									"id": 115,
+									"id": 112,
 									"name": "inputs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -598,7 +725,7 @@
 									"defaultValue": "..."
 								},
 								{
-									"id": 116,
+									"id": 113,
 									"name": "defaultServiceName",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -623,7 +750,7 @@
 					]
 				},
 				{
-					"id": 126,
+					"id": 123,
 					"name": "createTrigger",
 					"kind": 2048,
 					"kindString": "Method",
@@ -633,13 +760,13 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 2461,
+							"line": 2654,
 							"character": 30
 						}
 					],
 					"signatures": [
 						{
-							"id": 127,
+							"id": 124,
 							"name": "createTrigger",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -661,13 +788,13 @@
 							},
 							"parameters": [
 								{
-									"id": 128,
+									"id": 125,
 									"name": "inputs",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"\",\"functionName\": \"\",\"triggerName\": \"\",\"triggerType\":\"timer\",\"triggerConfig\": {}'"
+										"text": "'{\"serviceName\": \"\",\"functionName\": \"\",\"triggerName\": \"\",\"triggerType\":\"timer\",\"triggerConfig\": \"{}\"'"
 									},
 									"type": {
 										"type": "reference",
@@ -690,7 +817,7 @@
 					]
 				},
 				{
-					"id": 107,
+					"id": 104,
 					"name": "deleteAlias",
 					"kind": 2048,
 					"kindString": "Method",
@@ -700,13 +827,13 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 1794,
+							"line": 1923,
 							"character": 28
 						}
 					],
 					"signatures": [
 						{
-							"id": 108,
+							"id": 105,
 							"name": "deleteAlias",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -728,7 +855,7 @@
 							},
 							"parameters": [
 								{
-									"id": 109,
+									"id": 106,
 									"name": "inputs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -757,7 +884,7 @@
 					]
 				},
 				{
-					"id": 101,
+					"id": 98,
 					"name": "deleteCustomDomain",
 					"kind": 2048,
 					"kindString": "Method",
@@ -767,13 +894,13 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 1665,
+							"line": 1789,
 							"character": 35
 						}
 					],
 					"signatures": [
 						{
-							"id": 102,
+							"id": 99,
 							"name": "deleteCustomDomain",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -795,7 +922,7 @@
 							},
 							"parameters": [
 								{
-									"id": 103,
+									"id": 100,
 									"name": "inputs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -824,7 +951,7 @@
 					]
 				},
 				{
-					"id": 95,
+					"id": 92,
 					"name": "deleteFunction",
 					"kind": 2048,
 					"kindString": "Method",
@@ -834,13 +961,13 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 1526,
+							"line": 1632,
 							"character": 31
 						}
 					],
 					"signatures": [
 						{
-							"id": 96,
+							"id": 93,
 							"name": "deleteFunction",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -862,7 +989,7 @@
 							},
 							"parameters": [
 								{
-									"id": 97,
+									"id": 94,
 									"name": "inputs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -891,7 +1018,7 @@
 					]
 				},
 				{
-					"id": 110,
+					"id": 107,
 					"name": "deleteFunctionAsyncConfig",
 					"kind": 2048,
 					"kindString": "Method",
@@ -901,13 +1028,13 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 1861,
+							"line": 1995,
 							"character": 42
 						}
 					],
 					"signatures": [
 						{
-							"id": 111,
+							"id": 108,
 							"name": "deleteFunctionAsyncConfig",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -929,7 +1056,7 @@
 							},
 							"parameters": [
 								{
-									"id": 112,
+									"id": 109,
 									"name": "inputs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -958,7 +1085,7 @@
 					]
 				},
 				{
-					"id": 92,
+					"id": 89,
 					"name": "deleteService",
 					"kind": 2048,
 					"kindString": "Method",
@@ -968,13 +1095,13 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 1464,
+							"line": 1565,
 							"character": 30
 						}
 					],
 					"signatures": [
 						{
-							"id": 93,
+							"id": 90,
 							"name": "deleteService",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -996,7 +1123,7 @@
 							},
 							"parameters": [
 								{
-									"id": 94,
+									"id": 91,
 									"name": "inputs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1025,7 +1152,7 @@
 					]
 				},
 				{
-					"id": 169,
+					"id": 175,
 					"name": "deleteSuccessInfo",
 					"kind": 2048,
 					"kindString": "Method",
@@ -1041,14 +1168,14 @@
 					],
 					"signatures": [
 						{
-							"id": 170,
+							"id": 176,
 							"name": "deleteSuccessInfo",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 171,
+									"id": 177,
 									"name": "type",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1059,7 +1186,7 @@
 									}
 								},
 								{
-									"id": 172,
+									"id": 178,
 									"name": "name",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1086,7 +1213,7 @@
 					}
 				},
 				{
-					"id": 98,
+					"id": 95,
 					"name": "deleteTrigger",
 					"kind": 2048,
 					"kindString": "Method",
@@ -1096,13 +1223,13 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 1593,
+							"line": 1708,
 							"character": 30
 						}
 					],
 					"signatures": [
 						{
-							"id": 99,
+							"id": 96,
 							"name": "deleteTrigger",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1124,7 +1251,7 @@
 							},
 							"parameters": [
 								{
-									"id": 100,
+									"id": 97,
 									"name": "inputs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1153,7 +1280,7 @@
 					]
 				},
 				{
-					"id": 104,
+					"id": 101,
 					"name": "deleteVersion",
 					"kind": 2048,
 					"kindString": "Method",
@@ -1163,13 +1290,13 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 1727,
+							"line": 1851,
 							"character": 30
 						}
 					],
 					"signatures": [
 						{
-							"id": 105,
+							"id": 102,
 							"name": "deleteVersion",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1191,7 +1318,7 @@
 							},
 							"parameters": [
 								{
-									"id": 106,
+									"id": 103,
 									"name": "inputs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1220,7 +1347,7 @@
 					]
 				},
 				{
-					"id": 162,
+					"id": 168,
 					"name": "errorReport",
 					"kind": 2048,
 					"kindString": "Method",
@@ -1236,7 +1363,7 @@
 					],
 					"signatures": [
 						{
-							"id": 163,
+							"id": 169,
 							"name": "errorReport",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1246,7 +1373,7 @@
 							},
 							"parameters": [
 								{
-									"id": 164,
+									"id": 170,
 									"name": "error",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1292,7 +1419,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 154,
+							"line": 192,
 							"character": 27
 						}
 					],
@@ -1303,15 +1430,6 @@
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
-							"comment": {
-								"shortText": "请求list相关api",
-								"tags": [
-									{
-										"tag": "@return",
-										"text": "{Promise} 返回查询指定api的列表信息\n"
-									}
-								]
-							},
 							"parameters": [
 								{
 									"id": 29,
@@ -1341,9 +1459,6 @@
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
-									"comment": {
-										"text": "判断调用的api"
-									},
 									"type": {
 										"type": "intrinsic",
 										"name": "string"
@@ -1355,9 +1470,6 @@
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
-									"comment": {
-										"text": "返回列表数据的固定字段"
-									},
 									"type": {
 										"type": "intrinsic",
 										"name": "string"
@@ -1369,7 +1481,6 @@
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
-									"comment": {},
 									"type": {
 										"type": "intrinsic",
 										"name": "string"
@@ -1381,7 +1492,6 @@
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
-									"comment": {},
 									"type": {
 										"type": "intrinsic",
 										"name": "number"
@@ -1421,7 +1531,6 @@
 									"flags": {
 										"isOptional": true
 									},
-									"comment": {},
 									"type": {
 										"type": "intrinsic",
 										"name": "number"
@@ -1450,7 +1559,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 113,
+							"line": 157,
 							"character": 13
 						}
 					],
@@ -1499,7 +1608,7 @@
 					]
 				},
 				{
-					"id": 77,
+					"id": 74,
 					"name": "getAlias",
 					"kind": 2048,
 					"kindString": "Method",
@@ -1509,19 +1618,19 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 1118,
+							"line": 1187,
 							"character": 25
 						}
 					],
 					"signatures": [
 						{
-							"id": 78,
+							"id": 75,
 							"name": "getAlias",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "获取 alias 信息",
+								"shortText": "获取别名信息",
 								"tags": [
 									{
 										"tag": "typeparam",
@@ -1537,7 +1646,7 @@
 							},
 							"parameters": [
 								{
-									"id": 79,
+									"id": 76,
 									"name": "inputs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1571,13 +1680,13 @@
 					"kind": 2048,
 					"kindString": "Method",
 					"flags": {
-						"isPublic": true
+						"isPrivate": true
 					},
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 121,
-							"character": 26
+							"line": 165,
+							"character": 27
 						}
 					],
 					"signatures": [
@@ -1635,7 +1744,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 42,
+							"line": 51,
 							"character": 35
 						}
 					],
@@ -1660,7 +1769,7 @@
 					]
 				},
 				{
-					"id": 80,
+					"id": 77,
 					"name": "getCustomDomain",
 					"kind": 2048,
 					"kindString": "Method",
@@ -1670,13 +1779,13 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 1185,
+							"line": 1259,
 							"character": 32
 						}
 					],
 					"signatures": [
 						{
-							"id": 81,
+							"id": 78,
 							"name": "getCustomDomain",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1698,7 +1807,7 @@
 							},
 							"parameters": [
 								{
-									"id": 82,
+									"id": 79,
 									"name": "inputs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1727,7 +1836,7 @@
 					]
 				},
 				{
-					"id": 68,
+					"id": 65,
 					"name": "getFunction",
 					"kind": 2048,
 					"kindString": "Method",
@@ -1737,13 +1846,13 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 902,
+							"line": 944,
 							"character": 28
 						}
 					],
 					"signatures": [
 						{
-							"id": 69,
+							"id": 66,
 							"name": "getFunction",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1765,141 +1874,7 @@
 							},
 							"parameters": [
 								{
-									"id": 70,
-									"name": "inputs",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"comment": {
-										"text": "'{\"serviceName\": \"\",\"functionName\": \"\"}'"
-									},
-									"type": {
-										"type": "reference",
-										"name": "ComponentInputs"
-									},
-									"defaultValue": "..."
-								}
-							],
-							"type": {
-								"type": "reference",
-								"typeArguments": [
-									{
-										"type": "intrinsic",
-										"name": "any"
-									}
-								],
-								"name": "Promise"
-							}
-						}
-					]
-				},
-				{
-					"id": 86,
-					"name": "getFunctionAsyncConfig",
-					"kind": 2048,
-					"kindString": "Method",
-					"flags": {
-						"isPublic": true
-					},
-					"sources": [
-						{
-							"fileName": "index.ts",
-							"line": 1319,
-							"character": 39
-						}
-					],
-					"signatures": [
-						{
-							"id": 87,
-							"name": "getFunctionAsyncConfig",
-							"kind": 4096,
-							"kindString": "Call signature",
-							"flags": {},
-							"comment": {
-								"shortText": "获取函数异步调用配置信息",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName --functionName",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "--qualifier\n",
-										"param": "Optional"
-									}
-								]
-							},
-							"parameters": [
-								{
-									"id": 88,
-									"name": "inputs",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"comment": {
-										"text": "'{\"serviceName\": \"\",\"functionName\": \"\",\"qualifier\": 1}'"
-									},
-									"type": {
-										"type": "reference",
-										"name": "ComponentInputs"
-									},
-									"defaultValue": "..."
-								}
-							],
-							"type": {
-								"type": "reference",
-								"typeArguments": [
-									{
-										"type": "intrinsic",
-										"name": "any"
-									}
-								],
-								"name": "Promise"
-							}
-						}
-					]
-				},
-				{
-					"id": 71,
-					"name": "getFunctionCode",
-					"kind": 2048,
-					"kindString": "Method",
-					"flags": {
-						"isPublic": true
-					},
-					"sources": [
-						{
-							"fileName": "index.ts",
-							"line": 974,
-							"character": 32
-						}
-					],
-					"signatures": [
-						{
-							"id": 72,
-							"name": "getFunctionCode",
-							"kind": 4096,
-							"kindString": "Call signature",
-							"flags": {},
-							"comment": {
-								"shortText": "获取函数 Code 信息",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName --functionName",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "--qualifier\n",
-										"param": "Optional"
-									}
-								]
-							},
-							"parameters": [
-								{
-									"id": 73,
+									"id": 67,
 									"name": "inputs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1929,7 +1904,7 @@
 				},
 				{
 					"id": 83,
-					"name": "getProvisionConfig",
+					"name": "getFunctionAsyncConfig",
 					"kind": 2048,
 					"kindString": "Method",
 					"flags": {
@@ -1938,19 +1913,19 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 1247,
-							"character": 35
+							"line": 1402,
+							"character": 39
 						}
 					],
 					"signatures": [
 						{
 							"id": 84,
-							"name": "getProvisionConfig",
+							"name": "getFunctionAsyncConfig",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "获取预留配置信息",
+								"shortText": "获取函数异步调用配置信息",
 								"tags": [
 									{
 										"tag": "typeparam",
@@ -1995,7 +1970,141 @@
 					]
 				},
 				{
-					"id": 65,
+					"id": 68,
+					"name": "getFunctionCode",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 1025,
+							"character": 32
+						}
+					],
+					"signatures": [
+						{
+							"id": 69,
+							"name": "getFunctionCode",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "获取函数 Code 信息",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--serviceName --functionName",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "--qualifier\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 70,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "'{\"serviceName\": \"\",\"functionName\": \"\"}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ComponentInputs"
+									},
+									"defaultValue": "..."
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 80,
+					"name": "getProvisionConfig",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 1321,
+							"character": 35
+						}
+					],
+					"signatures": [
+						{
+							"id": 81,
+							"name": "getProvisionConfig",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "获取预留配置信息",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--serviceName --functionName",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "--qualifier\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 82,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "'{\"serviceName\": \"\",\"functionName\": \"\",\"qualifier\": 1}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ComponentInputs"
+									},
+									"defaultValue": "..."
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 62,
 					"name": "getService",
 					"kind": 2048,
 					"kindString": "Method",
@@ -2005,13 +2114,13 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 835,
+							"line": 872,
 							"character": 27
 						}
 					],
 					"signatures": [
 						{
-							"id": 66,
+							"id": 63,
 							"name": "getService",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2033,7 +2142,7 @@
 							},
 							"parameters": [
 								{
-									"id": 67,
+									"id": 64,
 									"name": "inputs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2062,7 +2171,7 @@
 					]
 				},
 				{
-					"id": 74,
+					"id": 71,
 					"name": "getTrigger",
 					"kind": 2048,
 					"kindString": "Method",
@@ -2072,13 +2181,13 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 1046,
+							"line": 1106,
 							"character": 27
 						}
 					],
 					"signatures": [
 						{
-							"id": 75,
+							"id": 72,
 							"name": "getTrigger",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2100,13 +2209,13 @@
 							},
 							"parameters": [
 								{
-									"id": 76,
+									"id": 73,
 									"name": "inputs",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"test\",\"functionName\": \"\", \"triggerName\": \"\"}'"
+										"text": "'{\"serviceName\": \"\",\"functionName\": \"\", \"triggerName\": \"\"}'"
 									},
 									"type": {
 										"type": "reference",
@@ -2129,7 +2238,7 @@
 					]
 				},
 				{
-					"id": 173,
+					"id": 179,
 					"name": "getZipFile",
 					"kind": 2048,
 					"kindString": "Method",
@@ -2145,7 +2254,7 @@
 					],
 					"signatures": [
 						{
-							"id": 174,
+							"id": 180,
 							"name": "getZipFile",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2156,7 +2265,7 @@
 							},
 							"parameters": [
 								{
-									"id": 175,
+									"id": 181,
 									"name": "codePath",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2190,54 +2299,7 @@
 					}
 				},
 				{
-					"id": 38,
-					"name": "index",
-					"kind": 2048,
-					"kindString": "Method",
-					"flags": {},
-					"sources": [
-						{
-							"fileName": "index.ts",
-							"line": 203,
-							"character": 15
-						}
-					],
-					"signatures": [
-						{
-							"id": 39,
-							"name": "index",
-							"kind": 4096,
-							"kindString": "Call signature",
-							"flags": {},
-							"parameters": [
-								{
-									"id": 40,
-									"name": "inputs",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"type": {
-										"type": "reference",
-										"name": "ComponentInputs"
-									},
-									"defaultValue": "..."
-								}
-							],
-							"type": {
-								"type": "reference",
-								"typeArguments": [
-									{
-										"type": "intrinsic",
-										"name": "void"
-									}
-								],
-								"name": "Promise"
-							}
-						}
-					]
-				},
-				{
-					"id": 89,
+					"id": 86,
 					"name": "invokeFunction",
 					"kind": 2048,
 					"kindString": "Method",
@@ -2247,13 +2309,13 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 1392,
+							"line": 1484,
 							"character": 31
 						}
 					],
 					"signatures": [
 						{
-							"id": 90,
+							"id": 87,
 							"name": "invokeFunction",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2275,7 +2337,7 @@
 							},
 							"parameters": [
 								{
-									"id": 91,
+									"id": 88,
 									"name": "inputs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2304,7 +2366,7 @@
 					]
 				},
 				{
-					"id": 50,
+					"id": 47,
 					"name": "listAliases",
 					"kind": 2048,
 					"kindString": "Method",
@@ -2314,19 +2376,465 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 461,
+							"line": 475,
 							"character": 28
 						}
 					],
 					"signatures": [
 						{
-							"id": 51,
+							"id": 48,
 							"name": "listAliases",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
 								"shortText": "查询别名列表",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--serviceName",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "--limit --nextToken --prefix --startKey\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 49,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "'{\"serviceName\": \"\"}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ComponentInputs"
+									},
+									"defaultValue": "..."
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 53,
+					"name": "listCustomDomains",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 642,
+							"character": 34
+						}
+					],
+					"signatures": [
+						{
+							"id": 54,
+							"name": "listCustomDomains",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "查询自定义域名列表",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "--limit --nextToken --prefix --startKey\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 55,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "ComponentInputs"
+									},
+									"defaultValue": "..."
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 59,
+					"name": "listFunctionAsyncConfigs",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 791,
+							"character": 41
+						}
+					],
+					"signatures": [
+						{
+							"id": 60,
+							"name": "listFunctionAsyncConfigs",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "查询异步配置列表",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--serviceName --functionName",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "--limit --nextToken\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 61,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "'{\"serviceName\": \"\",\"functionName\": \"\"}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ComponentInputs"
+									},
+									"defaultValue": "..."
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 41,
+					"name": "listFunctions",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 293,
+							"character": 30
+						}
+					],
+					"signatures": [
+						{
+							"id": 42,
+							"name": "listFunctions",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "查询函数列表",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--serviceName",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "--qualifier --limit --nextToken --prefix --startKey\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 43,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "ComponentInputs"
+									},
+									"defaultValue": "..."
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 56,
+					"name": "listProvisionConfigs",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 715,
+							"character": 37
+						}
+					],
+					"signatures": [
+						{
+							"id": 57,
+							"name": "listProvisionConfigs",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "查询预留配置列表",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--serviceName",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "--limit --nextToken --prefix --startKey\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 58,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {},
+									"type": {
+										"type": "reference",
+										"name": "ComponentInputs"
+									},
+									"defaultValue": "..."
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 38,
+					"name": "listServices",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 247,
+							"character": 29
+						}
+					],
+					"signatures": [
+						{
+							"id": 39,
+							"name": "listServices",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "查询服务列表"
+							},
+							"parameters": [
+								{
+									"id": 40,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "ComponentInputs"
+									},
+									"defaultValue": "..."
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 44,
+					"name": "listTriggers",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 382,
+							"character": 29
+						}
+					],
+					"signatures": [
+						{
+							"id": 45,
+							"name": "listTriggers",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "查询触发器列表",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--serviceName --functionName",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "--limit --nextToken --prefix --startKey\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 46,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "'{\"serviceName\": \"\",\"functionName\": \"\"}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ComponentInputs"
+									},
+									"defaultValue": "..."
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 50,
+					"name": "listVersions",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 559,
+							"character": 29
+						}
+					],
+					"signatures": [
+						{
+							"id": 51,
+							"name": "listVersions",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "查询版本列表",
 								"tags": [
 									{
 										"tag": "typeparam",
@@ -2371,460 +2879,7 @@
 					]
 				},
 				{
-					"id": 56,
-					"name": "listCustomDomains",
-					"kind": 2048,
-					"kindString": "Method",
-					"flags": {
-						"isPublic": true
-					},
-					"sources": [
-						{
-							"fileName": "index.ts",
-							"line": 619,
-							"character": 34
-						}
-					],
-					"signatures": [
-						{
-							"id": 57,
-							"name": "listCustomDomains",
-							"kind": 4096,
-							"kindString": "Call signature",
-							"flags": {},
-							"comment": {
-								"shortText": "查询自定义域名列表",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "--limit --nextToken --prefix --startKey\n",
-										"param": "Optional"
-									}
-								]
-							},
-							"parameters": [
-								{
-									"id": 58,
-									"name": "inputs",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"comment": {},
-									"type": {
-										"type": "reference",
-										"name": "ComponentInputs"
-									},
-									"defaultValue": "..."
-								}
-							],
-							"type": {
-								"type": "reference",
-								"typeArguments": [
-									{
-										"type": "intrinsic",
-										"name": "any"
-									}
-								],
-								"name": "Promise"
-							}
-						}
-					]
-				},
-				{
-					"id": 62,
-					"name": "listFunctionAsyncConfigs",
-					"kind": 2048,
-					"kindString": "Method",
-					"flags": {
-						"isPublic": true
-					},
-					"sources": [
-						{
-							"fileName": "index.ts",
-							"line": 763,
-							"character": 41
-						}
-					],
-					"signatures": [
-						{
-							"id": 63,
-							"name": "listFunctionAsyncConfigs",
-							"kind": 4096,
-							"kindString": "Call signature",
-							"flags": {},
-							"comment": {
-								"shortText": "查询异步配置列表",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName --functionName",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "--limit --nextToken\n",
-										"param": "Optional"
-									}
-								]
-							},
-							"parameters": [
-								{
-									"id": 64,
-									"name": "inputs",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"comment": {
-										"text": "'{\"serviceName\": \"\",\"functionName\": \"\"}'"
-									},
-									"type": {
-										"type": "reference",
-										"name": "ComponentInputs"
-									},
-									"defaultValue": "..."
-								}
-							],
-							"type": {
-								"type": "reference",
-								"typeArguments": [
-									{
-										"type": "intrinsic",
-										"name": "any"
-									}
-								],
-								"name": "Promise"
-							}
-						}
-					]
-				},
-				{
-					"id": 44,
-					"name": "listFunctions",
-					"kind": 2048,
-					"kindString": "Method",
-					"flags": {
-						"isPublic": true
-					},
-					"sources": [
-						{
-							"fileName": "index.ts",
-							"line": 293,
-							"character": 30
-						}
-					],
-					"signatures": [
-						{
-							"id": 45,
-							"name": "listFunctions",
-							"kind": 4096,
-							"kindString": "Call signature",
-							"flags": {},
-							"comment": {
-								"shortText": "查询函数列表",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "--qualifier --limit --nextToken --prefix --startKey\n",
-										"param": "Optional"
-									}
-								]
-							},
-							"parameters": [
-								{
-									"id": 46,
-									"name": "inputs",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"comment": {
-										"text": "'{\"serviceName\": \"\"}'"
-									},
-									"type": {
-										"type": "reference",
-										"name": "ComponentInputs"
-									},
-									"defaultValue": "..."
-								}
-							],
-							"type": {
-								"type": "reference",
-								"typeArguments": [
-									{
-										"type": "intrinsic",
-										"name": "any"
-									}
-								],
-								"name": "Promise"
-							}
-						}
-					]
-				},
-				{
-					"id": 59,
-					"name": "listProvisionConfigs",
-					"kind": 2048,
-					"kindString": "Method",
-					"flags": {
-						"isPublic": true
-					},
-					"sources": [
-						{
-							"fileName": "index.ts",
-							"line": 692,
-							"character": 37
-						}
-					],
-					"signatures": [
-						{
-							"id": 60,
-							"name": "listProvisionConfigs",
-							"kind": 4096,
-							"kindString": "Call signature",
-							"flags": {},
-							"comment": {
-								"shortText": "查询预留配置列表",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "--limit --nextToken --prefix --startKey\n",
-										"param": "Optional"
-									}
-								]
-							},
-							"parameters": [
-								{
-									"id": 61,
-									"name": "inputs",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"comment": {},
-									"type": {
-										"type": "reference",
-										"name": "ComponentInputs"
-									},
-									"defaultValue": "..."
-								}
-							],
-							"type": {
-								"type": "reference",
-								"typeArguments": [
-									{
-										"type": "intrinsic",
-										"name": "any"
-									}
-								],
-								"name": "Promise"
-							}
-						}
-					]
-				},
-				{
-					"id": 41,
-					"name": "listServices",
-					"kind": 2048,
-					"kindString": "Method",
-					"flags": {
-						"isPublic": true
-					},
-					"sources": [
-						{
-							"fileName": "index.ts",
-							"line": 240,
-							"character": 29
-						}
-					],
-					"signatures": [
-						{
-							"id": 42,
-							"name": "listServices",
-							"kind": 4096,
-							"kindString": "Call signature",
-							"flags": {},
-							"comment": {
-								"shortText": "查询服务列表"
-							},
-							"parameters": [
-								{
-									"id": 43,
-									"name": "inputs",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"comment": {
-										"text": "\n"
-									},
-									"type": {
-										"type": "reference",
-										"name": "ComponentInputs"
-									},
-									"defaultValue": "..."
-								}
-							],
-							"type": {
-								"type": "reference",
-								"typeArguments": [
-									{
-										"type": "intrinsic",
-										"name": "any"
-									}
-								],
-								"name": "Promise"
-							}
-						}
-					]
-				},
-				{
-					"id": 47,
-					"name": "listTriggers",
-					"kind": 2048,
-					"kindString": "Method",
-					"flags": {
-						"isPublic": true
-					},
-					"sources": [
-						{
-							"fileName": "index.ts",
-							"line": 377,
-							"character": 29
-						}
-					],
-					"signatures": [
-						{
-							"id": 48,
-							"name": "listTriggers",
-							"kind": 4096,
-							"kindString": "Call signature",
-							"flags": {},
-							"comment": {
-								"shortText": "查询触发器列表",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName --functionName",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "--limit --nextToken --prefix --startKey\n",
-										"param": "Optional"
-									}
-								]
-							},
-							"parameters": [
-								{
-									"id": 49,
-									"name": "inputs",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"comment": {
-										"text": "'{\"serviceName\": \"\",\"functionName\": \"\"}'"
-									},
-									"type": {
-										"type": "reference",
-										"name": "ComponentInputs"
-									},
-									"defaultValue": "..."
-								}
-							],
-							"type": {
-								"type": "reference",
-								"typeArguments": [
-									{
-										"type": "intrinsic",
-										"name": "any"
-									}
-								],
-								"name": "Promise"
-							}
-						}
-					]
-				},
-				{
-					"id": 53,
-					"name": "listVersions",
-					"kind": 2048,
-					"kindString": "Method",
-					"flags": {
-						"isPublic": true
-					},
-					"sources": [
-						{
-							"fileName": "index.ts",
-							"line": 540,
-							"character": 29
-						}
-					],
-					"signatures": [
-						{
-							"id": 54,
-							"name": "listVersions",
-							"kind": 4096,
-							"kindString": "Call signature",
-							"flags": {},
-							"comment": {
-								"shortText": "查询版本列表",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "--limit --nextToken --prefix --startKey\n",
-										"param": "Optional"
-									}
-								]
-							},
-							"parameters": [
-								{
-									"id": 55,
-									"name": "inputs",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"comment": {
-										"text": "'{\"serviceName\": \"\"}'"
-									},
-									"type": {
-										"type": "reference",
-										"name": "ComponentInputs"
-									},
-									"defaultValue": "..."
-								}
-							],
-							"type": {
-								"type": "reference",
-								"typeArguments": [
-									{
-										"type": "intrinsic",
-										"name": "any"
-									}
-								],
-								"name": "Promise"
-							}
-						}
-					]
-				},
-				{
-					"id": 132,
+					"id": 129,
 					"name": "publishVersion",
 					"kind": 2048,
 					"kindString": "Method",
@@ -2834,13 +2889,13 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 2666,
+							"line": 2877,
 							"character": 31
 						}
 					],
 					"signatures": [
 						{
-							"id": 133,
+							"id": 130,
 							"name": "publishVersion",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2862,7 +2917,7 @@
 							},
 							"parameters": [
 								{
-									"id": 134,
+									"id": 131,
 									"name": "inputs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2891,7 +2946,7 @@
 					]
 				},
 				{
-					"id": 150,
+					"id": 156,
 					"name": "putFunctionAsyncConfig",
 					"kind": 2048,
 					"kindString": "Method",
@@ -2901,13 +2956,13 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 3156,
+							"line": 3675,
 							"character": 39
 						}
 					],
 					"signatures": [
 						{
-							"id": 151,
+							"id": 157,
 							"name": "putFunctionAsyncConfig",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2929,13 +2984,13 @@
 							},
 							"parameters": [
 								{
-									"id": 152,
+									"id": 158,
 									"name": "inputs",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"\",\"aliasName\": \"\",\"versionId\": \"1\",\"additionalVersionWeight\": {}}'"
+										"text": "'{\"serviceName\": \"\",\"functionName\": \"\",\"qualifier\": \"1\"}'"
 									},
 									"type": {
 										"type": "reference",
@@ -2958,7 +3013,7 @@
 					]
 				},
 				{
-					"id": 147,
+					"id": 153,
 					"name": "putProvisionConfig",
 					"kind": 2048,
 					"kindString": "Method",
@@ -2968,13 +3023,13 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 3065,
+							"line": 3575,
 							"character": 35
 						}
 					],
 					"signatures": [
 						{
-							"id": 148,
+							"id": 154,
 							"name": "putProvisionConfig",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2996,13 +3051,13 @@
 							},
 							"parameters": [
 								{
-									"id": 149,
+									"id": 155,
 									"name": "inputs",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"\",\"aliasName\": \"\",\"versionId\": \"1\",\"additionalVersionWeight\": {}}'"
+										"text": "'{\"serviceName\": \"\",\"functionName\": \"\",\"qualifier\": \"1\"}'"
 									},
 									"type": {
 										"type": "reference",
@@ -3025,7 +3080,7 @@
 					]
 				},
 				{
-					"id": 176,
+					"id": 182,
 					"name": "readDir",
 					"kind": 2048,
 					"kindString": "Method",
@@ -3041,7 +3096,7 @@
 					],
 					"signatures": [
 						{
-							"id": 177,
+							"id": 183,
 							"name": "readDir",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3051,7 +3106,7 @@
 							},
 							"parameters": [
 								{
-									"id": 178,
+									"id": 184,
 									"name": "obj",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3063,7 +3118,7 @@
 									}
 								},
 								{
-									"id": 179,
+									"id": 185,
 									"name": "nowPath",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3077,7 +3132,7 @@
 									}
 								},
 								{
-									"id": 180,
+									"id": 186,
 									"name": "targetDir",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3118,7 +3173,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 64,
+							"line": 73,
 							"character": 13
 						}
 					],
@@ -3161,7 +3216,7 @@
 					]
 				},
 				{
-					"id": 181,
+					"id": 187,
 					"name": "startZip",
 					"kind": 2048,
 					"kindString": "Method",
@@ -3177,7 +3232,7 @@
 					],
 					"signatures": [
 						{
-							"id": 182,
+							"id": 188,
 							"name": "startZip",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3188,7 +3243,7 @@
 							},
 							"parameters": [
 								{
-									"id": 183,
+									"id": 189,
 									"name": "codePath",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3232,7 +3287,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 2818,
+							"line": 3132,
 							"character": 28
 						}
 					],
@@ -3289,7 +3344,74 @@
 					]
 				},
 				{
-					"id": 144,
+					"id": 141,
+					"name": "updateAliasWithNewVersion",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 3222,
+							"character": 42
+						}
+					],
+					"signatures": [
+						{
+							"id": 142,
+							"name": "updateAliasWithNewVersion",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "更新别名通过最新版本",
+								"tags": [
+									{
+										"tag": "typeparam",
+										"text": "--serviceName --aliasName",
+										"param": "Required"
+									},
+									{
+										"tag": "typeparam",
+										"text": "--additionalVersionWeight --description\n",
+										"param": "Optional"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 143,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "'{\"serviceName\": \"\",\"aliasName\": \"\", \"additionalVersionWeight\": {}, \"description\": \"\"}'"
+									},
+									"type": {
+										"type": "reference",
+										"name": "ComponentInputs"
+									},
+									"defaultValue": "..."
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 147,
 					"name": "updateCustomDomain",
 					"kind": 2048,
 					"kindString": "Method",
@@ -3299,13 +3421,13 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 2984,
+							"line": 3394,
 							"character": 35
 						}
 					],
 					"signatures": [
 						{
-							"id": 145,
+							"id": 148,
 							"name": "updateCustomDomain",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3327,13 +3449,13 @@
 							},
 							"parameters": [
 								{
-									"id": 146,
+									"id": 149,
 									"name": "inputs",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"\",\"aliasName\": \"\",\"versionId\": \"1\",\"additionalVersionWeight\": {}}'"
+										"text": "'{\"domainName\": \"\"}'"
 									},
 									"type": {
 										"type": "reference",
@@ -3356,7 +3478,7 @@
 					]
 				},
 				{
-					"id": 123,
+					"id": 120,
 					"name": "updateFunction",
 					"kind": 2048,
 					"kindString": "Method",
@@ -3366,13 +3488,13 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 2304,
+							"line": 2478,
 							"character": 31
 						}
 					],
 					"signatures": [
 						{
-							"id": 124,
+							"id": 121,
 							"name": "updateFunction",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3394,13 +3516,13 @@
 							},
 							"parameters": [
 								{
-									"id": 125,
+									"id": 122,
 									"name": "inputs",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"\",\"functionName\": \"\",\"handler\":\"index.handler\",\"runtime\": \"nodejs8\",\"code\":{\"ossBucketName\": \"\",\"ossObjectName\":\"\"}}'"
+										"text": "'{\"serviceName\": \"\",\"functionName\": \"\",\"handler\":\"index.handler\",\"runtime\": \"nodejs8\",\"code\":{\"ossBucketName\": \"\",\"ossObjectName\":\"\"}}'\ncode: {\"ossBucketName\": \"\",\"ossObjectName\":\"\"} 或 {\"zipFile\": \"代码包存放的位置，执行命令的目录下，如果文件超过 50MB，请使用 OSS 上传\"}"
 									},
 									"type": {
 										"type": "reference",
@@ -3423,7 +3545,7 @@
 					]
 				},
 				{
-					"id": 117,
+					"id": 114,
 					"name": "updateService",
 					"kind": 2048,
 					"kindString": "Method",
@@ -3433,13 +3555,13 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 2042,
+							"line": 2190,
 							"character": 30
 						}
 					],
 					"signatures": [
 						{
-							"id": 118,
+							"id": 115,
 							"name": "updateService",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3461,7 +3583,7 @@
 							},
 							"parameters": [
 								{
-									"id": 119,
+									"id": 116,
 									"name": "inputs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3490,7 +3612,7 @@
 					]
 				},
 				{
-					"id": 129,
+					"id": 126,
 					"name": "updateTrigger",
 					"kind": 2048,
 					"kindString": "Method",
@@ -3500,13 +3622,13 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 2565,
+							"line": 2767,
 							"character": 30
 						}
 					],
 					"signatures": [
 						{
-							"id": 130,
+							"id": 127,
 							"name": "updateTrigger",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3528,13 +3650,13 @@
 							},
 							"parameters": [
 								{
-									"id": 131,
+									"id": 128,
 									"name": "inputs",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"\",\"functionName\": \"\",\"triggerName\": \"\",\"triggerType\":\"timer\",\"triggerConfig\": {}'"
+										"text": "'{\"serviceName\": \"\",\"functionName\": \"\",\"triggerName\": \"\",\"triggerType\":\"timer\",\"triggerConfig\": \"{}\"'"
 									},
 									"type": {
 										"type": "reference",
@@ -3567,7 +3689,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 52,
+							"line": 61,
 							"character": 29
 						}
 					],
@@ -3630,66 +3752,68 @@
 					"children": [
 						8,
 						9,
-						156,
-						157
+						162,
+						163
 					]
 				},
 				{
 					"title": "Methods",
 					"kind": 2048,
 					"children": [
-						158,
-						160,
-						165,
+						164,
+						166,
+						150,
+						171,
+						132,
 						135,
-						141,
-						120,
-						153,
-						113,
-						126,
-						107,
-						101,
-						95,
+						144,
+						117,
+						159,
 						110,
-						92,
-						169,
-						98,
+						123,
 						104,
-						162,
+						98,
+						92,
+						107,
+						89,
+						175,
+						95,
+						101,
+						168,
 						27,
 						19,
-						77,
+						74,
 						23,
 						10,
-						80,
-						68,
-						86,
-						71,
-						83,
+						77,
 						65,
-						74,
-						173,
-						38,
-						89,
-						50,
-						56,
+						83,
+						68,
+						80,
 						62,
-						44,
-						59,
-						41,
+						71,
+						179,
+						86,
 						47,
 						53,
-						132,
-						150,
-						147,
-						176,
-						16,
-						181,
-						138,
-						144,
-						123,
-						117,
+						59,
+						41,
+						56,
+						38,
+						44,
+						50,
 						129,
+						156,
+						153,
+						182,
+						16,
+						187,
+						138,
+						141,
+						147,
+						120,
+						114,
+						126,
 						12
 					]
 				}
@@ -3697,7 +3821,7 @@
 			"sources": [
 				{
 					"fileName": "index.ts",
-					"line": 35,
+					"line": 44,
 					"character": 36
 				}
 			],
@@ -3717,7 +3841,7 @@
 			"sources": [
 				{
 					"fileName": "index.ts",
-					"line": 19,
+					"line": 28,
 					"character": 21
 				}
 			],

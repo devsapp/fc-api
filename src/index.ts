@@ -241,39 +241,6 @@ export default class FunctionCompute extends BaseComponent {
         return yaml.dump(resultData)
     }
 
-    private async index(inputs: ComponentInputs = {argsObj: undefined, credentials: undefined}) {
-        const newInputs = inputs
-        let addContent = ""
-        if (newInputs.project['access']) {
-            addContent = ` -a ${newInputs.project['access']}`
-        }
-        console.log(` _____     __       ____  ____   ____ 
-|     |   /  ]     /    ||    \\ |    |
-|   __|  /  /     |  o  ||  o  ) |  | 
-|  |_   /  /      |     ||   _/  |  | 
-|   _] /   \\_     |  _  ||  |    |  | 
-|  |   \\     |    |  |  ||  |    |  | 
-|__|    \\____|    |__|__||__|   |____|
-                                      `)
-        console.log("🎼 If you need help, you could input 'help'. ")
-        console.log("🎼 You can use FC API to operate directly.")
-        console.log("🎼 For example: [listServices]")
-        console.log("🎼 Quit: control + c/z")
-        while (true) {
-            const commandData = await input('> ')
-            if (commandData) {
-                spawnSync(`s cli fc-api ${commandData === "help" ? "-h" : commandData}${addContent}`, [], {
-                    cwd: './',
-                    stdio: 'inherit',
-                    shell: true
-                });
-            } else {
-                console.log("")
-            }
-        }
-
-    }
-
     /**
      * 查询服务列表
      */
