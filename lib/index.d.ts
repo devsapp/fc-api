@@ -21,7 +21,6 @@ export default class FunctionCompute extends BaseComponent {
     get(inputs: {}): Promise<any>;
     private getClient;
     private fetchData;
-    private index;
     /**
      * 查询服务列表
      */
