@@ -22,15 +22,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/devsapp/s-fc"
+    "url": "https://github.com/devsapp/fc"
   },
   "scripts": {
     "watch": "tsc -w",
-    "build": "tsc & npm run doc",
-    "doc": "npx typedoc src/index.ts --json doc/doc.json --out doc"
+    "prebuild": "rm -rf node_modules && rm -rf package-lock.json && npm i && rm -rf lib",
+    "build": "ncc build src/index.ts -m -e @serverless-devs/core -o lib",
+    "postbuild": "npm run doc",
+    "doc": "npx typedoc --entryPointStrategy expand ./src/index.ts --json doc/doc.json --out doc"
   },
   "dependencies": {
-    "@alicloud/fc2": "^2.2.2",
+    "@alicloud/fc2": "^2.3.0",
     "@alicloud/pop-core": "^1.7.10",
     "@serverless-devs/core": "^0.0.*",
     "cli-table": "^0.3.6",
@@ -49,8 +51,9 @@
     "@typescript-eslint/eslint-plugin": "^3.10.0",
     "@typescript-eslint/parser": "^3.10.0",
     "eslint": "^7.7.0",
-    "ts-node": "^8.10.2",
-    "typedoc": "^0.20.35",
-    "typescript": "^3.9.7"
+    "ts-node": "^10.4.0",
+    "typedoc": "^0.22.*",
+    "typescript": "^4.4.3",
+    "@vercel/ncc": "^0.24.0"
   }
 }

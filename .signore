@@ -1,0 +1,17 @@
+node_modules
+.s
+LICENSE
+package-lock.json
+.gitignore
+.signore
+
+.github
+.idea
+.vscode
+.DS_Store
+.git
+
+readme.md
+./example
+./test
+./Makefile
