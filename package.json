@@ -1,6 +1,6 @@
 {
   "name": "fc-api",
-  "version": "0.0.38",
+  "version": "0.0.46",
   "autoInstall": false,
   "description": "The execution component of Function Compute, through which you can access the resources of function calculation",
   "keywords": [
@@ -28,7 +28,7 @@
   "scripts": {
     "watch": "tsc -w",
     "prebuild": "rm -rf node_modules && rm -rf package-lock.json && npm i && rm -rf lib",
-    "build": "ncc build src/index.ts -m -e @serverless-devs/core -o lib",
+    "build": "esbuild src/index.ts --bundle --log-level=error --minify --platform=node --format=cjs --target=node10.4 --external:electron --outfile=lib/index.js",
     "postbuild": "npm run doc",
     "doc": "npx typedoc --entryPointStrategy expand ./src/index.ts --json doc/doc.json --out doc"
   },
@@ -55,6 +55,6 @@
     "ts-node": "^10.4.0",
     "typedoc": "^0.22.*",
     "typescript": "^4.4.3",
-    "@vercel/ncc": "^0.24.0"
+    "esbuild": "^0.13.8"
   }
 }
