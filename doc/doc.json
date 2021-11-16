@@ -1,7 +1,7 @@
 {
 	"id": 0,
 	"name": "fc-api",
-	"kind": 0,
+	"kind": 1,
 	"kindString": "Project",
 	"flags": {},
 	"originalName": "",
@@ -19,6 +19,13 @@
 					"kind": 512,
 					"kindString": "Constructor",
 					"flags": {},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 47,
+							"character": 4
+						}
+					],
 					"signatures": [
 						{
 							"id": 6,
@@ -67,7 +74,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 45,
-							"character": 20
+							"character": 14
 						}
 					],
 					"type": {
@@ -103,7 +110,7 @@
 						{
 							"fileName": "base.ts",
 							"line": 10,
-							"character": 22
+							"character": 16
 						}
 					],
 					"type": {
@@ -127,7 +134,7 @@
 						{
 							"fileName": "base.ts",
 							"line": 11,
-							"character": 12
+							"character": 8
 						}
 					],
 					"type": {
@@ -151,7 +158,7 @@
 						{
 							"fileName": "base.ts",
 							"line": 20,
-							"character": 16
+							"character": 11
 						}
 					],
 					"signatures": [
@@ -188,7 +195,7 @@
 						{
 							"fileName": "base.ts",
 							"line": 97,
-							"character": 20
+							"character": 11
 						}
 					],
 					"signatures": [
@@ -225,7 +232,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 3476,
-							"character": 29
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -236,19 +243,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "追加路径配置",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--domainName --routeConfig",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "\n",
-										"param": "Optional"
-									}
-								]
+								"shortText": "追加路径配置"
 							},
 							"parameters": [
 								{
@@ -258,7 +253,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"domainName\": \"\",\"appendRouteConfig\": \"[]\"}'"
+										"shortText": "'{\"domainName\": \"\",\"appendRouteConfig\": \"[]\"}'"
 									},
 									"type": {
 										"type": "reference",
@@ -292,7 +287,7 @@
 						{
 							"fileName": "base.ts",
 							"line": 136,
-							"character": 21
+							"character": 11
 						}
 					],
 					"signatures": [
@@ -348,7 +343,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 2949,
-							"character": 28
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -359,19 +354,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "创建别名",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName --aliasName --versionId",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "--additionalVersionWeight --description\n",
-										"param": "Optional"
-									}
-								]
+								"shortText": "创建别名"
 							},
 							"parameters": [
 								{
@@ -381,7 +364,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"\",\"aliasName\": \"\",\"versionId\": \"1\",\"additionalVersionWeight\": {}}'"
+										"shortText": "'{\"serviceName\": \"\",\"aliasName\": \"\",\"versionId\": \"1\",\"additionalVersionWeight\": {}}'"
 									},
 									"type": {
 										"type": "reference",
@@ -415,7 +398,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 3040,
-							"character": 42
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -426,19 +409,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "创建别名通过最新版本",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName --aliasName",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "--additionalVersionWeight --description\n",
-										"param": "Optional"
-									}
-								]
+								"shortText": "创建别名通过最新版本"
 							},
 							"parameters": [
 								{
@@ -448,7 +419,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"\",\"aliasName\": \"\",\"additionalVersionWeight\": {}}'"
+										"shortText": "'{\"serviceName\": \"\",\"aliasName\": \"\",\"additionalVersionWeight\": {}}'"
 									},
 									"type": {
 										"type": "reference",
@@ -482,7 +453,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 3313,
-							"character": 35
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -493,19 +464,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "创建自定义域名",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--domainName",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "--protocol --certConfig --routeConfig\n",
-										"param": "Optional"
-									}
-								]
+								"shortText": "创建自定义域名"
 							},
 							"parameters": [
 								{
@@ -515,7 +474,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"domainName\": \"\"}'"
+										"shortText": "'{\"domainName\": \"\"}'"
 									},
 									"type": {
 										"type": "reference",
@@ -549,7 +508,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 2301,
-							"character": 31
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -560,19 +519,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "创建函数",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName --functionName --code --handler --runtime",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "--description --customContainerConfig --initializationTimeout --initializer --memorySize --runtime --timeout --caPort\n",
-										"param": "Optional"
-									}
-								]
+								"shortText": "创建函数"
 							},
 							"parameters": [
 								{
@@ -582,7 +529,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"\", \"functionName\": \"\",\"handler\":\"index.handler\",\"runtime\": \"nodejs10\",\"code\":{\"zipFile\": \"example/code/index.js\"}}'\ncode: {\"ossBucketName\": \"\",\"ossObjectName\":\"\"} 或 {\"zipFile\": \"代码包存放的位置，执行命令的目录下，如果文件超过 50MB，请使用 OSS 上传\"}"
+										"shortText": "'{\"serviceName\": \"\", \"functionName\": \"\",\"handler\":\"index.handler\",\"runtime\": \"nodejs10\",\"code\":{\"zipFile\": \"example/code/index.js\"}}'\ncode: {\"ossBucketName\": \"\",\"ossObjectName\":\"\"} 或 {\"zipFile\": \"代码包存放的位置，执行命令的目录下，如果文件超过 50MB，请使用 OSS 上传\"}"
 									},
 									"type": {
 										"type": "reference",
@@ -616,7 +563,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 3777,
-							"character": 45
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -627,19 +574,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "创建函数，如不指定服务名称，会默认创建一个服务名称为 'Service'+functionName",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName --functionName --code --handler --runtime",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "--description --customContainerConfig --initializationTimeout --initializer --memorySize --runtime --timeout --caPort\n",
-										"param": "Optional"
-									}
-								]
+								"shortText": "创建函数，如不指定服务名称，会默认创建一个服务名称为 'Service'+functionName"
 							},
 							"parameters": [
 								{
@@ -649,7 +584,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"\", \"functionName\": \"\",\"handler\":\"index.handler\",\"runtime\": \"nodejs10\",\"code\":{\"zipFile\": \"example/code/index.js\"}}'\ncode: {\"ossBucketName\": \"\",\"ossObjectName\":\"\"} 或 {\"zipFile\": \"代码包存放的位置，执行命令的目录下，如果文件超过 50MB，请使用 OSS 上传\"}"
+										"shortText": "'{\"serviceName\": \"\", \"functionName\": \"\",\"handler\":\"index.handler\",\"runtime\": \"nodejs10\",\"code\":{\"zipFile\": \"example/code/index.js\"}}'\ncode: {\"ossBucketName\": \"\",\"ossObjectName\":\"\"} 或 {\"zipFile\": \"代码包存放的位置，执行命令的目录下，如果文件超过 50MB，请使用 OSS 上传\"}"
 									},
 									"type": {
 										"type": "reference",
@@ -683,7 +618,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 2076,
-							"character": 30
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -694,19 +629,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "创建服务",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "--description --internetAccess --role --logConfig --nasConfig --vpcConfig --tracingConfig\n",
-										"param": "Optional"
-									}
-								]
+								"shortText": "创建服务"
 							},
 							"parameters": [
 								{
@@ -716,7 +639,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"\",\"tracingConfig\": {\"type\": \"Jaeger\",\"params\": {\"endpoint\":\"\"}}}'"
+										"shortText": "'{\"serviceName\": \"\",\"tracingConfig\": {\"type\": \"Jaeger\",\"params\": {\"endpoint\":\"\"}}}'"
 									},
 									"type": {
 										"type": "reference",
@@ -761,7 +684,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 2654,
-							"character": 30
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -772,19 +695,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "创建触发器",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName --functionName --triggerName --triggerType",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "--invocationRole --qualifier --sourceArn --triggerConfig\n",
-										"param": "Optional"
-									}
-								]
+								"shortText": "创建触发器"
 							},
 							"parameters": [
 								{
@@ -794,7 +705,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"\",\"functionName\": \"\",\"triggerName\": \"\",\"triggerType\":\"timer\",\"triggerConfig\": \"{}\"'"
+										"shortText": "'{\"serviceName\": \"\",\"functionName\": \"\",\"triggerName\": \"\",\"triggerType\":\"timer\",\"triggerConfig\": \"{}\"'"
 									},
 									"type": {
 										"type": "reference",
@@ -828,7 +739,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 1923,
-							"character": 28
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -839,19 +750,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "删除别名",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName --aliasName",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "\n",
-										"param": "Optional"
-									}
-								]
+								"shortText": "删除别名"
 							},
 							"parameters": [
 								{
@@ -861,7 +760,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"\",\"aliasName\":\"\"}'"
+										"shortText": "'{\"serviceName\": \"\",\"aliasName\":\"\"}'"
 									},
 									"type": {
 										"type": "reference",
@@ -895,7 +794,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 1789,
-							"character": 35
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -906,19 +805,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "删除自定义域名",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--domainName",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "\n",
-										"param": "Optional"
-									}
-								]
+								"shortText": "删除自定义域名"
 							},
 							"parameters": [
 								{
@@ -928,7 +815,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"domainName\": \"\"}'"
+										"shortText": "'{\"domainName\": \"\"}'"
 									},
 									"type": {
 										"type": "reference",
@@ -962,7 +849,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 1632,
-							"character": 31
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -973,19 +860,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "删除函数",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName --functionName",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "\n",
-										"param": "Optional"
-									}
-								]
+								"shortText": "删除函数"
 							},
 							"parameters": [
 								{
@@ -995,7 +870,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"\",\"functionName\": \"\"}'"
+										"shortText": "'{\"serviceName\": \"\",\"functionName\": \"\"}'"
 									},
 									"type": {
 										"type": "reference",
@@ -1029,7 +904,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 1995,
-							"character": 42
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -1040,19 +915,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "删除函数异步配置",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName --functionName",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "--qualifier\n",
-										"param": "Optional"
-									}
-								]
+								"shortText": "删除函数异步配置"
 							},
 							"parameters": [
 								{
@@ -1062,7 +925,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"\",\"functionName\": \"\"}'"
+										"shortText": "'{\"serviceName\": \"\",\"functionName\": \"\"}'"
 									},
 									"type": {
 										"type": "reference",
@@ -1096,7 +959,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 1565,
-							"character": 30
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -1107,19 +970,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "删除服务",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "\n",
-										"param": "Optional"
-									}
-								]
+								"shortText": "删除服务"
 							},
 							"parameters": [
 								{
@@ -1129,7 +980,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"\"}'"
+										"shortText": "'{\"serviceName\": \"\"}'"
 									},
 									"type": {
 										"type": "reference",
@@ -1163,7 +1014,7 @@
 						{
 							"fileName": "base.ts",
 							"line": 148,
-							"character": 28
+							"character": 11
 						}
 					],
 					"signatures": [
@@ -1224,7 +1075,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 1708,
-							"character": 30
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -1235,19 +1086,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "删除触发器",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName --functionName --triggerName",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "\n",
-										"param": "Optional"
-									}
-								]
+								"shortText": "删除触发器"
 							},
 							"parameters": [
 								{
@@ -1257,7 +1096,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"fcls\",\"functionName\":\"ggk\", \"triggerName\":\"test3\"}'"
+										"shortText": "'{\"serviceName\": \"fcls\",\"functionName\":\"ggk\", \"triggerName\":\"test3\"}'"
 									},
 									"type": {
 										"type": "reference",
@@ -1291,7 +1130,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 1851,
-							"character": 30
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -1302,19 +1141,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "删除版本",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName --versionId",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "\n",
-										"param": "Optional"
-									}
-								]
+								"shortText": "删除版本"
 							},
 							"parameters": [
 								{
@@ -1324,7 +1151,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"\",\"versionId\":\"\"}'"
+										"shortText": "'{\"serviceName\": \"\",\"versionId\":\"\"}'"
 									},
 									"type": {
 										"type": "reference",
@@ -1358,7 +1185,7 @@
 						{
 							"fileName": "base.ts",
 							"line": 132,
-							"character": 28
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -1379,7 +1206,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "\n"
+										"shortText": "\n"
 									},
 									"type": {
 										"type": "intrinsic",
@@ -1420,7 +1247,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 192,
-							"character": 27
+							"character": 18
 						}
 					],
 					"signatures": [
@@ -1560,7 +1387,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 157,
-							"character": 13
+							"character": 10
 						}
 					],
 					"signatures": [
@@ -1619,7 +1446,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 1187,
-							"character": 25
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -1630,19 +1457,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "获取别名信息",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName --aliasName",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "\n",
-										"param": "Optional"
-									}
-								]
+								"shortText": "获取别名信息"
 							},
 							"parameters": [
 								{
@@ -1652,7 +1467,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"\",\"aliasName\": \"\"}'"
+										"shortText": "'{\"serviceName\": \"\",\"aliasName\": \"\"}'"
 									},
 									"type": {
 										"type": "reference",
@@ -1686,7 +1501,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 165,
-							"character": 27
+							"character": 18
 						}
 					],
 					"signatures": [
@@ -1745,7 +1560,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 51,
-							"character": 35
+							"character": 18
 						}
 					],
 					"signatures": [
@@ -1780,7 +1595,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 1259,
-							"character": 32
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -1791,19 +1606,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "获取自定义域名信息",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--domainName",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "\n",
-										"param": "Optional"
-									}
-								]
+								"shortText": "获取自定义域名信息"
 							},
 							"parameters": [
 								{
@@ -1813,7 +1616,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"domainName\": \"\"}'"
+										"shortText": "'{\"domainName\": \"\"}'"
 									},
 									"type": {
 										"type": "reference",
@@ -1847,7 +1650,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 944,
-							"character": 28
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -1858,19 +1661,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "获取函数配置信息",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName --functionName",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "--qualifier\n",
-										"param": "Optional"
-									}
-								]
+								"shortText": "获取函数配置信息"
 							},
 							"parameters": [
 								{
@@ -1880,7 +1671,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"\",\"functionName\": \"\"}'"
+										"shortText": "'{\"serviceName\": \"\",\"functionName\": \"\"}'"
 									},
 									"type": {
 										"type": "reference",
@@ -1914,7 +1705,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 1402,
-							"character": 39
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -1925,19 +1716,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "获取函数异步调用配置信息",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName --functionName",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "--qualifier\n",
-										"param": "Optional"
-									}
-								]
+								"shortText": "获取函数异步调用配置信息"
 							},
 							"parameters": [
 								{
@@ -1947,7 +1726,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"\",\"functionName\": \"\",\"qualifier\": 1}'"
+										"shortText": "'{\"serviceName\": \"\",\"functionName\": \"\",\"qualifier\": 1}'"
 									},
 									"type": {
 										"type": "reference",
@@ -1981,7 +1760,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 1025,
-							"character": 32
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -1992,19 +1771,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "获取函数 Code 信息",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName --functionName",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "--qualifier\n",
-										"param": "Optional"
-									}
-								]
+								"shortText": "获取函数 Code 信息"
 							},
 							"parameters": [
 								{
@@ -2014,7 +1781,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"\",\"functionName\": \"\"}'"
+										"shortText": "'{\"serviceName\": \"\",\"functionName\": \"\"}'"
 									},
 									"type": {
 										"type": "reference",
@@ -2048,7 +1815,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 1321,
-							"character": 35
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -2059,19 +1826,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "获取预留配置信息",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName --functionName",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "--qualifier\n",
-										"param": "Optional"
-									}
-								]
+								"shortText": "获取预留配置信息"
 							},
 							"parameters": [
 								{
@@ -2081,7 +1836,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"\",\"functionName\": \"\",\"qualifier\": 1}'"
+										"shortText": "'{\"serviceName\": \"\",\"functionName\": \"\",\"qualifier\": 1}'"
 									},
 									"type": {
 										"type": "reference",
@@ -2115,7 +1870,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 872,
-							"character": 27
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -2126,19 +1881,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "获取服务配置信息",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "--qualifier\n",
-										"param": "Optional"
-									}
-								]
+								"shortText": "获取服务配置信息"
 							},
 							"parameters": [
 								{
@@ -2148,7 +1891,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"\"}'"
+										"shortText": "'{\"serviceName\": \"\"}'"
 									},
 									"type": {
 										"type": "reference",
@@ -2182,7 +1925,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 1106,
-							"character": 27
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -2193,19 +1936,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "获取触发器配置信息",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName --functionName --triggerName",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "\n",
-										"param": "Optional"
-									}
-								]
+								"shortText": "获取触发器配置信息"
 							},
 							"parameters": [
 								{
@@ -2215,7 +1946,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"\",\"functionName\": \"\", \"triggerName\": \"\"}'"
+										"shortText": "'{\"serviceName\": \"\",\"functionName\": \"\", \"triggerName\": \"\"}'"
 									},
 									"type": {
 										"type": "reference",
@@ -2249,7 +1980,7 @@
 						{
 							"fileName": "base.ts",
 							"line": 157,
-							"character": 27
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -2310,7 +2041,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 1484,
-							"character": 31
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -2321,19 +2052,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "调用执行函数",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName --functionName",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "--qualifier --even\n",
-										"param": "Optional"
-									}
-								]
+								"shortText": "调用执行函数"
 							},
 							"parameters": [
 								{
@@ -2343,7 +2062,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"\",\"functionName\": \"\",\"event\": {\"key\":\"value\"}}'"
+										"shortText": "'{\"serviceName\": \"\",\"functionName\": \"\",\"event\": {\"key\":\"value\"}}'"
 									},
 									"type": {
 										"type": "reference",
@@ -2377,7 +2096,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 475,
-							"character": 28
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -2388,19 +2107,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "查询别名列表",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "--limit --nextToken --prefix --startKey\n",
-										"param": "Optional"
-									}
-								]
+								"shortText": "查询别名列表"
 							},
 							"parameters": [
 								{
@@ -2410,7 +2117,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"\"}'"
+										"shortText": "'{\"serviceName\": \"\"}'"
 									},
 									"type": {
 										"type": "reference",
@@ -2444,7 +2151,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 642,
-							"character": 34
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -2455,19 +2162,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "查询自定义域名列表",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "--limit --nextToken --prefix --startKey\n",
-										"param": "Optional"
-									}
-								]
+								"shortText": "查询自定义域名列表"
 							},
 							"parameters": [
 								{
@@ -2508,7 +2203,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 791,
-							"character": 41
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -2519,19 +2214,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "查询异步配置列表",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName --functionName",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "--limit --nextToken\n",
-										"param": "Optional"
-									}
-								]
+								"shortText": "查询异步配置列表"
 							},
 							"parameters": [
 								{
@@ -2541,7 +2224,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"\",\"functionName\": \"\"}'"
+										"shortText": "'{\"serviceName\": \"\",\"functionName\": \"\"}'"
 									},
 									"type": {
 										"type": "reference",
@@ -2575,7 +2258,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 293,
-							"character": 30
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -2586,19 +2269,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "查询函数列表",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "--qualifier --limit --nextToken --prefix --startKey\n",
-										"param": "Optional"
-									}
-								]
+								"shortText": "查询函数列表"
 							},
 							"parameters": [
 								{
@@ -2639,7 +2310,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 715,
-							"character": 37
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -2650,19 +2321,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "查询预留配置列表",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "--limit --nextToken --prefix --startKey\n",
-										"param": "Optional"
-									}
-								]
+								"shortText": "查询预留配置列表"
 							},
 							"parameters": [
 								{
@@ -2704,7 +2363,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 247,
-							"character": 29
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -2756,7 +2415,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 382,
-							"character": 29
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -2767,19 +2426,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "查询触发器列表",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName --functionName",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "--limit --nextToken --prefix --startKey\n",
-										"param": "Optional"
-									}
-								]
+								"shortText": "查询触发器列表"
 							},
 							"parameters": [
 								{
@@ -2789,7 +2436,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"\",\"functionName\": \"\"}'"
+										"shortText": "'{\"serviceName\": \"\",\"functionName\": \"\"}'"
 									},
 									"type": {
 										"type": "reference",
@@ -2823,7 +2470,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 559,
-							"character": 29
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -2834,19 +2481,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "查询版本列表",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "--limit --nextToken --prefix --startKey\n",
-										"param": "Optional"
-									}
-								]
+								"shortText": "查询版本列表"
 							},
 							"parameters": [
 								{
@@ -2856,7 +2491,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"\"}'"
+										"shortText": "'{\"serviceName\": \"\"}'"
 									},
 									"type": {
 										"type": "reference",
@@ -2890,7 +2525,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 2877,
-							"character": 31
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -2901,19 +2536,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "创建版本",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName --description",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "\n",
-										"param": "Optional"
-									}
-								]
+								"shortText": "创建版本"
 							},
 							"parameters": [
 								{
@@ -2923,7 +2546,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"\",\"description\": \"\"}'"
+										"shortText": "'{\"serviceName\": \"\",\"description\": \"\"}'"
 									},
 									"type": {
 										"type": "reference",
@@ -2957,7 +2580,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 3675,
-							"character": 39
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -2968,19 +2591,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "函数异步配置",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName --functionName --qualifier",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "--destinationConfig --maxAsyncEventAgeInSeconds --maxAsyncRetryAttempts\n",
-										"param": "Optional"
-									}
-								]
+								"shortText": "函数异步配置"
 							},
 							"parameters": [
 								{
@@ -2990,7 +2601,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"\",\"functionName\": \"\",\"qualifier\": \"1\"}'"
+										"shortText": "'{\"serviceName\": \"\",\"functionName\": \"\",\"qualifier\": \"1\"}'"
 									},
 									"type": {
 										"type": "reference",
@@ -3024,7 +2635,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 3575,
-							"character": 35
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -3035,19 +2646,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "预留配置",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName --functionName --qualifier",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "--target --scheduledActions --targetTrackingPolicies\n",
-										"param": "Optional"
-									}
-								]
+								"shortText": "预留配置"
 							},
 							"parameters": [
 								{
@@ -3057,7 +2656,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"\",\"functionName\": \"\",\"qualifier\": \"1\"}'"
+										"shortText": "'{\"serviceName\": \"\",\"functionName\": \"\",\"qualifier\": \"1\"}'"
 									},
 									"type": {
 										"type": "reference",
@@ -3091,7 +2690,7 @@
 						{
 							"fileName": "base.ts",
 							"line": 172,
-							"character": 24
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -3124,7 +2723,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "\n"
+										"shortText": "\n"
 									},
 									"type": {
 										"type": "intrinsic",
@@ -3174,7 +2773,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 73,
-							"character": 13
+							"character": 10
 						}
 					],
 					"signatures": [
@@ -3227,7 +2826,7 @@
 						{
 							"fileName": "base.ts",
 							"line": 199,
-							"character": 25
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -3288,7 +2887,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 3132,
-							"character": 28
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -3299,19 +2898,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "更新别名",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName --aliasName --versionId",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "--additionalVersionWeight --description\n",
-										"param": "Optional"
-									}
-								]
+								"shortText": "更新别名"
 							},
 							"parameters": [
 								{
@@ -3321,7 +2908,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"\",\"aliasName\": \"\",\"versionId\": \"1\",\"additionalVersionWeight\": {},\"description\": \"\"}'"
+										"shortText": "'{\"serviceName\": \"\",\"aliasName\": \"\",\"versionId\": \"1\",\"additionalVersionWeight\": {},\"description\": \"\"}'"
 									},
 									"type": {
 										"type": "reference",
@@ -3355,7 +2942,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 3222,
-							"character": 42
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -3366,19 +2953,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "更新别名通过最新版本",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName --aliasName",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "--additionalVersionWeight --description\n",
-										"param": "Optional"
-									}
-								]
+								"shortText": "更新别名通过最新版本"
 							},
 							"parameters": [
 								{
@@ -3388,7 +2963,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"\",\"aliasName\": \"\", \"additionalVersionWeight\": {}, \"description\": \"\"}'"
+										"shortText": "'{\"serviceName\": \"\",\"aliasName\": \"\", \"additionalVersionWeight\": {}, \"description\": \"\"}'"
 									},
 									"type": {
 										"type": "reference",
@@ -3422,7 +2997,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 3394,
-							"character": 35
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -3433,19 +3008,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "更新自定义域名",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--domainName",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "--protocol --certConfig --routeConfig\n",
-										"param": "Optional"
-									}
-								]
+								"shortText": "更新自定义域名"
 							},
 							"parameters": [
 								{
@@ -3455,7 +3018,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"domainName\": \"\"}'"
+										"shortText": "'{\"domainName\": \"\"}'"
 									},
 									"type": {
 										"type": "reference",
@@ -3489,7 +3052,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 2478,
-							"character": 31
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -3500,19 +3063,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "更新函数",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName --functionName",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "--description --customContainerConfig --initializationTimeout --initializer --memorySize --runtime --timeout --caPort --code --handler --runtime\n",
-										"param": "Optional"
-									}
-								]
+								"shortText": "更新函数"
 							},
 							"parameters": [
 								{
@@ -3522,7 +3073,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"\",\"functionName\": \"\",\"handler\":\"index.handler\",\"runtime\": \"nodejs8\",\"code\":{\"ossBucketName\": \"\",\"ossObjectName\":\"\"}}'\ncode: {\"ossBucketName\": \"\",\"ossObjectName\":\"\"} 或 {\"zipFile\": \"代码包存放的位置，执行命令的目录下，如果文件超过 50MB，请使用 OSS 上传\"}"
+										"shortText": "'{\"serviceName\": \"\",\"functionName\": \"\",\"handler\":\"index.handler\",\"runtime\": \"nodejs8\",\"code\":{\"ossBucketName\": \"\",\"ossObjectName\":\"\"}}'\ncode: {\"ossBucketName\": \"\",\"ossObjectName\":\"\"} 或 {\"zipFile\": \"代码包存放的位置，执行命令的目录下，如果文件超过 50MB，请使用 OSS 上传\"}"
 									},
 									"type": {
 										"type": "reference",
@@ -3556,7 +3107,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 2190,
-							"character": 30
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -3567,19 +3118,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "更新服务配置",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "--description --internetAccess --role --logConfig --nasConfig --vpcConfig --tracingConfig\n",
-										"param": "Optional"
-									}
-								]
+								"shortText": "更新服务配置"
 							},
 							"parameters": [
 								{
@@ -3589,7 +3128,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"\",\"tracingConfig\": {\"type\": \"Jaeger\",\"params\": {\"endpoint\":\"\"}}}'"
+										"shortText": "'{\"serviceName\": \"\",\"tracingConfig\": {\"type\": \"Jaeger\",\"params\": {\"endpoint\":\"\"}}}'"
 									},
 									"type": {
 										"type": "reference",
@@ -3623,7 +3162,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 2767,
-							"character": 30
+							"character": 17
 						}
 					],
 					"signatures": [
@@ -3634,19 +3173,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "更新触发器",
-								"tags": [
-									{
-										"tag": "typeparam",
-										"text": "--serviceName --functionName --triggerName",
-										"param": "Required"
-									},
-									{
-										"tag": "typeparam",
-										"text": "--invocationRole --qualifier --triggerConfig\n",
-										"param": "Optional"
-									}
-								]
+								"shortText": "更新触发器"
 							},
 							"parameters": [
 								{
@@ -3656,7 +3183,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "'{\"serviceName\": \"\",\"functionName\": \"\",\"triggerName\": \"\",\"triggerType\":\"timer\",\"triggerConfig\": \"{}\"'"
+										"shortText": "'{\"serviceName\": \"\",\"functionName\": \"\",\"triggerName\": \"\",\"triggerType\":\"timer\",\"triggerConfig\": \"{}\"'"
 									},
 									"type": {
 										"type": "reference",
@@ -3690,7 +3217,7 @@
 						{
 							"fileName": "index.ts",
 							"line": 61,
-							"character": 29
+							"character": 18
 						}
 					],
 					"signatures": [
@@ -3822,7 +3349,7 @@
 				{
 					"fileName": "index.ts",
 					"line": 44,
-					"character": 36
+					"character": 21
 				}
 			],
 			"extendedTypes": [
@@ -3842,7 +3369,7 @@
 				{
 					"fileName": "index.ts",
 					"line": 28,
-					"character": 21
+					"character": 16
 				}
 			],
 			"signatures": [
