@@ -1,7 +1,7 @@
 import os from 'os';
 import fs from 'fs';
 import path from 'path';
-import yaml from 'js-yaml';
+import { jsyaml as yaml } from '@serverless-devs/core'
 import { I18n } from 'i18n';
 
 export function getConfig(key: string): any {
