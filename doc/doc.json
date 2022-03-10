@@ -114,8 +114,8 @@
 						}
 					],
 					"type": {
-						"type": "intrinsic",
-						"name": "any"
+						"type": "reference",
+						"name": "ILogger"
 					},
 					"inheritedFrom": {
 						"type": "reference",
@@ -231,7 +231,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 3476,
+							"line": 3482,
 							"character": 17
 						}
 					],
@@ -270,6 +270,8 @@
 										"name": "any"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -342,7 +344,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 2949,
+							"line": 2955,
 							"character": 17
 						}
 					],
@@ -381,6 +383,8 @@
 										"name": "any"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -397,7 +401,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 3040,
+							"line": 3046,
 							"character": 17
 						}
 					],
@@ -436,6 +440,8 @@
 										"name": "any"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -452,7 +458,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 3313,
+							"line": 3319,
 							"character": 17
 						}
 					],
@@ -491,6 +497,8 @@
 										"name": "any"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -546,6 +554,8 @@
 										"name": "any"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -562,7 +572,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 3777,
+							"line": 3783,
 							"character": 17
 						}
 					],
@@ -601,6 +611,8 @@
 										"name": "any"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -667,6 +679,8 @@
 										"name": "any"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -683,7 +697,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 2654,
+							"line": 2660,
 							"character": 17
 						}
 					],
@@ -722,6 +736,8 @@
 										"name": "any"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -777,6 +793,8 @@
 										"name": "string"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -832,6 +850,8 @@
 										"name": "string"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -887,6 +907,8 @@
 										"name": "string"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -942,6 +964,8 @@
 										"name": "string"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -997,6 +1021,8 @@
 										"name": "string"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -1113,6 +1139,8 @@
 										"name": "string"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -1168,6 +1196,8 @@
 										"name": "string"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -1222,6 +1252,8 @@
 										"name": "void"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							},
 							"inheritedFrom": {
@@ -1372,6 +1404,8 @@
 										"name": "any"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -1429,6 +1463,8 @@
 										"name": "any"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -1484,6 +1520,8 @@
 										"name": "any"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -1543,6 +1581,8 @@
 										"name": "void"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -1578,6 +1618,8 @@
 										"name": "any"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -1633,6 +1675,8 @@
 										"name": "any"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -1688,6 +1732,8 @@
 										"name": "any"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -1743,6 +1789,8 @@
 										"name": "any"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -1798,6 +1846,8 @@
 										"name": "any"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -1853,6 +1903,8 @@
 										"name": "any"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -1908,6 +1960,8 @@
 										"name": "any"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -1963,6 +2017,8 @@
 										"name": "any"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -2016,6 +2072,8 @@
 										"name": "any"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							},
 							"inheritedFrom": {
@@ -2079,6 +2137,8 @@
 										"name": "any"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -2134,6 +2194,8 @@
 										"name": "any"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -2186,6 +2248,8 @@
 										"name": "any"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -2241,6 +2305,8 @@
 										"name": "any"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -2293,6 +2359,8 @@
 										"name": "any"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -2346,6 +2414,8 @@
 										"name": "any"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -2398,6 +2468,8 @@
 										"name": "any"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -2453,6 +2525,8 @@
 										"name": "any"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -2508,6 +2582,8 @@
 										"name": "any"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -2524,7 +2600,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 2877,
+							"line": 2883,
 							"character": 17
 						}
 					],
@@ -2563,6 +2639,8 @@
 										"name": "any"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -2579,7 +2657,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 3675,
+							"line": 3681,
 							"character": 17
 						}
 					],
@@ -2618,6 +2696,8 @@
 										"name": "any"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -2634,7 +2714,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 3575,
+							"line": 3581,
 							"character": 17
 						}
 					],
@@ -2673,6 +2753,8 @@
 										"name": "any"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -2750,6 +2832,8 @@
 										"name": "void"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							},
 							"inheritedFrom": {
@@ -2809,6 +2893,8 @@
 										"name": "any"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -2862,6 +2948,8 @@
 										"name": "string"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							},
 							"inheritedFrom": {
@@ -2886,7 +2974,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 3132,
+							"line": 3138,
 							"character": 17
 						}
 					],
@@ -2925,6 +3013,8 @@
 										"name": "any"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -2941,7 +3031,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 3222,
+							"line": 3228,
 							"character": 17
 						}
 					],
@@ -2980,6 +3070,8 @@
 										"name": "any"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -2996,7 +3088,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 3394,
+							"line": 3400,
 							"character": 17
 						}
 					],
@@ -3035,6 +3127,8 @@
 										"name": "any"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -3090,6 +3184,8 @@
 										"name": "any"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -3145,6 +3241,8 @@
 										"name": "any"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -3161,7 +3259,7 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 2767,
+							"line": 2773,
 							"character": 17
 						}
 					],
@@ -3200,6 +3298,8 @@
 										"name": "any"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -3259,6 +3359,8 @@
 										"name": "boolean"
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							}
 						}
@@ -3355,7 +3457,7 @@
 			"extendedTypes": [
 				{
 					"type": "reference",
-					"name": "BaseComponent"
+					"name": "default"
 				}
 			]
 		},
@@ -3401,6 +3503,8 @@
 								"name": "any"
 							}
 						],
+						"qualifiedName": "Promise",
+						"package": "typescript",
 						"name": "Promise"
 					}
 				}

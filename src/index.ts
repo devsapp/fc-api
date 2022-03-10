@@ -2545,6 +2545,11 @@ export default class FunctionCompute extends BaseComponent {
                             type: Number,
                         },
                         {
+                            name: 'environmentVariables',
+                            description: 'The environment variable set for the function can obtain the value of the environment variable in the function.',
+                            type: String,
+                        },
+                        {
                             name: 'initializer',
                             description: 'The handler of the initializer function. The format is determined by the programming language.',
                             type: String,
@@ -2583,7 +2588,7 @@ export default class FunctionCompute extends BaseComponent {
                 },]);
             return;
         }
-        let {serviceName, functionName, code, withoutShow, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort, region,} = Object.assign(inputs.props, comParse.data || {})
+        let {serviceName, functionName, code, withoutShow, customContainerConfig, description, handler, initializationTimeout, initializer, memorySize, runtime, timeout, caPort, region, environmentVariables} = Object.assign(inputs.props, comParse.data || {})
         const defaultData = await this.get({})
         if (!serviceName) {
             serviceName = defaultData.serviceName
@@ -2637,6 +2642,7 @@ export default class FunctionCompute extends BaseComponent {
                 runtime,
                 timeout,
                 caPort,
+                environmentVariables: environmentVariables == undefined ? undefined : JSON.parse(environmentVariables)
             })
             return withoutShow==true ? 'Created successfully.' : yaml.dump(result.data)
         } catch (error) {

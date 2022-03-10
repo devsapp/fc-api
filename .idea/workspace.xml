@@ -26,8 +26,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bd9dd26-e15b-4653-89d1-487b1a457eb7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/commands/createAliasWithNewVersion.md" beforeDir="false" afterPath="$PROJECT_DIR$/commands/createAliasWithNewVersion.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/updateAliasWithNewVersion.md" beforeDir="false" afterPath="$PROJECT_DIR$/commands/updateAliasWithNewVersion.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,11 +45,15 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/commands" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
@@ -58,7 +62,10 @@
       <recent name="$PROJECT_DIR$/commands" />
     </key>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="2bd9dd26-e15b-4653-89d1-487b1a457eb7" name="Default Changelist" comment="" />
@@ -67,11 +74,12 @@
       <option name="presentableId" value="Default" />
       <updated>1629531836263</updated>
       <workItem from="1629531838597" duration="1992000" />
+      <workItem from="1646877294539" duration="572000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -83,6 +91,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state width="1419" height="245" key="GridCell.Tab.0.bottom" timestamp="1629532216980">
@@ -107,8 +116,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/index.ts</url>
-          <line>3276</line>
-          <properties lambdaOrdinal="-1" />
+          <line>3282</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
