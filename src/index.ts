@@ -1,10 +1,9 @@
-import {reportComponent, getCredential, commandParse, help} from '@serverless-devs/core'
+import { reportComponent, getCredential, commandParse, help, jsyaml as yaml } from '@serverless-devs/core'
 import fc from '@alicloud/fc2'
 import readline from 'readline'
 import {getFcEndpoint} from './endpoint'
 
 const fs = require('fs');
-const yaml = require('js-yaml');
 import {
     ComponentInputs
 } from './interface'

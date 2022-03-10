@@ -1,10 +1,9 @@
 import fs from 'fs'
 import path from 'path'
-import get from 'lodash.get'
-import yaml from 'js-yaml'
 import Table from 'tty-table'
 import JSZip from 'jszip'
-import { ILogger, HLogger } from '@serverless-devs/core'
+import { ILogger, HLogger, jsyaml as yaml, lodash } from '@serverless-devs/core'
+const { get } = lodash;
 let zip = new JSZip()
 export default class BaseComponent {
 	@HLogger('FC') logger: ILogger
