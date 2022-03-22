@@ -103,7 +103,16 @@
 					"flags": {},
 					"decorators": [
 						{
-							"name": "HLogger"
+							"name": "HLogger",
+							"type": {
+								"type": "reference",
+								"qualifiedName": "HLogger",
+								"package": "@serverless-devs/core",
+								"name": "HLogger"
+							},
+							"arguments": {
+								"context": "'FC'"
+							}
 						}
 					],
 					"sources": [
@@ -115,6 +124,8 @@
 					],
 					"type": {
 						"type": "reference",
+						"qualifiedName": "ILogger",
+						"package": "@serverless-devs/core",
 						"name": "ILogger"
 					},
 					"inheritedFrom": {
