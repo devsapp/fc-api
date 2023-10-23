@@ -31,14 +31,18 @@ interface ICustomEndpoint {
 export async function getFcEndpoint(): Promise<ICustomEndpoint | undefined> {
   const fcDefault = await loadComponent('devsapp/fc-default');
   const fcEndpoint: string = await fcDefault.get({ args: 'fc-endpoint' });
-  if (!fcEndpoint) { return undefined; }
+  if (!fcEndpoint) {
+    return undefined;
+  }
   const enableFcEndpoint: any = await fcDefault.get({ args: 'enable-fc-endpoint' });
-  if (!(enableFcEndpoint === true || enableFcEndpoint === 'true')) { return undefined; }
+  if (!(enableFcEndpoint === true || enableFcEndpoint === 'true')) {
+    return undefined;
+  }
 
   return {
     fcEndpoint,
     accountId: extractAccountId(fcEndpoint),
     region: extractRegion(fcEndpoint),
     protocol: extractProtocol(fcEndpoint),
-  }
+  };
 }

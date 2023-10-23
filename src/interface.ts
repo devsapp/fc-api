@@ -6,9 +6,9 @@ export interface Inputs {
 export interface ComponentInputs {
   project?: Boolean;
   credentials: any;
-  props?: any
-  args?:string
-  argsObj: any
+  props?: any;
+  args?: string;
+  argsObj: any;
 }
 
 export interface ApiGetAndListParmas {
