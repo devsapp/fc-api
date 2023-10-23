@@ -15,3 +15,6 @@ readme.md
 ./example
 ./test
 ./Makefile
+
+.prettierrc.js
+.prettierignore

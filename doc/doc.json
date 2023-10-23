@@ -22,8 +22,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 46,
-							"character": 4
+							"line": 49,
+							"character": 2
 						}
 					],
 					"signatures": [
@@ -73,8 +73,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 44,
-							"character": 14
+							"line": 47,
+							"character": 12
 						}
 					],
 					"type": {
@@ -103,29 +103,18 @@
 					"flags": {},
 					"decorators": [
 						{
-							"name": "HLogger",
-							"type": {
-								"type": "reference",
-								"qualifiedName": "HLogger",
-								"package": "@serverless-devs/core",
-								"name": "HLogger"
-							},
-							"arguments": {
-								"context": "'FC'"
-							}
+							"name": "HLogger"
 						}
 					],
 					"sources": [
 						{
 							"fileName": "base.ts",
 							"line": 9,
-							"character": 16
+							"character": 17
 						}
 					],
 					"type": {
 						"type": "reference",
-						"qualifiedName": "ILogger",
-						"package": "@serverless-devs/core",
 						"name": "ILogger"
 					},
 					"inheritedFrom": {
@@ -145,7 +134,7 @@
 						{
 							"fileName": "base.ts",
 							"line": 10,
-							"character": 8
+							"character": 9
 						}
 					],
 					"type": {
@@ -169,7 +158,7 @@
 						{
 							"fileName": "base.ts",
 							"line": 19,
-							"character": 11
+							"character": 12
 						}
 					],
 					"signatures": [
@@ -205,8 +194,8 @@
 					"sources": [
 						{
 							"fileName": "base.ts",
-							"line": 96,
-							"character": 11
+							"line": 105,
+							"character": 12
 						}
 					],
 					"signatures": [
@@ -242,8 +231,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 3481,
-							"character": 17
+							"line": 4082,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -299,8 +288,8 @@
 					"sources": [
 						{
 							"fileName": "base.ts",
-							"line": 135,
-							"character": 11
+							"line": 146,
+							"character": 12
 						}
 					],
 					"signatures": [
@@ -355,8 +344,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 2954,
-							"character": 17
+							"line": 3475,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -412,8 +401,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 3045,
-							"character": 17
+							"line": 3578,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -469,8 +458,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 3318,
-							"character": 17
+							"line": 3886,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -526,8 +515,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 2300,
-							"character": 17
+							"line": 2682,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -583,8 +572,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 3782,
-							"character": 17
+							"line": 4439,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -640,8 +629,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 2075,
-							"character": 17
+							"line": 2380,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -708,8 +697,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 2659,
-							"character": 17
+							"line": 3121,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -765,8 +754,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 1922,
-							"character": 17
+							"line": 2208,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -822,8 +811,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 1788,
-							"character": 17
+							"line": 2062,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -879,8 +868,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 1631,
-							"character": 17
+							"line": 1884,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -936,8 +925,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 1994,
-							"character": 17
+							"line": 2287,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -993,8 +982,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 1564,
-							"character": 17
+							"line": 1810,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -1050,8 +1039,8 @@
 					"sources": [
 						{
 							"fileName": "base.ts",
-							"line": 147,
-							"character": 11
+							"line": 162,
+							"character": 12
 						}
 					],
 					"signatures": [
@@ -1111,8 +1100,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 1707,
-							"character": 17
+							"line": 1969,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -1168,8 +1157,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 1850,
-							"character": 17
+							"line": 2129,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -1225,8 +1214,8 @@
 					"sources": [
 						{
 							"fileName": "base.ts",
-							"line": 131,
-							"character": 17
+							"line": 142,
+							"character": 18
 						}
 					],
 					"signatures": [
@@ -1289,8 +1278,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 191,
-							"character": 18
+							"line": 202,
+							"character": 16
 						}
 					],
 					"signatures": [
@@ -1431,8 +1420,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 156,
-							"character": 10
+							"line": 161,
+							"character": 8
 						}
 					],
 					"signatures": [
@@ -1492,8 +1481,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 1186,
-							"character": 17
+							"line": 1391,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -1549,8 +1538,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 164,
-							"character": 18
+							"line": 169,
+							"character": 16
 						}
 					],
 					"signatures": [
@@ -1610,8 +1599,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 50,
-							"character": 18
+							"line": 53,
+							"character": 16
 						}
 					],
 					"signatures": [
@@ -1647,8 +1636,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 1258,
-							"character": 17
+							"line": 1467,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -1704,8 +1693,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 943,
-							"character": 17
+							"line": 1115,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -1761,8 +1750,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 1401,
-							"character": 17
+							"line": 1625,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -1818,8 +1807,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 1024,
-							"character": 17
+							"line": 1207,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -1875,8 +1864,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 1320,
-							"character": 17
+							"line": 1533,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -1932,8 +1921,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 871,
-							"character": 17
+							"line": 1037,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -1989,8 +1978,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 1105,
-							"character": 17
+							"line": 1299,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -2046,8 +2035,8 @@
 					"sources": [
 						{
 							"fileName": "base.ts",
-							"line": 156,
-							"character": 17
+							"line": 171,
+							"character": 18
 						}
 					],
 					"signatures": [
@@ -2109,8 +2098,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 1483,
-							"character": 17
+							"line": 1717,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -2166,8 +2155,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 474,
-							"character": 17
+							"line": 555,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -2223,8 +2212,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 641,
-							"character": 17
+							"line": 754,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -2277,8 +2266,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 790,
-							"character": 17
+							"line": 934,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -2334,8 +2323,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 292,
-							"character": 17
+							"line": 328,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -2388,8 +2377,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 714,
-							"character": 17
+							"line": 837,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -2443,8 +2432,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 246,
-							"character": 17
+							"line": 275,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -2497,8 +2486,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 381,
-							"character": 17
+							"line": 439,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -2554,8 +2543,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 558,
-							"character": 17
+							"line": 651,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -2611,8 +2600,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 2882,
-							"character": 17
+							"line": 3394,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -2668,8 +2657,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 3680,
-							"character": 17
+							"line": 4314,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -2725,8 +2714,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 3580,
-							"character": 17
+							"line": 4188,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -2782,8 +2771,8 @@
 					"sources": [
 						{
 							"fileName": "base.ts",
-							"line": 171,
-							"character": 17
+							"line": 186,
+							"character": 18
 						}
 					],
 					"signatures": [
@@ -2867,8 +2856,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 72,
-							"character": 10
+							"line": 75,
+							"character": 8
 						}
 					],
 					"signatures": [
@@ -2922,8 +2911,8 @@
 					"sources": [
 						{
 							"fileName": "base.ts",
-							"line": 198,
-							"character": 17
+							"line": 213,
+							"character": 18
 						}
 					],
 					"signatures": [
@@ -2985,8 +2974,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 3137,
-							"character": 17
+							"line": 3683,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -3042,8 +3031,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 3227,
-							"character": 17
+							"line": 3783,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -3099,8 +3088,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 3399,
-							"character": 17
+							"line": 3984,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -3156,8 +3145,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 2477,
-							"character": 17
+							"line": 2898,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -3213,8 +3202,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 2189,
-							"character": 17
+							"line": 2533,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -3270,8 +3259,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 2772,
-							"character": 17
+							"line": 3260,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -3327,8 +3316,8 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 60,
-							"character": 18
+							"line": 63,
+							"character": 16
 						}
 					],
 					"signatures": [
@@ -3461,7 +3450,7 @@
 			"sources": [
 				{
 					"fileName": "index.ts",
-					"line": 43,
+					"line": 46,
 					"character": 21
 				}
 			],
@@ -3481,7 +3470,7 @@
 			"sources": [
 				{
 					"fileName": "index.ts",
-					"line": 27,
+					"line": 31,
 					"character": 16
 				}
 			],
@@ -3503,7 +3492,7 @@
 								"type": "intrinsic",
 								"name": "string"
 							},
-							"defaultValue": "\"\""
+							"defaultValue": "''"
 						}
 					],
 					"type": {
