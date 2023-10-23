@@ -3040,6 +3040,7 @@ export default class FunctionCompute extends BaseComponent {
       caPort,
       region,
       environmentVariables,
+      gpuMemorySize,
     } = Object.assign(inputs.props, comParse.data || {});
     const defaultData = await this.get({});
     if (!serviceName) {
@@ -3104,6 +3105,7 @@ export default class FunctionCompute extends BaseComponent {
         caPort,
         environmentVariables:
           environmentVariables == undefined ? undefined : JSON.parse(environmentVariables),
+        gpuMemorySize,
       });
       return withoutShow == true ? 'Created successfully.' : yaml.dump(result.data);
     } catch (error) {
