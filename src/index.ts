@@ -195,6 +195,7 @@ export default class FunctionCompute extends BaseComponent {
         region: customEndpoint?.region || region || 'cn-hangzhou',
         timeout: 6000000,
         endpoint: customEndpoint?.fcEndpoint,
+        headers: { 'user-agent': 'serverless-devs2.0' },
       });
     }
   }
